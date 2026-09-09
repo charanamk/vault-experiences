@@ -1,0 +1,937 @@
+/*==================================================
+VAULT PAYMENT
+==================================================*/
+
+
+/*==================================================
+PAYMENT STEP
+==================================================*/
+
+.booking-sheet
+#bookingPaymentStep{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:30;
+
+    box-sizing:border-box;
+
+    min-height:100%;
+
+    padding:
+        calc(1.1rem + env(safe-area-inset-top))
+        1.1rem
+        calc(2rem + env(safe-area-inset-bottom));
+
+    overflow-y:auto;
+
+    background:#0c0c0c;
+
+    color:#fff;
+
+    scrollbar-width:none;
+
+}
+
+.booking-sheet
+#bookingPaymentStep::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+
+/*==================================================
+BACK BUTTON
+==================================================*/
+
+.booking-back{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.5rem;
+
+    padding:0;
+
+    margin:0;
+
+    border:0;
+
+    background:transparent;
+
+    color:#858585;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:.75rem;
+
+    cursor:pointer;
+
+    transition:
+        color .2s ease;
+
+}
+
+.booking-back:hover{
+
+    color:#fff;
+
+}
+
+.booking-back img{
+
+    width:16px;
+
+    height:16px;
+
+    filter:
+        brightness(0)
+        invert(1);
+
+    opacity:.65;
+
+}
+
+
+/*==================================================
+PAYMENT HEADING
+==================================================*/
+
+.payment-heading{
+
+    margin-top:2.2rem;
+
+}
+
+.payment-heading > span{
+
+    display:block;
+
+    margin-bottom:.45rem;
+
+    color:var(--gold);
+
+    font-family:"Inter",sans-serif;
+
+    font-size:.58rem;
+
+    font-weight:600;
+
+    letter-spacing:.14rem;
+
+}
+
+.payment-heading h1{
+
+    margin:0;
+
+    max-width:340px;
+
+    color:#fff;
+
+    font-family:"Cinzel",serif;
+
+    font-size:1.8rem;
+
+    line-height:1.18;
+
+    font-weight:500;
+
+}
+
+.payment-heading p{
+
+    margin:
+        .7rem
+        0
+        0;
+
+    max-width:430px;
+
+    color:#858585;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:.76rem;
+
+    line-height:1.6;
+
+}
+
+
+/*==================================================
+PAYMENT SUMMARY
+==================================================*/
+
+.payment-summary{
+
+    margin-top:1.7rem;
+
+    padding:1rem;
+
+    box-sizing:border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #181818,
+            #111
+        );
+
+}
+
+
+/*==================================================
+SUMMARY HEADING
+==================================================*/
+
+.summary-heading{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.35rem;
+
+    padding-bottom:.85rem;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+}
+
+.summary-heading span{
+
+    color:#777;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:.55rem;
+
+    font-weight:600;
+
+    letter-spacing:.11rem;
+
+}
+
+.summary-heading strong{
+
+    color:#fff;
+
+    font-family:"Cinzel",serif;
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+}
+
+
+/*==================================================
+SELECTED TICKETS
+==================================================*/
+
+.payment-ticket-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.7rem;
+
+    padding:
+        .85rem
+        0;
+
+}
+
+
+/*==================================================
+PAYMENT TICKET ROW
+==================================================*/
+
+.payment-ticket{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:1rem;
+
+}
+
+.payment-ticket span{
+
+    color:#aaa;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:.72rem;
+
+}
+
+.payment-ticket strong{
+
+    color:#eee;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:.72rem;
+
+    font-weight:600;
+
+}
+
+
+/*==================================================
+PAYMENT TOTAL
+==================================================*/
+
+.payment-total-row{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding-top:.85rem;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+}
+
+.payment-total-row span{
+
+    color:#888;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:.72rem;
+
+}
+
+.payment-total-row strong{
+
+    color:var(--gold);
+
+    font-family:"Inter",sans-serif;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+}
+
+
+/*==================================================
+PAYMENT METHODS
+==================================================*/
+
+.payment-method-section{
+
+    margin-top:1.7rem;
+
+}
+
+.payment-method-section h2{
+
+    margin:
+        0
+        0
+        .8rem;
+
+    color:#fff;
+
+    font-family:"Cinzel",serif;
+
+    font-size:1rem;
+
+    font-weight:500;
+
+}
+
+
+/*==================================================
+PAYMENT METHOD
+==================================================*/
+
+.payment-method{
+
+    width:100%;
+
+    min-height:68px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.8rem;
+
+    margin-bottom:.65rem;
+
+    padding:
+        .75rem
+        .8rem;
+
+    box-sizing:border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    border-radius:15px;
+
+    background:#141414;
+
+    color:#fff;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        transform .2s ease;
+
+}
+
+.payment-method:active{
+
+    transform:scale(.99);
+
+}
+
+
+/*==================================================
+SELECTED PAYMENT METHOD
+==================================================*/
+
+.payment-method.selected{
+
+    border-color:
+        rgba(201,166,86,.65);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(201,166,86,.1),
+            #141414
+        );
+
+}
+
+
+/*==================================================
+PAYMENT ICON
+==================================================*/
+
+.payment-method-icon{
+
+    width:38px;
+
+    height:38px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:10px;
+
+    background:
+        rgba(255,255,255,.06);
+
+}
+
+.payment-method-icon img{
+
+    width:22px;
+
+    height:22px;
+
+    object-fit:contain;
+
+}
+
+
+/*==================================================
+PAYMENT METHOD INFO
+==================================================*/
+
+.payment-method-info{
+
+    min-width:0;
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.25rem;
+
+}
+
+.payment-method-info strong{
+
+    color:#eee;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:.75rem;
+
+    font-weight:600;
+
+}
+
+.payment-method-info span{
+
+    color:#777;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:.62rem;
+
+}
+
+
+/*==================================================
+RADIO
+==================================================*/
+
+.payment-radio{
+
+    position:relative;
+
+    width:17px;
+
+    height:17px;
+
+    flex-shrink:0;
+
+    box-sizing:border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    border-radius:50%;
+
+}
+
+.payment-method.selected
+.payment-radio{
+
+    border-color:var(--gold);
+
+}
+
+.payment-method.selected
+.payment-radio::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:7px;
+
+    height:7px;
+
+    top:50%;
+
+    left:50%;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    transform:
+        translate(-50%,-50%);
+
+}
+
+
+/*==================================================
+PAYMENT DETAILS
+==================================================*/
+
+.payment-details{
+
+    display:none;
+
+    margin-top:1.2rem;
+
+    padding:1rem;
+
+    box-sizing:border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:17px;
+
+    background:#131313;
+
+}
+
+.payment-details.active{
+
+    display:block;
+
+}
+
+
+/*==================================================
+LABELS
+==================================================*/
+
+.payment-details label{
+
+    display:block;
+
+    margin-bottom:.5rem;
+
+    color:#999;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:.62rem;
+
+    font-weight:500;
+
+}
+
+
+/*==================================================
+INPUTS
+==================================================*/
+
+.payment-details input{
+
+    width:100%;
+
+    height:48px;
+
+    box-sizing:border-box;
+
+    padding:
+        0
+        .85rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    border-radius:12px;
+
+    outline:none;
+
+    background:#0d0d0d;
+
+    color:#fff;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:.78rem;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease;
+
+}
+
+.payment-details input::placeholder{
+
+    color:#555;
+
+}
+
+.payment-details input:focus{
+
+    border-color:
+        rgba(201,166,86,.7);
+
+    background:#101010;
+
+}
+
+
+/*==================================================
+PAYMENT INPUT ERROR
+==================================================*/
+
+.payment-details input.payment-input-error{
+
+    border-color:#a94a4a;
+
+}
+
+
+/*==================================================
+MPESA DESCRIPTION
+==================================================*/
+
+.payment-details > p{
+
+    margin:
+        .6rem
+        0
+        0;
+
+    color:#666;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:.6rem;
+
+    line-height:1.5;
+
+}
+
+
+/*==================================================
+INPUT GROUP
+==================================================*/
+
+.input-group{
+
+    width:100%;
+
+}
+
+
+/*==================================================
+CARD ROW
+==================================================*/
+
+.card-row{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:.7rem;
+
+    margin-top:.8rem;
+
+}
+
+
+/*==================================================
+PAY BUTTON
+==================================================*/
+
+.payment-submit{
+
+    width:100%;
+
+    height:54px;
+
+    margin-top:1.4rem;
+
+    border:0;
+
+    border-radius:15px;
+
+    background:var(--gold);
+
+    color:#111;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease;
+
+}
+
+.payment-submit:active{
+
+    transform:scale(.985);
+
+}
+
+.payment-submit:disabled{
+
+    cursor:not-allowed;
+
+    opacity:.65;
+
+}
+
+
+/*==================================================
+PAYMENT LOADING
+==================================================*/
+
+.payment-loading{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:4px;
+
+    margin-right:.45rem;
+
+}
+
+.payment-loading span{
+
+    width:5px;
+
+    height:5px;
+
+    border-radius:50%;
+
+    background:#111;
+
+    animation:
+        paymentDot 1s
+        infinite ease-in-out;
+
+}
+
+.payment-loading span:nth-child(2){
+
+    animation-delay:.15s;
+
+}
+
+.payment-loading span:nth-child(3){
+
+    animation-delay:.3s;
+
+}
+
+@keyframes paymentDot{
+
+    0%,
+    60%,
+    100%{
+
+        opacity:.3;
+
+        transform:translateY(0);
+
+    }
+
+    30%{
+
+        opacity:1;
+
+        transform:translateY(-3px);
+
+    }
+
+}
+
+
+/*==================================================
+PAYMENT VIEW
+==================================================*/
+
+.booking-sheet.payment-view{
+
+    background:#0c0c0c;
+
+}
+
+
+/*
+   Hero and booking footer disappear
+   when payment becomes active.
+*/
+
+.booking-sheet.payment-view
+.booking-hero{
+
+    display:none;
+
+}
+
+.booking-sheet.payment-view
+.booking-footer{
+
+    display:none;
+
+}
+
+
+/*
+   Booking content itself is hidden.
+*/
+
+.booking-sheet.payment-view
+.booking-content{
+
+    visibility:hidden;
+
+}
+
+
+/*
+   Payment occupies the complete sheet.
+*/
+
+.booking-sheet.payment-view
+#bookingPaymentStep{
+
+    visibility:visible;
+
+}
+
+
+/*==================================================
+LARGER SCREENS
+==================================================*/
+
+@media (min-width:700px){
+
+    .booking-sheet
+    #bookingPaymentStep{
+
+        padding-left:
+            max(
+                1.5rem,
+                calc((100% - 560px) / 2)
+            );
+
+        padding-right:
+            max(
+                1.5rem,
+                calc((100% - 560px) / 2)
+            );
+
+    }
+
+}

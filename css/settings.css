@@ -1,0 +1,904 @@
+/*==================================================
+  VAULT — ACCOUNT SETTINGS
+==================================================*/
+
+.settings-section {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+}
+
+
+/*==================================================
+  SETTINGS GROUP
+==================================================*/
+
+.settings-group {
+
+    width: 100%;
+
+    margin-top:
+        var(--space-7);
+
+}
+
+
+.settings-group-title {
+
+    display: block;
+
+    margin:
+        0
+        0
+        var(--space-3);
+
+    padding:
+        0
+        var(--space-4);
+
+    color:
+        var(--color-muted-text);
+
+    font-family:
+        var(--font-ui);
+
+    font-size: .58rem;
+
+    font-weight:
+        var(--weight-semibold);
+
+    letter-spacing:
+        var(--tracking-wider);
+
+    text-transform: uppercase;
+
+}
+
+
+/*==================================================
+  SETTINGS CARD
+==================================================*/
+
+.settings-card {
+
+    width:
+        calc(100% - var(--space-4) * 2);
+
+    margin:
+        0
+        auto;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        var(--color-border-soft);
+
+    border-radius:
+        22px;
+
+    background:
+        var(--glass-background-strong);
+
+    box-shadow:
+        var(--shadow-soft);
+
+}
+
+
+/*==================================================
+  SETTINGS ROW
+==================================================*/
+
+.settings-row {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: var(--space-3);
+
+    padding:
+        var(--space-3)
+        var(--space-4);
+
+    box-sizing: border-box;
+
+    border: 0;
+
+    border-bottom:
+        1px solid
+        var(--color-border-soft);
+
+    background: transparent;
+
+    color:
+        var(--color-primary-text);
+
+    text-align: left;
+
+    font-family:
+        var(--font-ui);
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition-fast),
+        transform var(--transition-fast);
+
+}
+
+
+.settings-row:last-child {
+
+    border-bottom: 0;
+
+}
+
+
+.settings-row:hover {
+
+    background:
+        linear-gradient(135deg, rgba(17, 17, 17, 0.04), transparent 70%);
+
+}
+
+
+.settings-row:active {
+
+    background:
+        linear-gradient(135deg, rgba(17, 17, 17, 0.06), transparent 75%);
+    transform: translateY(1px);
+
+}
+
+
+/*==================================================
+  ROW ICON
+==================================================*/
+
+.settings-row-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        var(--color-border-soft);
+
+    border-radius:
+        12px;
+
+    background:
+        linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-elevated) 100%);
+
+}
+
+
+.settings-row-icon img {
+
+    width: 17px;
+
+    height: 17px;
+
+    display: block;
+
+    opacity: .65;
+
+    filter:
+        var(--settings-icon-filter, none);
+
+}
+
+
+/*==================================================
+  CONTENT
+==================================================*/
+
+.settings-row-content {
+
+    min-width: 0;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: var(--space-1);
+
+}
+
+
+.settings-row-content strong {
+
+    color:
+        var(--color-primary-text);
+
+    font-family:
+        var(--font-ui);
+
+    font-size: .76rem;
+
+    font-weight:
+        var(--weight-medium);
+
+    line-height: 1.3;
+
+}
+
+
+.settings-row-content span {
+
+    color:
+        var(--color-secondary-text);
+
+    font-family:
+        var(--font-ui);
+
+    font-size: .62rem;
+
+    font-weight:
+        var(--weight-regular);
+
+    line-height: 1.45;
+
+}
+
+
+/*==================================================
+  ARROW
+==================================================*/
+
+.settings-arrow {
+
+    width: 14px;
+
+    height: 14px;
+
+    flex-shrink: 0;
+
+    opacity: .45;
+
+    filter:
+        var(--settings-icon-filter, none);
+
+    transition:
+        transform var(--transition-fast),
+        opacity var(--transition-fast);
+
+}
+
+
+.settings-row:hover .settings-arrow {
+
+    opacity: .75;
+
+    transform:
+        translateX(2px);
+
+}
+
+
+/*==================================================
+  SETTINGS SWITCH
+==================================================*/
+
+.settings-switch {
+
+    position: relative;
+
+    width: 38px;
+
+    height: 21px;
+
+    flex-shrink: 0;
+
+}
+
+
+.settings-switch input {
+
+    position: absolute;
+
+    width: 1px;
+
+    height: 1px;
+
+    opacity: 0;
+
+}
+
+
+.settings-switch span {
+
+    position: absolute;
+
+    inset: 0;
+
+    border:
+        1px solid
+        var(--color-border);
+
+    border-radius:
+        var(--radius-pill);
+
+    background:
+        var(--color-border);
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast);
+
+}
+
+
+.settings-switch span::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 2px;
+
+    left: 2px;
+
+    width: 15px;
+
+    height: 15px;
+
+    border-radius: 50%;
+
+    background:
+        var(--color-muted-text);
+
+    transition:
+        transform var(--transition-fast),
+        background var(--transition-fast);
+
+}
+
+
+.settings-switch input:checked + span {
+
+    background:
+        color-mix(
+            in srgb,
+            var(--color-accent) 28%,
+            transparent
+        );
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--color-accent) 45%,
+            transparent
+        );
+
+}
+
+
+.settings-switch input:checked + span::after {
+
+    transform:
+        translateX(17px);
+
+    background:
+        var(--color-accent);
+
+}
+
+
+/*==================================================
+  DANGER ZONE
+==================================================*/
+
+.settings-danger {
+
+    padding:
+        var(--space-4);
+
+    padding-bottom:
+        var(--space-10);
+
+}
+
+
+/*==================================================
+  LOGOUT
+==================================================*/
+
+.logout-btn {
+
+    width: 100%;
+
+    height: 52px;
+    margin-bottom : 50px ;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: var(--space-2);
+
+    border:
+        1px solid
+        rgba(180, 70, 70, .25);
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        rgba(180, 70, 70, .05);
+
+    color:
+        #B96B6B;
+
+    font-family:
+        var(--font-ui);
+
+    font-size: .7rem;
+
+    font-weight:
+        var(--weight-semibold);
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+
+}
+
+
+.logout-btn:hover {
+
+    background:
+        rgba(180, 70, 70, .1);
+
+    border-color:
+        rgba(180, 70, 70, .4);
+
+}
+
+
+.logout-btn:active {
+
+    transform:
+        scale(.98);
+
+}
+
+
+.logout-btn img {
+
+    width: 16px;
+
+    height: 16px;
+
+    display: block;
+
+    opacity: .8;
+
+}
+
+
+/*==================================================
+  DARK THEME ICON SUPPORT
+==================================================*/
+
+html[data-theme="dark"] .settings-row-icon img,
+html[data-theme="dark"] .settings-arrow {
+    filter: brightness(0) invert(1);
+}
+
+
+/*==================================================
+  SMALL SCREENS
+==================================================*/
+
+@media (max-width: 360px) {
+
+    .settings-row {
+
+        min-height: 66px;
+
+        padding:
+            var(--space-3);
+
+    }
+
+    .settings-row-icon {
+
+        width: 36px;
+
+        height: 36px;
+
+    }
+
+    .settings-row-content strong {
+
+        font-size: .72rem;
+
+    }
+
+    .settings-row-content span {
+
+        font-size: .59rem;
+
+    }
+
+}
+
+
+/*==================================================
+  TABLET / DESKTOP
+==================================================*/
+
+@media (min-width: 600px) {
+
+    .settings-card {
+
+        max-width:
+            var(--content-width);
+
+    }
+
+}
+
+/*==================================================
+   SETTINGS SHEET
+==================================================*/
+
+.vault-settings-panel {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    display: none;
+    padding: 24px 16px;
+    background: rgba(12, 10, 9, 0.45);
+}
+
+.vault-settings-panel.is-open {
+    display: block;
+}
+
+.vault-settings-backdrop {
+    position: absolute;
+    inset: 0;
+}
+
+.vault-settings-sheet {
+    position: relative;
+    z-index: 1;
+    max-width: 540px;
+    margin: 0 auto;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-soft);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+}
+
+.vault-settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 20px 12px;
+    border-bottom: 1px solid var(--color-border-soft);
+}
+
+.vault-settings-kicker {
+    margin: 0 0 4px;
+    font-size: .56rem;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-muted-text);
+}
+
+.vault-settings-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--color-primary-text);
+}
+
+.vault-settings-close {
+    border: 1px solid var(--color-border-soft);
+    background: transparent;
+    color: var(--color-primary-text);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    font-family: var(--font-ui);
+    cursor: pointer;
+}
+
+.vault-settings-body {
+    padding: 20px;
+}
+
+.vault-settings-panel-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    color: var(--color-primary-text);
+}
+
+.vault-settings-section-label {
+    margin: 0;
+    font-size: .56rem;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-muted-text);
+}
+
+.vault-settings-panel-section h4 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: var(--color-primary-text);
+}
+
+.vault-settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.vault-settings-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.vault-settings-field label {
+    font-size: .7rem;
+    color: var(--color-secondary-text);
+    font-family: var(--font-ui);
+}
+
+.vault-settings-field input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--color-border-soft);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-elevated);
+    color: var(--color-primary-text);
+    padding: 12px 14px;
+    font-family: var(--font-ui);
+    font-size: .8rem;
+}
+
+.vault-settings-password-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vault-settings-password-wrap input {
+    flex: 1;
+}
+
+.vault-settings-toggle-password {
+    border: 1px solid var(--color-border-soft);
+    background: transparent;
+    color: var(--color-primary-text);
+    border-radius: var(--radius-sm);
+    padding: 9px 10px;
+    font-size: .68rem;
+    cursor: pointer;
+}
+
+.vault-settings-primary {
+    width: 100%;
+    border: 0;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--color-accent), var(--color-secondary-text));
+    color: #0a0908;
+    font-weight: var(--weight-semibold);
+    font-family: var(--font-ui);
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.vault-settings-primary:disabled {
+    opacity: .7;
+    cursor: wait;
+}
+
+.vault-settings-form-status {
+    min-height: 22px;
+    font-size: .72rem;
+    font-family: var(--font-ui);
+    line-height: 1.4;
+}
+
+.vault-settings-form-status.success {
+    color: #7abf7d;
+}
+
+.vault-settings-form-status.error {
+    color: #d78585;
+}
+
+.vault-settings-form-status.pending {
+    color: var(--color-muted-text);
+}
+
+.vault-settings-readonly-card,
+.vault-settings-placeholder,
+.vault-settings-legal {
+    border: 1px solid var(--color-border-soft);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-elevated);
+    padding: 16px;
+    color: var(--color-primary-text);
+    line-height: 1.6;
+}
+
+.vault-settings-code {
+    font-family: var(--font-ui);
+    word-break: break-all;
+}
+
+.vault-settings-notice {
+    padding: 12px 14px;
+    border: 1px solid rgba(196, 166, 99, 0.38);
+    border-radius: var(--radius-md);
+    background: rgba(196, 166, 99, 0.07);
+    color: var(--color-primary-text);
+    line-height: 1.5;
+}
+
+.vault-settings-checkbox-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border-soft);
+}
+
+.vault-settings-checkbox-row label {
+    color: var(--color-primary-text);
+    font-family: var(--font-ui);
+    font-size: .8rem;
+}
+
+.vault-settings-checkbox-row input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-accent);
+}
+
+.vault-settings-theme-group {
+display: grid;
+gap: 12px;
+}
+
+.vault-settings-theme-option {
+display: flex;
+align-items: center;
+gap: 10px;
+border: 1px solid var(--color-border-soft);
+border-radius: var(--radius-md);
+background: var(--color-surface-elevated);
+padding: 12px 14px;
+color: var(--color-primary-text);
+font-family: var(--font-ui);
+font-size: 0.8rem;
+}
+
+.vault-settings-theme-option input {
+accent-color: var(--color-accent);
+}
+
+@media (max-width: 540px) {
+    .vault-settings-sheet {
+        max-width: 100%;
+    }
+
+    .vault-settings-header {
+        align-items: flex-start;
+    }
+
+    .vault-settings-header h3 {
+        font-size: 1rem;
+    }
+}
+
+/* =========================================================
+   VAULT — TERMS & POLICIES SCROLL
+   ========================================================= */
+
+.vault-settings-legal {
+    max-height: calc(100vh - 220px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+
+    padding-right: 10px;
+}
+
+/* Prevent the page behind the legal panel from scrolling */
+body.vault-legal-open {
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+/* Optional — clean scrollbar */
+.vault-settings-legal::-webkit-scrollbar {
+    width: 5px;
+}
+
+.vault-settings-legal::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.vault-settings-legal::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.vault-settings-legal {
+    scrollbar-width: thin;
+}
+
+/*==================================
+VAULT SETTINGS — SCROLL CONTROL
+==================================*/
+
+/* Lock the page while the settings panel is open */
+body:has(#vault-settings-panel.is-open) {
+    overflow: hidden;
+}
+
+/* Settings panel covers the viewport */
+.vault-settings-panel {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+}
+
+/* Settings sheet becomes the only scrollable area */
+.vault-settings-sheet {
+    max-height: 100dvh;
+    overflow: hidden;
+}
+
+/* Only the settings content scrolls */
+.vault-settings-body {
+    max-height: calc(100dvh - 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Keep the scrollbar from affecting the layout */
+.vault-settings-body {
+    scrollbar-width: thin;
+}

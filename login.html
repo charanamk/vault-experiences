@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Vault</title>
+
+    <script src="js/theme.js"></script>
+
+
+    <!--==================================
+    GOOGLE FONTS
+    ==================================-->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!--==================================
+    VAULT STYLES
+    ==================================-->
+
+    <link
+        rel="stylesheet"
+        href="css/vault-global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/login.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!--==================================
+LOGIN PAGE
+==================================-->
+
+<main class="login-page">
+
+
+    <!--==================================
+    BRAND
+    ==================================-->
+
+    <section class="brand">
+
+        <div class="logo-container">
+
+            <h1 class="logo">
+                VAULT
+            </h1>
+
+        </div>
+
+
+        <p class="tagline">
+            For Moments Worth Keeping.
+        </p>
+
+
+        <p class="subtitle">
+            Discover unforgettable experiences and preserve
+            every memory that matters.
+        </p>
+
+    </section>
+
+
+    <!--==================================
+    AUTHENTICATION
+    ==================================-->
+
+    <section class="auth-buttons">
+
+
+        <!--==================================
+        SOCIAL LOGIN
+        ==================================-->
+
+        <div class="social-login">
+
+            <button
+                type="button"
+                class="btn google-btn"
+                onclick="window.location.href='/api/customers/google'"
+            >
+
+                <img
+                    src="assets/icons/google.svg"
+                    alt="Google"
+                >
+
+                <span>
+                    Continue with Google
+                </span>
+
+            </button>
+
+
+            <button
+                class="btn apple-btn"
+            >
+
+                <img
+                    src="assets/icons/apple.svg"
+                    alt="Apple"
+                >
+
+                <span>
+                    Continue with Apple
+                </span>
+
+            </button>
+
+
+            <!-- DIVIDER -->
+
+            <div class="divider">
+
+                <span>
+                    OR
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!--==================================
+        EMAIL FORM
+        ==================================-->
+
+        <div class="email-form">
+
+
+            <!-- EMAIL -->
+
+            <div class="input-group">
+
+                <div class="input-label">
+                    Email
+                </div>
+
+                <input
+                    id="loginEmail"
+                    name="email"
+                    type="email"
+                    inputmode="email"
+                    autocomplete="off"
+                    autocapitalize="none"
+                    spellcheck="false"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+                <div class="input-label">
+                    Password
+                </div>
+
+                <div class="password-box">
+
+                    <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        autocomplete="new-password"
+                        autocapitalize="off"
+                        spellcheck="false"
+                        placeholder="Password"
+                        required
+                    >
+
+
+                    <button
+                        class="toggle-password"
+                        type="button"
+                    >
+
+                        <img
+                            id="eyeIcon"
+                            src="assets/icons/eye.svg"
+                            alt="Show Password"
+                        >
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!--==================================
+        EMAIL LOGIN
+        ==================================-->
+
+        <button
+            class="btn email-btn"
+            type="button"
+        >
+            Sign in with Email
+        </button>
+
+
+        <!--==================================
+        GUEST ACCESS
+        ==================================-->
+
+        <button
+            class="guest-btn"
+            type="button"
+            data-route="home"
+        >
+            Explore as Guest
+        </button>
+
+    </section>
+
+</main>
+
+<div
+    id="vaultToastContainer"
+    class="vault-toast-container"
+    aria-live="polite"
+    aria-atomic="true"
+></div>
+
+<script src="js/customer-session.js"></script>
+<script src="js/login.js"></script>
+<script src="js/app-navigation.js"></script>
+
+</body>
+
+</html>
+
+
+

@@ -1,0 +1,1046 @@
+﻿/* =========================================
+   VAULT â€” HOME
+   DESIGN TOKENS
+========================================= */
+
+:root {
+
+    /* ---------- BRAND ---------- */
+
+    --gold: #C9A45C;
+    --gold-soft: rgba(201, 164, 92, 0.16);
+    --gold-border: rgba(201, 164, 92, 0.28);
+
+
+    /* ---------- DARK THEME ---------- */
+
+    --primary: #0B0B0D;
+
+    --surface: #141416;
+    --surface-elevated: #1C1C20;
+
+    --text: #F5F3EE;
+    --text-muted: #9B9891;
+
+    --border: rgba(255, 255, 255, 0.08);
+
+    --glass: rgba(201, 164, 92, 0.08);
+    --glass-border: rgba(201, 164, 92, 0.22);
+
+
+    /* ---------- SHADOWS ---------- */
+
+    --shadow-soft:
+        0 8px 30px rgba(0, 0, 0, 0.25);
+
+    --shadow-glass:
+        0 12px 40px rgba(0, 0, 0, 0.45),
+        0 0 30px rgba(201, 164, 92, 0.08);
+
+
+    /* ---------- RADIUS ---------- */
+
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+
+
+    /* ---------- TRANSITIONS ---------- */
+
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+
+/* =========================================
+   LIGHT THEME
+========================================= */
+
+[data-theme="light"] {
+
+    --primary: #F5F3EE;
+
+    --surface: #FFFFFF;
+    --surface-elevated: #ECE9E2;
+
+    --text: #111111;
+    --text-muted: #66635D;
+
+    --border: rgba(17, 17, 17, 0.08);
+
+    --glass: rgba(201, 164, 92, 0.10);
+    --glass-border: rgba(201, 164, 92, 0.30);
+
+
+    --shadow-soft:
+        0 8px 30px rgba(0, 0, 0, 0.10);
+
+    --shadow-glass:
+        0 12px 40px rgba(0, 0, 0, 0.12),
+        0 0 30px rgba(201, 164, 92, 0.10);
+}
+
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    background: var(--primary);
+    color: var(--text);
+
+    font-family: "Inter", sans-serif;
+
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+button {
+    border: 0;
+
+    background: none;
+
+    color: inherit;
+
+    cursor: pointer;
+}
+
+
+a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+img {
+    display: block;
+
+    max-width: 100%;
+}
+
+
+/* =========================================
+   HOME â€” PAGE SHELL
+========================================= */
+
+.home {
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding-bottom: 110px;
+
+    overflow: hidden;
+}
+
+
+.home-container {
+    width: min(100% - 40px, 1400px);
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   VAULT BRAND
+========================================= */
+
+.home-header {
+    padding: 20px;
+}
+
+
+.vault-glass {
+    display: inline-flex;
+
+    width: 98% ;
+    margin :0 auto ;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 12px 22px;
+
+    background: var(--glass);
+
+    border: 1px solid var(--glass-border);
+
+    border-radius: var(--radius-md);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow: var(--shadow-soft);
+}
+
+
+.vault-logo {
+    color: var(--gold);
+
+    font-family: "Cinzel", serif;
+
+    font-size: 22px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+
+    line-height: 1;
+}
+
+
+.vault-tagline {
+    margin-top: 5px;
+
+    color: var(--text-muted);
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.18em;
+
+    line-height: 1.2;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+/* =========================================
+   EXPERIENCE HINT
+========================================= */
+
+.experience-hint {
+    width: 100%;
+    margin-top: 18px;
+}
+
+
+/* ---------- SLIDER ---------- */
+
+.hint-slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* ---------- SLIDE ---------- */
+
+.hint-slide {
+    position: relative;
+    margin: 0 auto;
+
+    width: 98%;
+    min-height: 390px;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    background: var(--surface);
+}
+
+
+/* ---------- IMAGE ---------- */
+
+.hint-slide img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ---------- DARK SHADING ---------- */
+
+.hint-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(11, 11, 13, 0.95) 0%,
+            rgba(11, 11, 13, 0.68) 32%,
+            rgba(11, 11, 13, 0.18) 65%,
+            rgba(11, 11, 13, 0.02) 100%
+        );
+}
+
+
+/* ---------- CONTENT ---------- */
+
+.hint-content {
+    position: absolute;
+
+    left: 24px;
+    right: 24px;
+    bottom: 28px;
+
+    z-index: 2;
+}
+
+
+.hint-label {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: var(--gold);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+}
+
+
+.hint-content h2 {
+    margin: 0;
+
+    color: var(--text);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(32px, 8vw, 52px);
+
+    font-weight: 600;
+
+    line-height: 0.95;
+}
+
+
+.hint-content p {
+    max-width: 320px;
+
+    margin-top: 10px;
+
+    color: rgba(245, 243, 238, 0.72);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* ---------- SLIDE INDICATORS ---------- */
+
+.hint-dots {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-top: 12px;
+}
+
+
+.hint-dots span {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(245, 243, 238, 0.28);
+
+    transition:
+        width var(--transition-fast),
+        background var(--transition-fast);
+}
+
+
+.hint-dots span.active {
+    width: 18px;
+
+    border-radius: 10px;
+
+    background: var(--gold);
+}
+
+/* =========================================
+   UPCOMING EXPERIENCES
+========================================= */
+
+.upcoming-experiences {
+    width: 100%;
+
+    margin-top: 42px;
+}
+
+
+/* ---------- SECTION HEADING ---------- */
+
+.section-heading {
+    display: flex;
+    margin-left: 2% ;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+
+.section-title {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.section-eyebrow {
+    color: var(--gold);
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+}
+
+
+.section-title h2 {
+    color: var(--text);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(18px, 7vw, 32px);
+
+    font-weight: 500;
+
+    line-height: 1;
+}
+
+
+/* ---------- VIEW ALL ---------- */
+
+.section-link {
+    flex-shrink:0 ;
+
+    margin-right : 10% ;
+
+    padding-bottom: 3px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+
+    transition: color var(--transition-fast);
+}
+
+
+.section-link:hover {
+    color: var(--gold);
+}
+
+
+/* =========================================
+          HINTS
+========================================= */
+
+.hint-content h2 {
+    color: #F5F3EE;
+}
+
+.hint-content p {
+    color: rgba(245, 243, 238, 0.72);
+}
+
+.hint-label {
+    color: var(--gold);
+}
+
+
+/* =========================================
+   VAULT BRAND
+========================================= */
+
+.vault-logo {
+    color: var(--gold);
+}
+
+
+
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+html[data-theme="dark"] .hint-content h2,
+html[data-theme="dark"] .hint-content p {
+    color: #F5F3EE;
+}
+
+
+/* =========================================
+   LIGHT THEME
+   Photography surfaces still use light text.
+========================================= */
+
+html[data-theme="light"] .hint-content h2 {
+    color: #F5F3EE;
+}
+
+html[data-theme="light"] .hint-content p {
+    color: rgba(245, 243, 238, 0.72);
+}
+
+
+/* =========================================
+VAULT — FINAL THEME CONTRAST
+Header + Bottom Navigation
+========================================= */
+
+/* ---------- LIGHT THEME ---------- */
+
+[data-theme="light"] .vault-glass {
+    background: rgba(255, 255, 255, 0.82);
+    border-color: rgba(201, 164, 92, 0.34);
+    box-shadow:
+        0 18px 44px rgba(0, 0, 0, 0.10),
+        0 0 28px rgba(201, 164, 92, 0.08);
+}
+
+[data-theme="light"] .home-logo,
+[data-theme="light"] .home-tagline {
+    color: #111111;
+}
+
+
+
+/* ---------- DARK THEME ---------- */
+
+[data-theme="dark"] .home-logo,
+[data-theme="dark"] .home-tagline {
+    color: #FFFFFF;
+}
+
+/* =========================================
+   VAULT — BOTTOM NAVIGATION
+   Canonical Navigation System
+========================================= */
+
+.bottom-nav {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+
+    width: min(calc(100% - 32px), 420px);
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+
+    padding: 7px;
+
+    background: var(--glass);
+    border: 1px solid var(--gold-border);
+    border-radius: var(--radius-lg);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow: var(--shadow-glass);
+
+    z-index: 1000;
+}
+
+
+/* =========================================
+   NAV ITEM
+========================================= */
+
+.bottom-nav-item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 58px;
+
+    padding: 0 16px;
+
+    border: 0;
+    border-radius: 17px;
+
+    background: transparent;
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    transition:
+        color var(--transition-fast),
+        background var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.bottom-nav-icon {
+    width: 21px;
+    height: 21px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.bottom-nav-icon svg {
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================
+   LABEL
+   Hidden while inactive
+========================================= */
+
+.bottom-nav-label {
+    display: none;
+
+    margin-left: 7px;
+
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+
+    color: currentColor;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   ACTIVE
+   Icon + label
+========================================= */
+
+.bottom-nav-item.active {
+    color: var(--gold);
+
+    background: var(--gold-soft);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(201, 164, 92, 0.12),
+        0 0 18px rgba(201, 164, 92, 0.08);
+}
+
+.bottom-nav-item.active .bottom-nav-label {
+    display: inline;
+}
+
+
+/* =========================================
+   INACTIVE
+   Icon only
+========================================= */
+
+.bottom-nav-item:not(.active) {
+    color: var(--text-muted);
+}
+
+.bottom-nav-item:not(.active) .bottom-nav-label {
+    display: none;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.bottom-nav-item:not(.active):hover {
+    color: var(--text);
+
+    background: rgba(255, 255, 255, 0.04);
+}
+
+
+/* =========================================
+   LIGHT THEME
+========================================= */
+
+html[data-theme="light"] .bottom-nav {
+    background: rgba(255, 255, 255, 0.82);
+
+    border-color: rgba(201, 164, 92, 0.34);
+
+    box-shadow:
+        0 18px 44px rgba(0, 0, 0, 0.12),
+        0 0 28px rgba(201, 164, 92, 0.08);
+}
+
+html[data-theme="light"] .bottom-nav-item,
+html[data-theme="light"] .bottom-nav-item.active {
+    color: #111111;
+}
+
+html[data-theme="light"] .bottom-nav-item:not(.active):hover {
+    color: #111111;
+    background: rgba(201, 164, 92, 0.07);
+}
+
+html[data-theme="light"] .bottom-nav-item.active {
+    background: rgba(201, 164, 92, 0.16);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(201, 164, 92, 0.24),
+        0 0 18px rgba(201, 164, 92, 0.10);
+}
+
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+html[data-theme="dark"] .bottom-nav-item,
+html[data-theme="dark"] .bottom-nav-item.active {
+    color: #FFFFFF;
+}
+
+html[data-theme="dark"] .bottom-nav-item:not(.active):hover {
+    color: #FFFFFF;
+}
+
+html[data-theme="dark"] .bottom-nav-item.active {
+    background: rgba(201, 164, 92, 0.16);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(201, 164, 92, 0.12),
+        0 0 18px rgba(201, 164, 92, 0.08);
+}
+
+
+/* =========================================
+   ACTIVE LABEL — EXPLICIT THEME COLOR
+========================================= */
+
+html[data-theme="light"] .bottom-nav-item.active .bottom-nav-label {
+    color: #111111;
+}
+
+html[data-theme="dark"] .bottom-nav-item.active .bottom-nav-label {
+    color: #FFFFFF;
+}
+
+
+/* ==================================================
+   VAULT — FOOTER
+================================================== */
+
+.vault-footer {
+    width: 100%;
+    margin-top: var(--space-10);
+    padding: var(--space-10) var(--page-padding) var(--space-7);
+
+    border-top: 1px solid var(--border);
+
+    background: var(--bg);
+}
+
+
+.vault-footer-inner {
+    width: min(100%, var(--content-width));
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   BRAND
+================================================== */
+
+.vault-footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: var(--space-7);
+}
+
+
+.vault-footer-logo {
+    font-family: var(--font-brand);
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    font-weight: 600;
+    letter-spacing: 0.28em;
+
+    color: var(--text);
+}
+
+
+.vault-footer-tagline {
+    margin: 8px 0 0;
+
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-style: italic;
+    letter-spacing: 0.04em;
+
+    color: var(--text-muted);
+}
+
+
+/* ==================================================
+   CREDITS
+================================================== */
+
+.vault-footer-credit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: var(--space-5);
+}
+
+
+.vault-footer-label {
+    margin-bottom: 7px;
+
+    font-family: var(--font-ui);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+
+    color: var(--text-muted);
+}
+
+
+.vault-footer-credit strong {
+    font-family: var(--font-brand);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+
+    color: var(--accent);
+}
+
+
+.vault-footer-role {
+    margin-top: 4px;
+
+    font-family: var(--font-ui);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: var(--text-muted);
+}
+
+
+/* ==================================================
+   FOOTER LINKS
+================================================== */
+
+.vault-footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 10px 24px;
+
+    width: 100%;
+
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
+
+    border-top: 1px solid var(--border);
+}
+
+
+.vault-footer-links a {
+    position: relative;
+
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+
+    color: var(--text-muted);
+
+    text-decoration: none;
+
+    transition:
+        color var(--transition-base);
+}
+
+
+.vault-footer-links a:hover {
+    color: var(--accent);
+}
+
+
+.vault-footer-links a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+
+/* ==================================================
+   COPYRIGHT
+================================================== */
+
+.vault-footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    margin-top: var(--space-6);
+    padding-top: var(--space-5);
+
+    border-top: 1px solid var(--border);
+}
+
+
+.vault-footer-bottom p {
+    margin: 0;
+
+    font-family: var(--font-ui);
+    font-size: 0.65rem;
+    letter-spacing: 0.03em;
+
+    color: var(--text-muted);
+}
+
+
+.vault-footer-signature {
+    font-family: var(--font-brand);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+
+    color: var(--vault-stone);
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 767px) {
+
+    .vault-footer {
+        margin-top: var(--space-8);
+        padding-top: var(--space-8);
+        padding-bottom: calc(
+            var(--space-7) + var(--nav-height)
+        );
+    }
+
+
+    .vault-footer-brand {
+        margin-bottom: var(--space-5);
+    }
+
+
+    .vault-footer-links {
+        gap: 14px 18px;
+        margin-top: var(--space-7);
+    }
+
+
+    .vault-footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+
+        margin-top: var(--space-5);
+    }
+
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .vault-footer-links a {
+        transition: none;
+    }
+
+}

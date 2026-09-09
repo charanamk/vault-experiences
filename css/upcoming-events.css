@@ -1,0 +1,457 @@
+﻿/*==================================
+UPCOMING EVENTS CARD STYLES
+==================================*/
+
+.experience-card {
+    position: relative;
+    width: min(88vw, 620px);
+    min-width: min(88vw, 620px);
+    margin-left: 2%;
+
+    overflow: hidden;
+    gap : 16px ;
+    border-radius: 24px;
+    background: #000;
+    scroll-snap-align: start;
+}
+
+.experience-poster {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 24px;
+    background: var(--color-background, #000);
+}
+
+.experience-poster > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--transition-slow);
+}
+
+.experience-card:hover .experience-poster > img {
+    transform: scale(1.025);
+}
+
+.experience-poster::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.03) 22%,
+        rgba(0, 0, 0, 0.12) 43%,
+        rgba(0, 0, 0, 0.38) 60%,
+        rgba(0, 0, 0, 0.72) 78%,
+        rgba(0, 0, 0, 0.94) 100%
+    );
+}
+
+.poster-info {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 78px;
+    z-index: 2;
+}
+
+.event-theme {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--vault-title-gold-solid);
+    font-family: var(--font-ui);
+    font-size: 0.62rem;
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-wider);
+}
+
+.poster-info h3 {
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 5vw, 2.3rem);
+    font-weight: var(--weight-medium);
+    line-height: 1;
+    letter-spacing: var(--tracking-tight);
+}
+
+.event-description {
+    margin-top: var(--space-3);
+    max-width: 98%;
+    margin-bottom: 10px;
+}
+
+.event-description p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.68);
+    font-family: var(--font-ui);
+    font-size: 0.68rem;
+    font-weight: var(--weight-regular);
+    line-height: 1.45;
+    letter-spacing: 0.01rem;
+}
+
+.experience-details {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 12px 20px;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-family: var(--font-ui);
+    font-size: 0.76rem;
+    white-space: nowrap;
+}
+
+.detail-item img {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    filter: brightness(0) invert(1);
+}
+
+.experience-details button {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+    .experience-card {
+        width: 88vw;
+        min-width: 88vw;
+    }
+
+    .experience-poster {
+        aspect-ratio: 16 / 10;
+    }
+
+    .poster-info {
+        left: 18px;
+        right: 18px;
+        bottom: 82px;
+    }
+
+    .experience-details {
+        min-height: 64px;
+        padding: 10px 18px;
+        gap: 12px;
+    }
+
+    .detail-item {
+        font-size: 0.68rem;
+    }
+
+    .detail-item img {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/*==================================
+EXPERIENCE ROW
+==================================*/
+
+.experiences-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 32px) / 2.5);
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.experiences-track::-webkit-scrollbar {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .experiences-track {
+        grid-auto-columns: calc((100% - 32px) / 2.5);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .experiences-track {
+        grid-auto-columns: calc((100% - 16px) / 2);
+    }
+}
+
+@media (max-width: 767px) {
+    .experiences-track {
+        grid-auto-columns: 82%;
+    }
+}
+
+/*==================================
+DATE BADGE
+==================================*/
+
+.event-date {
+    position: absolute;
+    top: var(--space-4);
+    left: var(--space-4);
+    z-index: 4;
+    width: 58px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(12, 12, 12, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.date-month {
+    color: var(--vault-title-gold-solid);
+    font-family: var(--font-ui);
+    font-size: 0.62rem;
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-wider);
+    line-height: 1;
+}
+
+.date-day {
+    margin-top: 5px;
+    color: #fff;
+    font-family: var(--font-ui);
+    font-size: 1.45rem;
+    font-weight: var(--weight-semibold);
+    line-height: 1;
+}
+
+
+/*==================================
+MOBILE
+==================================*/
+
+@media (max-width: 767px) {
+
+    .event-date {
+        top: 14px;
+        left: 14px;
+
+        width: 52px;
+        height: 58px;
+
+        border-radius: 14px;
+    }
+
+    .date-month {
+        font-size: .58rem;
+    }
+
+    .date-day {
+        margin-top: 4px;
+        font-size: 1.3rem;
+    }
+
+}
+
+/*==================================
+BOOK NOW
+==================================*/
+
+.experience-details button {
+    margin-left: auto;
+
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 108px;
+    height: 42px;
+
+    padding: 0 18px;
+
+    border: 1px solid rgba(255, 255, 255, .7);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, .94);
+
+    color: #111;
+
+    font-family: var(--font-ui);
+
+    font-size: .72rem;
+    font-weight: var(--weight-semibold);
+
+    letter-spacing: .02em;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, .2);
+
+    transition:
+        background .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.experience-details button:hover {
+    background: #fff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, .28);
+}
+
+.experience-details button:active {
+    transform: translateY(0);
+}
+
+.experience-details button {
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        color .2s ease,
+        box-shadow .2s ease;
+}
+
+.experience-details button:hover {
+    background: var(--vault-title-gold-solid);
+    color: #111;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 26px rgba(0, 0, 0, .35);
+}
+
+.experience-details button:active {
+    transform: translateY(0);
+}
+
+/*==================================
+SAVE EVENT
+==================================*/
+
+.save-event {
+    position: absolute;
+
+    top: var(--space-4);
+    right: var(--space-4);
+
+    z-index: 4;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.save-event:hover {
+    background: transparent;
+    transform: translateY(-2px);
+}
+
+.save-event:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+.save-event .bookmark-outline,
+.save-event .bookmark-filled {
+    width: 20px;
+    height: 20px;
+
+    display: block;
+
+    transition:
+        opacity var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.save-event .bookmark-outline {
+    opacity: 1;
+}
+
+.save-event .bookmark-filled {
+    position: absolute;
+
+    opacity: 0;
+
+    transform: scale(.85);
+}
+
+.save-event.is-saved .bookmark-outline {
+    opacity: 0;
+}
+
+.save-event.is-saved .bookmark-filled {
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+/*==================================
+MOBILE
+==================================*/
+
+@media (max-width: 767px) {
+
+    .event-date {
+        top: 14px;
+        left: 14px;
+
+        width: 48px;
+        height: 54px;
+    }
+
+    .save-event {
+        top: 14px;
+        right: 14px;
+
+        width: 40px;
+        height: 40px;
+    }
+
+}

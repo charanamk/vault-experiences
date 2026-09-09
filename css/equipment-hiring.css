@@ -1,0 +1,405 @@
+/*==================================
+  VAULT — EQUIPMENT HIRING
+  Curated Equipment Catalogue
+==================================*/
+
+
+/*==================================
+  SECTION
+==================================*/
+
+.equipment-section {
+
+    margin-top:
+        var(--space-10);
+
+}
+
+
+/*==================================
+  EQUIPMENT TRACK
+==================================*/
+
+.equipment-track {
+
+    width: 100%;
+
+    display: flex;
+
+    gap:
+        var(--space-4);
+
+    overflow-x: auto;
+
+    padding-right:
+        18vw;
+
+    scroll-snap-type:
+        x mandatory;
+
+    scrollbar-width:
+        none;
+
+    -webkit-overflow-scrolling:
+        touch;
+
+}
+
+
+.equipment-track::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+
+/*==================================
+  EQUIPMENT CARD
+==================================*/
+
+.equipment-card {
+
+    flex:
+        0 0 82vw;
+
+    max-width:
+        390px;
+
+    overflow: hidden;
+
+    scroll-snap-align:
+        start;
+
+    background:
+        var(--color-surface);
+
+    border:
+        1px solid
+        var(--color-border-soft);
+
+    border-radius:
+        var(--radius-xl);
+
+    box-shadow:
+        var(--shadow-soft);
+
+    transition:
+        transform var(--transition-normal),
+        border-color var(--transition-normal);
+
+}
+
+
+.equipment-card:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        var(--color-accent-soft);
+
+}
+
+
+/*==================================
+  EQUIPMENT IMAGE
+==================================*/
+
+.equipment-image {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 210px;
+
+    overflow: hidden;
+
+    background:
+        var(--color-background);
+
+}
+
+
+.equipment-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform var(--transition-slow);
+
+}
+
+
+.equipment-card:hover
+.equipment-image img {
+
+    transform:
+        scale(1.04);
+
+}
+
+
+/*==================================
+  CATEGORY BADGE
+==================================*/
+
+.equipment-category {
+
+    position: absolute;
+
+    top:
+        15px;
+
+    left:
+        15px;
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .14);
+
+    border-radius:
+        var(--radius-pill);
+
+    background:
+        rgba(13, 13, 13, .72);
+
+    color:
+        #F5F2EA;
+
+    font-family:
+        var(--font-ui);
+
+    font-size:
+        .62rem;
+
+    font-weight:
+        var(--weight-semibold);
+
+    letter-spacing:
+        var(--tracking-wide);
+
+    text-transform:
+        uppercase;
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+}
+
+
+/*==================================
+  EQUIPMENT CONTENT
+==================================*/
+
+.equipment-content {
+
+    min-height:
+        145px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
+
+    padding:
+        18px;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/*==================================
+  LEVEL
+==================================*/
+
+.equipment-level {
+
+    display:
+        block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        var(--color-accent);
+
+    font-family:
+        var(--font-ui);
+
+    font-size:
+        .62rem;
+
+    font-weight:
+        var(--weight-semibold);
+
+    letter-spacing:
+        var(--tracking-wider);
+
+}
+
+
+/*==================================
+  TITLE
+==================================*/
+
+.equipment-content h3 {
+
+    margin:
+        0;
+
+    color:
+        var(--color-heading);
+
+    font-family:
+        var(--font-display);
+
+    font-size:
+        1.75rem;
+
+    font-weight:
+        var(--weight-medium);
+
+    line-height:
+        1;
+
+    letter-spacing:
+        var(--tracking-tight);
+
+}
+
+
+/*==================================
+  DESCRIPTION
+==================================*/
+
+.equipment-content p {
+
+    margin:
+        var(--space-2)
+        0
+        0;
+
+    max-width:
+        270px;
+
+    color:
+        var(--color-secondary-text);
+
+    font-family:
+        var(--font-ui);
+
+    font-size:
+        .76rem;
+
+    font-weight:
+        var(--weight-regular);
+
+    line-height:
+        1.5;
+
+}
+
+
+/*==================================
+  BUTTON
+==================================*/
+
+.equipment-btn {
+
+    align-self:
+        flex-start;
+
+    margin-top:
+        var(--space-3);
+
+    padding:
+        10px 15px;
+
+    border:
+        1px solid
+        color-mix(
+            in srgb,
+            var(--color-accent) 35%,
+            transparent
+        );
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        transparent;
+
+    color:
+        var(--color-accent);
+
+    font-family:
+        var(--font-ui);
+
+    font-size:
+        .7rem;
+
+    font-weight:
+        var(--weight-semibold);
+
+    letter-spacing:
+        .01em;
+
+    transition:
+        background var(--transition-normal),
+        border-color var(--transition-normal),
+        color var(--transition-normal),
+        transform var(--transition-fast);
+
+}
+
+
+.equipment-btn:hover {
+
+    background:
+        color-mix(
+            in srgb,
+            var(--color-accent) 8%,
+            transparent
+        );
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--color-accent) 65%,
+            transparent
+        );
+
+    color:
+        var(--color-heading);
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+.equipment-btn:active {
+
+    transform:
+        translateY(0);
+
+}

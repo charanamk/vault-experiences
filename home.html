@@ -1,0 +1,1837 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VAULT</title>
+
+    <script src="js/theme.js"></script>
+
+
+    <!-- =========================================
+         FONTS
+    ========================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================================
+         CORE STYLES
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/vault-global.css"
+    >
+
+
+    <!-- =========================================
+         HOME STYLES
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/home.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/upcoming-events.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/From-the-Vault.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/equipment-hiring.css"
+    >
+    
+<link rel="stylesheet" href="css/help.css">
+
+    <!-- =========================================
+         FEATURE STYLES
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/booking-sheet.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/vault-ticket.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HOME
+    ========================================== -->
+
+    <main class="home">
+
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <header class="home-header">
+
+            <div class="vault-glass">
+
+                <button
+                    type="button"
+                    class="home-brand"
+                    data-route="home"
+                    aria-label="Vault Home"
+                >
+
+                    <h1 class="home-logo">
+                        VAULT
+                    </h1>
+
+                    <p class="home-tagline">
+                        For Moments Worth Keeping.
+                    </p>
+
+                </button>
+
+            </div>
+
+
+            <!-- My Vault -->
+
+            <button
+                type="button"
+                class="vault-button"
+                data-route="login"
+                aria-label="Open My Vault"
+            >
+
+                <img
+                    src="assets/icons/user.svg"
+                    alt=""
+                    aria-hidden="true"
+                >
+
+            </button>
+
+        </header>
+
+
+
+        <!-- =====================================
+             EXPERIENCE HINT
+        ====================================== -->
+
+        <section class="experience-hint">
+
+            <div class="hint-slider">
+
+                <article class="hint-slide">
+
+                    <img
+                        src="assets/hint-01.jpg"
+                        alt="Vault experience"
+                    >
+
+                    <div
+                        class="hint-overlay"
+                        aria-hidden="true"
+                    ></div>
+
+
+                    <div class="hint-content">
+
+                        <span class="hint-label">
+                            Coming Soon
+                        </span>
+
+                        <h2>
+                            The Night Awaits
+                        </h2>
+
+                        <p>
+                            Something worth keeping is coming.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <div class="hint-dots">
+
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             UPCOMING EXPERIENCES
+        ====================================== -->
+
+        <section
+            class="experiences-section"
+            id="upcoming-experiences"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-title">
+
+                    <span class="section-eyebrow">
+                        Discover
+                    </span>
+
+                    <h2>
+                        Upcoming Experiences
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="see-all-btn"
+                    type="button"
+                    data-action="view-all-events"
+                >
+                    See All
+                </button>
+
+            </div>
+
+
+            <!-- Backend renders cards here -->
+
+            <div
+                class="experiences-track"
+                id="experiencesTrack"
+                aria-live="polite"
+            ></div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             UPCOMING EXPERIENCE TEMPLATE
+        ====================================== -->
+
+        <template id="experienceCardTemplate">
+
+            <article
+                class="experience-card"
+                data-event-id=""
+            >
+
+                <div class="experience-poster">
+
+                    <img
+                        class="event-image"
+                        src=""
+                        alt=""
+                    >
+
+<div class="event-date">
+    <span class="date-month"></span>
+    <span class="date-day"></span>
+</div>
+
+                    <!-- BOOKMARK -->
+
+<button
+    class="save-event"
+    type="button"
+    aria-label="Save event"
+    data-action="save-event"
+>
+    <img
+        class="bookmark-outline"
+        src="assets/icons/bookmark-outline.svg"
+        alt=""
+        aria-hidden="true"
+    >
+
+    <img
+        class="bookmark-filled"
+        src="assets/icons/bookmark.svg"
+        alt=""
+        aria-hidden="true"
+    >
+</button>
+
+                    <!-- Poster Content -->
+
+                    <div class="poster-info">
+
+                        <span class="event-theme"></span>
+
+                        <h3 class="event-title"></h3>
+
+
+                        <div class="event-description">
+
+                            <p></p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Event Details -->
+
+                <div class="experience-details">
+
+                    <div class="detail-item">
+
+                        <img
+                            src="assets/icons/location.svg"
+                            alt=""
+                            aria-hidden="true"
+                        >
+
+                        <span class="event-location"></span>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <img
+                            src="assets/icons/clock.svg"
+                            alt=""
+                            aria-hidden="true"
+                        >
+
+                        <span class="event-time"></span>
+
+                    </div>
+
+
+                    <button
+                        class="experience-book"
+                        type="button"
+                        data-action="book-event"
+                    >
+                        Book Now
+                    </button>
+
+                </div>
+
+            </article>
+
+        </template>
+
+<!-- =========================================
+     FROM THE VAULT
+========================================== -->
+
+<section
+    class="vault-experiences-section"
+    id="from-the-vault"
+>
+
+    <div class="section-heading">
+
+        <div class="section-title">
+
+            <span class="section-eyebrow">
+                Memories
+            </span>
+
+            <h2>
+                From the Vault
+            </h2>
+
+        </div>
+
+
+        <button
+            class="see-all-btn"
+            type="button"
+            data-action="view-all-archived-events"
+        >
+            See All
+        </button>
+
+    </div>
+
+
+    <div
+        class="vault-experiences-track"
+        id="vaultExperiencesTrack"
+        aria-live="polite"
+    ></div>
+
+</section>
+
+
+<!-- =========================================
+     ARCHIVED EXPERIENCE TEMPLATE
+========================================== -->
+
+<template id="vaultExperienceCardTemplate">
+
+    <article
+        class="vault-experience-card"
+        data-event-id=""
+    >
+
+        <!-- =================================
+             POSTER
+        ================================== -->
+
+        <div class="vault-experience-poster">
+
+            <img
+                class="vault-event-image"
+                src=""
+                alt=""
+            >
+
+
+            <span class="ended-badge">
+                ENDED
+            </span>
+
+
+            <!--
+                Subtle archival layer.
+                This is purely visual and
+                does not affect the event data.
+            -->
+
+            <div class="vault-memory-overlay">
+
+                <span class="vault-memory-label">
+                    FROM THE VAULT
+                </span>
+
+            </div>
+
+
+            <div class="vault-poster-info">
+
+                <span class="vault-event-theme"></span>
+
+                <h3 class="vault-event-title"></h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             EXPERIENCE DETAILS
+        ================================== -->
+
+        <div class="vault-experience-details">
+
+
+            <div class="vault-detail-item">
+
+                <img
+                    src="assets/icons/location.svg"
+                    alt=""
+                    aria-hidden="true"
+                >
+
+                <span class="vault-event-location"></span>
+
+            </div>
+
+
+            <div class="vault-detail-item">
+
+                <img
+                    src="assets/icons/calendar.svg"
+                    alt=""
+                    aria-hidden="true"
+                >
+
+                <span class="vault-event-date"></span>
+
+            </div>
+
+
+            <button
+                class="view-experience-btn"
+                type="button"
+                data-action="view-experience"
+            >
+
+                <span>
+                    View Experience
+                </span>
+
+                <span
+                    aria-hidden="true"
+                    class="view-experience-arrow"
+                >
+                    →
+                </span>
+
+            </button>
+
+
+        </div>
+
+    </article>
+
+</template>
+
+        <!-- =====================================
+             EQUIPMENT HIRING
+        ====================================== -->
+
+        <section
+            class="equipment-section"
+            id="equipment-hiring"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-title">
+
+                    <span class="section-eyebrow">
+                        Complete The Experience
+                    </span>
+
+                    <h2>
+                        Equipment Hiring
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="see-all-btn"
+                    type="button"
+                    data-action="view-all-equipment"
+                >
+                    Explore All
+                </button>
+
+            </div>
+
+
+            <div
+                class="equipment-track"
+                id="equipmentTrack"
+                aria-live="polite"
+            ></div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             EQUIPMENT TEMPLATE
+        ====================================== -->
+
+        <template id="equipmentCardTemplate">
+
+            <article
+                class="equipment-card"
+                data-equipment-id=""
+                data-category=""
+            >
+
+                <div class="equipment-image">
+
+                    <img
+                        class="equipment-image-src"
+                        src=""
+                        alt=""
+                    >
+
+                    <span class="equipment-category"></span>
+
+                </div>
+
+
+                <div class="equipment-content">
+
+                    <div>
+
+                        <span class="equipment-level"></span>
+
+                        <h3 class="equipment-title"></h3>
+
+                        <p class="equipment-description"></p>
+
+                    </div>
+
+
+                    <button
+                        class="equipment-btn"
+                        type="button"
+                        data-action="view-equipment"
+                    >
+                        View Package
+                    </button>
+
+                </div>
+
+            </article>
+
+        </template>
+
+<!-- ==================================================
+     HELP
+================================================== -->
+
+<section class="help-section" id="help" aria-labelledby="helpTitle">
+
+  <!-- Main Help Card -->
+  <div class="help-card">
+
+    <div class="help-header">
+      <span class="help-eyebrow">VAULT SUPPORT</span>
+
+      <h2 id="helpTitle">How Can We Help?</h2>
+
+      <p class="help-intro">
+        Find answers, get assistance, or reach Vault whenever you need us.
+      </p>
+    </div>
+
+    <button
+      type="button"
+      class="get-help-btn"
+      id="getHelpBtn"
+      aria-haspopup="dialog"
+    >
+      <span>Get Help</span>
+      <span aria-hidden="true">→</span>
+    </button>
+
+  </div>
+
+
+  <!-- ==================================================
+       HELP MODULE
+  ================================================== -->
+
+  <section
+    class="help-module"
+    id="helpModule"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="helpModuleTitle"
+  >
+
+    <div
+      class="help-module-backdrop"
+      data-action="close-help-module"
+    ></div>
+
+
+    <div class="help-module-card">
+
+      <!-- Module Header -->
+      <div class="help-module-header">
+
+        <div>
+          <span class="help-eyebrow">VAULT SUPPORT</span>
+
+          <h2 id="helpModuleTitle">
+            How Can We Help?
+          </h2>
+        </div>
+
+        <button
+          type="button"
+          class="help-module-close"
+          data-action="close-help-module"
+          aria-label="Close help"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <!-- ==================================================
+           ASSISTANCE OPTIONS
+      ================================================== -->
+
+      <div class="help-module-section">
+
+        <div class="help-module-section-heading">
+          <span class="help-eyebrow">CONTACT VAULT</span>
+          <h3>Get Assistance</h3>
+        </div>
+
+        <div class="help-options">
+
+          <!-- Vault AI -->
+          <button
+            type="button"
+            class="help-option"
+            data-help-module="vault-ai"
+          >
+            <span class="help-option-number">01</span>
+
+            <span class="help-option-content">
+              <strong>Vault AI</strong>
+              <small>Get instant help from Vault AI.</small>
+            </span>
+
+            <span class="help-option-arrow" aria-hidden="true">→</span>
+          </button>
+
+
+          <!-- WhatsApp -->
+          <button
+            type="button"
+            class="help-option"
+            data-help-module="whatsapp"
+          >
+            <span class="help-option-number">02</span>
+
+            <span class="help-option-content">
+              <strong>WhatsApp</strong>
+              <small>Chat with the Vault team.</small>
+            </span>
+
+            <span class="help-option-arrow" aria-hidden="true">→</span>
+          </button>
+
+
+          <!-- Phone -->
+          <button
+            type="button"
+            class="help-option"
+            data-help-module="phone"
+          >
+            <span class="help-option-number">03</span>
+
+            <span class="help-option-content">
+              <strong>Phone</strong>
+              <small>Speak directly with Vault.</small>
+            </span>
+
+            <span class="help-option-arrow" aria-hidden="true">→</span>
+          </button>
+
+
+          <!-- Instagram -->
+          <button
+            type="button"
+            class="help-option"
+            data-help-module="instagram"
+          >
+            <span class="help-option-number">04</span>
+
+            <span class="help-option-content">
+              <strong>Instagram</strong>
+              <small>Connect with Vault on Instagram.</small>
+            </span>
+
+            <span class="help-option-arrow" aria-hidden="true">→</span>
+          </button>
+
+
+          <!-- Email -->
+          <button
+            type="button"
+            class="help-option"
+            data-help-module="email"
+          >
+            <span class="help-option-number">05</span>
+
+            <span class="help-option-content">
+              <strong>Email</strong>
+              <small>Send us a message by email.</small>
+            </span>
+
+            <span class="help-option-arrow" aria-hidden="true">→</span>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- ==================================================
+           FAQS
+      ================================================== -->
+
+      <div class="help-module-section help-faq-section">
+
+        <div class="help-module-section-heading">
+          <span class="help-eyebrow">NEED TO KNOW</span>
+          <h3>FAQs</h3>
+        </div>
+
+        <div class="faq-list">
+
+          <button
+            type="button"
+            class="faq-item"
+            data-faq="booking"
+          >
+            <span>How do I book an experience?</span>
+            <span aria-hidden="true">→</span>
+          </button>
+
+
+          <button
+            type="button"
+            class="faq-item"
+            data-faq="tickets"
+          >
+            <span>How do I receive my ticket?</span>
+            <span aria-hidden="true">→</span>
+          </button>
+
+
+          <button
+            type="button"
+            class="faq-item"
+            data-faq="payments"
+          >
+            <span>What happens after payment?</span>
+            <span aria-hidden="true">→</span>
+          </button>
+
+
+          <button
+            type="button"
+            class="faq-item"
+            data-faq="cancellation"
+          >
+            <span>Can I cancel my booking?</span>
+            <span aria-hidden="true">→</span>
+          </button>
+
+
+          <button
+            type="button"
+            class="faq-item"
+            data-faq="my-vault"
+          >
+            <span>Where are my bookings?</span>
+            <span aria-hidden="true">→</span>
+          </button>
+
+
+          <button
+            type="button"
+            class="faq-item"
+            data-faq="account"
+          >
+            <span>How does my account work?</span>
+            <span aria-hidden="true">→</span>
+          </button>
+
+
+          <button
+            type="button"
+            class="faq-item"
+            data-faq="refunds"
+          >
+            <span>How do refunds work?</span>
+            <span aria-hidden="true">→</span>
+          </button>
+
+
+          <button
+            type="button"
+            class="faq-item"
+            data-faq="experience"
+          >
+            <span>What should I know before an experience?</span>
+            <span aria-hidden="true">→</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</section>
+
+<!-- ==================================================
+     VAULT — FOOTER
+================================================== -->
+
+<footer class="vault-footer" id="vaultFooter">
+
+  <div class="vault-footer-inner">
+
+    <!-- Brand -->
+    <div class="vault-footer-brand">
+
+      <span class="vault-footer-logo">
+        VAULT
+      </span>
+
+      <p class="vault-footer-tagline">
+        For Moments Worth Keeping.
+      </p>
+
+    </div>
+
+
+    <!-- Built & Maintained -->
+    <div class="vault-footer-credit">
+
+      <span class="vault-footer-label">
+        BUILT &amp; MAINTAINED BY
+      </span>
+
+      <strong>
+        MK CYBERNETICS
+      </strong>
+
+    </div>
+
+
+    <!-- Brought To You By -->
+    <div class="vault-footer-credit">
+
+      <span class="vault-footer-label">
+        BROUGHT TO YOU BY
+      </span>
+
+      <strong>
+        BRENDA WAMBUNDO
+      </strong>
+
+      <span class="vault-footer-role">
+        CEO, VAULT
+      </span>
+
+    </div>
+
+
+    <!-- Legal / Information -->
+    <div class="vault-footer-links">
+
+      <a href="#" data-footer-link="terms">
+        Terms &amp; Conditions
+      </a>
+
+      <a href="#" data-footer-link="privacy">
+        Privacy Policy
+      </a>
+
+      <a href="#" data-footer-link="refunds">
+        Refund Policy
+      </a>
+
+      <a href="#help" data-footer-link="help">
+        Help &amp; Support
+      </a>
+
+    </div>
+
+
+    <!-- Copyright -->
+    <div class="vault-footer-bottom">
+
+      <p>
+        © 2026 VAULT. All rights reserved.
+      </p>
+
+      <span class="vault-footer-signature">
+        VAULT
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+    </main>
+
+
+
+    <!-- =========================================
+         BOTTOM NAVIGATION
+    ========================================== -->
+
+    <nav
+        class="bottom-nav"
+        aria-label="Main navigation"
+    >
+
+        <button
+            class="bottom-nav-item active"
+            type="button"
+            data-tab="home"
+            data-route="home"
+            aria-current="page"
+        >
+
+            <span class="bottom-nav-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path d="M3 10.5 12 3l9 7.5"></path>
+                    <path d="M5.5 9.5V21h13V9.5"></path>
+                </svg>
+
+            </span>
+
+            <span class="bottom-nav-label">
+                Home
+            </span>
+
+        </button>
+
+
+        <button
+            class="bottom-nav-item"
+            type="button"
+            data-tab="my-vault"
+            data-route="my-vault"
+        >
+
+            <span class="bottom-nav-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path d="M6 4h12v16H6z"></path>
+                    <path d="M9 8h6"></path>
+                    <path d="M9 12h6"></path>
+                    <path d="M9 16h4"></path>
+                </svg>
+
+            </span>
+
+            <span class="bottom-nav-label">
+                My Vault
+            </span>
+
+        </button>
+
+    </nav>
+
+
+<!-- =========================================
+     BOOKING SHEET
+========================================== -->
+
+<section
+    class="booking-sheet"
+    id="bookingSheet"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="bookingTitle"
+>
+
+    <!-- =========================================
+         CLOSE
+    ========================================== -->
+
+    <button
+        class="booking-close"
+        id="bookingClose"
+        type="button"
+        aria-label="Close booking"
+    >
+        <img
+            src="assets/icons/close.svg"
+            alt=""
+            aria-hidden="true"
+        >
+    </button>
+
+
+    <!-- =========================================
+         EXPERIENCE HERO
+    ========================================== -->
+
+    <div class="booking-hero">
+
+        <img
+            class="booking-image"
+            id="bookingImage"
+            src=""
+            alt=""
+        >
+
+        <div
+            class="booking-hero-shade"
+            aria-hidden="true"
+        ></div>
+
+    </div>
+
+
+    <!-- =========================================
+         BOOKING CONTENT
+    ========================================== -->
+
+    <div class="booking-content">
+
+
+        <!-- =====================================
+             01 — EXPERIENCE IDENTITY
+        ====================================== -->
+
+        <section class="booking-event-info">
+
+            <span
+                class="booking-theme"
+                id="bookingTheme"
+            ></span>
+
+
+            <h2
+                class="booking-title"
+                id="bookingTitle"
+            ></h2>
+
+
+            <!-- SHORT DESCRIPTION -->
+
+            <p
+                class="booking-short-description"
+                id="bookingShortDescription"
+            ></p>
+
+
+            <!-- ABOUT -->
+
+            <div class="booking-about">
+
+                <h3>
+                    About
+                </h3>
+
+                <p
+                    id="bookingDescription"
+                ></p>
+
+            </div>
+
+
+            <!-- =================================
+                 EVENT DETAILS
+            ================================== -->
+
+            <div class="booking-event-details">
+
+
+                <!-- DATE -->
+
+                <div class="booking-detail-item">
+
+                    <img
+                        src="assets/icons/calendar.svg"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <div>
+
+                        <span>
+                            DATE
+                        </span>
+
+                        <strong
+                            id="bookingDate"
+                        ></strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TIME -->
+
+                <div class="booking-detail-item">
+
+                    <img
+                        src="assets/icons/clock.svg"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <div>
+
+                        <span>
+                            START TIME
+                        </span>
+
+                        <strong
+                            id="bookingTime"
+                        ></strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="booking-detail-item">
+
+                    <img
+                        src="assets/icons/location.svg"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <div>
+
+                        <span>
+                            LOCATION
+                        </span>
+
+                        <strong
+                            id="bookingVenue"
+                        ></strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 LOCATION DETAILS
+            ================================== -->
+
+            <div
+                class="booking-location-note"
+                id="bookingLocationNote"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             02 — EXPERIENCE DETAILS
+        ====================================== -->
+
+        <section
+            class="booking-settings-section"
+        >
+
+            <div class="booking-section-heading">
+
+                <span>
+                    EXPERIENCE DETAILS
+                </span>
+
+                <h3>
+                    Good To Know
+                </h3>
+
+            </div>
+
+
+            <div
+                class="booking-settings-grid"
+            >
+
+
+                <!-- CAPACITY -->
+
+                <div
+                    class="booking-setting-item"
+                    id="bookingCapacityWrap"
+                >
+
+                    <span>
+                        CAPACITY
+                    </span>
+
+                    <strong
+                        id="bookingCapacity"
+                    ></strong>
+
+                </div>
+
+
+                <!-- AGE -->
+
+                <div
+                    class="booking-setting-item"
+                    id="bookingAgeWrap"
+                >
+
+                    <span>
+                        AGE
+                    </span>
+
+                    <strong
+                        id="bookingAge"
+                    ></strong>
+
+                </div>
+
+
+                <!-- DRESS CODE -->
+
+                <div
+                    class="booking-setting-item"
+                    id="bookingDressCodeWrap"
+                >
+
+                    <span>
+                        DRESS CODE
+                    </span>
+
+                    <strong
+                        id="bookingDressCode"
+                    ></strong>
+
+                </div>
+
+
+                <!-- BOOKING DEADLINE -->
+
+                <div
+                    class="booking-setting-item"
+                    id="bookingDeadlineWrap"
+                >
+
+                    <span>
+                        BOOKING DEADLINE
+                    </span>
+
+                    <strong
+                        id="bookingDeadline"
+                    ></strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             03 — TICKETING
+        ====================================== -->
+
+        <section
+            class="booking-ticket-section"
+            id="bookingTicketSection"
+        >
+
+            <div class="booking-section-heading">
+
+                <span>
+                    TICKETING
+                </span>
+
+                <h3>
+                    Choose Your Ticket
+                </h3>
+
+            </div>
+
+
+            <!-- TICKETS ARE INSERTED HERE -->
+
+            <div
+                class="booking-ticket-list"
+                id="bookingTicketList"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             04 — RESERVATION
+        ====================================== -->
+
+        <section
+            class="reservation-section"
+        >
+
+            <div class="booking-section-heading">
+
+                <span>
+                    YOUR EXPERIENCE
+                </span>
+
+                <h3>
+                    Reserve Your Spot
+                </h3>
+
+            </div>
+
+
+            <div class="reservation-info">
+
+                <p
+                    id="reservationInfoText"
+                >
+                    Reserve your spot to receive
+                    your Vault ticket.
+                </p>
+
+            </div>
+
+
+            <!-- =================================
+                 RESERVATION FORM
+            ================================== -->
+
+            <div class="reservation-form">
+
+
+                <!-- NAME -->
+
+                <div class="input-group">
+
+                    <label
+                        for="reservationName"
+                    >
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="reservationName"
+                        name="name"
+                        placeholder="Your full name"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label
+                        for="reservationEmail"
+                    >
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="reservationEmail"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- M-PESA PHONE -->
+
+                <div class="input-group" id="reservationPhoneWrap" hidden>
+
+                    <label
+                        for="reservationPhone"
+                    >
+                        M-Pesa Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="reservationPhone"
+                        name="phone"
+                        placeholder="e.g. 0712345678"
+                        autocomplete="tel"
+                    >
+
+                </div>
+
+
+                <!-- GUESTS -->
+
+                <div class="input-group">
+
+                    <label
+                        for="reservationGuests"
+                    >
+                        Guests
+                    </label>
+
+                    <input
+                        type="number"
+                        id="reservationGuests"
+                        name="guests"
+                        min="1"
+                        max="10"
+                        value="1"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             FEATURED STATUS
+        ====================================== -->
+
+        <div
+            class="booking-featured"
+            id="bookingFeatured"
+            aria-hidden="true"
+        >
+
+            <span>
+                FEATURED EXPERIENCE
+            </span>
+
+        </div>
+
+
+        <div
+            class="booking-bottom-space"
+        ></div>
+
+
+    </div>
+
+
+
+    <!-- =========================================
+         BOOKING FOOTER
+    ========================================== -->
+
+    <footer class="booking-footer">
+
+
+        <div class="booking-status">
+
+            <span>
+                Entry
+            </span>
+
+            <strong
+                id="bookingEntryPrice"
+            >
+                FREE
+            </strong>
+
+        </div>
+
+
+        <button
+            class="booking-continue"
+            id="bookingContinue"
+            type="button"
+        >
+            Reserve Now
+        </button>
+
+
+    </footer>
+
+
+</section>
+
+<!-- =========================================
+     VAULT TICKET REVIEW
+========================================== -->
+
+<section
+    class="ticket-module"
+    id="ticketModule"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="ticketEventTitle"
+>
+
+    <div class="ticket-backdrop"></div>
+
+<div class="vault-ticket-shell">
+
+    <!-- HEADER -->
+
+    <div class="vault-ticket-header">
+
+        <div>
+            <span class="vault-ticket-eyebrow">
+                VAULT
+            </span>
+
+            <span class="vault-ticket-status">
+                RESERVATION CONFIRMED
+            </span>
+        </div>
+
+        <button
+            type="button"
+            class="ticket-header-close"
+            id="ticketHeaderClose"
+            aria-label="Close ticket"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <!-- QR HERO -->
+
+    <div class="vault-ticket-hero">
+
+        <div class="vault-ticket-qr-hero">
+
+            <div
+                id="ticketQr"
+                class="ticket-qr"
+            ></div>
+
+        </div>
+
+        <span class="vault-ticket-scan-label">
+            SCAN AT ENTRY
+        </span>
+
+        <div class="vault-ticket-reference">
+
+            <span>
+                RESERVATION REFERENCE
+            </span>
+
+            <strong
+                id="ticketReference"
+                class="ticket-reference"
+            ></strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- EVENT -->
+
+    <div class="vault-ticket-event">
+
+        <div class="vault-ticket-event-image">
+
+            <img
+                id="ticketEventImage"
+                class="vault-ticket-image"
+                src=""
+                alt=""
+            >
+
+        </div>
+
+        <div class="vault-ticket-event-info">
+
+            <span
+                id="ticketEventTheme"
+                class="ticket-event-theme"
+            ></span>
+
+            <h2 id="ticketEventTitle">
+                Your Experience
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <!-- DETAILS -->
+
+    <div class="vault-ticket-details">
+
+        <div class="vault-ticket-detail">
+
+            <span>DATE</span>
+
+            <strong
+                id="ticketEventDate"
+                class="ticket-date"
+            ></strong>
+
+        </div>
+
+
+        <div class="vault-ticket-detail">
+
+            <span>TIME</span>
+
+            <strong
+                id="ticketEventTime"
+                class="ticket-time"
+            ></strong>
+
+        </div>
+
+
+        <div class="vault-ticket-detail">
+
+            <span>LOCATION</span>
+
+            <strong
+                id="ticketEventLocation"
+                class="ticket-venue"
+            ></strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- ATTENDEE -->
+
+    <div class="vault-ticket-attendee">
+
+        <div>
+
+            <span>GUEST</span>
+
+            <strong
+                id="ticketGuestName"
+                class="ticket-guest-name"
+            ></strong>
+
+        </div>
+
+
+        <div>
+
+            <span>GUESTS</span>
+
+            <strong
+                id="ticketQuantity"
+                class="ticket-guests"
+            >
+                1
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>TICKET</span>
+
+            <strong
+                id="ticketType"
+                class="ticket-type"
+            >
+                FREE ENTRY
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- ACTIONS -->
+
+    <div class="vault-ticket-actions">
+
+        <button
+            type="button"
+            class="ticket-save-btn"
+            id="saveTicketBtn"
+        >
+            Save Ticket
+        </button>
+
+        <button
+            type="button"
+            class="ticket-done-btn"
+            id="ticketDoneBtn"
+        >
+            Done
+        </button>
+
+    </div>
+
+</div>
+
+
+</section>
+
+
+    <!-- =========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script defer src="js/upcoming-events.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <script defer src="js/vault-ticket.js"></script>
+
+    <script defer src="js/customer-session.js"></script>
+
+    <script defer src="js/booking.js"></script>
+
+    <script defer src="js/wishlist.js"></script>
+
+    <script defer src="js/app-navigation.js"></script>
+
+    <script defer src="js/help.js"></script>
+</body>
+
+</html>
+
