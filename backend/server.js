@@ -1,5 +1,5 @@
 require("dotenv").config({
-    path: require("path").join(__dirname, ".env")
+    path: require("path").join(__dirname, "..", ".env")
 });
 const express = require("express");
 const path = require("path");
@@ -52,7 +52,7 @@ app.set('dbPool', pool);
 app.use("/uploads", express.static(uploadsDir));
 app.use("/api/admin", adminRoutes);
 app.use(express.static(path.join(__dirname, "..")));
-const adminFrontend = path.join("C:", "Download", "Vault-Admin");
+const adminFrontend = path.join(__dirname, "..", "admin");
 
 /*==================================
 ADMIN STATIC ASSETS

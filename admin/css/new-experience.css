@@ -1,0 +1,1944 @@
+/*==================================
+VAULT — NEW EXPERIENCE
+==================================*/
+
+
+/*==================================
+MAIN
+==================================*/
+
+.new-experience-main{
+
+    width:100%;
+    min-height:100vh;
+
+    box-sizing:border-box;
+
+    background:#0b0b0b;
+
+    color:#f2f2f2;
+
+}
+
+
+/*==================================
+PAGE HEADER
+==================================*/
+
+.new-experience-header{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    gap:2rem;
+
+    padding:
+        2.2rem
+        1.5rem
+        2rem;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.07);
+
+}
+
+
+/*==================================
+HEADER EYEBROW
+==================================*/
+
+.new-experience-eyebrow{
+
+    display:block;
+
+    margin-bottom:.45rem;
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+    font-weight:700;
+
+    letter-spacing:.2rem;
+
+}
+
+
+/*==================================
+HEADER TITLE
+==================================*/
+
+.new-experience-header h1{
+
+    margin:0;
+
+    color:#f1f1f1;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:
+        clamp(
+            2rem,
+            8vw,
+            3.5rem
+        );
+
+    font-weight:400;
+
+    line-height:1.05;
+
+}
+
+
+/*==================================
+HEADER DESCRIPTION
+==================================*/
+
+.new-experience-header p{
+
+    margin:
+        .55rem
+        0
+        0;
+
+    color:#666;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.75rem;
+
+    line-height:1.5;
+
+}
+
+
+/*==================================
+CLOSE BUTTON
+==================================*/
+
+.new-experience-close{
+
+    width:42px;
+    height:42px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:50%;
+
+    background:#111;
+
+    color:#888;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:1.25rem;
+
+    line-height:1;
+
+    cursor:pointer;
+
+}
+
+
+.new-experience-close:hover{
+
+    border-color:
+        rgba(212,175,55,.35);
+
+    color:
+        var(--gold,#d4af37);
+
+}
+
+
+/*==================================
+EXPERIENCE IDENTITY
+==================================*/
+
+.new-experience-main
+.experience-form-section{
+
+    padding:
+        2rem
+        1.5rem
+        4rem;
+
+}
+
+
+/*==================================
+SECTION HEADING
+==================================*/
+
+.form-section-heading{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:1rem;
+
+    margin-bottom:2rem;
+
+}
+
+
+/*==================================
+SECTION NUMBER
+==================================*/
+
+.form-section-heading > span{
+
+    flex-shrink:0;
+
+    padding-top:.35rem;
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+    font-weight:700;
+
+    letter-spacing:.12rem;
+
+}
+
+
+/*==================================
+SECTION TITLE
+==================================*/
+
+.form-section-heading h2{
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:
+        clamp(
+            1.45rem,
+            6vw,
+            2.2rem
+        );
+
+    font-weight:400;
+
+    line-height:1.15;
+
+}
+
+
+/*==================================
+SECTION DESCRIPTION
+==================================*/
+
+.form-section-heading p{
+
+    margin:
+        .4rem
+        0
+        0;
+
+    color:#5d5d5d;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.7rem;
+
+    line-height:1.5;
+
+}
+
+
+/*==================================
+COVER FIELD
+==================================*/
+
+.experience-cover-field{
+
+    margin-bottom:1.5rem;
+
+}
+
+
+.experience-cover-field > label{
+
+    display:block;
+
+    margin-bottom:.55rem;
+
+    color:#888;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.62rem;
+
+    font-weight:600;
+
+}
+
+
+/*==================================
+COVER UPLOAD
+==================================*/
+
+.experience-cover-upload{
+
+    position:relative;
+
+    width:100%;
+
+    aspect-ratio:16 / 9;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-sizing:border-box;
+
+    border:
+        1px dashed
+        rgba(255,255,255,.13);
+
+    border-radius:16px;
+
+    background:#111;
+
+    cursor:pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease;
+
+}
+
+
+.experience-cover-upload:hover{
+
+    border-color:
+        rgba(212,175,55,.35);
+
+    background:#121212;
+
+}
+
+
+/*==================================
+COVER CONTENT
+==================================*/
+
+.cover-upload-content{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:.3rem;
+
+    flex-wrap:wrap;
+
+    padding:1rem;
+
+    text-align:center;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+}
+
+
+/*==================================
+PLUS
+==================================*/
+
+.cover-upload-mark{
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:#eee;
+
+    font-size:1.3rem;
+
+    font-weight:300;
+
+}
+
+
+/*==================================
+UPLOAD TITLE
+==================================*/
+
+.cover-upload-content strong{
+
+    color:#eee;
+
+    font-size:.8rem;
+
+    font-weight:600;
+
+}
+
+
+/*==================================
+UPLOAD NOTE
+==================================*/
+
+.cover-upload-content > span:last-child{
+
+    color:#555;
+
+    font-size:.65rem;
+
+}
+
+
+/*==================================
+FILE INPUT
+==================================*/
+
+#experienceCoverInput{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    opacity:0;
+
+    cursor:pointer;
+
+}
+
+
+/*==================================
+FORM FIELD
+==================================*/
+
+.form-field{
+
+    width:100%;
+
+    margin-bottom:1.25rem;
+
+}
+
+
+/*==================================
+FORM LABEL
+==================================*/
+
+.form-field label{
+
+    display:block;
+
+    margin-bottom:.5rem;
+
+    color:#888;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.62rem;
+
+    font-weight:600;
+
+    letter-spacing:.03rem;
+
+}
+
+
+/*==================================
+INPUT + TEXTAREA
+==================================*/
+
+.form-field input,
+.form-field textarea{
+
+    display:block;
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:
+        .85rem
+        .9rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:10px;
+
+    outline:none;
+
+    background:#111;
+
+    color:#eee;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.78rem;
+
+    line-height:1.5;
+
+    appearance:none;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease;
+
+}
+
+
+/*==================================
+TEXTAREA
+==================================*/
+
+.form-field textarea{
+
+    min-height:90px;
+
+    resize:vertical;
+
+}
+
+
+/*==================================
+FULL DESCRIPTION
+==================================*/
+
+#experienceDescription{
+
+    min-height:150px;
+
+}
+
+
+/*==================================
+PLACEHOLDER
+==================================*/
+
+.form-field input::placeholder,
+.form-field textarea::placeholder{
+
+    color:#444;
+
+}
+
+
+/*==================================
+FOCUS
+==================================*/
+
+.form-field input:focus,
+.form-field textarea:focus{
+
+    border-color:
+        rgba(212,175,55,.45);
+
+    background:#131313;
+
+}
+
+
+/*==================================
+DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .new-experience-main{
+
+        margin-left:260px;
+
+        width:
+            calc(100% - 260px);
+
+    }
+
+
+    .new-experience-header{
+
+        padding:
+            3rem
+            4rem
+            2.5rem;
+
+    }
+
+
+    .new-experience-main
+    .experience-form-section{
+
+        max-width:900px;
+
+        padding:
+            3rem
+            4rem
+            5rem;
+
+    }
+
+
+    .experience-cover-upload{
+
+        aspect-ratio:16 / 7;
+
+    }
+
+
+    .form-field{
+
+        max-width:700px;
+
+    }
+
+}
+
+/*==================================
+DATE & TIME INPUTS
+==================================*/
+
+.form-field input[type="date"],
+.form-field input[type="time"]{
+
+    color-scheme:dark;
+
+}
+
+
+/*==================================
+LOCATION DETAILS
+==================================*/
+
+#experienceLocationNote{
+
+    min-height:100px;
+
+}
+
+
+/*==================================
+SECTION SEPARATOR
+==================================*/
+
+.experience-form-section
++ .experience-form-section{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+
+}
+
+
+/*==================================
+DATE / TIME DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .experience-form-section
+    + .experience-form-section{
+
+        margin-top:1rem;
+
+    }
+
+}
+
+/*==================================
+TICKET LIST
+==================================*/
+
+.experience-ticket-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1rem;
+
+}
+
+
+/*==================================
+TICKET CARD
+==================================*/
+
+.experience-ticket-card{
+
+    padding:1.1rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:14px;
+
+    background:#111;
+
+}
+
+
+/*==================================
+TICKET HEADER
+==================================*/
+
+.experience-ticket-card-header{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    gap:1rem;
+
+    margin-bottom:1.2rem;
+
+}
+
+
+/*==================================
+TICKET LABEL
+==================================*/
+
+.experience-ticket-label{
+
+    display:block;
+
+    margin-bottom:.35rem;
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.48rem;
+
+    font-weight:700;
+
+    letter-spacing:.14rem;
+
+}
+
+
+/*==================================
+TICKET TITLE
+==================================*/
+
+.experience-ticket-card-header h3{
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1rem;
+
+    font-weight:400;
+
+}
+
+
+/*==================================
+REMOVE
+==================================*/
+
+.experience-ticket-remove{
+
+    width:30px;
+    height:30px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:50%;
+
+    background:#151515;
+
+    color:#666;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+}
+
+
+.experience-ticket-remove:hover{
+
+    border-color:
+        rgba(255,80,80,.3);
+
+    color:#aaa;
+
+}
+
+
+/*==================================
+TICKET FIELD ROW
+==================================*/
+
+.ticket-field-row{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:.7rem;
+
+}
+
+
+/*==================================
+PRICE INPUT
+==================================*/
+
+.ticket-price-input{
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:10px;
+
+    background:#111;
+
+}
+
+
+.ticket-price-input span{
+
+    padding-left:.85rem;
+
+    color:#666;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.72rem;
+
+}
+
+
+.ticket-price-input input{
+
+    border:0 !important;
+
+    background:transparent !important;
+
+}
+
+
+/*==================================
+ADD TICKET
+==================================*/
+
+.add-ticket-btn{
+
+    width:100%;
+
+    min-height:50px;
+
+    margin-top:1rem;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:.5rem;
+
+    border:
+        1px dashed
+        rgba(212,175,55,.25);
+
+    border-radius:11px;
+
+    background:
+        rgba(212,175,55,.025);
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.68rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease;
+
+}
+
+
+.add-ticket-btn span{
+
+    font-size:1.1rem;
+
+    font-weight:300;
+
+}
+
+
+.add-ticket-btn:hover{
+
+    border-color:
+        rgba(212,175,55,.5);
+
+    background:
+        rgba(212,175,55,.06);
+
+}
+
+
+/*==================================
+DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .experience-ticket-card{
+
+        padding:1.5rem;
+
+    }
+
+}
+
+/*==================================
+SETTINGS FIELD ROW
+==================================*/
+
+.settings-field-row{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:.7rem;
+
+}
+
+
+/*==================================
+SELECT
+==================================*/
+
+.form-field select{
+
+    width:100%;
+
+    min-height:48px;
+
+    padding:
+        0
+        .9rem;
+
+    box-sizing:border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:10px;
+
+    outline:none;
+
+    background:#111;
+
+    color:#eee;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.72rem;
+
+    color-scheme:dark;
+
+}
+
+
+.form-field select:focus{
+
+    border-color:
+        rgba(212,175,55,.45);
+
+}
+
+
+/*==================================
+TOGGLE FIELD
+==================================*/
+
+.experience-toggle-field{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:1rem;
+
+    margin-top:1.2rem;
+
+    padding:
+        1rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:12px;
+
+    background:#111;
+
+}
+
+
+/*==================================
+TOGGLE TEXT
+==================================*/
+
+.experience-toggle-title{
+
+    display:block;
+
+    margin-bottom:.3rem;
+
+    color:#ddd;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.7rem;
+
+    font-weight:600;
+
+}
+
+
+.experience-toggle-description{
+
+    display:block;
+
+    max-width:280px;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+    line-height:1.5;
+
+}
+
+
+/*==================================
+TOGGLE
+==================================*/
+
+.vault-toggle{
+
+    position:relative;
+
+    width:42px;
+    height:23px;
+
+    flex-shrink:0;
+
+}
+
+
+.vault-toggle input{
+
+    position:absolute;
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+
+.vault-toggle-slider{
+
+    position:absolute;
+
+    inset:0;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius:20px;
+
+    background:#191919;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+
+}
+
+
+.vault-toggle-slider::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:17px;
+    height:17px;
+
+    left:2px;
+    top:2px;
+
+    border-radius:50%;
+
+    background:#555;
+
+    transition:.2s ease;
+
+}
+
+
+.vault-toggle input:checked
++ .vault-toggle-slider{
+
+    border-color:
+        rgba(212,175,55,.5);
+
+    background:
+        rgba(212,175,55,.12);
+
+}
+
+
+.vault-toggle input:checked
++ .vault-toggle-slider::before{
+
+    transform:
+        translateX(19px);
+
+    background:
+        var(--gold,#d4af37);
+
+}
+
+
+/*==================================
+DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .settings-field-row{
+
+        max-width:700px;
+
+    }
+
+
+    .experience-toggle-field{
+
+        max-width:700px;
+
+    }
+
+}
+
+/*==================================
+REVIEW CARD
+==================================*/
+
+.experience-review-card{
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:16px;
+
+    background:#111;
+
+}
+
+
+/*==================================
+REVIEW COVER
+==================================*/
+
+.review-cover{
+
+    position:relative;
+
+    width:100%;
+
+    aspect-ratio:16 / 8;
+
+    overflow:hidden;
+
+    background:#171717;
+
+}
+
+
+.review-cover img{
+
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+}
+
+
+/*==================================
+REVIEW DETAILS
+==================================*/
+
+.review-details{
+
+    padding:1.2rem;
+
+}
+
+
+.review-theme{
+
+    display:block;
+
+    margin-bottom:.35rem;
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.48rem;
+
+    font-weight:700;
+
+    letter-spacing:.13rem;
+
+}
+
+
+.review-details h3{
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1.35rem;
+
+    font-weight:400;
+
+}
+
+
+.review-details p{
+
+    margin:
+        .65rem
+        0
+        1.2rem;
+
+    color:#666;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.65rem;
+
+    line-height:1.6;
+
+}
+
+
+/*==================================
+REVIEW META
+==================================*/
+
+.review-meta{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:.7rem;
+
+    padding-top:1rem;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+
+}
+
+
+.review-meta div{
+
+    min-width:0;
+
+}
+
+
+.review-meta span{
+
+    display:block;
+
+    margin-bottom:.3rem;
+
+    color:#4f4f4f;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.45rem;
+
+    font-weight:700;
+
+    letter-spacing:.08rem;
+
+}
+
+
+.review-meta strong{
+
+    display:block;
+
+    overflow:hidden;
+
+    color:#aaa;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.58rem;
+
+    font-weight:500;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+}
+
+
+/*==================================
+PUBLISH ACTIONS
+==================================*/
+
+.experience-publish-actions{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.7rem;
+
+    margin-top:1rem;
+
+}
+
+
+/*==================================
+SAVE DRAFT
+==================================*/
+
+.experience-save-draft,
+.experience-publish{
+
+    width:100%;
+
+    min-height:50px;
+
+    border-radius:10px;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.63rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease;
+
+}
+
+
+/*==================================
+DRAFT
+==================================*/
+
+.experience-save-draft{
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    background:transparent;
+
+    color:#777;
+
+}
+
+
+.experience-save-draft:hover{
+
+    border-color:
+        rgba(255,255,255,.18);
+
+    color:#aaa;
+
+}
+
+
+/*==================================
+PUBLISH
+==================================*/
+
+.experience-publish{
+
+    border:
+        1px solid
+        rgba(212,175,55,.4);
+
+    background:
+        linear-gradient(
+            145deg,
+            #211d10,
+            #14130e
+        );
+
+    color:
+        var(--gold,#d4af37);
+
+    letter-spacing:.06rem;
+
+}
+
+
+.experience-publish:hover{
+
+    border-color:
+        rgba(212,175,55,.7);
+
+    background:
+        linear-gradient(
+            145deg,
+            #29230f,
+            #17150d
+        );
+
+}
+
+
+/*==================================
+DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .experience-review-card{
+
+        display:grid;
+
+        grid-template-columns:
+            280px
+            1fr;
+
+    }
+
+
+    .review-cover{
+
+        aspect-ratio:auto;
+
+        min-height:240px;
+
+        height:100%;
+
+    }
+
+
+    .review-details{
+
+        padding:1.5rem;
+
+    }
+
+
+    .experience-publish-actions{
+
+        flex-direction:row;
+
+        justify-content:flex-end;
+
+    }
+
+
+    .experience-save-draft{
+
+        width:150px;
+
+    }
+
+
+    .experience-publish{
+
+        width:190px;
+
+    }
+
+}
+
+.experience-list-panel {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 24px;
+    background: rgba(12,15,22,.68);
+}
+
+.experience-list-header {
+    margin-bottom: 1rem;
+}
+
+.experience-list-header h2 {
+    margin: .6rem 0 0;
+    font-size: clamp(1.35rem, 2vw, 1.9rem);
+}
+
+.experience-list {
+    display: grid;
+    gap: .85rem;
+}
+
+.experience-list-item {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr) auto;
+    gap: .9rem;
+    align-items: center;
+    padding: .8rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.03);
+}
+
+.experience-list-thumb {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: rgba(255,255,255,.05);
+}
+
+.experience-list-meta {
+    min-width: 0;
+}
+
+.experience-list-meta strong {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: .2rem;
+}
+
+.experience-list-meta span {
+    display: block;
+    color: rgba(235,237,241,.7);
+    font-size: .8rem;
+}
+
+.experience-list-actions {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.experience-list-actions button {
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px;
+    background: rgba(255,255,255,.04);
+    color: var(--white, #f7f6f3);
+    padding: .5rem .8rem;
+    cursor: pointer;
+    font: inherit;
+}
+
+.experience-list-actions .delete-event-btn {
+    border-color: rgba(255,120,120,.35);
+    color: #ffc2c2;
+}
+
+.experience-form-status {
+    min-height: 1.5rem;
+    margin-bottom: .9rem;
+    font-size: .85rem;
+    color: rgba(235,237,241,.8);
+}
+
+.experience-form-status.error {
+    color: #ff9d9d;
+}
+
+.experience-form-status.success {
+    color: #99e4ae;
+}
+
+.experience-form-status.info {
+    color: rgba(235,237,241,.8);
+}
+
+.review-cover img[src=""] {
+    opacity: .4;
+}
+
+/*==================================
+EXPERIENCE ACCESS TYPE
+==================================*/
+
+.experience-access-type{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:.6rem;
+
+    max-width:700px;
+
+    margin-bottom:1.5rem;
+
+}
+
+
+/*==================================
+ACCESS TAB
+==================================*/
+
+.experience-access-tab{
+
+    min-height:70px;
+
+    padding:
+        .8rem
+        1rem;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    justify-content:center;
+
+    gap:.3rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:12px;
+
+    background:#111;
+
+    color:#777;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease;
+
+}
+
+
+/*==================================
+ACCESS TAB TITLE
+==================================*/
+
+.experience-access-tab span{
+
+    color:#aaa;
+
+    font-size:.72rem;
+
+    font-weight:600;
+
+}
+
+
+/*==================================
+ACCESS TAB DESCRIPTION
+==================================*/
+
+.experience-access-tab small{
+
+    color:#4f4f4f;
+
+    font-size:.52rem;
+
+    line-height:1.4;
+
+}
+
+
+/*==================================
+ACTIVE ACCESS TAB
+==================================*/
+
+.experience-access-tab.active{
+
+    border-color:
+        rgba(212,175,55,.45);
+
+    background:
+        rgba(212,175,55,.055);
+
+}
+
+
+.experience-access-tab.active span{
+
+    color:
+        var(--gold,#d4af37);
+
+}
+
+
+.experience-access-tab.active small{
+
+    color:#777;
+
+}
+
+
+/*==================================
+HOVER
+==================================*/
+
+.experience-access-tab:hover{
+
+    border-color:
+        rgba(212,175,55,.28);
+
+}
+
+
+/*==================================
+FREE SETTINGS
+==================================*/
+
+.experience-free-settings{
+
+    max-width:700px;
+
+    padding:
+        1.1rem;
+
+    margin-bottom:1rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:14px;
+
+    background:#111;
+
+}
+
+
+/*==================================
+FREE REQUIREMENTS
+==================================*/
+
+#experienceRequirements{
+
+    min-height:110px;
+
+}
+
+
+/*==================================
+FREE RESERVATION LIMIT
+==================================*/
+
+#experienceMaxReservations{
+
+    max-width:100%;
+
+}
+
+
+/*==================================
+PAID SETTINGS
+==================================*/
+
+.experience-paid-settings{
+
+    width:100%;
+
+}
+
+
+/*==================================
+HIDDEN STATE
+==================================*/
+
+.experience-paid-settings[hidden],
+.experience-free-settings[hidden]{
+
+    display:none;
+
+}
+
+
+/*==================================
+DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .experience-access-type{
+
+        gap:.8rem;
+
+    }
+
+
+    .experience-access-tab{
+
+        min-height:76px;
+
+        padding:
+            1rem
+            1.2rem;
+
+    }
+
+}

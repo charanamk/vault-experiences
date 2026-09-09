@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VAULT — Customers</title>
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css">
+
+    <link
+        rel="stylesheet"
+        href="css/customers.css">
+
+</head>
+
+
+<body>
+
+
+<!--==================================
+VAULT ADMIN
+==================================-->
+
+<div
+    class="vault-admin"
+    id="vaultAdmin">
+
+
+    <!--==================================
+    MOBILE HEADER
+    ==================================-->
+
+    <header class="admin-mobile-header">
+
+        <div class="admin-brand">
+
+            <span class="admin-brand-name">
+                VAULT
+            </span>
+
+            <span class="admin-brand-label">
+                ADMIN
+            </span>
+
+        </div>
+
+
+        <button
+            class="admin-menu-btn"
+            id="adminMenuBtn"
+            type="button"
+            aria-label="Open navigation">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+
+
+    <!--==================================
+    SIDEBAR
+    ==================================-->
+
+    <aside
+        class="admin-sidebar"
+        id="adminSidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="admin-sidebar-brand">
+
+            <span class="admin-logo">
+                VAULT
+            </span>
+
+            <span class="admin-label">
+                ADMIN
+            </span>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="admin-nav">
+
+            <span class="admin-nav-title">
+                MANAGEMENT
+            </span>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="dashboard">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="events">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Events
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="tickets">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Tickets
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="bookings">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Bookings
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item active"
+                type="button"
+                data-section="customers">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Customers
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="equipment">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Equipment
+                </span>
+
+            </button>
+
+
+            <span class="admin-nav-title admin-nav-title-bottom">
+                INSIGHTS
+            </span>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="analytics">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Analytics
+                </span>
+
+            </button>
+
+        </nav>
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="admin-sidebar-footer">
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="settings">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Settings
+                </span>
+
+            </button>
+
+
+            <div class="admin-profile">
+
+                <div class="admin-profile-avatar">
+                    V
+                </div>
+
+                <div class="admin-profile-info">
+
+                    <strong>
+                        Vault Admin
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!--==================================
+    SIDEBAR OVERLAY
+    ==================================-->
+
+    <div
+        class="admin-sidebar-overlay"
+        id="adminSidebarOverlay">
+    </div>
+
+
+
+    <!--==================================
+    CUSTOMERS MAIN
+    ==================================-->
+
+    <main class="admin-main customers-main">
+
+
+        <!--==================================
+        PAGE HEADER
+        ==================================-->
+
+        <header class="customers-header">
+
+            <div>
+
+                <span class="customers-eyebrow">
+                    CUSTOMER MANAGEMENT
+                </span>
+
+                <h1>
+                    Customers
+                </h1>
+
+                <p>
+                    Understand the people behind every experience.
+                </p>
+
+            </div>
+
+        </header>
+
+
+
+        <!--==================================
+        CUSTOMER OVERVIEW
+        ==================================-->
+
+        <section
+            class="customers-overview"
+            aria-label="Customer overview">
+
+
+            <div class="customer-overview-card">
+
+                <span>
+                    TOTAL CUSTOMERS
+                </span>
+
+                <strong id="customerTotal">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="customer-overview-card">
+
+                <span>
+                    ACTIVE CUSTOMERS
+                </span>
+
+                <strong id="customerActive">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="customer-overview-card">
+
+                <span>
+                    TICKETS PURCHASED
+                </span>
+
+                <strong id="customerTickets">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="customer-overview-card">
+
+                <span>
+                    TOTAL SPEND
+                </span>
+
+                <strong id="customerRevenue">
+                    KSh 0
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!--==================================
+        CUSTOMER DIRECTORY
+        ==================================-->
+
+        <section class="customers-directory">
+
+
+            <!-- DIRECTORY HEADER -->
+
+            <div class="customers-directory-header">
+
+                <div>
+
+                    <span>
+                        DIRECTORY
+                    </span>
+
+                    <h2>
+                        All Customers
+                    </h2>
+
+                </div>
+
+
+                <div class="customer-search">
+
+                    <span aria-hidden="true">
+                        ⌕
+                    </span>
+
+                    <input
+                        type="search"
+                        id="customerSearch"
+                        placeholder="Search customers..."
+                        autocomplete="off"
+                        aria-label="Search customers">
+
+                </div>
+
+            </div>
+
+
+
+            <!--==================================
+            CUSTOMER LIST
+
+            Populated dynamically by customers.js
+            ==================================-->
+
+            <div
+                class="customer-list"
+                id="customerList">
+
+            </div>
+
+
+
+            <!-- EMPTY STATE -->
+
+            <div
+                class="customer-empty"
+                id="customerEmpty"
+                hidden>
+
+                <span>
+                    NO CUSTOMERS
+                </span>
+
+                <h3>
+                    No customers found.
+                </h3>
+
+                <p>
+                    Customers will appear here once bookings are created.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!--==================================
+        CUSTOMER DETAILS PANEL
+        ==================================-->
+
+        <aside
+            class="customer-details"
+            id="customerDetails"
+            aria-hidden="true">
+
+
+            <!-- DETAILS HEADER -->
+
+            <div class="customer-details-header">
+
+                <div>
+
+                    <span>
+                        CUSTOMER PROFILE
+                    </span>
+
+                    <h2 id="detailsCustomerName">
+                        Customer
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="customer-details-close"
+                    id="customerDetailsClose"
+                    type="button"
+                    aria-label="Close customer details">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+
+            <!--==================================
+            PROFILE
+            ==================================-->
+
+            <div class="customer-profile">
+
+                <div
+                    class="customer-profile-avatar"
+                    id="detailsCustomerAvatar">
+
+                    A
+
+                </div>
+
+
+                <div>
+
+                    <strong id="detailsCustomerEmail">
+                        customer@example.com
+                    </strong>
+
+                    <span id="detailsCustomerPhone">
+                        —
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!--==================================
+            CUSTOMER STATS
+            ==================================-->
+
+            <div class="customer-detail-stats">
+
+
+                <div>
+
+                    <span>
+                        TICKETS
+                    </span>
+
+                    <strong id="detailsTickets">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        TOTAL SPEND
+                    </span>
+
+                    <strong id="detailsSpend">
+                        KSh 0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!--==================================
+            EXPERIENCE HISTORY
+            ==================================-->
+
+            <div class="customer-history">
+
+                <span class="customer-history-label">
+                    EXPERIENCE HISTORY
+                </span>
+
+
+                <div
+                    class="customer-history-list"
+                    id="customerHistory">
+
+                </div>
+
+
+                <!-- HISTORY EMPTY STATE -->
+
+                <div
+                    class="customer-history-empty"
+                    id="customerHistoryEmpty"
+                    hidden>
+
+                    No experience history yet.
+
+                </div>
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!--==================================
+        DETAILS OVERLAY
+        ==================================-->
+
+        <div
+            class="customer-details-overlay"
+            id="customerDetailsOverlay">
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!--==================================
+SCRIPTS
+==================================-->
+
+<script src="js/admin.js"></script>
+
+<script src="js/customers.js"></script>
+
+
+</body>
+
+</html>

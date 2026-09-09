@@ -1,0 +1,1438 @@
+/*==================================
+EQUIPMENT MAIN
+==================================*/
+
+.equipment-main{
+
+    min-height:100vh;
+
+    box-sizing:border-box;
+
+    background:#0b0b0b;
+
+}
+
+
+/*==================================
+PAGE HEADER
+==================================*/
+
+.equipment-header{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1.5rem;
+
+    padding:
+        3rem
+        1.5rem
+        2.5rem;
+
+}
+
+
+.equipment-eyebrow{
+
+    display:block;
+
+    margin-bottom:.55rem;
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.52rem;
+
+    font-weight:700;
+
+    letter-spacing:.17rem;
+
+}
+
+
+.equipment-header h1{
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:
+        clamp(
+            2rem,
+            8vw,
+            3.5rem
+        );
+
+    font-weight:400;
+
+    line-height:1.05;
+
+}
+
+
+.equipment-header p{
+
+    max-width:420px;
+
+    margin:
+        .8rem
+        0
+        0;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.7rem;
+
+    line-height:1.6;
+
+}
+
+
+/*==================================
+ADD EQUIPMENT BUTTON
+==================================*/
+
+.equipment-add-btn{
+
+    width:max-content;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.5rem;
+
+    padding:
+        .65rem
+        .9rem;
+
+    border:
+        1px solid
+        rgba(212,175,55,.25);
+
+    border-radius:7px;
+
+    background:
+        rgba(212,175,55,.06);
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.52rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+.equipment-add-btn span{
+
+    font-size:.9rem;
+
+    line-height:1;
+
+}
+
+
+/*==================================
+SECTION HEADING
+==================================*/
+
+.equipment-section-heading{
+
+    margin-bottom:1rem;
+
+}
+
+
+.equipment-section-heading > span{
+
+    display:block;
+
+    margin-bottom:.35rem;
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.45rem;
+
+    font-weight:700;
+
+    letter-spacing:.14rem;
+
+}
+
+
+.equipment-section-heading h2{
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1.25rem;
+
+    font-weight:400;
+
+}
+
+
+/*==================================
+CATEGORIES
+==================================*/
+
+.equipment-categories{
+
+    padding:
+        0
+        1.5rem
+        2.5rem;
+
+}
+
+
+.equipment-category-list{
+
+    display:flex;
+
+    gap:.55rem;
+
+    overflow-x:auto;
+
+    padding-bottom:.35rem;
+
+    scrollbar-width:none;
+
+}
+
+
+.equipment-category-list::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+
+.equipment-category{
+
+    flex-shrink:0;
+
+    min-width:125px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:.55rem;
+
+    padding:.8rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:11px;
+
+    background:#111;
+
+    color:#777;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.52rem;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease;
+
+}
+
+
+.equipment-category:hover{
+
+    border-color:
+        rgba(212,175,55,.2);
+
+}
+
+
+.equipment-category.active{
+
+    border-color:
+        rgba(212,175,55,.3);
+
+    background:
+        rgba(212,175,55,.06);
+
+    color:
+        var(--gold,#d4af37);
+
+}
+
+
+.equipment-category-number{
+
+    color:#444;
+
+    font-size:.45rem;
+
+    font-weight:700;
+
+    letter-spacing:.08rem;
+
+}
+
+
+.equipment-category.active
+.equipment-category-number{
+
+    color:
+        var(--gold,#d4af37);
+
+}
+
+
+/*==================================
+INVENTORY
+==================================*/
+
+.equipment-inventory{
+
+    padding:
+        0
+        1.5rem
+        3rem;
+
+}
+
+
+/*==================================
+INVENTORY HEADER
+==================================*/
+
+.equipment-inventory-header{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1rem;
+
+    margin-bottom:1rem;
+
+}
+
+
+.equipment-inventory-header > div:first-child > span{
+
+    display:block;
+
+    margin-bottom:.35rem;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.45rem;
+
+    font-weight:700;
+
+    letter-spacing:.14rem;
+
+}
+
+
+.equipment-inventory-header h2{
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1.25rem;
+
+    font-weight:400;
+
+}
+
+
+/*==================================
+SEARCH
+==================================*/
+
+.equipment-search{
+
+    width:100%;
+
+    min-height:40px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.5rem;
+
+    padding:
+        0
+        .7rem;
+
+    box-sizing:border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:8px;
+
+    background:#101010;
+
+}
+
+
+.equipment-search > span{
+
+    color:#555;
+
+    font-size:1rem;
+
+}
+
+
+.equipment-search input{
+
+    width:100%;
+
+    border:0;
+
+    outline:0;
+
+    background:transparent;
+
+    color:#ddd;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+}
+
+
+.equipment-search input::placeholder{
+
+    color:#444;
+
+}
+
+
+/*==================================
+EQUIPMENT GRID
+==================================*/
+
+.equipment-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr;
+
+    gap:.8rem;
+
+}
+
+
+/*==================================
+EQUIPMENT CARD
+==================================*/
+
+.equipment-card{
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:15px;
+
+    background:#111;
+
+    transition:
+        border-color .2s ease,
+        transform .2s ease;
+
+}
+
+
+.equipment-card:hover{
+
+    border-color:
+        rgba(212,175,55,.18);
+
+}
+
+
+/*==================================
+IMAGE
+==================================*/
+
+.equipment-image{
+
+    position:relative;
+
+    width:100%;
+
+    height:185px;
+
+    overflow:hidden;
+
+    background:#171717;
+
+}
+
+
+.equipment-image img{
+
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:
+        transform .4s ease;
+
+}
+
+
+.equipment-card:hover
+.equipment-image img{
+
+    transform:scale(1.03);
+
+}
+
+
+/*==================================
+STATUS
+==================================*/
+
+.equipment-status{
+
+    position:absolute;
+
+    top:.65rem;
+    right:.65rem;
+
+    padding:
+        .3rem
+        .5rem;
+
+    border-radius:20px;
+
+    background:
+        rgba(0,0,0,.7);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.42rem;
+
+    font-weight:600;
+
+}
+
+
+.equipment-status.available{
+
+    color:#78916f;
+
+}
+
+
+/*==================================
+CARD BODY
+==================================*/
+
+.equipment-card-body{
+
+    padding:1rem;
+
+}
+
+
+.equipment-card-category{
+
+    display:block;
+
+    margin-bottom:.35rem;
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.43rem;
+
+    font-weight:700;
+
+    letter-spacing:.12rem;
+
+}
+
+
+.equipment-card-body h3{
+
+    margin:0;
+
+    color:#ddd;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1rem;
+
+    font-weight:500;
+
+}
+
+
+.equipment-card-body p{
+
+    min-height:2.5rem;
+
+    margin:
+        .5rem
+        0
+        1rem;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.53rem;
+
+    line-height:1.55;
+
+}
+
+
+/*==================================
+CARD FOOTER
+==================================*/
+
+.equipment-card-footer{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    gap:1rem;
+
+    padding-top:.8rem;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.05);
+
+}
+
+
+.equipment-card-footer > div span{
+
+    display:block;
+
+    margin-bottom:.2rem;
+
+    color:#444;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.4rem;
+
+    font-weight:700;
+
+    letter-spacing:.08rem;
+
+}
+
+
+.equipment-card-footer > div strong{
+
+    color:#aaa;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.65rem;
+
+    font-weight:500;
+
+}
+
+
+/*==================================
+MANAGE BUTTON
+==================================*/
+
+.equipment-manage-btn{
+
+    padding:
+        .45rem
+        .65rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:6px;
+
+    background:transparent;
+
+    color:#666;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.45rem;
+
+    cursor:pointer;
+
+}
+
+
+.equipment-manage-btn:hover{
+
+    border-color:
+        rgba(212,175,55,.3);
+
+    color:
+        var(--gold,#d4af37);
+
+}
+
+
+/*==================================
+SIDE PANEL
+==================================*/
+
+.equipment-panel,
+.equipment-add-panel{
+
+    position:fixed;
+
+    top:0;
+    right:0;
+    bottom:0;
+
+    z-index:100;
+
+    width:
+        min(
+            90%,
+            430px
+        );
+
+    padding:1.2rem;
+
+    box-sizing:border-box;
+
+    overflow-y:auto;
+
+    background:#111;
+
+    border-left:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transform:
+        translateX(100%);
+
+    transition:
+        transform .3s ease;
+
+}
+
+
+.equipment-panel.is-open,
+.equipment-add-panel.is-open{
+
+    transform:
+        translateX(0);
+
+}
+
+
+/*==================================
+PANEL HEADER
+==================================*/
+
+.equipment-panel-header{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    gap:1rem;
+
+    padding-bottom:1rem;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
+
+}
+
+
+.equipment-panel-header span{
+
+    display:block;
+
+    margin-bottom:.35rem;
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.43rem;
+
+    font-weight:700;
+
+    letter-spacing:.12rem;
+
+}
+
+
+.equipment-panel-header h2{
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1.3rem;
+
+    font-weight:400;
+
+}
+
+
+.equipment-panel-close,
+.equipment-add-panel-close{
+
+    width:32px;
+    height:32px;
+
+    flex-shrink:0;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:50%;
+
+    background:transparent;
+
+    color:#777;
+
+    font-size:1.2rem;
+
+    cursor:pointer;
+
+}
+
+
+/*==================================
+PANEL IMAGE
+==================================*/
+
+.equipment-panel-image{
+
+    width:100%;
+
+    height:210px;
+
+    margin-top:1rem;
+
+    overflow:hidden;
+
+    border-radius:12px;
+
+    background:#171717;
+
+}
+
+
+.equipment-panel-image img{
+
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+}
+
+
+/*==================================
+PANEL DETAILS
+==================================*/
+
+.equipment-panel-details{
+
+    padding-top:1.2rem;
+
+}
+
+
+.equipment-panel-category{
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.45rem;
+
+    font-weight:700;
+
+    letter-spacing:.12rem;
+
+}
+
+
+.equipment-panel-details p{
+
+    margin:
+        .7rem
+        0
+        1.2rem;
+
+    color:#666;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.58rem;
+
+    line-height:1.65;
+
+}
+
+
+/*==================================
+PANEL STATS
+==================================*/
+
+.equipment-panel-stats{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:9px;
+
+    overflow:hidden;
+
+}
+
+
+.equipment-panel-stats div{
+
+    padding:.8rem;
+
+    background:#0d0d0d;
+
+}
+
+
+.equipment-panel-stats div + div{
+
+    border-left:
+        1px solid
+        rgba(255,255,255,.06);
+
+}
+
+
+.equipment-panel-stats span{
+
+    display:block;
+
+    margin-bottom:.3rem;
+
+    color:#444;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.4rem;
+
+    font-weight:700;
+
+    letter-spacing:.08rem;
+
+}
+
+
+.equipment-panel-stats strong{
+
+    color:#aaa;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.62rem;
+
+    font-weight:500;
+
+}
+
+
+/*==================================
+EDIT BUTTON
+==================================*/
+
+.equipment-edit-btn{
+
+    width:100%;
+
+    margin-top:1rem;
+
+    padding:.75rem;
+
+    border:
+        1px solid
+        rgba(212,175,55,.25);
+
+    border-radius:7px;
+
+    background:
+        rgba(212,175,55,.06);
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.53rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+/*==================================
+PANEL OVERLAY
+==================================*/
+
+.equipment-panel-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:90;
+
+    background:
+        rgba(0,0,0,.72);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease;
+
+}
+
+
+.equipment-panel-overlay.is-visible{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+
+/*==================================
+ADD FORM
+==================================*/
+
+.equipment-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1rem;
+
+    padding-top:1.2rem;
+
+}
+
+
+.equipment-form-field{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.4rem;
+
+}
+
+
+.equipment-form-field label{
+
+    color:#666;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.47rem;
+
+    font-weight:700;
+
+    letter-spacing:.08rem;
+
+}
+
+
+.equipment-form-field input,
+.equipment-form-field select,
+.equipment-form-field textarea{
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:.75rem;
+
+    outline:0;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:7px;
+
+    background:#0d0d0d;
+
+    color:#ccc;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+}
+
+
+.equipment-form-field textarea{
+
+    resize:vertical;
+
+    min-height:110px;
+
+}
+
+
+.equipment-form-field input:focus,
+.equipment-form-field select:focus,
+.equipment-form-field textarea:focus{
+
+    border-color:
+        rgba(212,175,55,.3);
+
+}
+
+
+/*==================================
+UPLOAD
+==================================*/
+
+.equipment-upload{
+
+    min-height:130px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:.35rem;
+
+    border:
+        1px dashed
+        rgba(255,255,255,.1);
+
+    border-radius:9px;
+
+    background:#0d0d0d;
+
+    cursor:pointer;
+
+}
+
+
+.equipment-upload > span{
+
+    color:
+        var(--gold,#d4af37);
+
+    font-size:1.2rem;
+
+}
+
+
+.equipment-upload strong{
+
+    color:#777;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.52rem;
+
+    font-weight:500;
+
+}
+
+
+.equipment-upload small{
+
+    color:#444;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.42rem;
+
+}
+
+
+/*==================================
+SAVE BUTTON
+==================================*/
+
+.equipment-save-btn{
+
+    width:100%;
+
+    margin-top:.3rem;
+
+    padding:.8rem;
+
+    border:0;
+
+    border-radius:7px;
+
+    background:
+        var(--gold,#d4af37);
+
+    color:#0b0b0b;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.53rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+
+/*==================================
+DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .equipment-main{
+
+        margin-left:260px;
+
+        width:
+            calc(100% - 260px);
+
+    }
+
+
+    .equipment-header{
+
+        flex-direction:row;
+
+        align-items:flex-end;
+
+        justify-content:space-between;
+
+        padding:
+            5rem
+            4rem
+            2.5rem;
+
+    }
+
+
+    .equipment-categories{
+
+        padding:
+            0
+            4rem
+            3rem;
+
+    }
+
+
+    .equipment-category-list{
+
+        overflow:visible;
+
+    }
+
+
+    .equipment-category{
+
+        flex:1;
+
+        min-width:0;
+
+    }
+
+
+    .equipment-inventory{
+
+        padding:
+            0
+            4rem
+            4rem;
+
+    }
+
+
+    .equipment-inventory-header{
+
+        flex-direction:row;
+
+        align-items:flex-end;
+
+        justify-content:space-between;
+
+    }
+
+
+    .equipment-search{
+
+        width:260px;
+
+    }
+
+
+    .equipment-grid{
+
+        grid-template-columns:
+            repeat(3,1fr);
+
+        gap:1rem;
+
+    }
+
+
+    .equipment-image{
+
+        height:200px;
+
+    }
+
+}

@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VAULT — Analytics</title>
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css">
+
+    <link
+        rel="stylesheet"
+        href="css/analytics.css">
+
+</head>
+
+
+<body>
+
+
+<!--==================================
+VAULT ADMIN
+ADMIN SHELL
+==================================-->
+
+<div
+    class="vault-admin"
+    id="vaultAdmin">
+
+
+    <!--==================================
+    MOBILE HEADER
+    ==================================-->
+
+    <header class="admin-mobile-header">
+
+        <div class="admin-brand">
+
+            <span class="admin-brand-name">
+                VAULT
+            </span>
+
+            <span class="admin-brand-label">
+                ADMIN
+            </span>
+
+        </div>
+
+
+        <button
+            class="admin-menu-btn"
+            id="adminMenuBtn"
+            type="button"
+            aria-label="Open navigation">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+
+
+    <!--==================================
+    SIDEBAR
+    ==================================-->
+
+    <aside
+        class="admin-sidebar"
+        id="adminSidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="admin-sidebar-brand">
+
+            <span class="admin-logo">
+                VAULT
+            </span>
+
+            <span class="admin-label">
+                ADMIN
+            </span>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="admin-nav">
+
+            <span class="admin-nav-title">
+                MANAGEMENT
+            </span>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="dashboard">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="events">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Events
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="tickets">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Tickets
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="verification">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Verification
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="customers">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Customers
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="equipment">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Equipment
+                </span>
+
+            </button>
+
+
+            <span
+                class="admin-nav-title admin-nav-title-bottom">
+
+                INSIGHTS
+
+            </span>
+
+
+            <button
+                class="admin-nav-item active"
+                type="button"
+                data-section="analytics">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Analytics
+                </span>
+
+            </button>
+
+        </nav>
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="admin-sidebar-footer">
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="settings">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Settings
+                </span>
+
+            </button>
+
+
+            <div class="admin-profile">
+
+                <div class="admin-profile-avatar">
+                    V
+                </div>
+
+                <div class="admin-profile-info">
+
+                    <strong>
+                        Vault Admin
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!--==================================
+    SIDEBAR OVERLAY
+    ==================================-->
+
+    <div
+        class="admin-sidebar-overlay"
+        id="adminSidebarOverlay">
+    </div>
+
+
+
+    <!--==================================
+    ANALYTICS MAIN
+    ==================================-->
+
+    <main
+        class="admin-main analytics-main">
+
+
+        <!--==================================
+        PAGE HEADER
+        ==================================-->
+
+        <header class="analytics-header">
+
+
+            <div>
+
+                <span class="analytics-eyebrow">
+                    VAULT INSIGHTS
+                </span>
+
+
+                <h1>
+                    Analytics
+                </h1>
+
+
+                <p>
+                    Understand how your experiences are performing.
+                </p>
+
+            </div>
+
+
+            <!--==================================
+            PERIOD SELECTOR
+            ==================================-->
+
+            <div
+                class="analytics-period"
+                role="group"
+                aria-label="Analytics period">
+
+
+                <button
+                    class="analytics-period-btn active"
+                    type="button"
+                    data-period="7">
+
+                    7 Days
+
+                </button>
+
+
+                <button
+                    class="analytics-period-btn"
+                    type="button"
+                    data-period="30">
+
+                    30 Days
+
+                </button>
+
+
+                <button
+                    class="analytics-period-btn"
+                    type="button"
+                    data-period="90">
+
+                    90 Days
+
+                </button>
+
+
+                <button
+                    class="analytics-period-btn"
+                    type="button"
+                    data-period="all">
+
+                    All Time
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!--==================================
+        PERFORMANCE OVERVIEW
+        ==================================-->
+
+        <section
+            class="analytics-overview"
+            id="analyticsOverview">
+
+
+            <div class="analytics-section-heading">
+
+                <span>
+                    PERFORMANCE
+                </span>
+
+                <h2>
+                    At a glance
+                </h2>
+
+            </div>
+
+
+            <div class="analytics-stat-grid">
+
+
+                <!-- REVENUE -->
+
+                <article
+                    class="analytics-stat-card"
+                    data-metric="revenue">
+
+                    <span class="analytics-stat-label">
+                        REVENUE
+                    </span>
+
+                    <strong
+                        class="analytics-stat-value"
+                        id="analyticsRevenue"
+                        data-value>
+
+                    </strong>
+
+                    <span
+                        class="analytics-stat-change"
+                        id="analyticsRevenueChange"
+                        data-change>
+
+                    </span>
+
+                </article>
+
+
+
+                <!-- TICKETS -->
+
+                <article
+                    class="analytics-stat-card"
+                    data-metric="tickets">
+
+                    <span class="analytics-stat-label">
+                        TICKETS SOLD
+                    </span>
+
+                    <strong
+                        class="analytics-stat-value"
+                        id="analyticsTickets"
+                        data-value>
+
+                    </strong>
+
+                    <span
+                        class="analytics-stat-change"
+                        id="analyticsTicketsChange"
+                        data-change>
+
+                    </span>
+
+                </article>
+
+
+
+                <!-- BOOKINGS -->
+
+                <article
+                    class="analytics-stat-card"
+                    data-metric="bookings">
+
+                    <span class="analytics-stat-label">
+                        BOOKINGS
+                    </span>
+
+                    <strong
+                        class="analytics-stat-value"
+                        id="analyticsBookings"
+                        data-value>
+
+                    </strong>
+
+                    <span
+                        class="analytics-stat-change"
+                        id="analyticsBookingsChange"
+                        data-change>
+
+                    </span>
+
+                </article>
+
+
+
+                <!-- CUSTOMERS -->
+
+                <article
+                    class="analytics-stat-card"
+                    data-metric="customers">
+
+                    <span class="analytics-stat-label">
+                        CUSTOMERS
+                    </span>
+
+                    <strong
+                        class="analytics-stat-value"
+                        id="analyticsCustomers"
+                        data-value>
+
+                    </strong>
+
+                    <span
+                        class="analytics-stat-change"
+                        id="analyticsCustomersChange"
+                        data-change>
+
+                    </span>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+<!--==================================
+REVENUE CHART
+==================================-->
+
+<section
+    class="analytics-chart-section"
+    id="revenueAnalytics">
+
+
+    <div class="analytics-section-heading">
+
+        <span>
+            REVENUE
+        </span>
+
+
+        <div class="analytics-heading-row">
+
+            <div>
+
+                <h2>
+                    Revenue overview
+                </h2>
+
+                <p>
+                    Revenue generated across your experiences.
+                </p>
+
+            </div>
+
+
+            <strong
+                class="analytics-chart-total"
+                id="analyticsChartTotal">
+
+            </strong>
+
+        </div>
+
+    </div>
+
+
+
+    <!--==================================
+    CHART
+    ==================================-->
+
+    <div class="analytics-chart">
+
+
+        <div
+            class="analytics-chart-y"
+            id="analyticsChartY">
+
+            <!--
+                Y-axis labels are generated
+                dynamically by analytics.js.
+            -->
+
+        </div>
+
+
+        <div class="analytics-chart-area">
+
+
+            <div
+                class="analytics-grid-lines"
+                aria-hidden="true">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <div
+                class="analytics-bars"
+                id="analyticsBars"
+                aria-label="Revenue chart">
+
+                <!--
+                    Revenue bars are generated
+                    dynamically by analytics.js.
+                -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!--==================================
+EVENT PERFORMANCE
+==================================-->
+
+<section
+    class="analytics-events"
+    id="eventPerformance">
+
+
+    <div class="analytics-section-heading">
+
+        <span>
+            EXPERIENCES
+        </span>
+
+
+        <div class="analytics-heading-row">
+
+            <div>
+
+                <h2>
+                    Event performance
+                </h2>
+
+                <p>
+                    Your strongest experiences.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div
+        class="analytics-event-list"
+        id="analyticsEventList">
+
+        <!--
+            Event performance rows are generated
+            dynamically by analytics.js.
+        -->
+
+    </div>
+
+</section>
+
+
+
+<!--==================================
+TICKET PERFORMANCE
+==================================-->
+
+<section
+    class="analytics-ticket-section"
+    id="ticketPerformance">
+
+
+    <div class="analytics-section-heading">
+
+        <span>
+            TICKETS
+        </span>
+
+        <h2>
+            Ticket performance
+        </h2>
+
+    </div>
+
+
+    <div
+        class="analytics-ticket-grid"
+        id="analyticsTicketGrid">
+
+        <!--
+            Ticket performance cards are generated
+            dynamically by analytics.js.
+        -->
+
+    </div>
+
+</section>
+
+
+
+<!--==================================
+SCRIPTS
+==================================-->
+
+<script src="js/admin.js"></script>
+
+<script src="js/analytics.js"></script>

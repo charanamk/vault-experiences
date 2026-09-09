@@ -1,0 +1,1353 @@
+/*==================================
+TICKET VERIFICATION
+==================================*/
+
+.verification-main{
+
+    min-height:100vh;
+
+    box-sizing:border-box;
+
+    background:#0b0b0b;
+
+}
+
+
+/*==================================
+PAGE HEADER
+==================================*/
+
+.verification-header{
+
+    padding:
+        3rem
+        1.5rem
+        2rem;
+
+}
+
+
+.verification-eyebrow{
+
+    display:block;
+
+    margin-bottom:.55rem;
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.52rem;
+
+    font-weight:700;
+
+    letter-spacing:.17rem;
+
+}
+
+
+.verification-header h1{
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:
+        clamp(
+            2rem,
+            8vw,
+            3.5rem
+        );
+
+    font-weight:400;
+
+    line-height:1.05;
+
+}
+
+
+.verification-header p{
+
+    max-width:420px;
+
+    margin:
+        .8rem
+        0
+        0;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.7rem;
+
+    line-height:1.6;
+
+}
+
+
+/*==================================
+VERIFICATION SECTION
+==================================*/
+
+.verification-section{
+
+    padding:
+        0
+        1.5rem
+        3rem;
+
+}
+
+
+/*==================================
+VERIFICATION CARD
+==================================*/
+
+.verification-card{
+
+    width:100%;
+
+    max-width:600px;
+
+    box-sizing:border-box;
+
+    padding:1.2rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #101010
+        );
+
+}
+
+
+/*==================================
+CARD HEADING
+==================================*/
+
+.verification-card-heading{
+
+    margin-bottom:1.3rem;
+
+}
+
+
+.verification-card-heading > span{
+
+    display:block;
+
+    margin-bottom:.4rem;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.45rem;
+
+    font-weight:700;
+
+    letter-spacing:.14rem;
+
+}
+
+
+.verification-card-heading h2{
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1.25rem;
+
+    font-weight:400;
+
+}
+
+
+.verification-card-heading p{
+
+    margin:.45rem 0 0;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.58rem;
+
+    line-height:1.5;
+
+}
+
+
+/*==================================
+QR SCANNER
+==================================*/
+
+.ticket-scanner{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:.9rem;
+
+    padding:
+        1.2rem
+        1rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.05);
+
+    border-radius:13px;
+
+    background:#0c0c0c;
+
+}
+
+
+/*==================================
+SCANNER FRAME
+==================================*/
+
+.scanner-frame{
+
+    position:relative;
+
+    width:180px;
+    height:150px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+/*==================================
+SCANNER CORNERS
+==================================*/
+
+.scanner-corner{
+
+    position:absolute;
+
+    width:25px;
+    height:25px;
+
+    border-color:
+        var(--gold,#d4af37);
+
+    border-style:solid;
+
+}
+
+
+/* TOP LEFT */
+
+.scanner-corner.top-left{
+
+    top:0;
+    left:0;
+
+    border-width:
+        2px
+        0
+        0
+        2px;
+
+}
+
+
+/* TOP RIGHT */
+
+.scanner-corner.top-right{
+
+    top:0;
+    right:0;
+
+    border-width:
+        2px
+        2px
+        0
+        0;
+
+}
+
+
+/* BOTTOM LEFT */
+
+.scanner-corner.bottom-left{
+
+    bottom:0;
+    left:0;
+
+    border-width:
+        0
+        0
+        2px
+        2px;
+
+}
+
+
+/* BOTTOM RIGHT */
+
+.scanner-corner.bottom-right{
+
+    right:0;
+    bottom:0;
+
+    border-width:
+        0
+        2px
+        2px
+        0;
+
+}
+
+
+/*==================================
+SCANNER ICON
+==================================*/
+
+.scanner-icon{
+
+    margin-bottom:.5rem;
+
+    color:
+        rgba(212,175,55,.45);
+
+    font-size:2.3rem;
+
+    line-height:1;
+
+}
+
+
+.scanner-text{
+
+    color:#444;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.45rem;
+
+    font-weight:700;
+
+    letter-spacing:.15rem;
+
+}
+
+
+/*==================================
+SCAN BUTTON
+==================================*/
+
+.scanner-button{
+
+    width:100%;
+
+    min-height:44px;
+
+    border:
+        1px solid
+        rgba(212,175,55,.35);
+
+    border-radius:8px;
+
+    background:
+        rgba(212,175,55,.06);
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.57rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+.scanner-button:hover{
+
+    background:
+        rgba(212,175,55,.1);
+
+}
+
+
+/*==================================
+DIVIDER
+==================================*/
+
+.verification-divider{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.8rem;
+
+    margin:
+        1.2rem
+        0;
+
+}
+
+
+.verification-divider::before,
+.verification-divider::after{
+
+    content:"";
+
+    flex:1;
+
+    height:1px;
+
+    background:
+        rgba(255,255,255,.06);
+
+}
+
+
+.verification-divider span{
+
+    color:#444;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.45rem;
+
+    font-weight:700;
+
+}
+
+
+/*==================================
+MANUAL VERIFICATION
+==================================*/
+
+.manual-verification{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.45rem;
+
+}
+
+
+.manual-verification label{
+
+    color:#777;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.5rem;
+
+    font-weight:600;
+
+}
+
+
+/*==================================
+REFERENCE INPUT ROW
+==================================*/
+
+.reference-input-row{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        auto;
+
+    gap:.5rem;
+
+}
+
+
+.reference-input-row input{
+
+    width:100%;
+
+    min-height:45px;
+
+    padding:
+        0
+        .8rem;
+
+    box-sizing:border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:8px;
+
+    outline:none;
+
+    background:#0d0d0d;
+
+    color:#eee;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.62rem;
+
+    letter-spacing:.08rem;
+
+}
+
+
+.reference-input-row input:focus{
+
+    border-color:
+        rgba(212,175,55,.4);
+
+}
+
+
+.reference-input-row button{
+
+    min-width:76px;
+
+    padding:
+        0
+        .8rem;
+
+    border:
+        1px solid
+        rgba(212,175,55,.35);
+
+    border-radius:8px;
+
+    background:
+        rgba(212,175,55,.08);
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+/*==================================
+HINT
+==================================*/
+
+.verification-hint{
+
+    color:#444;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.46rem;
+
+    line-height:1.4;
+
+}
+
+
+/*==================================
+VERIFICATION RESULT
+==================================*/
+
+.verification-result{
+
+    width:100%;
+
+    max-width:600px;
+
+    margin-top:1rem;
+
+    padding:1.2rem;
+
+    box-sizing:border-box;
+
+    border:
+        1px solid
+        rgba(120,145,111,.2);
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #121612,
+            #0d100d
+        );
+
+    text-align:center;
+
+    opacity:0;
+
+    transform:
+        translateY(8px);
+
+    pointer-events:none;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+
+}
+
+
+.verification-result.is-visible{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+
+    pointer-events:auto;
+
+}
+
+
+/*==================================
+RESULT ICON
+==================================*/
+
+.verification-result-icon{
+
+    width:48px;
+    height:48px;
+
+    margin:
+        0
+        auto
+        .8rem;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:
+        1px solid
+        rgba(120,145,111,.35);
+
+    border-radius:50%;
+
+    background:
+        rgba(120,145,111,.08);
+
+    color:#8ba381;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:1rem;
+
+}
+
+
+/*==================================
+RESULT LABEL
+==================================*/
+
+.verification-result-label{
+
+    display:block;
+
+    margin-bottom:.35rem;
+
+    color:#78916f;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.45rem;
+
+    font-weight:700;
+
+    letter-spacing:.14rem;
+
+}
+
+
+.verification-result h2{
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1.2rem;
+
+    font-weight:400;
+
+}
+
+
+.verification-result > p{
+
+    max-width:350px;
+
+    margin:
+        .45rem
+        auto
+        1.2rem;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+    line-height:1.5;
+
+}
+
+
+/*==================================
+VERIFICATION DETAILS
+==================================*/
+
+.verification-details{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    text-align:left;
+
+    border:
+        1px solid
+        rgba(255,255,255,.05);
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+}
+
+
+.verification-detail{
+
+    min-width:0;
+
+    padding:.7rem;
+
+    background:#0d0f0d;
+
+}
+
+
+.verification-detail:nth-child(odd){
+
+    border-right:
+        1px solid
+        rgba(255,255,255,.05);
+
+}
+
+
+.verification-detail:nth-child(-n+4){
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.05);
+
+}
+
+
+.verification-detail span{
+
+    display:block;
+
+    margin-bottom:.25rem;
+
+    color:#444;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.4rem;
+
+    font-weight:700;
+
+    letter-spacing:.08rem;
+
+}
+
+
+.verification-detail strong{
+
+    display:block;
+
+    overflow:hidden;
+
+    color:#aaa;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+    font-weight:500;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+}
+
+
+/*==================================
+RESET
+==================================*/
+
+.verification-reset{
+
+    width:100%;
+
+    min-height:43px;
+
+    margin-top:1rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:8px;
+
+    background:transparent;
+
+    color:#666;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.53rem;
+
+    cursor:pointer;
+
+}
+
+
+.verification-reset:hover{
+
+    color:#aaa;
+
+}
+
+
+/*==================================
+RECENT VERIFICATIONS
+==================================*/
+
+.recent-verifications{
+
+    padding:
+        0
+        1.5rem
+        3rem;
+
+}
+
+
+/*==================================
+SECTION HEADING
+==================================*/
+
+.verification-section-heading{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    gap:1rem;
+
+    margin-bottom:1rem;
+
+}
+
+
+.verification-section-heading > div > span{
+
+    display:block;
+
+    margin-bottom:.3rem;
+
+    color:
+        var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.45rem;
+
+    font-weight:700;
+
+    letter-spacing:.14rem;
+
+}
+
+
+.verification-section-heading h2{
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1.2rem;
+
+    font-weight:400;
+
+}
+
+
+/*==================================
+LIVE STATUS
+==================================*/
+
+.verification-live-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.35rem;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.47rem;
+
+}
+
+
+.verification-live-status i{
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#78916f;
+
+}
+
+
+/*==================================
+VERIFICATION LIST
+==================================*/
+
+.verification-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.55rem;
+
+}
+
+
+/*==================================
+ENTRY
+==================================*/
+
+.verification-entry{
+
+    display:grid;
+
+    grid-template-columns:
+        30px
+        1fr
+        auto;
+
+    align-items:center;
+
+    gap:.65rem;
+
+    min-height:62px;
+
+    padding:
+        .65rem
+        .7rem;
+
+    box-sizing:border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:11px;
+
+    background:#111;
+
+}
+
+
+/*==================================
+ENTRY STATUS
+==================================*/
+
+.verification-entry-status{
+
+    width:27px;
+    height:27px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.65rem;
+
+}
+
+
+.verification-entry.valid
+.verification-entry-status{
+
+    background:
+        rgba(120,145,111,.1);
+
+    color:#78916f;
+
+}
+
+
+.verification-entry.used
+.verification-entry-status{
+
+    background:
+        rgba(212,175,55,.08);
+
+    color:
+        var(--gold,#d4af37);
+
+}
+
+
+/*==================================
+ENTRY INFO
+==================================*/
+
+.verification-entry-info{
+
+    min-width:0;
+
+}
+
+
+.verification-entry-info strong{
+
+    display:block;
+
+    overflow:hidden;
+
+    margin-bottom:.25rem;
+
+    color:#bbb;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.57rem;
+
+    font-weight:500;
+
+    letter-spacing:.04rem;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+}
+
+
+.verification-entry-info span{
+
+    display:block;
+
+    overflow:hidden;
+
+    color:#4f4f4f;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.46rem;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+}
+
+
+.verification-entry time{
+
+    color:#4b4b4b;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.45rem;
+
+    white-space:nowrap;
+
+}
+
+
+/*==================================
+DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .verification-main{
+
+        margin-left:260px;
+
+        width:
+            calc(100% - 260px);
+
+    }
+
+
+    .verification-header{
+
+        padding:
+            5rem
+            4rem
+            2.5rem;
+
+    }
+
+
+    .verification-section{
+
+        padding:
+            0
+            4rem
+            3rem;
+
+    }
+
+
+    .verification-card{
+
+        max-width:700px;
+
+        padding:1.5rem;
+
+    }
+
+
+    .ticket-scanner{
+
+        padding:
+            1.5rem;
+
+    }
+
+
+    .scanner-frame{
+
+        width:240px;
+        height:180px;
+
+    }
+
+
+    .recent-verifications{
+
+        padding:
+            0
+            4rem
+            4rem;
+
+    }
+
+
+    .verification-entry{
+
+        min-height:70px;
+
+        padding:
+            .75rem
+            .9rem;
+
+    }
+
+}
+
+/*==================================
+INVALID RESULT
+==================================*/
+
+.verification-result.is-invalid{
+
+    border-color:
+        rgba(150,70,70,.25);
+
+    background:
+        linear-gradient(
+            145deg,
+            #171111,
+            #100d0d
+        );
+
+}
+
+
+.verification-result.is-invalid
+.verification-result-icon{
+
+    border-color:
+        rgba(150,70,70,.35);
+
+    background:
+        rgba(150,70,70,.08);
+
+    color:#a66f6f;
+
+}
+
+
+.verification-result.is-invalid
+.verification-result-label{
+
+    color:#a66f6f;
+
+}
+
+
+/*==================================
+USED RESULT
+==================================*/
+
+.verification-result.is-used{
+
+    border-color:
+        rgba(212,175,55,.22);
+
+    background:
+        linear-gradient(
+            145deg,
+            #17150e,
+            #100f0b
+        );
+
+}
+
+
+.verification-result.is-used
+.verification-result-icon{
+
+    border-color:
+        rgba(212,175,55,.3);
+
+    background:
+        rgba(212,175,55,.07);
+
+    color:
+        var(--gold,#d4af37);
+
+}
+
+
+.verification-result.is-used
+.verification-result-label{
+
+    color:
+        var(--gold,#d4af37);
+
+}

@@ -1,0 +1,1233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VAULT â€” Settings</title>
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css">
+
+    <link
+        rel="stylesheet"
+        href="css/settings.css">
+
+</head>
+
+
+<body>
+
+
+<!--==================================
+VAULT ADMIN
+ADMIN SHELL
+==================================-->
+
+<div
+    class="vault-admin"
+    id="vaultAdmin">
+
+
+    <!--==================================
+    MOBILE HEADER
+    ==================================-->
+
+    <header class="admin-mobile-header">
+
+        <div class="admin-brand">
+
+            <span class="admin-brand-name">
+                VAULT
+            </span>
+
+            <span class="admin-brand-label">
+                ADMIN
+            </span>
+
+        </div>
+
+
+        <button
+            class="admin-menu-btn"
+            id="adminMenuBtn"
+            type="button"
+            aria-label="Open navigation">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+
+
+    <!--==================================
+    SIDEBAR
+    ==================================-->
+
+    <aside
+        class="admin-sidebar"
+        id="adminSidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="admin-sidebar-brand">
+
+            <span class="admin-logo">
+                VAULT
+            </span>
+
+            <span class="admin-label">
+                ADMIN
+            </span>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="admin-nav">
+
+
+            <span class="admin-nav-title">
+                MANAGEMENT
+            </span>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="dashboard">
+
+                <span class="admin-nav-icon">
+                    â—‡
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="events">
+
+                <span class="admin-nav-icon">
+                    â—‡
+                </span>
+
+                <span>
+                    Events
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="tickets">
+
+                <span class="admin-nav-icon">
+                    â—‡
+                </span>
+
+                <span>
+                    Tickets
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="verification">
+
+                <span class="admin-nav-icon">
+                    â—‡
+                </span>
+
+                <span>
+                    Verification
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="customers">
+
+                <span class="admin-nav-icon">
+                    â—‡
+                </span>
+
+                <span>
+                    Customers
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="equipment">
+
+                <span class="admin-nav-icon">
+                    â—‡
+                </span>
+
+                <span>
+                    Equipment
+                </span>
+
+            </button>
+
+
+            <span class="admin-nav-title admin-nav-title-bottom">
+                INSIGHTS
+            </span>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="analytics">
+
+                <span class="admin-nav-icon">
+                    â—‡
+                </span>
+
+                <span>
+                    Analytics
+                </span>
+
+            </button>
+
+        </nav>
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="admin-sidebar-footer">
+
+
+            <button
+                class="admin-nav-item active"
+                type="button"
+                data-section="settings">
+
+                <span class="admin-nav-icon">
+                    â—‡
+                </span>
+
+                <span>
+                    Settings
+                </span>
+
+            </button>
+
+
+            <div class="admin-profile">
+
+                <div class="admin-profile-avatar">
+                    V
+                </div>
+
+                <div class="admin-profile-info">
+
+                    <strong>
+                        Vault Admin
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!--==================================
+    SIDEBAR OVERLAY
+    ==================================-->
+
+    <div
+        class="admin-sidebar-overlay"
+        id="adminSidebarOverlay">
+    </div>
+
+
+
+    <!--==================================
+    SETTINGS MAIN
+    ==================================-->
+
+    <main class="admin-main settings-main">
+
+
+        <!--==================================
+        PAGE HEADER
+        ==================================-->
+
+        <header class="settings-header">
+
+            <div>
+
+                <span class="settings-eyebrow">
+                    VAULT CONFIGURATION
+                </span>
+
+                <h1>
+                    Settings
+                </h1>
+
+                <p>
+                    Manage your Vault and administrator preferences.
+                </p>
+
+            </div>
+
+        </header>
+
+
+
+        <!--==================================
+        01 â€” ADMINISTRATOR
+        ==================================-->
+
+        <section class="settings-section">
+
+
+            <div class="settings-section-heading">
+
+                <span>
+                    01
+                </span>
+
+                <div>
+
+                    <h2>
+                        Administrator
+                    </h2>
+
+                    <p>
+                        Manage the account used to operate your Vault.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+
+                <!-- ADMIN NAME -->
+
+                <div class="settings-field">
+
+                    <label for="adminName">
+                        Admin Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="adminName"
+                        value="Vault Admin"
+                        autocomplete="off">
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="settings-field">
+
+                    <label for="adminEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="adminEmail"
+                        placeholder="admin@vault.com"
+                        autocomplete="email">
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="settings-field">
+
+                    <label for="adminPassword">
+                        Password
+                    </label>
+
+                    <button
+                        class="settings-action"
+                        id="changePasswordBtn"
+                        type="button">
+
+                        Change password
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!--==================================
+02 — ADMINISTRATOR MANAGEMENT
+==================================-->
+
+<section class="settings-section">
+
+    <div class="settings-section-heading">
+
+        <span>
+            02
+        </span>
+
+        <div>
+
+            <h2>
+                Administrator Management
+            </h2>
+
+            <p>
+                Add administrators and control their access level.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="settings-card">
+
+        <div class="settings-field">
+
+            <label for="newAdminName">
+                Admin Name
+            </label>
+
+            <input
+                type="text"
+                id="newAdminName"
+                placeholder="Enter administrator name"
+                autocomplete="off">
+
+        </div>
+
+
+        <div class="settings-field">
+
+            <label for="newAdminEmail">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="newAdminEmail"
+                placeholder="admin@vault.com"
+                autocomplete="email">
+
+        </div>
+
+
+        <div class="settings-field">
+
+            <label for="newAdminPassword">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="newAdminPassword"
+                placeholder="Create administrator password"
+                autocomplete="new-password">
+
+        </div>
+
+
+        <div class="settings-field">
+
+            <label for="newAdminRole">
+                Administrator Role
+            </label>
+
+            <select id="newAdminRole">
+
+                <option value="admin">
+                    Administrator
+                </option>
+
+                <option value="super_admin">
+                    Super Administrator
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="settings-field">
+
+            <button
+                class="settings-action"
+                id="addAdminBtn"
+                type="button">
+
+                Add administrator
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+        <div class="settings-field admin-management-list">
+
+            <div class="admin-management-heading">
+
+                <strong>
+                    Active Administrators
+                </strong>
+
+                <button
+                    type="button"
+                    class="settings-action"
+                    id="refreshAdminsBtn">
+
+                    Refresh
+
+                </button>
+
+            </div>
+
+            <div id="adminList">
+
+                <p class="admin-list-empty">
+                    Loading administrators...
+                </p>
+
+            </div>
+
+        </div></section>
+
+
+VAULT PROFILE
+        ==================================-->
+
+        <section class="settings-section">
+
+
+            <div class="settings-section-heading">
+
+                <span>
+                    02
+                </span>
+
+                <div>
+
+                    <h2>
+                        Vault Profile
+                    </h2>
+
+                    <p>
+                        Control the identity guests see across your platform.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+
+                <!-- VAULT NAME -->
+
+                <div class="settings-field">
+
+                    <label for="vaultName">
+                        Vault Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="vaultName"
+                        value="VAULT"
+                        autocomplete="off">
+
+                </div>
+
+
+
+                <!-- SLOGAN -->
+
+                <div class="settings-field">
+
+                    <label for="vaultSlogan">
+                        Slogan
+                    </label>
+
+                    <input
+                        type="text"
+                        id="vaultSlogan"
+                        value="For Moments Worth Keeping."
+                        autocomplete="off">
+
+                </div>
+
+
+
+                <!-- CURRENCY -->
+
+                <div class="settings-field">
+
+                    <label for="vaultCurrency">
+                        Currency
+                    </label>
+
+                    <select id="vaultCurrency">
+
+                        <option
+                            value="KES"
+                            selected>
+
+                            KSh â€” Kenyan Shilling
+
+                        </option>
+
+                        <option value="USD">
+                            $ â€” US Dollar
+                        </option>
+
+                        <option value="EUR">
+                            â‚¬ â€” Euro
+                        </option>
+
+                        <option value="GBP">
+                            Â£ â€” British Pound
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!--==================================
+        03 â€” EXPERIENCE DEFAULTS
+        ==================================-->
+
+        <section class="settings-section">
+
+
+            <div class="settings-section-heading">
+
+                <span>
+                    03
+                </span>
+
+                <div>
+
+                    <h2>
+                        Experience Defaults
+                    </h2>
+
+                    <p>
+                        Set the defaults used when creating new experiences.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+
+                <!-- DEFAULT EVENT STATUS -->
+
+                <div class="settings-field">
+
+                    <label for="defaultEventStatus">
+                        Default Event Status
+                    </label>
+
+                    <select id="defaultEventStatus">
+
+                        <option
+                            value="draft"
+                            selected>
+
+                            Draft
+
+                        </option>
+
+                        <option value="published">
+                            Published
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- DEFAULT TICKET STATUS -->
+
+                <div class="settings-field">
+
+                    <label for="defaultTicketStatus">
+                        Default Ticket Status
+                    </label>
+
+                    <select id="defaultTicketStatus">
+
+                        <option
+                            value="available"
+                            selected>
+
+                            Available
+
+                        </option>
+
+                        <option value="hidden">
+                            Hidden
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!--==================================
+        04 â€” NOTIFICATIONS
+        ==================================-->
+
+        <section class="settings-section">
+
+
+            <div class="settings-section-heading">
+
+                <span>
+                    04
+                </span>
+
+                <div>
+
+                    <h2>
+                        Notifications
+                    </h2>
+
+                    <p>
+                        Choose which activity should notify the administrator.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-card settings-toggle-card">
+
+
+                <!-- NEW BOOKINGS -->
+
+                <div class="settings-toggle-row">
+
+                    <div>
+
+                        <strong>
+                            New bookings
+                        </strong>
+
+                        <span>
+                            Get notified when a customer completes a booking.
+                        </span>
+
+                    </div>
+
+
+                    <label class="settings-switch">
+
+                        <input
+                            type="checkbox"
+                            id="notifyBookings"
+                            checked>
+
+                        <span></span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- TICKET SALES -->
+
+                <div class="settings-toggle-row">
+
+                    <div>
+
+                        <strong>
+                            Ticket sales
+                        </strong>
+
+                        <span>
+                            Receive alerts when tickets are purchased.
+                        </span>
+
+                    </div>
+
+
+                    <label class="settings-switch">
+
+                        <input
+                            type="checkbox"
+                            id="notifyTickets"
+                            checked>
+
+                        <span></span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- LOW TICKET ALERTS -->
+
+                <div class="settings-toggle-row">
+
+                    <div>
+
+                        <strong>
+                            Low ticket alerts
+                        </strong>
+
+                        <span>
+                            Get warned when an event is almost sold out.
+                        </span>
+
+                    </div>
+
+
+                    <label class="settings-switch">
+
+                        <input
+                            type="checkbox"
+                            id="notifyLowTickets"
+                            checked>
+
+                        <span></span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- TICKET VERIFICATION -->
+
+                <div class="settings-toggle-row">
+
+                    <div>
+
+                        <strong>
+                            Ticket verification
+                        </strong>
+
+                        <span>
+                            Track ticket verification activity.
+                        </span>
+
+                    </div>
+
+
+                    <label class="settings-switch">
+
+                        <input
+                            type="checkbox"
+                            id="notifyVerification">
+
+                        <span></span>
+
+                    </label>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!--==================================
+        SAVE SETTINGS
+        ==================================-->
+
+        <section class="settings-save-section">
+
+
+            <div>
+
+                <span>
+                    SETTINGS
+                </span>
+
+                <p>
+                    Changes are saved locally for now.
+                </p>
+
+            </div>
+
+
+            <button
+                class="settings-save-btn"
+                id="settingsSaveBtn"
+                type="button">
+
+                Save Changes
+
+            </button>
+
+
+        </section>
+
+
+
+        <!--==================================
+        05 â€” DANGER ZONE
+        ==================================-->
+
+        <section class="settings-danger-section">
+
+
+            <div class="settings-section-heading">
+
+                <span>
+                    05
+                </span>
+
+                <div>
+
+                    <h2>
+                        Danger Zone
+                    </h2>
+
+                    <p>
+                        Actions here can affect your Vault data.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-danger-card">
+
+
+                <div>
+
+                    <strong>
+                        End your current administrator session.
+                    </strong>
+
+                    <span>
+                        End your current administrator session.
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="settings-danger-btn"
+                    id="logoutBtn"
+                    type="button">
+
+                    Log out
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!--==================================
+CHANGE PASSWORD MODAL
+==================================-->
+
+<div
+    class="vault-modal"
+    id="passwordModal"
+    aria-hidden="true">
+
+
+    <div class="vault-modal-backdrop"></div>
+
+
+    <div
+        class="vault-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="passwordModalTitle">
+
+
+        <button
+            class="vault-modal-close"
+            id="passwordModalClose"
+            type="button"
+            aria-label="Close">
+
+            Ã—
+
+        </button>
+
+
+        <span class="vault-modal-eyebrow">
+            SECURITY
+        </span>
+
+
+        <h2 id="passwordModalTitle">
+            Change Password
+        </h2>
+
+
+        <p>
+            Create a new password for your Vault administrator account.
+        </p>
+
+
+
+        <!-- CURRENT PASSWORD -->
+
+        <div class="vault-modal-field">
+
+            <label for="currentPassword">
+                CURRENT PASSWORD
+            </label>
+
+            <input
+                type="password"
+                id="currentPassword"
+                placeholder="Enter current password"
+                autocomplete="current-password">
+
+        </div>
+
+        <!-- NEW PASSWORD -->
+
+        <div class="vault-modal-field">
+
+            <label for="newPassword">
+                NEW PASSWORD
+            </label>
+
+            <input
+                type="password"
+                id="newPassword"
+                placeholder="Enter new password"
+                autocomplete="new-password">
+
+        </div>
+
+
+
+        <!-- CONFIRM PASSWORD -->
+
+        <div class="vault-modal-field">
+
+            <label for="confirmPassword">
+                CONFIRM PASSWORD
+            </label>
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm new password"
+                autocomplete="new-password">
+
+        </div>
+
+
+
+        <!-- ERROR -->
+
+        <span
+            class="vault-modal-error"
+            id="passwordModalError">
+        </span>
+
+
+
+        <!-- ACTIONS -->
+
+        <div class="vault-modal-actions">
+
+            <button
+                class="vault-modal-cancel"
+                id="passwordModalCancel"
+                type="button">
+
+                Cancel
+
+            </button>
+
+
+            <button
+                class="vault-modal-confirm"
+                id="passwordModalConfirm"
+                type="button">
+
+                Update Password
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<div
+    class="vault-modal"
+    id="logoutModal"
+    aria-hidden="true">
+
+    <div class="vault-modal-backdrop"></div>
+
+    <div
+        class="vault-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="logoutModalTitle">
+
+        <button
+            class="vault-modal-close"
+            id="logoutModalClose"
+            type="button"
+            aria-label="Close">
+
+            ×
+
+        </button>
+
+        <span class="vault-modal-eyebrow">
+            SECURITY
+        </span>
+
+        <h2 id="logoutModalTitle">
+            Log out
+        </h2>
+
+        <p>
+            Are you sure you want to end your administrator session?
+            You will be returned to the Vault administrator login screen.
+        </p>
+
+        <div class="vault-modal-actions">
+
+            <button
+                class="vault-modal-cancel"
+                id="logoutModalCancel"
+                type="button">
+
+                Cancel
+
+            </button>
+
+            <button
+                class="vault-modal-confirm"
+                id="logoutModalConfirm"
+                type="button">
+
+                Log out
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!--==================================
+SCRIPTS
+==================================-->
+
+<script src="js/admin.js"></script>
+
+<script src="js/settings.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+

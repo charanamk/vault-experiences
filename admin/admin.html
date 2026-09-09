@@ -1,0 +1,752 @@
+﻿      <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VAULT â€” Admin</title>
+
+    <link
+        rel="stylesheet"
+        href="/admin/css/admin.css">
+
+    <link
+        rel="stylesheet"
+        href="/admin/css/dashboard.css">
+
+    <link
+        rel="stylesheet"
+        href="/admin/css/upcoming-exp.css">
+
+    <link
+        rel="stylesheet"
+        href="/admin/css/From-Vault.css">
+
+</head>
+
+
+<body>
+
+
+<!--==================================
+VAULT ADMIN
+ADMIN SHELL
+==================================-->
+
+<div
+    class="vault-admin"
+    id="vaultAdmin">
+
+
+    <!--==================================
+    MOBILE HEADER
+    ==================================-->
+
+    <header class="admin-mobile-header">
+
+        <div class="admin-brand">
+
+            <span class="admin-brand-name">
+                VAULT
+            </span>
+
+            <span class="admin-brand-label">
+                ADMIN
+            </span>
+
+        </div>
+
+
+        <button
+            class="admin-menu-btn"
+            id="adminMenuBtn"
+            type="button"
+            aria-label="Open navigation"
+            aria-controls="adminSidebar"
+            aria-expanded="false">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+
+    <!--==================================
+    SIDEBAR
+    ==================================-->
+
+    <aside
+        class="admin-sidebar"
+        id="adminSidebar"
+        aria-label="Admin navigation">
+
+
+        <!--==================================
+        SIDEBAR BRAND
+        ==================================-->
+
+        <div class="admin-sidebar-brand">
+
+            <span class="admin-logo">
+                VAULT
+            </span>
+
+            <span class="admin-label">
+                ADMIN
+            </span>
+
+        </div>
+
+
+        <!--==================================
+        NAVIGATION
+        ==================================-->
+
+        <nav class="admin-nav">
+
+
+            <span class="admin-nav-title">
+                MANAGEMENT
+            </span>
+
+
+            <button
+                class="admin-nav-item active"
+                type="button"
+                data-section="dashboard">
+
+                <span
+                    class="admin-nav-icon"
+                    aria-hidden="true">
+                    â—‡
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="events">
+
+                <span
+                    class="admin-nav-icon"
+                    aria-hidden="true">
+                    â—‡
+                </span>
+
+                <span>
+                    Events
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="tickets">
+
+                <span
+                    class="admin-nav-icon"
+                    aria-hidden="true">
+                    â—‡
+                </span>
+
+                <span>
+                    Tickets
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="bookings">
+
+                <span
+                    class="admin-nav-icon"
+                    aria-hidden="true">
+                    â—‡
+                </span>
+
+                <span>
+                    Bookings
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="customers">
+
+                <span
+                    class="admin-nav-icon"
+                    aria-hidden="true">
+                    â—‡
+                </span>
+
+                <span>
+                    Customers
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="equipment">
+
+                <span
+                    class="admin-nav-icon"
+                    aria-hidden="true">
+                    â—‡
+                </span>
+
+                <span>
+                    Equipment
+                </span>
+
+            </button>
+
+
+            <!--==================================
+            INSIGHTS
+            ==================================-->
+
+            <span
+                class="admin-nav-title
+                       admin-nav-title-bottom">
+
+                INSIGHTS
+
+            </span>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="analytics">
+
+                <span
+                    class="admin-nav-icon"
+                    aria-hidden="true">
+                    â—‡
+                </span>
+
+                <span>
+                    Analytics
+                </span>
+
+            </button>
+
+        </nav>
+
+
+        <!--==================================
+        SIDEBAR FOOTER
+        ==================================-->
+
+        <div class="admin-sidebar-footer">
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="settings">
+
+                <span
+                    class="admin-nav-icon"
+                    aria-hidden="true">
+                    â—‡
+                </span>
+
+                <span>
+                    Settings
+                </span>
+
+            </button>
+
+
+            <!--==================================
+            ADMIN PROFILE
+            ==================================-->
+
+            <div class="admin-profile">
+
+                <div
+                    class="admin-profile-avatar"
+                    id="adminProfileAvatar">
+
+                    V
+
+                </div>
+
+
+                <div class="admin-profile-info">
+
+                    <strong id="adminProfileName">
+                        Vault Admin
+                    </strong>
+
+                    <span id="adminProfileRole">
+                        Administrator
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!--==================================
+    SIDEBAR OVERLAY
+    ==================================-->
+
+    <div
+        class="admin-sidebar-overlay"
+        id="adminSidebarOverlay"
+        aria-hidden="true">
+    </div>
+
+
+    <!--==================================
+    ADMIN MAIN
+    ==================================-->
+
+    <main class="admin-main">
+
+
+        <!--==================================
+        DASHBOARD INTRO
+        ==================================-->
+
+        <section class="dashboard-intro">
+
+            <span class="dashboard-eyebrow">
+                VAULT ADMIN
+            </span>
+
+
+            <h1>
+                Dashboard
+            </h1>
+
+
+            <p>
+                Your command center for every experience.
+            </p>
+
+        </section>
+
+
+        <!--==================================
+        DASHBOARD DATE
+        ==================================-->
+
+        <section class="dashboard-date">
+
+            <span class="dashboard-date-label">
+                TODAY
+            </span>
+
+
+            <strong id="dashboardDate">
+                â€”
+            </strong>
+
+        </section>
+
+
+        <!--==================================
+        OVERVIEW STATS
+        ==================================-->
+
+        <section class="dashboard-stats">
+
+
+            <div class="dashboard-section-heading">
+
+                <span>
+                    OVERVIEW
+                </span>
+
+                <h2>
+                    At a glance
+                </h2>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+
+                <!-- EVENTS -->
+
+                <article class="stat-card">
+
+                    <span class="stat-label">
+                        EVENTS
+                    </span>
+
+                    <strong
+                        class="stat-value"
+                        id="statEvents">
+
+                        0
+
+                    </strong>
+
+                    <span class="stat-meta">
+                        Total experiences
+                    </span>
+
+                </article>
+
+
+                <!-- BOOKINGS -->
+
+                <article class="stat-card">
+
+                    <span class="stat-label">
+                        BOOKINGS
+                    </span>
+
+                    <strong
+                        class="stat-value"
+                        id="statBookings">
+
+                        0
+
+                    </strong>
+
+                    <span class="stat-meta">
+                        Confirmed bookings
+                    </span>
+
+                </article>
+
+
+                <!-- TICKETS -->
+
+                <article class="stat-card">
+
+                    <span class="stat-label">
+                        TICKETS SOLD
+                    </span>
+
+                    <strong
+                        class="stat-value"
+                        id="statTickets">
+
+                        0
+
+                    </strong>
+
+                    <span class="stat-meta">
+                        Across all events
+                    </span>
+
+                </article>
+
+
+                <!-- REVENUE -->
+
+                <article class="stat-card">
+
+                    <span class="stat-label">
+                        REVENUE
+                    </span>
+
+                    <strong
+                        class="stat-value"
+                        id="statRevenue">
+
+                        KSh 0
+
+                    </strong>
+
+                    <span class="stat-meta">
+                        Total collected
+                    </span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!--==================================
+        UPCOMING EXPERIENCES
+        ==================================-->
+
+        <section class="dashboard-upcoming">
+
+
+            <div class="dashboard-section-heading">
+
+                <span>
+                    WHAT'S NEXT
+                </span>
+
+
+                <div class="dashboard-heading-row">
+
+                    <h2>
+                        Upcoming Experiences
+                    </h2>
+
+
+                    <button
+                        class="dashboard-view-all"
+                        type="button"
+                        data-section="events">
+
+                        View all
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!--
+            Backend-driven content.
+
+            Admin JS will populate this
+            container from VaultAPI.events.
+            -->
+
+            <div
+                class="upcoming-list"
+                id="upcomingList"
+                aria-live="polite">
+
+                <!-- Events rendered by JavaScript -->
+
+            </div>
+
+        </section>
+
+
+        <!--==================================
+        FROM THE VAULT
+        ==================================-->
+
+        <section class="dashboard-vault">
+
+
+            <!--==================================
+            SECTION HEADING
+            ==================================-->
+
+            <div class="dashboard-section-heading">
+
+                <span>
+                    THE ARCHIVE
+                </span>
+
+
+                <div class="dashboard-heading-row">
+
+                    <h2>
+                        From the Vault
+                    </h2>
+
+
+                    <button
+                        class="dashboard-view-all"
+                        type="button"
+                        data-section="archive">
+
+                        View all
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!--==================================
+            VAULT INTRO
+            ==================================-->
+
+            <div class="vault-admin-intro">
+
+
+                <div class="vault-admin-intro-content">
+
+                    <span>
+                        PRESERVE THE EXPERIENCE
+                    </span>
+
+
+                    <h3>
+                        Turn every night into
+                        a memory worth keeping.
+                    </h3>
+
+
+                    <p>
+                        Archive your ended experiences
+                        with photos, videos, stories and
+                        reviews for customers to discover.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="vault-add-btn"
+                    id="vaultAddBtn"
+                    type="button"
+                    data-action="add-archive">
+
+                    <span>
+                        +
+                    </span>
+
+                    <span>
+                        Add to Vault
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!--==================================
+            VAULT STATS
+            ==================================-->
+
+            <div class="vault-stats">
+
+
+                <!-- ARCHIVED -->
+
+                <article class="vault-stat-card">
+
+                    <span>
+                        ARCHIVED
+                    </span>
+
+                    <strong id="vaultArchivedCount">
+                        0
+                    </strong>
+
+                    <small>
+                        Experiences
+                    </small>
+
+                </article>
+
+
+                <!-- MEDIA -->
+
+                <article class="vault-stat-card">
+
+                    <span>
+                        MEDIA
+                    </span>
+
+                    <strong id="vaultMediaCount">
+                        0
+                    </strong>
+
+                    <small>
+                        Photos &amp; videos
+                    </small>
+
+                </article>
+
+
+                <!-- REVIEWS -->
+
+                <article class="vault-stat-card">
+
+                    <span>
+                        REVIEWS
+                    </span>
+
+                    <strong id="vaultReviewCount">
+                        0
+                    </strong>
+
+                    <small>
+                        Customer stories
+                    </small>
+
+                </article>
+
+            </div>
+
+
+            <!--==================================
+            RECENTLY ARCHIVED
+            ==================================-->
+
+            <div class="vault-recent-heading">
+
+                <span>
+                    RECENTLY ARCHIVED
+                </span>
+
+            </div>
+
+
+            <!--
+            Backend-driven archive.
+
+            Admin JS will populate this
+            from VaultAPI.archive.
+            -->
+
+            <div
+                class="vault-recent-list"
+                id="vaultRecentList"
+                aria-live="polite">
+
+                <!-- Archived experiences rendered by JavaScript -->
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+<!--==================================
+ADMIN JAVASCRIPT
+==================================-->
+
+<script src="/admin/js/admin.js"></script>
+
+</body>
+
+</html>

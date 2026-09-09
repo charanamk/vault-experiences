@@ -1,0 +1,961 @@
+/*==================================
+FROM THE VAULT
+==================================*/
+
+.dashboard-vault{
+
+    padding:
+        0
+        1.5rem
+        3rem;
+
+}
+
+
+/*==================================
+INTRO
+==================================*/
+
+.vault-admin-intro{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    gap:1.5rem;
+
+    margin-top:1rem;
+
+    padding:1.25rem;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #181818,
+            #101010
+        );
+
+}
+
+
+/*==================================
+INTRO ATMOSPHERE
+==================================*/
+
+.vault-admin-intro::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+    height:170px;
+
+    right:-80px;
+    top:-90px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.11),
+            transparent 70%
+        );
+
+    pointer-events:none;
+
+}
+
+
+/*==================================
+INTRO CONTENT
+==================================*/
+
+.vault-admin-intro-content{
+
+    position:relative;
+
+    z-index:1;
+
+}
+
+
+.vault-admin-intro-content > span{
+
+    display:block;
+
+    margin-bottom:.45rem;
+
+    color:var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.48rem;
+
+    font-weight:700;
+
+    letter-spacing:.15rem;
+
+}
+
+
+.vault-admin-intro-content h3{
+
+    max-width:280px;
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1.25rem;
+
+    font-weight:400;
+
+    line-height:1.25;
+
+}
+
+
+.vault-admin-intro-content p{
+
+    max-width:400px;
+
+    margin:.7rem 0 0;
+
+    color:#666;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.68rem;
+
+    line-height:1.6;
+
+}
+
+
+/*==================================
+ADD BUTTON
+==================================*/
+
+.vault-add-btn{
+
+    position:relative;
+
+    z-index:1;
+
+    width:100%;
+
+    min-height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:.55rem;
+
+    border:
+        1px solid
+        rgba(212,175,55,.35);
+
+    border-radius:12px;
+
+    background:
+        rgba(212,175,55,.08);
+
+    color:var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.65rem;
+
+    font-weight:600;
+
+    letter-spacing:.04rem;
+
+    cursor:pointer;
+
+}
+
+
+.vault-add-btn span:first-child{
+
+    font-size:1.1rem;
+
+    font-weight:300;
+
+}
+
+
+.vault-add-btn:active{
+
+    transform:scale(.98);
+
+}
+
+
+/*==================================
+VAULT STATS
+==================================*/
+
+.vault-stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:.6rem;
+
+    margin-top:.7rem;
+
+}
+
+
+/*==================================
+STAT CARD
+==================================*/
+
+.vault-stat-card{
+
+    min-height:105px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:.85rem;
+
+    box-sizing:border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:14px;
+
+    background:#111;
+
+}
+
+
+.vault-stat-card span{
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.46rem;
+
+    font-weight:700;
+
+    letter-spacing:.1rem;
+
+}
+
+
+.vault-stat-card strong{
+
+    color:#eee;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:1.45rem;
+
+    font-weight:500;
+
+    line-height:1;
+
+}
+
+
+.vault-stat-card small{
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.48rem;
+
+}
+
+
+/*==================================
+RECENT HEADING
+==================================*/
+
+.vault-recent-heading{
+
+    margin-top:2rem;
+
+    margin-bottom:.7rem;
+
+}
+
+
+.vault-recent-heading span{
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.5rem;
+
+    font-weight:700;
+
+    letter-spacing:.15rem;
+
+}
+
+
+/*==================================
+RECENT LIST
+==================================*/
+
+.vault-recent-list{
+
+    width:100%;
+
+}
+
+
+/*==================================
+EMPTY STATE
+==================================*/
+
+.vault-empty{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:220px;
+
+    padding:2rem 1.5rem;
+
+    box-sizing:border-box;
+
+    text-align:center;
+
+    border:
+        1px dashed
+        rgba(255,255,255,.1);
+
+    border-radius:16px;
+
+    background:
+        rgba(255,255,255,.015);
+
+}
+
+
+/*==================================
+VAULT MARK
+==================================*/
+
+.vault-empty-mark{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:1rem;
+
+    border:
+        1px solid
+        rgba(212,175,55,.25);
+
+    border-radius:50%;
+
+    color:var(--gold,#d4af37);
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1rem;
+
+}
+
+
+.vault-empty h3{
+
+    margin:0;
+
+    color:#ddd;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1rem;
+
+    font-weight:400;
+
+}
+
+
+.vault-empty p{
+
+    max-width:280px;
+
+    margin:.5rem 0 1rem;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.62rem;
+
+    line-height:1.5;
+
+}
+
+
+.vault-empty button{
+
+    padding:.6rem .85rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    border-radius:9px;
+
+    background:#161616;
+
+    color:#999;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+    cursor:pointer;
+
+}
+
+
+.vault-empty button:hover{
+
+    border-color:
+        rgba(212,175,55,.3);
+
+    color:var(--gold,#d4af37);
+
+}
+
+
+/*==================================
+DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .dashboard-vault{
+
+        padding:
+            0
+            4rem
+            4rem;
+
+    }
+
+
+    .vault-admin-intro{
+
+        flex-direction:row;
+
+        align-items:flex-end;
+
+        padding:1.75rem;
+
+    }
+
+
+    .vault-admin-intro-content h3{
+
+        font-size:1.5rem;
+
+    }
+
+
+    .vault-add-btn{
+
+        width:auto;
+
+        min-width:150px;
+
+        padding:
+            0
+            1.1rem;
+
+    }
+
+
+    .vault-stats{
+
+        gap:.8rem;
+
+    }
+
+
+    .vault-stat-card{
+
+        min-height:120px;
+
+        padding:1rem;
+
+    }
+
+
+    .vault-empty{
+
+        min-height:250px;
+
+    }
+
+}
+
+/*==================================
+ARCHIVED EXPERIENCE
+==================================*/
+
+.vault-entry{
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:17px;
+
+    background:#111;
+
+}
+
+
+/*==================================
+COVER IMAGE
+==================================*/
+
+.vault-entry-image{
+
+    position:relative;
+
+    width:100%;
+
+    height:190px;
+
+    overflow:hidden;
+
+    background:#181818;
+
+}
+
+
+.vault-entry-image img{
+
+    display:block;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center;
+
+}
+
+
+/*==================================
+IMAGE OVERLAY
+==================================*/
+
+.vault-entry-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 45%,
+            rgba(0,0,0,.55)
+        );
+
+    pointer-events:none;
+
+}
+
+
+/*==================================
+ARCHIVED STATUS
+==================================*/
+
+.vault-entry-status{
+
+    position:absolute;
+
+    z-index:2;
+
+    top:.7rem;
+
+    right:.7rem;
+
+    padding:.3rem .45rem;
+
+    border:
+        1px solid
+        rgba(212,175,55,.3);
+
+    border-radius:5px;
+
+    background:
+        rgba(0,0,0,.7);
+
+    color:var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.43rem;
+
+    font-weight:700;
+
+    letter-spacing:.09rem;
+
+}
+
+
+/*==================================
+CONTENT
+==================================*/
+
+.vault-entry-content{
+
+    padding:1rem;
+
+}
+
+
+/*==================================
+HEADING
+==================================*/
+
+.vault-entry-heading{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    gap:1rem;
+
+}
+
+
+.vault-entry-theme{
+
+    display:block;
+
+    margin-bottom:.3rem;
+
+    color:var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.45rem;
+
+    font-weight:700;
+
+    letter-spacing:.1rem;
+
+}
+
+
+.vault-entry-heading h3{
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1.05rem;
+
+    font-weight:400;
+
+    line-height:1.2;
+
+}
+
+
+/*==================================
+MENU
+==================================*/
+
+.vault-entry-menu{
+
+    flex-shrink:0;
+
+    padding:.2rem;
+
+    background:none;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.7rem;
+
+    letter-spacing:.08rem;
+
+    cursor:pointer;
+
+}
+
+
+.vault-entry-menu:hover{
+
+    color:#aaa;
+
+}
+
+
+/*==================================
+DESCRIPTION
+==================================*/
+
+.vault-entry-description{
+
+    margin:.75rem 0 0;
+
+    color:#666;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.63rem;
+
+    line-height:1.55;
+
+}
+
+
+/*==================================
+MEDIA SUMMARY
+==================================*/
+
+.vault-entry-meta{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:.45rem;
+
+    margin-top:.9rem;
+
+}
+
+
+.vault-entry-meta span{
+
+    padding:.35rem .5rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:6px;
+
+    background:#161616;
+
+    color:#666;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.47rem;
+
+}
+
+
+/*==================================
+MANAGE BUTTON
+==================================*/
+
+.vault-entry-edit{
+
+    width:100%;
+
+    min-height:42px;
+
+    margin-top:1rem;
+
+    border:
+        1px solid
+        rgba(212,175,55,.2);
+
+    border-radius:10px;
+
+    background:
+        rgba(212,175,55,.05);
+
+    color:var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.58rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+.vault-entry-edit:hover{
+
+    background:
+        rgba(212,175,55,.1);
+
+}
+
+
+/*==================================
+DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .vault-entry{
+
+        display:grid;
+
+        grid-template-columns:
+            260px
+            1fr;
+
+        min-height:190px;
+
+    }
+
+
+    .vault-entry-image{
+
+        height:100%;
+
+        min-height:190px;
+
+    }
+
+
+    .vault-entry-content{
+
+        display:flex;
+
+        flex-direction:column;
+
+        padding:1.25rem;
+
+    }
+
+
+    .vault-entry-description{
+
+        max-width:500px;
+
+    }
+
+
+    .vault-entry-meta{
+
+        margin-top:auto;
+
+        padding-top:1rem;
+
+    }
+
+
+    .vault-entry-edit{
+
+        width:auto;
+
+        align-self:flex-start;
+
+        padding:
+            0
+            1rem;
+
+    }
+
+}

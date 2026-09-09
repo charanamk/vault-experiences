@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VAULT — Equipment</title>
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css">
+
+    <link
+        rel="stylesheet"
+        href="css/equipment.css">
+
+</head>
+
+
+<body>
+
+
+<!--==================================
+VAULT ADMIN
+==================================-->
+
+<div
+    class="vault-admin"
+    id="vaultAdmin">
+
+
+    <!--==================================
+    MOBILE HEADER
+    ==================================-->
+
+    <header class="admin-mobile-header">
+
+        <div class="admin-brand">
+
+            <span class="admin-brand-name">
+                VAULT
+            </span>
+
+            <span class="admin-brand-label">
+                ADMIN
+            </span>
+
+        </div>
+
+
+        <button
+            class="admin-menu-btn"
+            id="adminMenuBtn"
+            type="button"
+            aria-label="Open navigation">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+
+
+    <!--==================================
+    SIDEBAR
+    ==================================-->
+
+    <aside
+        class="admin-sidebar"
+        id="adminSidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="admin-sidebar-brand">
+
+            <span class="admin-logo">
+                VAULT
+            </span>
+
+            <span class="admin-label">
+                ADMIN
+            </span>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="admin-nav">
+
+
+            <span class="admin-nav-title">
+                MANAGEMENT
+            </span>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="dashboard">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="events">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Events
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="tickets">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Tickets
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="bookings">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Bookings
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="customers">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Customers
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item active"
+                type="button"
+                data-section="equipment">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Equipment
+                </span>
+
+            </button>
+
+
+            <span class="admin-nav-title admin-nav-title-bottom">
+                INSIGHTS
+            </span>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="analytics">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Analytics
+                </span>
+
+            </button>
+
+        </nav>
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="admin-sidebar-footer">
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="settings">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Settings
+                </span>
+
+            </button>
+
+
+            <div class="admin-profile">
+
+                <div class="admin-profile-avatar">
+                    V
+                </div>
+
+                <div class="admin-profile-info">
+
+                    <strong>
+                        Vault Admin
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!--==================================
+    SIDEBAR OVERLAY
+    ==================================-->
+
+    <div
+        class="admin-sidebar-overlay"
+        id="adminSidebarOverlay">
+    </div>
+
+
+
+    <!--==================================
+    EQUIPMENT MAIN
+    ==================================-->
+
+    <main
+        class="admin-main equipment-main"
+        aria-label="Equipment management">
+
+
+        <!--==================================
+        PAGE HEADER
+        ==================================-->
+
+        <header class="equipment-header">
+
+
+            <div>
+
+                <span class="equipment-eyebrow">
+                    EQUIPMENT HIRING
+                </span>
+
+
+                <h1>
+                    Equipment
+                </h1>
+
+
+                <p>
+                    Manage the pieces that bring every experience to life.
+                </p>
+
+            </div>
+
+
+            <button
+                class="equipment-add-btn"
+                id="equipmentAddBtn"
+                type="button">
+
+                <span>
+                    +
+                </span>
+
+                Add Equipment
+
+            </button>
+
+
+        </header>
+
+<!--==================================
+EQUIPMENT CATEGORIES
+==================================-->
+
+<section class="equipment-categories">
+
+    <div class="equipment-section-heading">
+
+        <span>
+            COLLECTIONS
+        </span>
+
+        <h2>
+            Browse by category
+        </h2>
+
+    </div>
+
+
+    <div
+        class="equipment-category-list"
+        id="equipmentCategories">
+
+
+        <button
+            class="equipment-category active"
+            type="button"
+            data-category="all">
+
+            <span class="equipment-category-number">
+                06
+            </span>
+
+            <span>
+                All Equipment
+            </span>
+
+        </button>
+
+
+        <button
+            class="equipment-category"
+            type="button"
+            data-category="picnic">
+
+            <span class="equipment-category-number">
+                02
+            </span>
+
+            <span>
+                Picnic
+            </span>
+
+        </button>
+
+
+        <button
+            class="equipment-category"
+            type="button"
+            data-category="gatherings">
+
+            <span class="equipment-category-number">
+                02
+            </span>
+
+            <span>
+                Small Gatherings
+            </span>
+
+        </button>
+
+
+        <button
+            class="equipment-category"
+            type="button"
+            data-category="weddings">
+
+            <span class="equipment-category-number">
+                02
+            </span>
+
+            <span>
+                Weddings
+            </span>
+
+        </button>
+
+
+        <button
+            class="equipment-category"
+            type="button"
+            data-category="concerts">
+
+            <span class="equipment-category-number">
+                02
+            </span>
+
+            <span>
+                Concert Production
+            </span>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!--==================================
+EQUIPMENT INVENTORY
+==================================-->
+
+<section class="equipment-inventory">
+
+
+    <!--==================================
+    INVENTORY HEADER
+    ==================================-->
+
+    <div class="equipment-inventory-header">
+
+        <div>
+
+            <span>
+                INVENTORY
+            </span>
+
+            <h2>
+                Available Equipment
+            </h2>
+
+        </div>
+
+
+        <div class="equipment-search">
+
+            <span aria-hidden="true">
+                ⌕
+            </span>
+
+            <input
+                type="search"
+                id="equipmentSearch"
+                name="equipmentSearch"
+                placeholder="Search equipment..."
+                autocomplete="off">
+
+        </div>
+
+    </div>
+
+
+
+    <!--==================================
+    EQUIPMENT GRID
+    ==================================-->
+
+    <div
+        class="equipment-grid"
+        id="equipmentGrid">
+
+
+        <!--==================================
+        EQUIPMENT
+        ==================================-->
+
+        <article
+            class="equipment-card"
+            data-equipment-id="equipment-001"
+            data-category="picnic"
+            data-status="available">
+
+            <div class="equipment-image">
+
+                <img
+                    src="assets/images/equipment-picnic.jpg"
+                    alt="Picnic Level 1">
+
+                <span class="equipment-status available">
+                    Available
+                </span>
+
+            </div>
+
+
+            <div class="equipment-card-body">
+
+                <span class="equipment-card-category">
+                    PICNIC
+                </span>
+
+
+                <h3>
+                    Picnic Level 1
+                </h3>
+
+
+                <p>
+                    A refined setup for intimate outdoor gatherings.
+                </p>
+
+
+                <div class="equipment-card-footer">
+
+                    <div>
+
+                        <span>
+                            FROM
+                        </span>
+
+                        <strong>
+                            KSh 5,000
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="equipment-manage-btn"
+                        type="button"
+                        data-equipment="equipment-001">
+
+                        Manage
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!--==================================
+        EQUIPMENT
+        ==================================-->
+
+        <article
+            class="equipment-card"
+            data-equipment-id="equipment-002"
+            data-category="picnic"
+            data-status="available">
+
+            <div class="equipment-image">
+
+                <img
+                    src="assets/images/equipment-picnic-2.jpg"
+                    alt="Picnic Level 2">
+
+                <span class="equipment-status available">
+                    Available
+                </span>
+
+            </div>
+
+
+            <div class="equipment-card-body">
+
+                <span class="equipment-card-category">
+                    PICNIC
+                </span>
+
+
+                <h3>
+                    Picnic Level 2
+                </h3>
+
+
+                <p>
+                    An elevated picnic experience with premium styling.
+                </p>
+
+
+                <div class="equipment-card-footer">
+
+                    <div>
+
+                        <span>
+                            FROM
+                        </span>
+
+                        <strong>
+                            KSh 8,500
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="equipment-manage-btn"
+                        type="button"
+                        data-equipment="equipment-002">
+
+                        Manage
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!--==================================
+        EQUIPMENT
+        ==================================-->
+
+        <article
+            class="equipment-card"
+            data-equipment-id="equipment-003"
+            data-category="gatherings"
+            data-status="available">
+
+            <div class="equipment-image">
+
+                <img
+                    src="assets/images/equipment-gathering.jpg"
+                    alt="Small Gathering Level 1">
+
+                <span class="equipment-status available">
+                    Available
+                </span>
+
+            </div>
+
+
+            <div class="equipment-card-body">
+
+                <span class="equipment-card-category">
+                    SMALL GATHERINGS
+                </span>
+
+
+                <h3>
+                    Small Gathering Level 1
+                </h3>
+
+
+                <p>
+                    A complete setup for intimate celebrations.
+                </p>
+
+
+                <div class="equipment-card-footer">
+
+                    <div>
+
+                        <span>
+                            FROM
+                        </span>
+
+                        <strong>
+                            KSh 12,000
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="equipment-manage-btn"
+                        type="button"
+                        data-equipment="equipment-003">
+
+                        Manage
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!--==================================
+        EQUIPMENT
+        ==================================-->
+
+        <article
+            class="equipment-card"
+            data-equipment-id="equipment-004"
+            data-category="weddings"
+            data-status="available">
+
+            <div class="equipment-image">
+
+                <img
+                    src="assets/images/equipment-wedding.jpg"
+                    alt="Wedding Level 1">
+
+                <span class="equipment-status available">
+                    Available
+                </span>
+
+            </div>
+
+
+            <div class="equipment-card-body">
+
+                <span class="equipment-card-category">
+                    WEDDINGS
+                </span>
+
+
+                <h3>
+                    Wedding Level 1
+                </h3>
+
+
+                <p>
+                    Elegant essentials for a beautifully styled celebration.
+                </p>
+
+
+                <div class="equipment-card-footer">
+
+                    <div>
+
+                        <span>
+                            FROM
+                        </span>
+
+                        <strong>
+                            KSh 35,000
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="equipment-manage-btn"
+                        type="button"
+                        data-equipment="equipment-004">
+
+                        Manage
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!--==================================
+        EQUIPMENT
+        ==================================-->
+
+        <article
+            class="equipment-card"
+            data-equipment-id="equipment-005"
+            data-category="concerts"
+            data-status="available">
+
+            <div class="equipment-image">
+
+                <img
+                    src="assets/images/equipment-concert.jpg"
+                    alt="Concert Production Level 1">
+
+                <span class="equipment-status available">
+                    Available
+                </span>
+
+            </div>
+
+
+            <div class="equipment-card-body">
+
+                <span class="equipment-card-category">
+                    CONCERT PRODUCTION
+                </span>
+
+
+                <h3>
+                    Concert Production Level 1
+                </h3>
+
+
+                <p>
+                    Essential production equipment for live experiences.
+                </p>
+
+
+                <div class="equipment-card-footer">
+
+                    <div>
+
+                        <span>
+                            FROM
+                        </span>
+
+                        <strong>
+                            KSh 50,000
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        class="equipment-manage-btn"
+                        type="button"
+                        data-equipment="equipment-005">
+
+                        Manage
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!--==================================
+EQUIPMENT MANAGEMENT PANEL
+==================================-->
+
+<aside
+    class="equipment-panel"
+    id="equipmentPanel"
+    aria-hidden="true">
+
+
+    <div class="equipment-panel-header">
+
+        <div>
+
+            <span>
+                EQUIPMENT MANAGEMENT
+            </span>
+
+            <h2 id="equipmentPanelTitle">
+                Equipment
+            </h2>
+
+        </div>
+
+
+        <button
+            class="equipment-panel-close"
+            id="equipmentPanelClose"
+            type="button"
+            aria-label="Close equipment panel">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+
+    <!--==================================
+    PANEL IMAGE
+    ==================================-->
+
+    <div class="equipment-panel-image">
+
+        <img
+            id="equipmentPanelImage"
+            src=""
+            alt="Equipment preview">
+
+    </div>
+
+
+
+    <!--==================================
+    PANEL DETAILS
+    ==================================-->
+
+    <div class="equipment-panel-details">
+
+        <span
+            class="equipment-panel-category"
+            id="equipmentPanelCategory">
+            —
+        </span>
+
+
+        <p id="equipmentPanelDescription">
+            Equipment description.
+        </p>
+
+
+        <div class="equipment-panel-stats">
+
+
+            <div>
+
+                <span>
+                    STARTING PRICE
+                </span>
+
+                <strong id="equipmentPanelPrice">
+                    KSh 0
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    STATUS
+                </span>
+
+                <strong id="equipmentPanelStatus">
+                    —
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="equipment-edit-btn"
+            id="equipmentEditBtn"
+            type="button"
+            data-action="edit">
+
+            Edit Equipment
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!--==================================
+PANEL OVERLAY
+==================================-->
+
+<div
+    class="equipment-panel-overlay"
+    id="equipmentPanelOverlay">
+</div>
+
+
+
+<!--==================================
+ADD EQUIPMENT PANEL
+==================================-->
+
+<aside
+    class="equipment-add-panel"
+    id="equipmentAddPanel"
+    aria-hidden="true">
+
+
+    <div class="equipment-panel-header">
+
+        <div>
+
+            <span>
+                NEW LISTING
+            </span>
+
+            <h2>
+                Add Equipment
+            </h2>
+
+        </div>
+
+
+        <button
+            class="equipment-add-panel-close"
+            id="equipmentAddPanelClose"
+            type="button"
+            aria-label="Close add equipment panel">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+
+    <!--==================================
+    EQUIPMENT FORM
+    ==================================-->
+
+    <form
+        class="equipment-form"
+        id="equipmentForm"
+        enctype="multipart/form-data">
+
+
+        <!-- NAME -->
+
+        <div class="equipment-form-field">
+
+            <label for="equipmentName">
+                Equipment Name
+            </label>
+
+            <input
+                type="text"
+                id="equipmentName"
+                name="name"
+                placeholder="e.g. Picnic Level 1"
+                autocomplete="off"
+                required>
+
+        </div>
+
+
+
+        <!-- CATEGORY -->
+
+        <div class="equipment-form-field">
+
+            <label for="equipmentCategory">
+                Category
+            </label>
+
+            <select
+                id="equipmentCategory"
+                name="category"
+                required>
+
+                <option value="">
+                    Select category
+                </option>
+
+                <option value="picnic">
+                    Picnic
+                </option>
+
+                <option value="gatherings">
+                    Small Gatherings
+                </option>
+
+                <option value="weddings">
+                    Weddings
+                </option>
+
+                <option value="concerts">
+                    Concert Production
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- PRICE -->
+
+        <div class="equipment-form-field">
+
+            <label for="equipmentPrice">
+                Starting Price
+            </label>
+
+            <input
+                type="number"
+                id="equipmentPrice"
+                name="startingPrice"
+                placeholder="e.g. 5000"
+                min="0"
+                step="1"
+                inputmode="numeric"
+                required>
+
+        </div>
+
+
+
+        <!-- DESCRIPTION -->
+
+        <div class="equipment-form-field">
+
+            <label for="equipmentDescription">
+                Description
+            </label>
+
+            <textarea
+                id="equipmentDescription"
+                name="description"
+                rows="5"
+                placeholder="Describe the equipment or package."
+                required></textarea>
+
+        </div>
+
+
+
+        <!-- IMAGE -->
+
+        <div class="equipment-form-field">
+
+            <label for="equipmentImageInput">
+                Equipment Image
+            </label>
+
+
+            <div
+                class="equipment-upload"
+                id="equipmentUpload">
+
+                <span aria-hidden="true">
+                    +
+                </span>
+
+                <strong>
+                    Add image
+                </strong>
+
+                <small>
+                    JPG or PNG
+                </small>
+
+                <input
+                    type="file"
+                    id="equipmentImageInput"
+                    name="image"
+                    accept="image/jpeg,image/png"
+                    hidden>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SUBMIT -->
+
+        <button
+            class="equipment-save-btn"
+            id="equipmentSaveBtn"
+            type="submit">
+
+            Add to Equipment
+
+        </button>
+
+
+    </form>
+
+</aside>
+
+
+
+<!--==================================
+EQUIPMENT SCRIPT
+==================================-->
+
+<script src="js/admin.js"></script>
+<script src="js/equipment.js"></script>

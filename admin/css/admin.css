@@ -1,0 +1,630 @@
+/*==================================
+VAULT ADMIN
+ADMIN SHELL
+==================================*/
+
+/*==================================
+VAULT ADMIN — GLOBAL RESET
+==================================*/
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+html,
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    background:#0b0b0b;
+    color:#f4f4f4;
+    overflow-x:hidden;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+button,
+input,
+textarea,
+select{
+    font:inherit;
+}
+
+button{
+    border:0;
+}
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+html,
+body{
+
+    width:100%;
+    min-height:100%;
+
+    background:#0b0b0b;
+
+}
+
+
+body{
+
+    overflow-x:hidden;
+
+    color:#fff;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+}
+
+
+/*==================================
+ADMIN ROOT
+==================================*/
+
+.vault-admin{
+
+    position:relative;
+
+    width:100%;
+    min-height:100vh;
+
+    background:#0b0b0b;
+
+}
+
+
+/*==================================
+MOBILE HEADER
+==================================*/
+
+.admin-mobile-header{
+
+    position:relative;
+
+    width:100%;
+    height:82px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:
+        0 1.25rem;
+
+    background:#111;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+    z-index:100;
+
+}
+
+
+/*==================================
+ADMIN BRAND
+==================================*/
+
+.admin-brand{
+
+    display:flex;
+
+    align-items:baseline;
+
+    gap:.6rem;
+
+}
+
+
+.admin-brand-name{
+
+    color:#f2f2f2;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1.35rem;
+
+    font-weight:500;
+
+    letter-spacing:.04rem;
+
+}
+
+
+.admin-brand-label{
+
+    color:var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+    font-weight:700;
+
+    letter-spacing:.16rem;
+
+}
+
+
+/*==================================
+MOBILE MENU BUTTON
+==================================*/
+
+.admin-menu-btn{
+
+    width:48px;
+    height:48px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:5px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,.03);
+
+    cursor:pointer;
+
+}
+
+
+.admin-menu-btn span{
+
+    width:22px;
+    height:1px;
+
+    background:#aaa;
+
+    transition:
+        transform .25s ease,
+        opacity .25s ease;
+
+}
+
+
+/*==================================
+SIDEBAR
+==================================*/
+
+.admin-sidebar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+    bottom:0;
+
+    width:260px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:
+        1.5rem
+        1rem;
+
+    background:#101010;
+
+    border-right:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transform:
+        translateX(-100%);
+
+    transition:
+        transform .3s ease;
+
+    z-index:300;
+
+}
+
+
+/* Open state */
+
+.admin-sidebar.is-open{
+
+    transform:
+        translateX(0);
+
+}
+
+
+/*==================================
+SIDEBAR BRAND
+==================================*/
+
+.admin-sidebar-brand{
+
+    display:flex;
+
+    align-items:baseline;
+
+    gap:.6rem;
+
+    padding:
+        .25rem
+        .5rem
+        1.75rem;
+
+}
+
+
+.admin-logo{
+
+    color:#f2f2f2;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1.4rem;
+
+    letter-spacing:.04rem;
+
+}
+
+
+.admin-label{
+
+    color:var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+    font-weight:700;
+
+    letter-spacing:.16rem;
+
+}
+
+
+/*==================================
+NAVIGATION
+==================================*/
+
+.admin-nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.25rem;
+
+}
+
+
+.admin-nav-title{
+
+    display:block;
+
+    margin:
+        .5rem
+        .6rem
+        .65rem;
+
+    color:#4f4f4f;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.5rem;
+
+    font-weight:700;
+
+    letter-spacing:.16rem;
+
+}
+
+
+.admin-nav-title-bottom{
+
+    margin-top:1.5rem;
+
+}
+
+
+/*==================================
+NAV ITEM
+==================================*/
+
+.admin-nav-item{
+
+    width:100%;
+    min-height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.8rem;
+
+    padding:
+        0 .75rem;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:transparent;
+
+    color:#777;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.72rem;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+
+}
+
+
+.admin-nav-item:hover{
+
+    background:
+        rgba(255,255,255,.04);
+
+    color:#ddd;
+
+}
+
+
+/*==================================
+ACTIVE NAV
+==================================*/
+
+.admin-nav-item.active{
+
+    background:
+        rgba(212,175,55,.09);
+
+    color:#eee;
+
+}
+
+
+.admin-nav-item.active
+.admin-nav-icon{
+
+    color:var(--gold,#d4af37);
+
+}
+
+
+/*==================================
+NAV ICON
+==================================*/
+
+.admin-nav-icon{
+
+    width:24px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#555;
+
+    font-size:.9rem;
+
+}
+
+
+/*==================================
+SIDEBAR FOOTER
+==================================*/
+
+.admin-sidebar-footer{
+
+    margin-top:auto;
+
+}
+
+
+/*==================================
+PROFILE
+==================================*/
+
+.admin-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.7rem;
+
+    margin-top:.8rem;
+
+    padding:
+        .8rem
+        .6rem;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+
+}
+
+
+.admin-profile-avatar{
+
+    width:34px;
+    height:34px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        rgba(212,175,55,.12);
+
+    border:
+        1px solid
+        rgba(212,175,55,.25);
+
+    color:var(--gold,#d4af37);
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:.8rem;
+
+}
+
+
+.admin-profile-info{
+
+    min-width:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.2rem;
+
+}
+
+
+.admin-profile-info strong{
+
+    color:#ddd;
+
+    font-size:.65rem;
+
+    font-weight:600;
+
+}
+
+
+.admin-profile-info span{
+
+    color:#555;
+
+    font-size:.52rem;
+
+}
+
+
+/*==================================
+SIDEBAR OVERLAY
+==================================*/
+
+.admin-sidebar-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(0,0,0,.65);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+
+    z-index:200;
+
+}
+
+
+.admin-sidebar-overlay.is-visible{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+
+/*==================================
+DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .admin-mobile-header{
+
+        display:none;
+
+    }
+
+
+    .admin-sidebar{
+
+        transform:
+            translateX(0);
+
+    }
+
+
+    .admin-sidebar-overlay{
+
+        display:none;
+
+    }
+
+}

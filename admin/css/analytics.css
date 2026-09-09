@@ -1,0 +1,1120 @@
+/*==================================
+VAULT ANALYTICS
+==================================*/
+
+
+/*==================================
+MAIN
+==================================*/
+
+.analytics-main{
+
+    width:100%;
+    min-height:100vh;
+
+    box-sizing:border-box;
+
+    background:#0b0b0b;
+
+}
+
+
+/*==================================
+HEADER
+==================================*/
+
+.analytics-header{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1.8rem;
+
+    padding:
+        4rem
+        1.5rem
+        2.5rem;
+
+}
+
+
+.analytics-eyebrow{
+
+    display:block;
+
+    margin-bottom:.65rem;
+
+    color:var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+    font-weight:700;
+
+    letter-spacing:.18rem;
+
+}
+
+
+.analytics-header h1{
+
+    margin:0;
+
+    color:#f1f1f1;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:
+        clamp(
+            2.3rem,
+            8vw,
+            4rem
+        );
+
+    font-weight:400;
+
+    line-height:1.05;
+
+}
+
+
+.analytics-header p{
+
+    max-width:430px;
+
+    margin:.8rem 0 0;
+
+    color:#626262;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.75rem;
+
+    line-height:1.6;
+
+}
+
+
+/*==================================
+PERIOD SELECTOR
+==================================*/
+
+.analytics-period{
+
+    display:flex;
+
+    width:max-content;
+
+    max-width:100%;
+
+    padding:.25rem;
+
+    gap:.2rem;
+
+    overflow-x:auto;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:10px;
+
+    background:#111;
+
+}
+
+
+.analytics-period-btn{
+
+    padding:
+        .55rem
+        .7rem;
+
+    border:0;
+
+    border-radius:7px;
+
+    background:transparent;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.52rem;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+    cursor:pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+
+}
+
+
+.analytics-period-btn:hover{
+
+    color:#aaa;
+
+}
+
+
+.analytics-period-btn.active{
+
+    background:#1d1d1d;
+
+    color:#eee;
+
+}
+
+
+/*==================================
+SECTION
+==================================*/
+
+.analytics-overview,
+.analytics-chart-section,
+.analytics-events,
+.analytics-ticket-section{
+
+    padding:
+        0
+        1.5rem
+        3rem;
+
+}
+
+
+/*==================================
+SECTION HEADING
+==================================*/
+
+.analytics-section-heading{
+
+    margin-bottom:1rem;
+
+}
+
+
+.analytics-section-heading > span{
+
+    display:block;
+
+    margin-bottom:.35rem;
+
+    color:var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.5rem;
+
+    font-weight:700;
+
+    letter-spacing:.16rem;
+
+}
+
+
+.analytics-section-heading h2{
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1.25rem;
+
+    font-weight:500;
+
+}
+
+
+.analytics-section-heading p{
+
+    margin:.45rem 0 0;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.58rem;
+
+    line-height:1.5;
+
+}
+
+
+/*==================================
+HEADING ROW
+==================================*/
+
+.analytics-heading-row{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    gap:1rem;
+
+}
+
+
+.analytics-chart-total{
+
+    flex-shrink:0;
+
+    color:#eee;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.75rem;
+
+    font-weight:500;
+
+}
+
+
+/*==================================
+OVERVIEW GRID
+==================================*/
+
+.analytics-stat-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:.65rem;
+
+}
+
+
+.analytics-stat-card{
+
+    position:relative;
+
+    min-height:125px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:1rem;
+
+    box-sizing:border-box;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #161616,
+            #101010
+        );
+
+}
+
+
+.analytics-stat-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:110px;
+    height:110px;
+
+    right:-65px;
+    bottom:-65px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.09),
+            transparent 70%
+        );
+
+    pointer-events:none;
+
+}
+
+
+.analytics-stat-label{
+
+    position:relative;
+
+    z-index:1;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.48rem;
+
+    font-weight:700;
+
+    letter-spacing:.13rem;
+
+}
+
+
+.analytics-stat-value{
+
+    position:relative;
+
+    z-index:1;
+
+    color:#eee;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:1.15rem;
+
+    font-weight:500;
+
+}
+
+
+.analytics-stat-change{
+
+    position:relative;
+
+    z-index:1;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.48rem;
+
+}
+
+
+.analytics-stat-change.positive{
+
+    color:#71866c;
+
+}
+
+
+/*==================================
+REVENUE CHART
+==================================*/
+
+.analytics-chart{
+
+    display:grid;
+
+    grid-template-columns:34px 1fr;
+
+    height:245px;
+
+    padding:
+        .5rem
+        .5rem
+        0;
+
+    box-sizing:border-box;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:15px;
+
+    background:#111;
+
+}
+
+
+.analytics-chart-y{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:
+        .3rem
+        .35rem
+        1.7rem
+        0;
+
+}
+
+
+.analytics-chart-y span{
+
+    color:#444;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.43rem;
+
+    text-align:right;
+
+}
+
+
+/*==================================
+CHART AREA
+==================================*/
+
+.analytics-chart-area{
+
+    position:relative;
+
+    min-width:0;
+
+    height:100%;
+
+}
+
+
+.analytics-grid-lines{
+
+    position:absolute;
+
+    inset:
+        .3rem
+        0
+        1.7rem
+        0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+}
+
+
+.analytics-grid-lines span{
+
+    width:100%;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.045);
+
+}
+
+
+/*==================================
+BARS
+==================================*/
+
+.analytics-bars{
+
+    position:absolute;
+
+    inset:
+        .3rem
+        0
+        0
+        0;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    gap:.35rem;
+
+}
+
+
+.analytics-bar{
+
+    position:relative;
+
+    flex:1;
+
+    height:100%;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:center;
+
+}
+
+
+.analytics-bar span{
+
+    width:
+        min(24px,65%);
+
+    height:
+        calc(
+            var(--bar-height,50) * 1%
+        );
+
+    min-height:4px;
+
+    border-radius:
+        5px
+        5px
+        2px
+        2px;
+
+    background:
+        linear-gradient(
+            to top,
+            #9d8123,
+            #d4af37
+        );
+
+    opacity:.85;
+
+    transition:
+        height .5s ease;
+
+}
+
+
+.analytics-bar:nth-child(1) span{
+    height:42%;
+}
+
+.analytics-bar:nth-child(2) span{
+    height:67%;
+}
+
+.analytics-bar:nth-child(3) span{
+    height:51%;
+}
+
+.analytics-bar:nth-child(4) span{
+    height:84%;
+}
+
+.analytics-bar:nth-child(5) span{
+    height:72%;
+}
+
+.analytics-bar:nth-child(6) span{
+    height:96%;
+}
+
+.analytics-bar:nth-child(7) span{
+    height:63%;
+}
+
+
+.analytics-bar small{
+
+    position:absolute;
+
+    bottom:0;
+
+    transform:
+        translateY(1.25rem);
+
+    color:#444;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.42rem;
+
+    letter-spacing:.04rem;
+
+}
+
+
+/*==================================
+EVENT LIST
+==================================*/
+
+.analytics-event-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.55rem;
+
+}
+
+
+.analytics-event-row{
+
+    display:grid;
+
+    grid-template-columns:
+        28px
+        1fr
+        auto;
+
+    align-items:center;
+
+    gap:.7rem;
+
+    padding:.85rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:13px;
+
+    background:#111;
+
+}
+
+
+/*==================================
+RANK
+==================================*/
+
+.analytics-event-rank{
+
+    color:#444;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.52rem;
+
+    font-weight:700;
+
+}
+
+
+/*==================================
+EVENT INFO
+==================================*/
+
+.analytics-event-info{
+
+    min-width:0;
+
+}
+
+
+.analytics-event-info strong{
+
+    display:block;
+
+    overflow:hidden;
+
+    color:#e5e5e5;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:.72rem;
+
+    font-weight:500;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+}
+
+
+.analytics-event-info span{
+
+    display:block;
+
+    margin-top:.25rem;
+
+    color:#4d4d4d;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.45rem;
+
+}
+
+
+/*==================================
+EVENT PROGRESS
+==================================*/
+
+.analytics-event-progress{
+
+    display:none;
+
+}
+
+
+.analytics-event-progress > div:first-child{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:.5rem;
+
+    margin-bottom:.3rem;
+
+}
+
+
+.analytics-event-progress span{
+
+    color:#4b4b4b;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.42rem;
+
+}
+
+
+.analytics-event-progress strong{
+
+    color:#777;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.42rem;
+
+    font-weight:500;
+
+}
+
+
+.analytics-progress-track{
+
+    width:100%;
+
+    height:3px;
+
+    overflow:hidden;
+
+    border-radius:10px;
+
+    background:#222;
+
+}
+
+
+.analytics-progress-track span{
+
+    display:block;
+
+    height:100%;
+
+    border-radius:10px;
+
+    background:#b6962d;
+
+}
+
+
+/*==================================
+EVENT REVENUE
+==================================*/
+
+.analytics-event-revenue{
+
+    color:#aaa;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+    font-weight:500;
+
+    white-space:nowrap;
+
+}
+
+
+/*==================================
+TICKET GRID
+==================================*/
+
+.analytics-ticket-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:.55rem;
+
+}
+
+
+.analytics-ticket-card{
+
+    padding:.8rem;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:13px;
+
+    background:#111;
+
+}
+
+
+.analytics-ticket-card > span{
+
+    display:block;
+
+    margin-bottom:.55rem;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.43rem;
+
+    font-weight:700;
+
+    letter-spacing:.08rem;
+
+}
+
+
+.analytics-ticket-card strong{
+
+    display:block;
+
+    color:#eee;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:1.15rem;
+
+    font-weight:500;
+
+}
+
+
+.analytics-ticket-card small{
+
+    display:block;
+
+    margin-top:.2rem;
+
+    color:#4c4c4c;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.43rem;
+
+}
+
+
+/*==================================
+TICKET BAR
+==================================*/
+
+.analytics-ticket-bar{
+
+    width:100%;
+
+    height:3px;
+
+    margin-top:.8rem;
+
+    overflow:hidden;
+
+    border-radius:10px;
+
+    background:#222;
+
+}
+
+
+.analytics-ticket-bar span{
+
+    display:block;
+
+    height:100%;
+
+    border-radius:10px;
+
+    background:#9e8228;
+
+}
+
+
+/*==================================
+DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .analytics-main{
+
+        margin-left:260px;
+
+        width:
+            calc(100% - 260px);
+
+    }
+
+
+    .analytics-header{
+
+        flex-direction:row;
+
+        align-items:flex-end;
+
+        justify-content:space-between;
+
+        padding:
+            5rem
+            4rem
+            3rem;
+
+    }
+
+
+    .analytics-overview,
+    .analytics-chart-section,
+    .analytics-events,
+    .analytics-ticket-section{
+
+        padding:
+            0
+            4rem
+            4rem;
+
+    }
+
+
+    .analytics-stat-grid{
+
+        grid-template-columns:
+            repeat(4,1fr);
+
+        gap:.8rem;
+
+    }
+
+
+    .analytics-stat-card{
+
+        min-height:145px;
+
+        padding:1.15rem;
+
+    }
+
+
+    .analytics-stat-value{
+
+        font-size:1.45rem;
+
+    }
+
+
+    .analytics-chart{
+
+        height:310px;
+
+    }
+
+
+    .analytics-event-row{
+
+        grid-template-columns:
+            42px
+            minmax(180px,1fr)
+            minmax(180px,260px)
+            auto;
+
+        padding:
+            1rem
+            1.1rem;
+
+    }
+
+
+    .analytics-event-progress{
+
+        display:block;
+
+    }
+
+
+    .analytics-ticket-grid{
+
+        grid-template-columns:
+            repeat(3,1fr);
+
+        gap:.8rem;
+
+    }
+
+
+    .analytics-ticket-card{
+
+        padding:1.1rem;
+
+    }
+
+}

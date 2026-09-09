@@ -20,7 +20,7 @@ function setSessionCookie(res, sessionId) {
     res.cookie('vault_admin_session', sessionId, {
         httpOnly: true,
         sameSite: 'lax',
-        secure: false,
+        secure: process.env.NODE_ENV === 'production',
         path: '/',
         maxAge: 1000 * 60 * 60 * 24 * 7
     });

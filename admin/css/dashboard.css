@@ -1,0 +1,474 @@
+/*==================================
+DASHBOARD MAIN
+==================================*/
+
+.admin-main{
+
+    width:100%;
+    min-height:100vh;
+
+    background:#0b0b0b;
+
+}
+
+
+/*==================================
+DASHBOARD INTRO
+==================================*/
+
+.dashboard-intro{
+
+    width:100%;
+
+    min-height:420px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    padding:
+        4rem
+        1.5rem;
+
+    box-sizing:border-box;
+
+}
+
+
+/*==================================
+EYEBROW
+==================================*/
+
+.dashboard-eyebrow{
+
+    margin-bottom:.7rem;
+
+    color:var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.58rem;
+
+    font-weight:700;
+
+    letter-spacing:.18rem;
+
+}
+
+
+/*==================================
+TITLE
+==================================*/
+
+.dashboard-intro h1{
+
+    margin:0;
+
+    color:#f4f4f4;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:
+        clamp(
+            2.4rem,
+            8vw,
+            4.5rem
+        );
+
+    font-weight:400;
+
+    line-height:1.05;
+    
+}
+
+
+/*==================================
+DESCRIPTION
+==================================*/
+
+.dashboard-intro p{
+
+    max-width:420px;
+
+    margin:
+        1rem
+        0
+        0;
+
+    color:#666;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.85rem;
+
+    line-height:1.6;
+
+}
+
+
+/*==================================
+DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .admin-main{
+
+        margin-left:260px;
+
+        width:
+            calc(100% - 260px);
+
+    }
+
+
+    .dashboard-intro{
+
+        min-height:480px;
+
+        padding:
+            5rem
+            4rem;
+
+    }
+
+}
+
+/*==================================
+DASHBOARD DATE
+==================================*/
+
+.dashboard-date{
+
+    padding:
+        0
+        1.5rem
+        2.5rem;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.35rem;
+
+}
+
+
+/*==================================
+LABEL
+==================================*/
+
+.dashboard-date-label{
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+    font-weight:700;
+
+    letter-spacing:.18rem;
+
+}
+
+
+/*==================================
+DATE
+==================================*/
+
+.dashboard-date strong{
+
+    color:#777;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.75rem;
+
+    font-weight:500;
+
+    letter-spacing:.08rem;
+
+}
+
+
+/*==================================
+DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .dashboard-date{
+
+        padding:
+            0
+            4rem
+            3rem;
+
+    }
+
+}
+
+/*==================================
+OVERVIEW STATS
+==================================*/
+
+.dashboard-stats{
+
+    padding:
+        0
+        1.5rem
+        2.5rem;
+
+}
+
+
+/*==================================
+SECTION HEADING
+==================================*/
+
+.dashboard-section-heading{
+
+    margin-bottom:1rem;
+
+}
+
+
+.dashboard-section-heading span{
+
+    display:block;
+
+    margin-bottom:.35rem;
+
+    color:var(--gold,#d4af37);
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.52rem;
+
+    font-weight:700;
+
+    letter-spacing:.16rem;
+
+}
+
+
+.dashboard-section-heading h2{
+
+    margin:0;
+
+    color:#eee;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size:1.35rem;
+
+    font-weight:500;
+
+}
+
+
+/*==================================
+STATS GRID
+==================================*/
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:.65rem;
+
+}
+
+
+/*==================================
+STAT CARD
+==================================*/
+
+.stat-card{
+
+    position:relative;
+
+    min-height:145px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:1rem;
+
+    box-sizing:border-box;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #161616,
+            #101010
+        );
+
+}
+
+
+/* subtle gold atmosphere */
+
+.stat-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:100px;
+
+    right:-55px;
+    bottom:-55px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.10),
+            transparent 70%
+        );
+
+    pointer-events:none;
+
+}
+
+
+/*==================================
+LABEL
+==================================*/
+
+.stat-label{
+
+    position:relative;
+
+    z-index:1;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.5rem;
+
+    font-weight:700;
+
+    letter-spacing:.13rem;
+
+}
+
+
+/*==================================
+VALUE
+==================================*/
+
+.stat-value{
+
+    position:relative;
+
+    z-index:1;
+
+    color:#f1f1f1;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:1.55rem;
+
+    font-weight:500;
+
+    line-height:1;
+
+}
+
+
+/*==================================
+META
+==================================*/
+
+.stat-meta{
+
+    position:relative;
+
+    z-index:1;
+
+    color:#555;
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+    font-size:.55rem;
+
+}
+
+
+/*==================================
+DESKTOP
+==================================*/
+
+@media(min-width:900px){
+
+    .dashboard-stats{
+
+        padding:
+            0
+            4rem
+            3rem;
+
+    }
+
+
+    .stats-grid{
+
+        grid-template-columns:
+            repeat(4,1fr);
+
+        gap:.8rem;
+
+    }
+
+
+    .stat-card{
+
+        min-height:155px;
+
+        padding:1.2rem;
+
+    }
+
+}

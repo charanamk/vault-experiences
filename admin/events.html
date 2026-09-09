@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VAULT — Events</title>
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css">
+
+    <link
+        rel="stylesheet"
+        href="css/new-experience.css">
+
+</head>
+
+
+<body>
+
+<div
+    class="vault-admin"
+    id="vaultAdmin">
+
+
+    <!--==================================
+    MOBILE HEADER
+    ==================================-->
+
+    <header class="admin-mobile-header">
+
+        <div class="admin-brand">
+
+            <span class="admin-brand-name">
+                VAULT
+            </span>
+
+            <span class="admin-brand-label">
+                ADMIN
+            </span>
+
+        </div>
+
+
+        <button
+            class="admin-menu-btn"
+            id="adminMenuBtn"
+            type="button"
+            aria-label="Open navigation">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+
+
+    <!--==================================
+    SIDEBAR
+    ==================================-->
+
+    <aside
+        class="admin-sidebar"
+        id="adminSidebar">
+
+
+        <div class="admin-sidebar-brand">
+
+            <span class="admin-logo">
+                VAULT
+            </span>
+
+            <span class="admin-label">
+                ADMIN
+            </span>
+
+        </div>
+
+
+        <nav class="admin-nav">
+
+
+            <span class="admin-nav-title">
+                MANAGEMENT
+            </span>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="dashboard">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item active"
+                type="button"
+                data-section="events">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Events
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="tickets">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Tickets
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="bookings">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Bookings
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="customers">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Customers
+                </span>
+
+            </button>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="equipment">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Equipment
+                </span>
+
+            </button>
+
+
+            <span class="admin-nav-title admin-nav-title-bottom">
+                INSIGHTS
+            </span>
+
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="analytics">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Analytics
+                </span>
+
+            </button>
+
+        </nav>
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="admin-sidebar-footer">
+
+            <button
+                class="admin-nav-item"
+                type="button"
+                data-section="settings">
+
+                <span class="admin-nav-icon">
+                    ◇
+                </span>
+
+                <span>
+                    Settings
+                </span>
+
+            </button>
+
+
+            <div class="admin-profile">
+
+                <div class="admin-profile-avatar">
+                    V
+                </div>
+
+                <div class="admin-profile-info">
+
+                    <strong>
+                        Vault Admin
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!--==================================
+    SIDEBAR OVERLAY
+    ==================================-->
+
+    <div
+        class="admin-sidebar-overlay"
+        id="adminSidebarOverlay">
+    </div>
+
+
+
+    <!--==================================
+    NEW EXPERIENCE MAIN
+    ==================================-->
+
+    <main class="admin-main new-experience-main">
+
+        <section class="experience-list-panel">
+            <div class="experience-list-header">
+                <div>
+                    <span class="new-experience-eyebrow">MANAGE EVENTS</span>
+                    <h2>Existing Experiences</h2>
+                </div>
+            </div>
+            <div class="experience-list" id="existingEventsList" aria-live="polite"></div>
+        </section>
+
+        <!--==================================
+        PAGE HEADER
+        ==================================-->
+
+        <header class="new-experience-header">
+
+            <div>
+
+                <span class="new-experience-eyebrow">
+                    CREATE EXPERIENCE
+                </span>
+
+                <h1>
+                    New Experience
+                </h1>
+
+                <p>
+                    Bring something unforgettable to the Vault.
+                </p>
+
+            </div>
+
+
+            <button
+                class="new-experience-close"
+                type="button"
+                aria-label="Close">
+
+                ×
+
+            </button>
+
+        </header>
+
+
+
+        <!--==================================
+        01 — EXPERIENCE IDENTITY
+        ==================================-->
+
+        <section class="experience-form-section">
+
+
+            <div class="form-section-heading">
+
+                <span>
+                    01
+                </span>
+
+                <div>
+
+                    <h2>
+                        Experience Identity
+                    </h2>
+
+                    <p>
+                        Start with the details that define your experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- COVER IMAGE -->
+
+            <div class="experience-cover-field">
+
+                <label>
+                    Cover Image
+                </label>
+
+
+                <div
+                    class="experience-cover-upload"
+                    id="experienceCoverUpload">
+
+                    <div class="cover-upload-content">
+
+                        <span class="cover-upload-mark">
+                            +
+                        </span>
+
+                        <strong>
+                            Add cover image
+                        </strong>
+
+                        <span>
+                            Recommended 16:9
+                        </span>
+
+                    </div>
+
+
+                    <input
+                        type="file"
+                        id="experienceCoverInput"
+                        accept="image/*"
+                        hidden>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EXPERIENCE TITLE -->
+
+            <div class="form-field">
+
+                <label for="experienceTitle">
+                    Experience Title
+                </label>
+
+                <input
+                    type="text"
+                    id="experienceTitle"
+                    name="experienceTitle"
+                    placeholder="e.g. Summer Solstice"
+                    autocomplete="off">
+
+            </div>
+
+
+
+            <!-- THEME -->
+
+            <div class="form-field">
+
+                <label for="experienceTheme">
+                    Theme
+                </label>
+
+                <input
+                    type="text"
+                    id="experienceTheme"
+                    name="experienceTheme"
+                    placeholder="e.g. NIGHT UNDER THE STARS"
+                    autocomplete="off">
+
+            </div>
+
+
+
+            <!-- SHORT DESCRIPTION -->
+
+            <div class="form-field">
+
+                <label for="experienceShortDescription">
+                    Short Description
+                </label>
+
+                <textarea
+                    id="experienceShortDescription"
+                    name="experienceShortDescription"
+                    rows="3"
+                    placeholder="A short introduction to the experience."></textarea>
+
+            </div>
+
+
+
+            <!-- FULL DESCRIPTION -->
+
+            <div class="form-field">
+
+                <label for="experienceDescription">
+                    About the Experience
+                </label>
+
+                <textarea
+                    id="experienceDescription"
+                    name="experienceDescription"
+                    rows="6"
+                    placeholder="Tell guests what makes this experience worth remembering."></textarea>
+
+            </div>
+
+        </section>
+
+
+
+        <!--==================================
+        02 — DATE, TIME & LOCATION
+        ==================================-->
+
+        <section class="experience-form-section">
+
+
+            <div class="form-section-heading">
+
+                <span>
+                    02
+                </span>
+
+                <div>
+
+                    <h2>
+                        Date, Time &amp; Location
+                    </h2>
+
+                    <p>
+                        Tell guests when and where the experience happens.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EVENT DATE -->
+
+            <div class="form-field">
+
+                <label for="experienceDate">
+                    Event Date
+                </label>
+
+                <input
+                    type="date"
+                    id="experienceDate"
+                    name="experienceDate">
+
+            </div>
+
+
+
+            <!-- START TIME -->
+
+            <div class="form-field">
+
+                <label for="experienceTime">
+                    Start Time
+                </label>
+
+                <input
+                    type="time"
+                    id="experienceTime"
+                    name="experienceTime">
+
+            </div>
+
+
+
+            <!-- LOCATION -->
+
+            <div class="form-field">
+
+                <label for="experienceLocation">
+                    Location
+                </label>
+
+                <input
+                    type="text"
+                    id="experienceLocation"
+                    name="experienceLocation"
+                    placeholder="e.g. The Forest, Nairobi"
+                    autocomplete="off">
+
+            </div>
+
+
+
+            <!-- LOCATION DETAILS -->
+
+            <div class="form-field">
+
+                <label for="experienceLocationNote">
+                    Location Details
+                </label>
+
+                <textarea
+                    id="experienceLocationNote"
+                    name="experienceLocationNote"
+                    rows="3"
+                    placeholder="Add directions or useful information for guests."></textarea>
+
+            </div>
+
+        </section>
+
+<!--==================================
+03 — TICKETING & PRICING
+==================================-->
+
+<section class="experience-form-section">
+
+    <div class="form-section-heading">
+        <span>03</span>
+
+        <div>
+            <h2>Ticketing &amp; Pricing</h2>
+            <p>Choose how guests will access this experience.</p>
+        </div>
+    </div>
+
+    <div class="experience-access-type" aria-label="Experience access type">
+        <button
+            class="experience-access-tab active"
+            id="freeExperienceTab"
+            type="button"
+            data-access-type="free"
+            aria-pressed="true">
+            <span>Free</span>
+            <small>Reservation required</small>
+        </button>
+
+        <button
+            class="experience-access-tab"
+            id="paidExperienceTab"
+            type="button"
+            data-access-type="paid"
+            aria-pressed="false">
+            <span>Paid</span>
+            <small>Ticket required</small>
+        </button>
+    </div>
+
+    <div class="experience-free-settings" id="experienceFreeSettings">
+        <div class="form-field">
+            <label for="experienceRequirements">Requirements</label>
+            <textarea
+                id="experienceRequirements"
+                name="experienceRequirements"
+                rows="4"
+                placeholder="e.g. Reservation required. Valid ID must be presented at the entrance."></textarea>
+        </div>
+
+        <div class="form-field">
+            <label for="experienceMaxReservations">Maximum Reservations Per Person</label>
+            <input
+                type="number"
+                id="experienceMaxReservations"
+                name="experienceMaxReservations"
+                placeholder="e.g. 2"
+                min="1"
+                inputmode="numeric">
+        </div>
+    </div>
+
+    <div class="experience-paid-settings" id="experiencePaidSettings" hidden>
+        <div class="experience-ticket-list" id="experienceTicketList">
+            <article class="experience-ticket-card">
+                <div class="experience-ticket-card-header">
+                    <div>
+                        <span class="experience-ticket-label">TICKET 01</span>
+                        <h3>General Admission</h3>
+                    </div>
+
+                    <button
+                        class="experience-ticket-remove"
+                        type="button"
+                        aria-label="Remove ticket">
+                        ×
+                    </button>
+                </div>
+
+                <div class="form-field">
+                    <label for="ticketName1">Ticket Name</label>
+                    <input
+                        type="text"
+                        id="ticketName1"
+                        placeholder="e.g. General Admission"
+                        autocomplete="off">
+                </div>
+
+                <div class="ticket-field-row">
+                    <div class="form-field">
+                        <label for="ticketPrice1">Price</label>
+                        <div class="ticket-price-input">
+                            <span>KSh</span>
+                            <input
+                                type="number"
+                                id="ticketPrice1"
+                                placeholder="2,500"
+                                min="0"
+                                inputmode="numeric">
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="ticketQuantity1">Available</label>
+                        <input
+                            type="number"
+                            id="ticketQuantity1"
+                            placeholder="100"
+                            min="1"
+                            inputmode="numeric">
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="ticketDescription1">Description</label>
+                    <textarea
+                        id="ticketDescription1"
+                        rows="3"
+                        placeholder="What's included with this ticket?"></textarea>
+                </div>
+            </article>
+        </div>
+
+        <button class="add-ticket-btn" id="addTicketBtn" type="button">
+            <span>+</span>
+            Add Ticket Type
+        </button>
+    </div>
+</section>
+
+        <!--==================================
+        04 — EXPERIENCE SETTINGS
+        ==================================-->
+
+        <section class="experience-form-section">
+
+
+            <div class="form-section-heading">
+
+                <span>
+                    04
+                </span>
+
+                <div>
+
+                    <h2>
+                        Experience Settings
+                    </h2>
+
+                    <p>
+                        Set the practical details guests should know.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GUEST CAPACITY -->
+
+            <div class="form-field">
+
+                <label for="experienceCapacity">
+                    Guest Capacity
+                </label>
+
+                <input
+                    type="number"
+                    id="experienceCapacity"
+                    name="experienceCapacity"
+                    placeholder="e.g. 150"
+                    min="1"
+                    inputmode="numeric">
+
+            </div>
+
+
+
+            <!-- AGE & DRESS CODE -->
+
+            <div class="settings-field-row">
+
+
+                <div class="form-field">
+
+                    <label for="experienceAge">
+                        Age Restriction
+                    </label>
+
+                    <select
+                        id="experienceAge"
+                        name="experienceAge">
+
+                        <option value="">
+                            Select age
+                        </option>
+
+                        <option value="all">
+                            All ages
+                        </option>
+
+                        <option value="18">
+                            18+
+                        </option>
+
+                        <option value="21">
+                            21+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="experienceDressCode">
+                        Dress Code
+                    </label>
+
+                    <input
+                        type="text"
+                        id="experienceDressCode"
+                        name="experienceDressCode"
+                        placeholder="e.g. Smart Casual"
+                        autocomplete="off">
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- BOOKING DEADLINE -->
+
+            <div class="form-field">
+
+                <label for="experienceBookingDeadline">
+                    Booking Deadline
+                </label>
+
+                <input
+                    type="datetime-local"
+                    id="experienceBookingDeadline"
+                    name="experienceBookingDeadline">
+
+            </div>
+
+
+
+            <!-- EXPERIENCE STATUS -->
+
+            <div class="form-field">
+
+                <label for="experienceStatus">
+                    Experience Status
+                </label>
+
+                <select
+                    id="experienceStatus"
+                    name="experienceStatus">
+
+                    <option value="draft">
+                        Draft
+                    </option>
+
+                    <option value="scheduled">
+                        Scheduled
+                    </option>
+
+                    <option value="on-sale">
+                        On Sale
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- FEATURED EXPERIENCE -->
+
+            <div class="experience-toggle-field">
+
+
+                <div>
+
+                    <span class="experience-toggle-title">
+                        Feature this experience
+                    </span>
+
+                    <span class="experience-toggle-description">
+                        Highlight it in the main Vault experience feed.
+                    </span>
+
+                </div>
+
+
+                <label class="vault-toggle">
+
+                    <input
+                        type="checkbox"
+                        id="experienceFeatured"
+                        name="experienceFeatured">
+
+                    <span class="vault-toggle-slider"></span>
+
+                </label>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!--==================================
+        05 — REVIEW & PUBLISH
+        ==================================-->
+
+        <section class="experience-form-section">
+
+
+            <div class="form-section-heading">
+
+                <span>
+                    05
+                </span>
+
+                <div>
+
+                    <h2>
+                        Review &amp; Publish
+                    </h2>
+
+                    <p>
+                        Make sure everything looks right before your experience goes live.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- REVIEW CARD -->
+
+            <div class="experience-review-card">
+
+
+                <!-- COVER -->
+
+                <div class="review-cover">
+
+                    <img
+                        id="reviewExperienceImage"
+                        src=""
+                        alt="Experience cover preview">
+
+                </div>
+
+
+
+                <!-- DETAILS -->
+
+                <div class="review-details">
+
+
+                    <span
+                        class="review-theme"
+                        id="reviewExperienceTheme">
+
+                        NIGHT UNDER THE STARS
+
+                    </span>
+
+
+                    <h3
+                        id="reviewExperienceTitle">
+
+                        Summer Solstice
+
+                    </h3>
+
+
+                    <p
+                        id="reviewExperienceDescription">
+
+                        Your experience description will appear here.
+
+                    </p>
+
+
+
+                    <!-- REVIEW META -->
+
+                    <div class="review-meta">
+
+
+                        <div>
+
+                            <span>
+                                DATE
+                            </span>
+
+                            <strong id="reviewExperienceDate">
+                                TBA
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                LOCATION
+                            </span>
+
+                            <strong id="reviewExperienceLocation">
+                                TBA
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                TICKETS
+                            </span>
+
+                            <strong id="reviewExperienceTickets">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PUBLISH ACTIONS -->
+
+            <div class="experience-form-status" id="experienceFormStatus" aria-live="polite"></div>
+
+            <div class="experience-publish-actions">
+
+                <button
+                    class="experience-save-draft"
+                    id="saveExperienceDraft"
+                    type="button">
+
+                    Save as Draft
+
+                </button>
+
+
+                <button
+                    class="experience-publish"
+                    id="publishExperience"
+                    type="button">
+
+                    Publish Experience
+
+                </button>
+
+            </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!--==================================
+SCRIPTS
+==================================-->
+
+<script src="js/admin.js"></script>
+
+<script src="js/new-experience.js"></script>
+
+
+</body>
+
+</html>
