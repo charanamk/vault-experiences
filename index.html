@@ -1,14 +1,32 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=home.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VAULT � For Moments Worth Keeping.</title>
+    <title>VAULT — For Moments Worth Keeping.</title>
 </head>
 <body>
     <script>
-        window.location.replace("home.html");
+        (function () {
+            const STORAGE_KEY = "vault:session";
+
+            let hasSession = false;
+
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+
+                if (raw) {
+                    const session = JSON.parse(raw);
+                    hasSession = !!session?.customerId;
+                }
+            } catch (error) {
+                localStorage.removeItem(STORAGE_KEY);
+            }
+
+            window.location.replace(
+                hasSession ? "home.html" : "login.html"
+            );
+        })();
     </script>
 </body>
 </html>
