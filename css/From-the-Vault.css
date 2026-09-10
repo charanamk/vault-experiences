@@ -6,8 +6,8 @@
 #from-the-vault {
     position: relative;
     display: block;
-    width: 100%;
-    margin: 0;
+    width: 96%;
+    margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
 }
@@ -102,14 +102,35 @@
    ========================================================= */
 
 #from-the-vault .vault-experiences-track {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
-
+    display: flex;
     width: 100%;
     min-width: 0;
+
+    gap: 1.25rem;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    overscroll-behavior-x: contain;
+
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
 }
 
+#from-the-vault .vault-experiences-track::-webkit-scrollbar {
+    display: none;
+}
+
+#from-the-vault .vault-experience-card {
+    flex: 0 0 100%;
+    width: 100%;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
 
 /* =========================================================
    EXPERIENCE CARD
@@ -597,9 +618,8 @@
     }
 
     #from-the-vault .vault-experiences-track {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.7rem;
-    }
+    gap: 0.7rem;
+}
 
     #from-the-vault .vault-experience-card {
         border-radius: 13px;
