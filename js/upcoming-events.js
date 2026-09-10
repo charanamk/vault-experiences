@@ -61,7 +61,7 @@
         const image = card.querySelector(".event-image");
 
         if (image) {
-            image.src = event.image || "";
+            image.src = getImageUrl(event.image);
             image.alt = event.title || "";
         }
 
@@ -127,7 +127,7 @@
             card.querySelector(".vault-event-image");
 
         if (image) {
-            image.src = event.image || "";
+            image.src = getImageUrl(event.image);
             image.alt = event.title || "";
         }
 
@@ -192,13 +192,45 @@
     }
 
 function getApiUrl(pathname) {
-    const base = window.VAULT_API_BASE_URL || (
-        window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
-            ? (window.location.port === "3000" ? "" : "http://localhost:3000")
-            : ""
-    );
+    const base =
+        window.VAULT_API_BASE_URL ||
+        "https://vault-experiences.onrender.com";
 
     return `${base}${pathname}`;
+}
+
+function getImageUrl(imagePath) {
+    if (!imagePath) {
+        return "";
+    }
+
+    if (
+        imagePath.startsWith("http://") ||
+        imagePath.startsWith("https://")
+    ) {
+        return imagePath;
+    }
+
+    const base =
+        window.VAULT_API_BASE_URL ||
+        "https://vault-experiences.onrender.com";
+
+    return `${base}${imagePath}`;
+}
+
+function getImageUrl(imagePath) {
+    if (!imagePath) return "";
+
+    if (
+        imagePath.startsWith("http://") ||
+        imagePath.startsWith("https://")
+    ) {
+        return imagePath;
+    }
+
+    const base = window.VAULT_API_BASE_URL || "";
+
+    return `${base}${imagePath}`;
 }
 
 async function loadEvents() {
