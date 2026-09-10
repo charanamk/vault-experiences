@@ -1,7 +1,7 @@
 "use strict";
 
 /*==================================
-VAULT � LOGIN
+VAULT — LOGIN
 Shared customer + admin login
 ==================================*/
 
@@ -90,11 +90,14 @@ Shared customer + admin login
 
     async function tryAdminLogin(email, password) {
 
+        const apiBase =
+            window.VAULT_API_BASE_URL || "";
+
         const response = await fetch(
-            "/api/admin/login",
+            `${apiBase}/api/admin/login`,
             {
                 method: "POST",
-                credentials: "same-origin",
+                credentials: "include",
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -139,7 +142,7 @@ Shared customer + admin login
 
 
                 /*--------------------------------
-                FIRST CLICK � OPEN EMAIL FORM
+                FIRST CLICK — OPEN EMAIL FORM
                 --------------------------------*/
 
                 if (!emailMode) {
@@ -172,7 +175,9 @@ Shared customer + admin login
 
                 if (!email || !isValidEmail(email)) {
                     emailInput?.focus();
-                    emailInput?.setCustomValidity("Please enter a valid email address.");
+                    emailInput?.setCustomValidity(
+                        "Please enter a valid email address."
+                    );
                     emailInput?.reportValidity();
                     emailInput?.setCustomValidity("");
                     return;
@@ -180,7 +185,9 @@ Shared customer + admin login
 
                 if (!password.trim()) {
                     passwordInput?.focus();
-                    passwordInput?.setCustomValidity("Password is required.");
+                    passwordInput?.setCustomValidity(
+                        "Password is required."
+                    );
                     passwordInput?.reportValidity();
                     passwordInput?.setCustomValidity("");
                     return;
@@ -224,7 +231,10 @@ Shared customer + admin login
                             adminResult.admin
                         );
 
-                        showToast("Admin login successful.", "success");
+                        showToast(
+                            "Admin login successful.",
+                            "success"
+                        );
 
                         window.location.assign(
                             "/admin"
@@ -232,6 +242,7 @@ Shared customer + admin login
 
                         return;
                     }
+
 
                     /*================================
                     CUSTOMER LOGIN
@@ -242,7 +253,10 @@ Shared customer + admin login
                         password
                     );
 
-                    showToast("Signed in successfully.", "success");
+                    showToast(
+                        "Signed in successfully.",
+                        "success"
+                    );
 
                     window.VaultApp?.navigate(
                         "home"
@@ -259,7 +273,10 @@ Shared customer + admin login
                         error?.message ||
                         "Sign in failed. Please check your details and try again.";
 
-                    showToast(message, "error");
+                    showToast(
+                        message,
+                        "error"
+                    );
 
                     emailBtn.textContent =
                         "Continue";
@@ -286,9 +303,19 @@ Shared customer + admin login
         passwordInput.autocomplete = "new-password";
     }
 
-    if (window.performance && window.performance.getEntriesByType) {
-        const navEntries = window.performance.getEntriesByType("navigation");
-        const isReload = navEntries.some((entry) => entry.type === "reload");
+    if (
+        window.performance &&
+        window.performance.getEntriesByType
+    ) {
+        const navEntries =
+            window.performance.getEntriesByType(
+                "navigation"
+            );
+
+        const isReload =
+            navEntries.some(
+                (entry) => entry.type === "reload"
+            );
 
         if (!isReload) {
             clearLoginFormState();
@@ -317,7 +344,10 @@ Shared customer + admin login
 
                     await window.CustomerSession.createGuest();
 
-                    showToast("Guest session created.", "success");
+                    showToast(
+                        "Guest session created.",
+                        "success"
+                    );
 
                     window.VaultApp?.navigate(
                         "home"
@@ -392,9 +422,3 @@ if (
     );
 
 }
-
-
-
-
-
-
