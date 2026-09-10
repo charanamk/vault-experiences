@@ -126,24 +126,6 @@
 
             </div>
 
-
-            <!-- My Vault -->
-
-            <button
-                type="button"
-                class="vault-button"
-                data-route="login"
-                aria-label="Open My Vault"
-            >
-
-                <img
-                    src="assets/icons/user.svg"
-                    alt=""
-                    aria-hidden="true"
-                >
-
-            </button>
-
         </header>
 
 
@@ -399,124 +381,512 @@
         class="vault-experiences-track"
         id="vaultExperiencesTrack"
         aria-live="polite"
-    ></div>
-
-</section>
-
-
-<!-- =========================================
-     ARCHIVED EXPERIENCE TEMPLATE
-========================================== -->
-
-<template id="vaultExperienceCardTemplate">
-
-    <article
-        class="vault-experience-card"
-        data-event-id=""
     >
 
-        <!-- =================================
-             POSTER
-        ================================== -->
-
-        <div class="vault-experience-poster">
-
-            <img
-                class="vault-event-image"
-                src=""
-                alt=""
-            >
-
-
-            <span class="ended-badge">
-                ENDED
-            </span>
-
-
-            <!--
-                Subtle archival layer.
-                This is purely visual and
-                does not affect the event data.
-            -->
-
-            <div class="vault-memory-overlay">
-
-                <span class="vault-memory-label">
-                    FROM THE VAULT
-                </span>
-
-            </div>
-
-
-            <div class="vault-poster-info">
-
-                <span class="vault-event-theme"></span>
-
-                <h3 class="vault-event-title"></h3>
-
-            </div>
-
-        </div>
-
 
         <!-- =================================
-             EXPERIENCE DETAILS
+             06 — SUNDAY RESET
         ================================== -->
 
-        <div class="vault-experience-details">
+        <article
+            class="vault-experience-card"
+            data-event-id="sunday-reset"
+        >
 
-
-            <div class="vault-detail-item">
+            <div class="vault-experience-poster">
 
                 <img
-                    src="assets/icons/location.svg"
-                    alt=""
-                    aria-hidden="true"
+                    class="vault-event-image"
+                    src="assets/images/events/sunday-reset.jpg"
+                    alt="Sunday Reset"
                 >
 
-                <span class="vault-event-location"></span>
+                <span class="ended-badge">
+                    ENDED
+                </span>
+
+                <div class="vault-memory-overlay">
+
+                    <span class="vault-memory-label">
+                        FROM THE VAULT
+                    </span>
+
+                </div>
+
+                <div class="vault-poster-info">
+
+                    <span class="vault-event-theme">
+                        WELLNESS MORNING
+                    </span>
+
+                    <h3 class="vault-event-title">
+                        SUNDAY RESET
+                    </h3>
+
+                </div>
 
             </div>
 
 
-            <div class="vault-detail-item">
+            <div class="vault-experience-details">
 
-                <img
-                    src="assets/icons/calendar.svg"
-                    alt=""
-                    aria-hidden="true"
+                <div class="vault-detail-item">
+
+                    <img
+                        src="assets/icons/location.svg"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <span class="vault-event-location">
+                        Karura Garden Studio
+                    </span>
+
+                </div>
+
+
+                <div class="vault-detail-item">
+
+                    <img
+                        src="assets/icons/calendar.svg"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <span class="vault-event-date">
+                        22 November 2026
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="view-experience-btn"
+                    type="button"
+                    data-action="view-experience"
                 >
 
-                <span class="vault-event-date"></span>
+                    <span>
+                        View Experience
+                    </span>
+
+                    <span
+                        aria-hidden="true"
+                        class="view-experience-arrow"
+                    >
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================
+             07 — CITY LIGHTS
+        ================================== -->
+
+        <article
+            class="vault-experience-card"
+            data-event-id="city-lights"
+        >
+
+            <div class="vault-experience-poster">
+
+                <img
+                    class="vault-event-image"
+                    src="assets/images/events/city-lights.jpg"
+                    alt="City Lights"
+                >
+
+                <span class="ended-badge">
+                    ENDED
+                </span>
+
+                <div class="vault-memory-overlay">
+
+                    <span class="vault-memory-label">
+                        FROM THE VAULT
+                    </span>
+
+                </div>
+
+                <div class="vault-poster-info">
+
+                    <span class="vault-event-theme">
+                        NIGHT CULTURE
+                    </span>
+
+                    <h3 class="vault-event-title">
+                        CITY LIGHTS
+                    </h3>
+
+                </div>
 
             </div>
 
 
-            <button
-                class="view-experience-btn"
-                type="button"
-                data-action="view-experience"
-            >
+            <div class="vault-experience-details">
 
-                <span>
-                    View Experience
-                </span>
+                <div class="vault-detail-item">
 
-                <span
-                    aria-hidden="true"
-                    class="view-experience-arrow"
+                    <img
+                        src="assets/icons/location.svg"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <span class="vault-event-location">
+                        Westlands
+                    </span>
+
+                </div>
+
+
+                <div class="vault-detail-item">
+
+                    <img
+                        src="assets/icons/calendar.svg"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <span class="vault-event-date">
+                        28 November 2026
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="view-experience-btn"
+                    type="button"
+                    data-action="view-experience"
                 >
-                    →
+
+                    <span>
+                        View Experience
+                    </span>
+
+                    <span
+                        aria-hidden="true"
+                        class="view-experience-arrow"
+                    >
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================
+             08 — THE LONG TABLE
+        ================================== -->
+
+        <article
+            class="vault-experience-card"
+            data-event-id="the-long-table"
+        >
+
+            <div class="vault-experience-poster">
+
+                <img
+                    class="vault-event-image"
+                    src="assets/images/events/the-long-table.jpg"
+                    alt="The Long Table"
+                >
+
+                <span class="ended-badge">
+                    ENDED
                 </span>
 
-            </button>
+                <div class="vault-memory-overlay">
+
+                    <span class="vault-memory-label">
+                        FROM THE VAULT
+                    </span>
+
+                </div>
+
+                <div class="vault-poster-info">
+
+                    <span class="vault-event-theme">
+                        DINNER &amp; CONVERSATION
+                    </span>
+
+                    <h3 class="vault-event-title">
+                        THE LONG TABLE
+                    </h3>
+
+                </div>
+
+            </div>
 
 
-        </div>
+            <div class="vault-experience-details">
 
-    </article>
+                <div class="vault-detail-item">
 
-</template>
+                    <img
+                        src="assets/icons/location.svg"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <span class="vault-event-location">
+                        The Courtyard
+                    </span>
+
+                </div>
+
+
+                <div class="vault-detail-item">
+
+                    <img
+                        src="assets/icons/calendar.svg"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <span class="vault-event-date">
+                        5 December 2026
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="view-experience-btn"
+                    type="button"
+                    data-action="view-experience"
+                >
+
+                    <span>
+                        View Experience
+                    </span>
+
+                    <span
+                        aria-hidden="true"
+                        class="view-experience-arrow"
+                    >
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================
+             09 — SUNSET CLUB
+        ================================== -->
+
+        <article
+            class="vault-experience-card"
+            data-event-id="sunset-club"
+        >
+
+            <div class="vault-experience-poster">
+
+                <img
+                    class="vault-event-image"
+                    src="assets/images/events/sunset-club.jpg"
+                    alt="Sunset Club"
+                >
+
+                <span class="ended-badge">
+                    ENDED
+                </span>
+
+                <div class="vault-memory-overlay">
+
+                    <span class="vault-memory-label">
+                        FROM THE VAULT
+                    </span>
+
+                </div>
+
+                <div class="vault-poster-info">
+
+                    <span class="vault-event-theme">
+                        GOLDEN HOUR
+                    </span>
+
+                    <h3 class="vault-event-title">
+                        SUNSET CLUB
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="vault-experience-details">
+
+                <div class="vault-detail-item">
+
+                    <img
+                        src="assets/icons/location.svg"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <span class="vault-event-location">
+                        The Terrace
+                    </span>
+
+                </div>
+
+
+                <div class="vault-detail-item">
+
+                    <img
+                        src="assets/icons/calendar.svg"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <span class="vault-event-date">
+                        12 December 2026
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="view-experience-btn"
+                    type="button"
+                    data-action="view-experience"
+                >
+
+                    <span>
+                        View Experience
+                    </span>
+
+                    <span
+                        aria-hidden="true"
+                        class="view-experience-arrow"
+                    >
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================
+             10 — NEW YEAR, SAME MEMORIES
+        ================================== -->
+
+        <article
+            class="vault-experience-card"
+            data-event-id="new-year-same-memories"
+        >
+
+            <div class="vault-experience-poster">
+
+                <img
+                    class="vault-event-image"
+                    src="assets/images/events/new-year-same-memories.jpg"
+                    alt="New Year, Same Memories"
+                >
+
+                <span class="ended-badge">
+                    ENDED
+                </span>
+
+                <div class="vault-memory-overlay">
+
+                    <span class="vault-memory-label">
+                        FROM THE VAULT
+                    </span>
+
+                </div>
+
+                <div class="vault-poster-info">
+
+                    <span class="vault-event-theme">
+                        NEW YEAR'S EVE
+                    </span>
+
+                    <h3 class="vault-event-title">
+                        NEW YEAR, SAME MEMORIES
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="vault-experience-details">
+
+                <div class="vault-detail-item">
+
+                    <img
+                        src="assets/icons/location.svg"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <span class="vault-event-location">
+                        VAULT House
+                    </span>
+
+                </div>
+
+
+                <div class="vault-detail-item">
+
+                    <img
+                        src="assets/icons/calendar.svg"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <span class="vault-event-date">
+                        31 December 2026
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="view-experience-btn"
+                    type="button"
+                    data-action="view-experience"
+                >
+
+                    <span>
+                        View Experience
+                    </span>
+
+                    <span
+                        aria-hidden="true"
+                        class="view-experience-arrow"
+                    >
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
 
         <!-- =====================================
              EQUIPMENT HIRING
@@ -1816,7 +2186,8 @@
          SCRIPTS
     ========================================== -->
 
-    <script defer src="js/upcoming-events.js"></script>
+<script>window.VAULT_API_BASE_URL = "https://vault-experiences.onrender.com";</script>
+<script defer src="js/upcoming-events.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     

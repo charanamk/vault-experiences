@@ -698,6 +698,102 @@
 
     }
 
+/*==================================
+BOTTOM NAVIGATION AUTO-HIDE
+==================================*/
+
+let bottomNavHideTimer = null;
+let lastScrollY = window.scrollY;
+let navScrollTicking = false;
+
+function getBottomNav() {
+    return document.querySelector(".bottom-nav");
+}
+
+function showBottomNav() {
+    const nav = getBottomNav();
+
+    if (!nav) {
+        return;
+    }
+
+    nav.classList.remove("nav-hidden");
+
+    clearTimeout(bottomNavHideTimer);
+
+    bottomNavHideTimer = setTimeout(() => {
+        hideBottomNav();
+    }, 3000);
+}
+
+function hideBottomNav() {
+    const nav = getBottomNav();
+
+    if (!nav) {
+        return;
+    }
+
+    nav.classList.add("nav-hidden");
+}
+
+function handleBottomNavScroll() {
+    const currentScrollY = window.scrollY;
+    const maxScrollY =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+    const atBottom =
+        currentScrollY >= maxScrollY - 4;
+
+    if (atBottom) {
+        showBottomNav();
+        lastScrollY = currentScrollY;
+        return;
+    }
+
+    if (currentScrollY < lastScrollY) {
+        // Scrolling upward → show
+        showBottomNav();
+    } else if (currentScrollY > lastScrollY) {
+        // Scrolling downward → hide
+        hideBottomNav();
+    }
+
+    lastScrollY = currentScrollY;
+}
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (navScrollTicking) {
+            return;
+        }
+
+        navScrollTicking = true;
+
+        window.requestAnimationFrame(() => {
+            handleBottomNavScroll();
+            navScrollTicking = false;
+        });
+
+    },
+    {
+        passive: true
+    }
+);
+
+window.addEventListener(
+    "resize",
+    () => {
+        lastScrollY = window.scrollY;
+    },
+    {
+        passive: true
+    }
+);
+
+showBottomNav();
 
     /*==================================
     PUBLIC API

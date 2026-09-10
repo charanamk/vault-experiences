@@ -1,86 +1,163 @@
 /* =========================================================
    VAULT — FROM THE VAULT
    ARCHIVED EXPERIENCES
-========================================================= */
+   ========================================================= */
+
+#from-the-vault {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#from-the-vault *,
+#from-the-vault *::before,
+#from-the-vault *::after {
+    box-sizing: border-box;
+}
 
 
 /* =========================================================
-   SECTION
-========================================================= */
+   SECTION HEADING
+   ========================================================= */
 
-# from-the-vault {
-    position: relative;
-}
-
-# from-the-vault .section-heading {
+#from-the-vault .section-heading {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 1rem;
+    width: 100%;
+    margin: 0 0 2rem;
+    gap: 1.5rem;
+}
 
-    margin-bottom: 2rem;
+#from-the-vault .section-title {
+    min-width: 0;
+}
+
+#from-the-vault .section-eyebrow {
+    display: block;
+    margin: 0 0 0.45rem;
+    font-family: var(--font-ui, Inter, sans-serif);
+    font-size: 0.65rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #c9a55c;
+}
+
+#from-the-vault .section-title h2 {
+    margin: 0;
+    font-family: var(--font-display, Georgia, serif);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text-primary, #111);
 }
 
 
 /* =========================================================
-   ARCHIVE TRACK
-========================================================= */
+   SEE ALL
+   ========================================================= */
 
-# from-the-vault .vault-experiences-track {
+#from-the-vault .see-all-btn {
+    flex: 0 0 auto;
+    min-height: 40px;
+    padding: 0.65rem 1.15rem;
+
+    border: 1px solid rgba(201, 165, 92, 0.4);
+    border-radius: 999px;
+
+    background: transparent;
+    color: #c9a55c;
+
+    font-family: var(--font-ui, Inter, sans-serif);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+#from-the-vault .see-all-btn:hover {
+    background: rgba(201, 165, 92, 0.1);
+    border-color: rgba(201, 165, 92, 0.75);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   CARD GRID
+   ========================================================= */
+
+#from-the-vault .vault-experiences-track {
     display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
 
     width: 100%;
+    min-width: 0;
 }
 
 
 /* =========================================================
    EXPERIENCE CARD
-========================================================= */
+   ========================================================= */
 
-# from-the-vault .vault-experience-card {
+#from-the-vault .vault-experience-card {
     position: relative;
+    display: flex;
+    flex-direction: column;
 
+    width: 100%;
     min-width: 0;
+    min-height: 0;
 
     overflow: hidden;
 
-    background: #080808;
-
-    border: 1px solid rgba(201, 165, 92, .18);
+    border: 1px solid rgba(201, 165, 92, 0.2);
     border-radius: 18px;
 
+    background: #080808;
+
     box-shadow:
-        0 18px 45px rgba(0, 0, 0, .08);
+        0 18px 45px rgba(0, 0, 0, 0.12);
 
     transition:
-        transform .35s ease,
-        border-color .35s ease,
-        box-shadow .35s ease;
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-# from-the-vault .vault-experience-card:hover {
+#from-the-vault .vault-experience-card:hover {
     transform: translateY(-5px);
 
-    border-color:
-        rgba(201, 165, 92, .48);
+    border-color: rgba(201, 165, 92, 0.55);
 
     box-shadow:
-        0 24px 55px rgba(0, 0, 0, .16);
+        0 24px 55px rgba(0, 0, 0, 0.2);
 }
 
 
 /* =========================================================
    POSTER
-========================================================= */
+   ========================================================= */
 
-# from-the-vault .vault-experience-poster {
+#from-the-vault .vault-experience-poster {
     position: relative;
 
+    width: 100%;
     aspect-ratio: 16 / 10;
 
     overflow: hidden;
@@ -91,48 +168,47 @@
 
 /* =========================================================
    EVENT IMAGE
-========================================================= */
+   ========================================================= */
 
-# from-the-vault .vault-event-image {
+#from-the-vault .vault-event-image {
     position: absolute;
     inset: 0;
 
+    display: block;
+
     width: 100%;
     height: 100%;
-
-    display: block;
 
     object-fit: cover;
     object-position: center;
 
     filter:
-        saturate(.72)
-        contrast(.96)
-        brightness(.82);
+        saturate(0.72)
+        contrast(0.96)
+        brightness(0.82);
 
     transform: scale(1.01);
 
     transition:
-        transform .7s cubic-bezier(.2,.7,.2,1),
-        filter .7s ease;
+        transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+        filter 0.7s ease;
 }
 
-# from-the-vault .vault-experience-card:hover
-.vault-event-image {
+#from-the-vault .vault-experience-card:hover .vault-event-image {
     transform: scale(1.06);
 
     filter:
-        saturate(.88)
+        saturate(0.9)
         contrast(1)
-        brightness(.9);
+        brightness(0.92);
 }
 
 
 /* =========================================================
-   NOSTALGIC IMAGE TREATMENT
-========================================================= */
+   DARK IMAGE GRADIENT
+   ========================================================= */
 
-# from-the-vault .vault-experience-poster::before {
+#from-the-vault .vault-experience-poster::before {
     content: "";
 
     position: absolute;
@@ -145,18 +221,18 @@
     background:
         linear-gradient(
             to bottom,
-            rgba(0, 0, 0, .08) 0%,
-            rgba(0, 0, 0, .12) 42%,
-            rgba(0, 0, 0, .82) 100%
+            rgba(0, 0, 0, 0.08) 0%,
+            rgba(0, 0, 0, 0.12) 40%,
+            rgba(0, 0, 0, 0.84) 100%
         );
 }
 
 
 /* =========================================================
-   SUBTLE GOLD MEMORY GLOW
-========================================================= */
+   GOLD MEMORY GLOW
+   ========================================================= */
 
-# from-the-vault .vault-experience-poster::after {
+#from-the-vault .vault-experience-poster::after {
     content: "";
 
     position: absolute;
@@ -169,17 +245,16 @@
     background:
         linear-gradient(
             135deg,
-            rgba(201, 165, 92, .10),
-            transparent 42%
+            rgba(201, 165, 92, 0.12),
+            transparent 45%
         );
 
-    opacity: .65;
+    opacity: 0.7;
 
-    transition:
-        opacity .4s ease;
+    transition: opacity 0.4s ease;
 }
 
-# from-the-vault .vault-experience-card:hover
+#from-the-vault .vault-experience-card:hover
 .vault-experience-poster::after {
     opacity: 1;
 }
@@ -187,9 +262,9 @@
 
 /* =========================================================
    ENDED BADGE
-========================================================= */
+   ========================================================= */
 
-# from-the-vault .ended-badge {
+#from-the-vault .ended-badge {
     position: absolute;
 
     top: 1rem;
@@ -201,37 +276,33 @@
     align-items: center;
     justify-content: center;
 
-    padding: .42rem .7rem;
+    padding: 0.42rem 0.7rem;
 
-    border: 1px solid
-        rgba(201, 165, 92, .45);
-
+    border: 1px solid rgba(201, 165, 92, 0.5);
     border-radius: 999px;
 
-    background:
-        rgba(0, 0, 0, .48);
-
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.52);
 
     color: #d7b96f;
 
-    font-family: var(--font-ui);
-
-    font-size: .5rem;
+    font-family: var(--font-ui, Inter, sans-serif);
+    font-size: 0.5rem;
     font-weight: 700;
+    line-height: 1;
 
-    letter-spacing: .16em;
-
+    letter-spacing: 0.16em;
     text-transform: uppercase;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 
 /* =========================================================
-   MEMORY LABEL
-========================================================= */
+   FROM THE VAULT LABEL
+   ========================================================= */
 
-# from-the-vault .vault-memory-overlay {
+#from-the-vault .vault-memory-overlay {
     position: absolute;
 
     top: 1rem;
@@ -242,26 +313,26 @@
     pointer-events: none;
 }
 
-# from-the-vault .vault-memory-label {
-    color:
-        rgba(255, 255, 255, .62);
+#from-the-vault .vault-memory-label {
+    display: block;
 
-    font-family: var(--font-ui);
+    color: rgba(255, 255, 255, 0.68);
 
-    font-size: .42rem;
+    font-family: var(--font-ui, Inter, sans-serif);
+    font-size: 0.42rem;
     font-weight: 700;
+    line-height: 1;
 
-    letter-spacing: .18em;
-
+    letter-spacing: 0.18em;
     text-transform: uppercase;
 }
 
 
 /* =========================================================
    POSTER INFORMATION
-========================================================= */
+   ========================================================= */
 
-# from-the-vault .vault-poster-info {
+#from-the-vault .vault-poster-info {
     position: absolute;
 
     left: 1.25rem;
@@ -276,69 +347,60 @@
 
 /* =========================================================
    EVENT THEME
-========================================================= */
+   ========================================================= */
 
-# from-the-vault .vault-event-theme {
+#from-the-vault .vault-event-theme {
     display: block;
 
-    margin-bottom: .38rem;
+    margin: 0 0 0.4rem;
 
-    color:
-        rgba(215, 185, 111, .88);
+    color: rgba(215, 185, 111, 0.92);
 
-    font-family: var(--font-ui);
-
-    font-size: .48rem;
+    font-family: var(--font-ui, Inter, sans-serif);
+    font-size: 0.48rem;
     font-weight: 700;
+    line-height: 1.2;
 
-    letter-spacing: .15em;
-
+    letter-spacing: 0.15em;
     text-transform: uppercase;
 }
 
 
 /* =========================================================
    EVENT TITLE
-========================================================= */
+   ========================================================= */
 
-# from-the-vault .vault-event-title {
+#from-the-vault .vault-event-title {
     margin: 0;
 
     color: #fff;
 
-    font-family: var(--font-display);
-
-    font-size:
-        clamp(1.35rem, 2.5vw, 2.15rem);
-
+    font-family: var(--font-display, Georgia, serif);
+    font-size: clamp(1.35rem, 2.5vw, 2.15rem);
     font-weight: 500;
-
     line-height: 1.05;
 
-    letter-spacing: -.01em;
+    letter-spacing: -0.01em;
 
     text-shadow:
-        0 2px 15px rgba(0, 0, 0, .4);
+        0 2px 15px rgba(0, 0, 0, 0.45);
 }
 
 
 /* =========================================================
    DETAILS
-========================================================= */
+   ========================================================= */
 
-# from-the-vault .vault-experience-details {
+#from-the-vault .vault-experience-details {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    grid-template-columns:
-        1fr 1fr;
+    gap: 1rem;
 
-    column-gap: 1rem;
-    row-gap: 1rem;
+    width: 100%;
+    min-width: 0;
 
-    align-items: center;
-
-    padding:
-        1rem 1.25rem 1.2rem;
+    padding: 1rem 1.25rem 1.2rem;
 
     background:
         linear-gradient(
@@ -351,29 +413,31 @@
 
 /* =========================================================
    DETAIL ITEM
-========================================================= */
+   ========================================================= */
 
-# from-the-vault .vault-detail-item {
+#from-the-vault .vault-detail-item {
     display: flex;
     align-items: center;
 
     min-width: 0;
 
-    gap: .45rem;
+    gap: 0.45rem;
 }
 
 
 /* =========================================================
    DETAIL ICON
-========================================================= */
+   ========================================================= */
 
-# from-the-vault .vault-detail-item img {
+#from-the-vault .vault-detail-item img {
     flex: 0 0 auto;
 
     width: 14px;
     height: 14px;
 
-    opacity: .62;
+    object-fit: contain;
+
+    opacity: 0.65;
 
     filter:
         brightness(0)
@@ -383,22 +447,21 @@
 
 /* =========================================================
    DETAIL TEXT
-========================================================= */
+   ========================================================= */
 
-# from-the-vault .vault-detail-item span {
+#from-the-vault .vault-detail-item span {
+    display: block;
+
     min-width: 0;
 
     overflow: hidden;
 
-    color:
-        rgba(255, 255, 255, .58);
+    color: rgba(255, 255, 255, 0.62);
 
-    font-family: var(--font-ui);
-
-    font-size: .55rem;
+    font-family: var(--font-ui, Inter, sans-serif);
+    font-size: 0.55rem;
     font-weight: 500;
-
-    line-height: 1.2;
+    line-height: 1.25;
 
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -406,56 +469,52 @@
 
 
 /* =========================================================
-   VIEW EXPERIENCE
-========================================================= */
+   VIEW EXPERIENCE BUTTON
+   ========================================================= */
 
-# from-the-vault .view-experience-btn {
+#from-the-vault .view-experience-btn {
     grid-column: 1 / -1;
 
     width: 100%;
-
     min-height: 42px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    gap: .6rem;
+    gap: 0.6rem;
 
-    padding: .7rem 1rem;
+    margin: 0;
+    padding: 0.7rem 1rem;
 
-    border: 1px solid
-        rgba(201, 165, 92, .35);
-
+    border: 1px solid rgba(201, 165, 92, 0.38);
     border-radius: 999px;
 
-    background:
-        rgba(201, 165, 92, .04);
+    background: rgba(201, 165, 92, 0.04);
 
     color: #d7b96f;
 
-    font-family: var(--font-ui);
-
-    font-size: .55rem;
+    font-family: var(--font-ui, Inter, sans-serif);
+    font-size: 0.55rem;
     font-weight: 700;
+    line-height: 1;
 
-    letter-spacing: .08em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 
     cursor: pointer;
 
     transition:
-        background .25s ease,
-        border-color .25s ease,
-        color .25s ease,
-        transform .25s ease;
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
 }
 
-# from-the-vault .view-experience-btn:hover {
-    background:
-        rgba(201, 165, 92, .12);
+#from-the-vault .view-experience-btn:hover {
+    background: rgba(201, 165, 92, 0.12);
 
-    border-color:
-        rgba(201, 165, 92, .7);
+    border-color: rgba(201, 165, 92, 0.72);
 
     color: #fff;
 
@@ -465,18 +524,18 @@
 
 /* =========================================================
    ARROW
-========================================================= */
+   ========================================================= */
 
-# from-the-vault .view-experience-arrow {
-    font-size: .85rem;
+#from-the-vault .view-experience-arrow {
+    display: inline-block;
 
+    font-size: 0.85rem;
     line-height: 1;
 
-    transition:
-        transform .25s ease;
+    transition: transform 0.25s ease;
 }
 
-# from-the-vault .view-experience-btn:hover
+#from-the-vault .view-experience-btn:hover
 .view-experience-arrow {
     transform: translateX(4px);
 }
@@ -484,23 +543,27 @@
 
 /* =========================================================
    TABLET
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 800px) {
+
+    #from-the-vault .section-heading {
+        margin-bottom: 1.5rem;
+    }
 
     #from-the-vault .vault-experiences-track {
         gap: 1rem;
     }
 
-    #from-the-vault .vault-experience-details {
-        padding:
-            .9rem 1rem 1rem;
-    }
-
     #from-the-vault .vault-poster-info {
         left: 1rem;
         right: 1rem;
-        bottom: .9rem;
+        bottom: 0.9rem;
+    }
+
+    #from-the-vault .vault-experience-details {
+        padding:
+            0.9rem 1rem 1rem;
     }
 
 }
@@ -508,105 +571,106 @@
 
 /* =========================================================
    PHONE
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 600px) {
 
-    #from-the-vault .vault-experiences-track {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        gap: .7rem;
+    #from-the-vault .section-heading {
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
     }
 
+    #from-the-vault .section-eyebrow {
+        margin-bottom: 0.3rem;
+        font-size: 0.5rem;
+    }
+
+    #from-the-vault .section-title h2 {
+        font-size: 1.7rem;
+    }
+
+    #from-the-vault .see-all-btn {
+        min-height: 34px;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.48rem;
+    }
+
+    #from-the-vault .vault-experiences-track {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.7rem;
+    }
 
     #from-the-vault .vault-experience-card {
         border-radius: 13px;
     }
 
-
     #from-the-vault .vault-experience-poster {
         aspect-ratio: 4 / 5;
     }
 
-
     #from-the-vault .ended-badge {
-        top: .65rem;
-        left: .65rem;
+        top: 0.65rem;
+        left: 0.65rem;
 
-        padding: .32rem .48rem;
+        padding: 0.32rem 0.48rem;
 
-        font-size: .38rem;
+        font-size: 0.38rem;
     }
-
 
     #from-the-vault .vault-memory-overlay {
-        top: .7rem;
-        right: .65rem;
+        top: 0.7rem;
+        right: 0.65rem;
     }
-
 
     #from-the-vault .vault-memory-label {
-        font-size: .34rem;
+        font-size: 0.34rem;
     }
-
 
     #from-the-vault .vault-poster-info {
-        left: .7rem;
-        right: .7rem;
-        bottom: .7rem;
+        left: 0.7rem;
+        right: 0.7rem;
+        bottom: 0.7rem;
     }
-
 
     #from-the-vault .vault-event-theme {
-        margin-bottom: .25rem;
-
-        font-size: .38rem;
-
-        letter-spacing: .1em;
+        margin-bottom: 0.25rem;
+        font-size: 0.38rem;
+        letter-spacing: 0.1em;
     }
-
 
     #from-the-vault .vault-event-title {
-        font-size:
-            clamp(1rem, 4.5vw, 1.35rem);
+        font-size: clamp(1rem, 4.5vw, 1.35rem);
     }
-
 
     #from-the-vault .vault-experience-details {
         display: flex;
         flex-direction: column;
         align-items: stretch;
 
-        gap: .65rem;
+        gap: 0.65rem;
 
         padding:
-            .7rem .7rem .8rem;
+            0.7rem 0.7rem 0.8rem;
     }
-
 
     #from-the-vault .vault-detail-item {
-        gap: .35rem;
+        gap: 0.35rem;
     }
-
 
     #from-the-vault .vault-detail-item img {
         width: 11px;
         height: 11px;
     }
 
-
     #from-the-vault .vault-detail-item span {
-        font-size: .42rem;
+        font-size: 0.42rem;
     }
-
 
     #from-the-vault .view-experience-btn {
         min-height: 36px;
-
-        padding: .55rem .6rem;
-
-        font-size: .43rem;
+        padding: 0.55rem 0.6rem;
+        font-size: 0.43rem;
     }
 
 }
@@ -614,44 +678,37 @@
 
 /* =========================================================
    SMALL PHONE
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 390px) {
 
     #from-the-vault .vault-experiences-track {
-        gap: .55rem;
+        gap: 0.55rem;
     }
-
 
     #from-the-vault .vault-experience-card {
         border-radius: 11px;
     }
 
-
     #from-the-vault .vault-experience-poster {
         aspect-ratio: 3 / 4;
     }
 
-
     #from-the-vault .vault-event-title {
-        font-size: .95rem;
+        font-size: 0.95rem;
     }
-
 
     #from-the-vault .vault-event-theme {
-        font-size: .34rem;
+        font-size: 0.34rem;
     }
-
 
     #from-the-vault .vault-detail-item span {
-        font-size: .38rem;
+        font-size: 0.38rem;
     }
-
 
     #from-the-vault .view-experience-btn {
         min-height: 34px;
-
-        font-size: .4rem;
+        font-size: 0.4rem;
     }
 
 }

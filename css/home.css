@@ -143,104 +143,152 @@ img {
     max-width: 100%;
 }
 
-
 /* =========================================
-   HOME â€” PAGE SHELL
-========================================= */
-
-.home {
-    width: 100%;
-
-    min-height: 100vh;
-
-    padding-bottom: 110px;
-
-    overflow: hidden;
-}
-
-
-.home-container {
-    width: min(100% - 40px, 1400px);
-
-    margin: 0 auto;
-}
-
-
-/* =========================================
-   VAULT BRAND
+   VAULT EDITORIAL MASTHEAD
 ========================================= */
 
 .home-header {
-    padding: 20px;
-}
+    width: 100%;
 
+    margin-top: 6px;
+
+    padding: 26px 20%;
+}
 
 .vault-glass {
-    display: inline-flex;
+    width: 100%;
 
-    width: 98% ;
-    margin :0 auto ;
+    margin: 0;
 
-    flex-direction: column;
-
+    display: flex;
     align-items: center;
 
-    padding: 12px 22px;
+    padding: 0;
 
-    background: var(--glass);
+    background: transparent;
 
-    border: 1px solid var(--glass-border);
+    border: 0;
+    border-radius: 0;
 
-    border-radius: var(--radius-md);
+    box-shadow: none;
 
-    backdrop-filter: blur(18px);
-
-    -webkit-backdrop-filter: blur(18px);
-
-    box-shadow: var(--shadow-soft);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
+.home-brand {
+    width: 100%;
 
-.vault-logo {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    column-gap: 0;
+
+    align-items: baseline;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+    border: 0;
+
+    color: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.home-logo {
+    width: 100%;
+
+    margin: 0;
+
     color: var(--gold);
 
     font-family: "Cinzel", serif;
+    font-size: clamp(2rem, 5vw, 5.2rem);
+    font-weight: 700;
 
-    font-size: 22px;
-
-    font-weight: 600;
-
-    letter-spacing: 0.16em;
-
-    line-height: 1;
-}
-
-
-.vault-tagline {
-    margin-top: 5px;
-
-    color: var(--text-muted);
-
-    font-family: "Inter", sans-serif;
-
-    font-size: 8px;
-
-    font-weight: 500;
-
-    letter-spacing: 0.18em;
-
+    letter-spacing: 1rem;
     line-height: 1.2;
-
-    text-transform: uppercase;
 
     white-space: nowrap;
 }
 
+.home-tagline {
+    width: 100%;
+
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(0.95rem, 1.8vw, 1.65rem);
+    font-weight: 500;
+
+    font-style: italic;
+
+    letter-spacing: 0.005em;
+    line-height: 1;
+
+    white-space: nowrap;
+}
+
+.home-brand:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 6px;
+}
 
 
+/* =========================================
+   SMALL SCREENS
+========================================= */
+
+@media (max-width: 767px) {
+
+    .home-header {
+        padding: 16px 10%;
+    }
+
+    .home-brand {
+        grid-template-columns: 40% 40%;
+    }
+
+    .home-logo {
+        font-size: clamp(1.65rem, 8.8vw, 2.8rem);
+
+        letter-spacing: 0.035em;
+    }
+
+    .home-tagline {
+        font-size: clamp(0.72rem, 3.2vw, 1rem);
+
+        letter-spacing: 0;
+    }
+
+}
 
 
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
 
+@media (max-width: 380px) {
+
+    .home-header {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .home-logo {
+        font-size: clamp(1.5rem, 8.5vw, 2.2rem);
+    }
+
+    .home-tagline {
+        font-size: clamp(0.66rem, 3vw, 0.82rem);
+    }
+
+}
 
 /* =========================================
    EXPERIENCE HINT
@@ -248,7 +296,7 @@ img {
 
 .experience-hint {
     width: 100%;
-    margin-top: 18px;
+    margin-top: 4px;
 }
 
 
@@ -1043,4 +1091,16 @@ html[data-theme="dark"] .bottom-nav-item.active .bottom-nav-label {
         transition: none;
     }
 
+}
+
+.bottom-nav {
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+}
+
+.bottom-nav.nav-hidden {
+    transform: translateY(110%);
+    opacity: 0;
+    pointer-events: none;
 }

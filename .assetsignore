@@ -1,0 +1,6 @@
+backend/
+.git/
+backups/
+node_modules/
+*.exe
+*.part01.exe

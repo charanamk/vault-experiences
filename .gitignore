@@ -21,3 +21,8 @@ Thumbs.db
 *.backup.*
 
 admin/modules-js/Telegram Desktop/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
