@@ -125,8 +125,8 @@
 }
 
 #from-the-vault .vault-experience-card {
-    flex: 0 0 100%;
-    width: 100%;
+    flex: 0 0 calc((100% - 1.25rem) / 1.4);
+    width: calc((100% - 1.25rem) / 1.4);
 
     scroll-snap-align: start;
     scroll-snap-stop: always;
@@ -576,6 +576,11 @@
         gap: 1rem;
     }
 
+    #from-the-vault .vault-experience-card {
+        flex: 0 0 calc((100% - 1rem) / 1.4);
+        width: calc((100% - 1rem) / 1.4);
+    }
+
     #from-the-vault .vault-poster-info {
         left: 1rem;
         right: 1rem;
@@ -618,10 +623,12 @@
     }
 
     #from-the-vault .vault-experiences-track {
-    gap: 0.7rem;
-}
+        gap: 0.7rem;
+    }
 
     #from-the-vault .vault-experience-card {
+        flex: 0 0 calc((100% - 0.7rem) / 1.4);
+        width: calc((100% - 0.7rem) / 1.4);
         border-radius: 13px;
     }
 
@@ -707,6 +714,8 @@
     }
 
     #from-the-vault .vault-experience-card {
+        flex: 0 0 calc((100% - 0.55rem) / 1.4);
+        width: calc((100% - 0.55rem) / 1.4);
         border-radius: 11px;
     }
 

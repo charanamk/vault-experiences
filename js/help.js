@@ -13,20 +13,20 @@
 const HELP_CONFIG = {
 
     whatsapp: {
-        number: "", 
+        number: "254707562995", 
         message: "Hi Vault, I need some assistance."
     },
 
     phone: {
-        number: ""
+        number: "+254707562995"
     },
 
     instagram: {
-        url: ""
+        url: "https://instagram.com/vault.moment.s"
     },
 
     email: {
-        address: "",
+        address: "charanamk2@gmail.com",
         subject: "Vault Assistance",
         body: "Hi Vault,\n\nI need some assistance with:"
     }
@@ -432,10 +432,6 @@ function showVaultAI() {
         launchButton.addEventListener(
             "click",
             () => {
-
-                /*
-                    Vault AI integration will be connected here.
-                */
 
                 console.log(
                     "Vault AI requested"

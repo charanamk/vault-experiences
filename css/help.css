@@ -31,6 +31,13 @@
             rgba(255, 255, 255, 0.035),
             rgba(255, 255, 255, 0.012)
         ),
+        repeating-linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.012) 0px,
+            rgba(255, 255, 255, 0.012) 1px,
+            transparent 1px,
+            transparent 3px
+        ),
         var(--surface);
 
     box-shadow: var(--shadow-card);
@@ -39,20 +46,47 @@
 }
 
 
-/* subtle ambient glow */
+/* ambient glow — top-right gold, faint bottom-left counter-glow */
 
 .help-card::before {
     content: "";
     position: absolute;
-    width: 280px;
-    height: 280px;
-    top: -180px;
-    right: -100px;
+    inset: 0;
 
-    background: var(--vault-gradient-gold-ambient);
+    background:
+        radial-gradient(
+            280px 280px at calc(100% + 60px) -80px,
+            var(--vault-gradient-gold-ambient),
+            transparent 70%
+        ),
+        radial-gradient(
+            220px 220px at -60px calc(100% + 60px),
+            rgba(201, 165, 92, 0.14),
+            transparent 70%
+        );
 
     filter: blur(30px);
     opacity: 0.45;
+
+    pointer-events: none;
+}
+
+
+/* hairline corner accent — bottom-right */
+
+.help-card::after {
+    content: "";
+    position: absolute;
+    right: clamp(20px, 4vw, 34px);
+    bottom: clamp(20px, 4vw, 34px);
+
+    width: 26px;
+    height: 26px;
+
+    border-right: 1px solid rgba(201, 165, 92, 0.5);
+    border-bottom: 1px solid rgba(201, 165, 92, 0.5);
+
+    opacity: 0.7;
 
     pointer-events: none;
 }
@@ -70,7 +104,11 @@
 
 
 .help-eyebrow {
-    display: inline-block;
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 
     margin-bottom: 10px;
 
@@ -81,6 +119,20 @@
     text-transform: uppercase;
 
     color: var(--accent);
+}
+
+
+.help-eyebrow::before {
+    content: "";
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow: 0 0 8px rgba(201, 165, 92, 0.7);
 }
 
 
@@ -110,6 +162,8 @@
 
 /* ==================================================
    GET HELP BUTTON
+   Hairline pill with a floating gold-gradient
+   arrow badge, and a light sweep on hover.
 ================================================== */
 
 .get-help-btn {
@@ -121,15 +175,15 @@
     justify-content: space-between;
 
     width: 100%;
-    min-height: 58px;
+    min-height: 64px;
 
     margin-top: 30px;
-    padding: 0 20px;
+    padding: 0 10px 0 24px;
 
     border: 1px solid var(--gold-border);
-    border-radius: var(--radius-md);
+    border-radius: 999px;
 
-    background: var(--gold-soft);
+    background: rgba(255, 255, 255, 0.02);
 
     color: var(--text);
 
@@ -140,6 +194,7 @@
     text-transform: uppercase;
 
     cursor: pointer;
+    overflow: hidden;
 
     transition:
         background var(--transition-base),
@@ -148,22 +203,72 @@
 }
 
 
-.get-help-btn span:last-child {
-    font-size: 1.2rem;
-    color: var(--accent);
+/* light sweep — travels across the button on hover */
 
-    transition: transform var(--transition-base);
+.get-help-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        100deg,
+        transparent 30%,
+        rgba(201, 165, 92, 0.16) 45%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(201, 165, 92, 0.16) 55%,
+        transparent 70%
+    );
+
+    transform: translateX(-120%);
+
+    pointer-events: none;
+
+    transition: transform 0.7s ease;
+}
+
+
+.get-help-btn:hover::before {
+    transform: translateX(120%);
+}
+
+
+/* arrow badge — circular, gold-gradient, floats above the pill edge */
+
+.get-help-btn span:last-child {
+    flex: 0 0 auto;
+
+    display: grid;
+    place-items: center;
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #e2b957, #c88d13);
+
+    color: #111;
+
+    font-size: 1.05rem;
+    line-height: 1;
+
+    box-shadow: 0 8px 20px rgba(201, 165, 92, 0.35);
+
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
 }
 
 
 .get-help-btn:hover {
-    background: rgba(201, 164, 92, 0.22);
-    border-color: rgba(201, 164, 92, 0.45);
+    background: rgba(201, 164, 92, 0.08);
+    border-color: rgba(201, 164, 92, 0.6);
 }
 
 
 .get-help-btn:hover span:last-child {
-    transform: translateX(4px);
+    transform: translateX(3px) scale(1.06);
+    box-shadow: 0 10px 26px rgba(201, 165, 92, 0.48);
 }
 
 
@@ -361,33 +466,40 @@
 
 /* ==================================================
    CONTACT OPTIONS
+   Icon-forward grid cards — no arrows, no numbers.
 ================================================== */
 
 .help-options {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 
-    gap: 10px;
+    gap: 12px;
 }
 
 
 .help-option {
+    position: relative;
+
     display: flex;
-    align-items: center;
+    flex-direction: column;
+
+    gap: 16px;
 
     width: 100%;
-    min-height: 70px;
+    min-height: 128px;
 
-    padding: 12px 16px;
+    padding: 20px;
 
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
 
-    background: rgba(255, 255, 255, 0.025);
+    background: rgba(255, 255, 255, 0.02);
 
     color: var(--text);
 
     text-align: left;
+
+    overflow: hidden;
 
     cursor: pointer;
 
@@ -398,31 +510,86 @@
 }
 
 
+/* soft gold glow, revealed on hover */
+
+.help-option::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        120px 120px at 22px 22px,
+        rgba(201, 165, 92, 0.22),
+        transparent 70%
+    );
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity var(--transition-base);
+}
+
+
 .help-option:hover {
     background: var(--gold-soft);
     border-color: var(--gold-border);
 
-    transform: translateX(3px);
+    transform: translateY(-3px);
 }
 
 
-.help-option-number {
-    width: 38px;
-    flex: 0 0 38px;
+.help-option:hover::before {
+    opacity: 1;
+}
 
-    font-family: var(--font-brand);
-    font-size: 0.65rem;
-    letter-spacing: 0.08em;
+
+.help-option-icon {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--gold-border);
+    border-radius: 50%;
+
+    background: rgba(201, 165, 92, 0.08);
 
     color: var(--accent);
+
+    transition:
+        background var(--transition-base),
+        transform var(--transition-base);
+}
+
+
+.help-option-icon svg {
+    width: 19px;
+    height: 19px;
+}
+
+
+.help-option:hover .help-option-icon {
+    background: linear-gradient(135deg, #e2b957, #c88d13);
+    color: #111;
+
+    transform: scale(1.06);
 }
 
 
 .help-option-content {
+    position: relative;
+    z-index: 1;
+
     display: flex;
     flex-direction: column;
 
-    gap: 3px;
+    gap: 4px;
 
     min-width: 0;
 }
@@ -430,7 +597,7 @@
 
 .help-option-content strong {
     font-family: var(--font-ui);
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     font-weight: 600;
 
     color: var(--text);
@@ -439,26 +606,10 @@
 
 .help-option-content small {
     font-family: var(--font-ui);
-    font-size: 0.75rem;
+    font-size: 0.78rem;
+    line-height: 1.5;
 
     color: var(--text-muted);
-}
-
-
-.help-option-arrow {
-    margin-left: auto;
-    padding-left: 16px;
-
-    font-size: 1.05rem;
-
-    color: var(--accent);
-
-    transition: transform var(--transition-base);
-}
-
-
-.help-option:hover .help-option-arrow {
-    transform: translateX(4px);
 }
 
 
@@ -567,6 +718,14 @@
         border-radius: var(--radius-lg);
     }
 
+    .help-card::after {
+        right: 16px;
+        bottom: 16px;
+
+        width: 20px;
+        height: 20px;
+    }
+
     .help-header h2 {
         font-size: 2.25rem;
     }
@@ -576,8 +735,14 @@
     }
 
     .get-help-btn {
-        min-height: 54px;
+        min-height: 58px;
         margin-top: 24px;
+        padding: 0 8px 0 18px;
+    }
+
+    .get-help-btn span:last-child {
+        width: 38px;
+        height: 38px;
     }
 
     .help-module {
@@ -605,14 +770,18 @@
         padding-top: 22px;
     }
 
-    .help-option {
-        min-height: 64px;
-        padding: 10px 13px;
+    .help-options {
+        grid-template-columns: 1fr;
     }
 
-    .help-option-number {
-        width: 32px;
-        flex-basis: 32px;
+    .help-option {
+        min-height: 108px;
+        padding: 16px;
+    }
+
+    .help-option-icon {
+        width: 38px;
+        height: 38px;
     }
 
     .faq-item {
@@ -632,10 +801,16 @@
     .help-module,
     .help-module-card,
     .get-help-btn,
+    .get-help-btn::before,
     .get-help-btn span:last-child,
     .help-option,
-    .help-option-arrow,
+    .help-option::before,
+    .help-option-icon,
     .faq-item span:last-child {
         transition: none;
+    }
+
+    .get-help-btn::before {
+        display: none;
     }
 }

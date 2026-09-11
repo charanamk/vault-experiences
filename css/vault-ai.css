@@ -1,0 +1,281 @@
+/* ==================================================
+   VAULT AI — CHAT
+
+   Uses the same design tokens as the rest of the
+   help module: --border, --gold-border, --gold-soft,
+   --accent, --text, --text-soft, --text-muted,
+   --font-ui, --transition-base. Make sure those are
+   defined wherever this stylesheet is loaded.
+================================================== */
+
+.vault-ai-chat {
+    display: flex;
+    flex-direction: column;
+
+    height: min(52vh, 480px);
+}
+
+
+.vault-ai-messages {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    flex: 1 1 auto;
+
+    padding: 4px 4px 12px;
+
+    overflow-y: auto;
+}
+
+
+.vault-ai-message {
+    max-width: 82%;
+
+    padding: 12px 15px;
+
+    border-radius: 16px;
+
+    font-family: var(--font-ui);
+    font-size: 0.86rem;
+    line-height: 1.55;
+
+    animation: vaultAiMessageIn 0.32s ease both;
+}
+
+
+@keyframes vaultAiMessageIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+.vault-ai-message p {
+    margin: 0 0 8px;
+}
+
+
+.vault-ai-message p:last-child {
+    margin-bottom: 0;
+}
+
+
+.vault-ai-message-bot {
+    align-self: flex-start;
+
+    border: 1px solid var(--border);
+    border-bottom-left-radius: 4px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    color: var(--text-soft);
+}
+
+
+.vault-ai-message-bot strong {
+    color: var(--text);
+}
+
+
+.vault-ai-message-user {
+    align-self: flex-end;
+
+    border-bottom-right-radius: 4px;
+
+    background: var(--gold-soft);
+    border: 1px solid var(--gold-border);
+
+    color: var(--text);
+}
+
+
+.vault-ai-typing {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 14px 16px;
+}
+
+
+.vault-ai-typing span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    opacity: 0.5;
+
+    animation: vaultAiTypingPulse 1.1s infinite ease-in-out;
+}
+
+
+.vault-ai-typing span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+
+.vault-ai-typing span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+
+@keyframes vaultAiTypingPulse {
+
+    0%, 60%, 100% {
+        opacity: 0.35;
+        transform: translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(-3px);
+    }
+
+}
+
+
+.vault-ai-input-row {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    flex: 0 0 auto;
+
+    padding-top: 12px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.vault-ai-input-row input {
+    flex: 1 1 auto;
+
+    min-width: 0;
+    height: 46px;
+
+    padding: 0 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    color: var(--text);
+
+    font-family: var(--font-ui);
+    font-size: 0.86rem;
+
+    transition: border-color var(--transition-base);
+}
+
+
+.vault-ai-input-row input::placeholder {
+    color: var(--text-muted);
+}
+
+
+.vault-ai-input-row input:focus {
+    outline: none;
+    border-color: var(--gold-border);
+}
+
+
+.vault-ai-input-row input:disabled {
+    opacity: 0.55;
+}
+
+
+.vault-ai-send {
+    flex: 0 0 auto;
+
+    display: grid;
+    place-items: center;
+
+    width: 46px;
+    height: 46px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #e2b957, #c88d13);
+
+    color: #111;
+
+    font-size: 1.1rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+
+.vault-ai-send:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(201, 165, 92, 0.35);
+}
+
+
+.vault-ai-send:active {
+    transform: scale(0.94);
+}
+
+
+.vault-ai-send:disabled {
+    opacity: 0.5;
+    cursor: default;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 767px) {
+
+    .vault-ai-chat {
+        height: min(60vh, 420px);
+    }
+
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .vault-ai-send {
+        transition: none;
+    }
+
+    .vault-ai-typing span {
+        animation: none;
+        opacity: 0.7;
+    }
+
+    .vault-ai-message {
+        animation: none;
+    }
+
+}
