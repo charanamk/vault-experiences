@@ -9,7 +9,7 @@
    async function getJson(url, options = {}) {
         const apiBase = window.VAULT_API_BASE_URL || "";
 const res = await fetch(`${apiBase}${url}`, {
-           credentials: 'same-origin',
+           credentials: 'include',
            ...options,
            headers: {
                'Content-Type': 'application/json',

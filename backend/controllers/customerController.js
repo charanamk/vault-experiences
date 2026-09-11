@@ -33,8 +33,8 @@ function getSessionIdFromRequest(req) {
 function setSessionCookie(res, sessionId) {
     res.cookie('vault_session', sessionId, {
         httpOnly: true,
-        sameSite: 'lax',
-        secure: false,
+        sameSite: 'none',
+        secure: true,
         path: '/',
         maxAge: 1000 * 60 * 60 * 24 * 7
     });
