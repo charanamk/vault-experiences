@@ -1,1047 +1,801 @@
 "use strict";
 
-/* ==================================================
-   VAULT — HELP
-   Help Module + Assistance + FAQs
-================================================== */
-
-
-/* ==================================================
-   CONFIGURATION
-================================================== */
+/* =========================================================
+   VAULT HELP CONFIG
+========================================================= */
 
 const HELP_CONFIG = {
+  whatsapp: {
+    number: "254707562995",
+    message: "Hi Vault, I need some assistance."
+  },
 
-    whatsapp: {
-        number: "254707562995", 
-        message: "Hi Vault, I need some assistance."
-    },
+  phone: {
+    number: "+254707562995"
+  },
 
-    phone: {
-        number: "+254707562995"
-    },
+  instagram: {
+    url: "https://instagram.com/vault.moment.s"
+  },
 
-    instagram: {
-        url: "https://instagram.com/vault.moment.s"
-    },
-
-    email: {
-        address: "charanamk2@gmail.com",
-        subject: "Vault Assistance",
-        body: "Hi Vault,\n\nI need some assistance with:"
-    }
-
+  email: {
+    address: "charanamk2@gmail.com",
+    subject: "Vault Assistance",
+    body: "Hi Vault,\n\nI need some assistance with:"
+  }
 };
 
 
-/* ==================================================
+/* =========================================================
    DOM
-================================================== */
+========================================================= */
 
-const getHelpBtn =
-    document.getElementById("getHelpBtn");
+const getHelpBtn = document.getElementById("getHelpBtn");
+const helpModule = document.getElementById("helpModule");
+const helpModuleContent = document.getElementById("helpModuleContent");
+const helpModuleTitle = document.getElementById("helpModuleTitle");
 
-const helpModule =
-    document.getElementById("helpModule");
+const helpModuleEyebrow = document.querySelector(
+  "#helpModule .help-module-header .help-eyebrow"
+);
 
-const helpModuleContent =
-    document.getElementById("helpModuleContent");
+const helpModuleCloseButtons = document.querySelectorAll(
+  '[data-action="close-help-module"]'
+);
 
-const helpModuleTitle =
-    document.getElementById("helpModuleTitle");
-
-const helpModuleEyebrow =
-    document.getElementById("helpModuleEyebrow");
-
-const helpModuleCloseButtons =
-    document.querySelectorAll(
-        '[data-action="close-help-module"]'
-    );
-
-const helpOptions =
-    document.querySelectorAll(
-        "[data-help-module]"
-    );
-
-const faqItems =
-    document.querySelectorAll(
-        "[data-faq]"
-    );
+const helpOptions = document.querySelectorAll("[data-help-module]");
+const faqItems = document.querySelectorAll("[data-faq]");
 
 
-/* ==================================================
+/* =========================================================
    STATE
-================================================== */
+========================================================= */
 
 let helpModuleOpen = false;
 
-let helpModuleHistory = [];
+
+/*
+ * These are the original Help home sections:
+ *
+ * 1. Assistance Options
+ * 2. FAQs
+ *
+ * We keep the actual DOM nodes so event listeners remain intact.
+ */
+const helpHomeSections = helpModuleContent
+  ? Array.from(
+      helpModuleContent.querySelectorAll(":scope > .help-module-section")
+    )
+  : [];
 
 
-/* ==================================================
+/* =========================================================
    FAQ CONTENT
-================================================== */
+========================================================= */
 
 const FAQ_CONTENT = {
+  booking: {
+    title: "How do I book an experience?",
+    eyebrow: "BOOKING",
+    content: `
+      <p>
+        Choose an upcoming experience from VAULT and select the ticket
+        option that works for you.
+      </p>
 
-    booking: {
-        title: "How do I book an experience?",
-        content: `
-            <p>
-                Choose an experience from the upcoming experiences
-                section and select <strong>Book Now</strong>.
-            </p>
+      <p>
+        Follow the booking flow, enter your details and complete payment
+        where required.
+      </p>
 
-            <p>
-                Follow the booking steps, select your ticket category,
-                enter your details and complete the payment process.
-            </p>
+      <p>
+        Once your reservation is confirmed, your ticket and booking
+        information will be available through your VAULT account.
+      </p>
+    `
+  },
 
-            <p>
-                Once your booking is confirmed, your ticket will be
-                available through <strong>My Vault</strong>.
-            </p>
-        `
-    },
+  tickets: {
+    title: "Where can I find my tickets?",
+    eyebrow: "TICKETS",
+    content: `
+      <p>
+        Your confirmed tickets are stored inside <strong>My Vault</strong>.
+      </p>
 
+      <p>
+        Open your account and check your bookings to view your ticket
+        details and reference information.
+      </p>
+    `
+  },
 
-    tickets: {
-        title: "How do I receive my ticket?",
-        content: `
-            <p>
-                After your reservation and payment have been successfully
-                completed, your ticket is generated automatically.
-            </p>
+  payments: {
+    title: "How do payments work?",
+    eyebrow: "PAYMENTS",
+    content: `
+      <p>
+        Paid experiences use the available payment options shown during
+        checkout.
+      </p>
 
-            <p>
-                You can access your ticket from
-                <strong>My Vault</strong>.
-            </p>
+      <p>
+        After a successful payment, your reservation will be updated and
+        your ticket can be accessed from your VAULT account.
+      </p>
 
-            <p>
-                Save your ticket to your device before heading to the
-                experience.
-            </p>
-        `
-    },
+      <p>
+        If your payment has gone through but your reservation has not
+        updated, contact VAULT support.
+      </p>
+    `
+  },
 
+  cancellation: {
+    title: "Can I cancel my booking?",
+    eyebrow: "CANCELLATIONS",
+    content: `
+      <p>
+        Cancellation availability depends on the specific experience
+        and its booking terms.
+      </p>
 
-    payments: {
-        title: "What happens after payment?",
-        content: `
-            <p>
-                Your payment is verified by Vault before your reservation
-                is confirmed.
-            </p>
+      <p>
+        If you need to cancel a reservation, contact VAULT support as soon
+        as possible with your booking reference.
+      </p>
+    `
+  },
 
-            <p>
-                Once the payment is successfully confirmed, your booking
-                status changes and your ticket becomes available.
-            </p>
+  "my-vault": {
+    title: "What is My Vault?",
+    eyebrow: "MY VAULT",
+    content: `
+      <p>
+        <strong>My Vault</strong> is your personal space for keeping track
+        of your VAULT experiences.
+      </p>
 
-            <p>
-                If your payment was completed but your booking has not
-                updated, contact Vault support.
-            </p>
-        `
-    },
+      <p>
+        Depending on the experience, you can use it to view bookings,
+        tickets, saved experiences and other personal VAULT activity.
+      </p>
+    `
+  },
 
+  account: {
+    title: "How do I manage my account?",
+    eyebrow: "ACCOUNT",
+    content: `
+      <p>
+        Your VAULT account keeps your personal details and experience
+        activity connected to you.
+      </p>
 
-    cancellation: {
-        title: "Can I cancel my booking?",
-        content: `
-            <p>
-                Cancellation depends on the specific experience and its
-                stated booking policy.
-            </p>
+      <p>
+        Sign in to access your bookings and other account features.
+      </p>
 
-            <p>
-                Check the experience information before booking.
-            </p>
+      <p>
+        If you are having trouble signing in, use the available account
+        recovery options or contact VAULT support.
+      </p>
+    `
+  },
 
-            <p>
-                If you need help with a cancellation, contact Vault
-                support and include your booking details.
-            </p>
-        `
-    },
+  refunds: {
+    title: "How do refunds work?",
+    eyebrow: "REFUNDS",
+    content: `
+      <p>
+        Refund eligibility depends on the experience, booking terms and
+        circumstances surrounding the cancellation.
+      </p>
 
+      <p>
+        If you believe you are entitled to a refund, contact VAULT support
+        with your booking reference and payment information.
+      </p>
+    `
+  },
 
-    "my-vault": {
-        title: "Where are my bookings?",
-        content: `
-            <p>
-                Your confirmed experiences are available in
-                <strong>My Vault</strong>.
-            </p>
+  experience: {
+    title: "What should I know before an experience?",
+    eyebrow: "YOUR EXPERIENCE",
+    content: `
+      <p>
+        Experience details such as location, date, time, dress code,
+        ticket type and age requirements can vary.
+      </p>
 
-            <p>
-                From there you can view your bookings and access your
-                available tickets.
-            </p>
-
-            <p>
-                Make sure you are signed into the account used when
-                making the booking.
-            </p>
-        `
-    },
-
-
-    account: {
-        title: "How does my account work?",
-        content: `
-            <p>
-                Your Vault account keeps your experiences, bookings and
-                tickets connected to you.
-            </p>
-
-            <p>
-                Use <strong>My Vault</strong> to access your personal
-                booking history and saved experiences.
-            </p>
-        `
-    },
-
-
-    refunds: {
-        title: "How do refunds work?",
-        content: `
-            <p>
-                Refund eligibility depends on the experience's
-                cancellation and refund policy.
-            </p>
-
-            <p>
-                If you believe you are entitled to a refund, contact
-                Vault support with your booking information.
-            </p>
-
-            <p>
-                Our team will review the request and guide you through
-                the next steps.
-            </p>
-        `
-    },
-
-
-    experience: {
-        title: "What should I know before an experience?",
-        content: `
-            <p>
-                Check the experience details carefully before attending.
-            </p>
-
-            <p>
-                Pay attention to the date, time, venue, ticket category
-                and any specific instructions provided by Vault.
-            </p>
-
-            <p>
-                Keep your ticket accessible when arriving at the venue.
-            </p>
-        `
-    }
-
+      <p>
+        Check the individual experience page before booking so you know
+        exactly what to expect.
+      </p>
+    `
+  }
 };
 
 
-/* ==================================================
-   OPEN HELP MODULE
-================================================== */
+/* =========================================================
+   MODULE OPEN / CLOSE
+========================================================= */
 
 function openHelpModule() {
+  if (!helpModule) return;
 
-    if (!helpModule) return;
+  helpModuleOpen = true;
 
-    helpModuleOpen = true;
+  showHelpHome();
 
-    helpModuleHistory = [];
+  helpModule.setAttribute("aria-hidden", "false");
+  document.body.classList.add("help-module-open");
 
-    showHelpHome();
+  /*
+   * Give the browser a moment to update the dialog before focusing.
+   */
+  requestAnimationFrame(() => {
+    const closeButton = helpModule.querySelector(".help-module-close");
 
-    helpModule.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
-    document.body.classList.add(
-        "help-module-open"
-    );
-
+    if (closeButton) {
+      closeButton.focus();
+    }
+  });
 }
 
-
-/* ==================================================
-   CLOSE HELP MODULE
-================================================== */
 
 function closeHelpModule() {
+  if (!helpModule) return;
 
-    if (!helpModule) return;
+  helpModuleOpen = false;
 
-    helpModuleOpen = false;
+  helpModule.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("help-module-open");
 
-    helpModuleHistory = [];
-
-    helpModule.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    document.body.classList.remove(
-        "help-module-open"
-    );
-
+  /*
+   * Return the Help module to its home state so the next opening
+   * always starts clean.
+   */
+  showHelpHome();
 }
 
 
-/* ==================================================
-   SHOW HELP HOME
-================================================== */
+/* =========================================================
+   HOME VIEW
+========================================================= */
 
 function showHelpHome() {
+  if (!helpModuleContent) return;
 
-    helpModuleHistory = [];
+  setModuleTitle("How Can We Help?");
+  setModuleEyebrow("VAULT SUPPORT");
 
-    if (helpModuleTitle) {
-        helpModuleTitle.textContent =
-            "How Can We Help?";
-    }
+  /*
+   * Remove any dynamic content such as:
+   * - WhatsApp screen
+   * - Phone screen
+   * - Instagram screen
+   * - Email screen
+   * - FAQ screen
+   * - Vault AI
+   *
+   * Then restore the original Help sections.
+   */
+  helpModuleContent.innerHTML = "";
 
-    if (helpModuleEyebrow) {
-        helpModuleEyebrow.textContent =
-            "VAULT SUPPORT";
-    }
-
-    if (helpModuleContent) {
-        helpModuleContent.innerHTML = "";
-    }
-
-    /*
-        The main assistance options and FAQs already exist
-        inside the module HTML.
-
-        Nothing needs to be rendered here.
-    */
-
-    const moduleSections =
-        document.querySelectorAll(
-            ".help-module-section"
-        );
-
-    moduleSections.forEach(section => {
-        section.hidden = false;
-    });
-
+  helpHomeSections.forEach(section => {
+    section.hidden = false;
+    helpModuleContent.appendChild(section);
+  });
 }
 
 
-/* ==================================================
-   SHOW ASSISTANCE MODULE
-================================================== */
+/* =========================================================
+   ASSISTANCE
+========================================================= */
 
 function openAssistance(type) {
+  if (!helpModuleContent) return;
 
-    if (!helpModuleContent) return;
+  switch (type) {
+    case "vault-ai":
+      showVaultAI();
+      return;
 
-    const moduleSections =
-        document.querySelectorAll(
-            ".help-module-section"
-        );
+    case "whatsapp":
+      showWhatsApp();
+      return;
 
-    moduleSections.forEach(section => {
-        section.hidden = true;
-    });
+    case "phone":
+      showPhone();
+      return;
 
-    helpModuleHistory.push("home");
+    case "instagram":
+      showInstagram();
+      return;
 
-    if (helpModuleEyebrow) {
-        helpModuleEyebrow.textContent =
-            "VAULT ASSISTANCE";
-    }
+    case "email":
+      showEmail();
+      return;
 
-    switch (type) {
-
-        case "vault-ai":
-            showVaultAI();
-            break;
-
-        case "whatsapp":
-            showWhatsApp();
-            break;
-
-        case "phone":
-            showPhone();
-            break;
-
-        case "instagram":
-            showInstagram();
-            break;
-
-        case "email":
-            showEmail();
-            break;
-
-        default:
-            return;
-    }
-
+    default:
+      console.warn("Unknown Help option:", type);
+  }
 }
 
 
-/* ==================================================
-   VAULT AI
-================================================== */
+/* =========================================================
+   DYNAMIC VIEW HELPER
+========================================================= */
 
-function showVaultAI() {
+function showDynamicView({
+  title,
+  eyebrow,
+  content
+}) {
+  if (!helpModuleContent) return;
 
-    setModuleTitle("Vault AI");
+  setModuleTitle(title);
+  setModuleEyebrow(eyebrow);
 
-    helpModuleContent.innerHTML = `
+  helpModuleContent.innerHTML = content;
 
-        <div class="help-detail">
-
-            <span class="help-detail-icon">✦</span>
-
-            <h3>Meet Vault AI</h3>
-
-            <p>
-                Your instant Vault assistant for questions about
-                experiences, bookings, tickets and more.
-            </p>
-
-            <button
-                type="button"
-                class="help-primary-action"
-                id="launchVaultAI"
-            >
-                Start With Vault AI
-                <span>→</span>
-            </button>
-
-        </div>
-
-    `;
-
-    const launchButton =
-        document.getElementById("launchVaultAI");
-
-    if (launchButton) {
-
-        launchButton.addEventListener(
-            "click",
-            () => {
-
-                console.log(
-                    "Vault AI requested"
-                );
-
-            }
-        );
-
-    }
-
+  bindBackToHelp();
 }
 
 
-/* ==================================================
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+function getBackButtonMarkup() {
+  return `
+    <button
+      type="button"
+      class="help-secondary-action"
+      data-action="back-to-help"
+    >
+      <span aria-hidden="true">←</span>
+      <span>Back to Help</span>
+    </button>
+  `;
+}
+
+
+function bindBackToHelp() {
+  const backButton = helpModuleContent?.querySelector(
+    '[data-action="back-to-help"]'
+  );
+
+  if (!backButton) return;
+
+  backButton.addEventListener("click", () => {
+    showHelpHome();
+  });
+}
+
+
+/* =========================================================
    WHATSAPP
-================================================== */
+========================================================= */
 
 function showWhatsApp() {
+  const config = HELP_CONFIG.whatsapp;
 
-    setModuleTitle("WhatsApp");
+  const whatsappUrl =
+    `https://wa.me/${config.number}?text=${encodeURIComponent(
+      config.message
+    )}`;
 
-    const number =
-        HELP_CONFIG.whatsapp.number;
+  showDynamicView({
+    title: "WhatsApp Support",
+    eyebrow: "DIRECT SUPPORT",
 
-    const message =
-        encodeURIComponent(
-            HELP_CONFIG.whatsapp.message
-        );
+    content: `
+      <div class="help-detail">
+        <div class="help-detail-icon" aria-hidden="true">WA</div>
 
-    const hasNumber =
-        Boolean(number);
+        <h3>Chat with VAULT</h3>
 
-    helpModuleContent.innerHTML = `
+        <p>
+          Need a quick answer? Start a WhatsApp conversation with the
+          VAULT team.
+        </p>
 
-        <div class="help-detail">
+        <a
+          class="help-primary-action"
+          href="${whatsappUrl}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open WhatsApp
+        </a>
 
-            <span class="help-detail-icon">◌</span>
-
-            <h3>Chat With Vault</h3>
-
-            <p>
-                Reach the Vault team directly on WhatsApp for
-                assistance with your booking or experience.
-            </p>
-
-            ${
-                hasNumber
-                    ? `
-                        <a
-                            class="help-primary-action"
-                            href="https://wa.me/${number}?text=${message}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Open WhatsApp
-                            <span>→</span>
-                        </a>
-                    `
-                    : `
-                        <p class="help-unavailable">
-                            WhatsApp contact details are currently
-                            unavailable.
-                        </p>
-                    `
-            }
-
-        </div>
-
-    `;
-
+        ${getBackButtonMarkup()}
+      </div>
+    `
+  });
 }
 
 
-/* ==================================================
+/* =========================================================
    PHONE
-================================================== */
+========================================================= */
 
 function showPhone() {
+  const config = HELP_CONFIG.phone;
 
-    setModuleTitle("Phone");
+  showDynamicView({
+    title: "Call VAULT",
+    eyebrow: "DIRECT SUPPORT",
 
-    const number =
-        HELP_CONFIG.phone.number;
+    content: `
+      <div class="help-detail">
+        <div class="help-detail-icon" aria-hidden="true">TEL</div>
 
-    const hasNumber =
-        Boolean(number);
+        <h3>Speak with VAULT</h3>
 
-    helpModuleContent.innerHTML = `
+        <p>
+          If you'd rather speak directly, you can call the VAULT support
+          line.
+        </p>
 
-        <div class="help-detail">
+        <a
+          class="help-primary-action"
+          href="tel:${config.number}"
+        >
+          Call VAULT
+        </a>
 
-            <span class="help-detail-icon">⌕</span>
-
-            <h3>Speak With Vault</h3>
-
-            <p>
-                Prefer a conversation? Call the Vault team directly
-                for assistance.
-            </p>
-
-            ${
-                hasNumber
-                    ? `
-                        <a
-                            class="help-primary-action"
-                            href="tel:${number}"
-                        >
-                            Call Vault
-                            <span>→</span>
-                        </a>
-                    `
-                    : `
-                        <p class="help-unavailable">
-                            Phone contact details are currently
-                            unavailable.
-                        </p>
-                    `
-            }
-
-        </div>
-
-    `;
-
+        ${getBackButtonMarkup()}
+      </div>
+    `
+  });
 }
 
 
-/* ==================================================
+/* =========================================================
    INSTAGRAM
-================================================== */
+========================================================= */
 
 function showInstagram() {
+  const config = HELP_CONFIG.instagram;
 
-    setModuleTitle("Instagram");
+  showDynamicView({
+    title: "Instagram",
+    eyebrow: "STAY CONNECTED",
 
-    const url =
-        HELP_CONFIG.instagram.url;
+    content: `
+      <div class="help-detail">
+        <div class="help-detail-icon" aria-hidden="true">IG</div>
 
-    const hasUrl =
-        Boolean(url);
+        <h3>Follow VAULT</h3>
 
-    helpModuleContent.innerHTML = `
+        <p>
+          Follow VAULT on Instagram for upcoming experiences,
+          announcements and updates.
+        </p>
 
-        <div class="help-detail">
+        <a
+          class="help-primary-action"
+          href="${config.url}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Instagram
+        </a>
 
-            <span class="help-detail-icon">◎</span>
-
-            <h3>Follow Vault</h3>
-
-            <p>
-                Connect with Vault on Instagram for updates,
-                upcoming experiences and more.
-            </p>
-
-            ${
-                hasUrl
-                    ? `
-                        <a
-                            class="help-primary-action"
-                            href="${url}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Open Instagram
-                            <span>→</span>
-                        </a>
-                    `
-                    : `
-                        <p class="help-unavailable">
-                            Instagram details are currently
-                            unavailable.
-                        </p>
-                    `
-            }
-
-        </div>
-
-    `;
-
+        ${getBackButtonMarkup()}
+      </div>
+    `
+  });
 }
 
 
-/* ==================================================
+/* =========================================================
    EMAIL
-================================================== */
+========================================================= */
 
 function showEmail() {
+  const config = HELP_CONFIG.email;
 
-    setModuleTitle("Email");
+  const mailtoUrl =
+    `mailto:${config.address}` +
+    `?subject=${encodeURIComponent(config.subject)}` +
+    `&body=${encodeURIComponent(config.body)}`;
 
-    const address =
-        HELP_CONFIG.email.address;
+  showDynamicView({
+    title: "Email VAULT",
+    eyebrow: "DIRECT SUPPORT",
 
-    const subject =
-        encodeURIComponent(
-            HELP_CONFIG.email.subject
-        );
+    content: `
+      <div class="help-detail">
+        <div class="help-detail-icon" aria-hidden="true">@</div>
 
-    const body =
-        encodeURIComponent(
-            HELP_CONFIG.email.body
-        );
+        <h3>Send us an email</h3>
 
-    const hasAddress =
-        Boolean(address);
+        <p>
+          For detailed questions or support that doesn't need an immediate
+          response, send us an email.
+        </p>
 
-    helpModuleContent.innerHTML = `
+        <a
+          class="help-primary-action"
+          href="${mailtoUrl}"
+        >
+          Send Email
+        </a>
 
-        <div class="help-detail">
-
-            <span class="help-detail-icon">✉</span>
-
-            <h3>Email Vault</h3>
-
-            <p>
-                Send us an email and tell us how we can help.
-            </p>
-
-            ${
-                hasAddress
-                    ? `
-                        <a
-                            class="help-primary-action"
-                            href="mailto:${address}?subject=${subject}&body=${body}"
-                        >
-                            Send Email
-                            <span>→</span>
-                        </a>
-                    `
-                    : `
-                        <p class="help-unavailable">
-                            Email contact details are currently
-                            unavailable.
-                        </p>
-                    `
-            }
-
-        </div>
-
-    `;
-
+        ${getBackButtonMarkup()}
+      </div>
+    `
+  });
 }
 
 
-/* ==================================================
-   FAQ MODULE
-================================================== */
+/* =========================================================
+   VAULT AI FALLBACK
+========================================================= */
+
+/*
+ * vault-ai.js loads after this file and provides the real
+ * showVaultAI() implementation.
+ *
+ * This fallback prevents the Help module from breaking if
+ * vault-ai.js fails to load.
+ */
+if (typeof window.showVaultAI !== "function") {
+  window.showVaultAI = function () {
+    showDynamicView({
+      title: "Vault AI",
+      eyebrow: "VAULT SUPPORT",
+
+      content: `
+        <div class="help-detail">
+          <div class="help-detail-icon" aria-hidden="true">AI</div>
+
+          <h3>Vault AI is unavailable</h3>
+
+          <p>
+            The VAULT assistant could not be loaded right now.
+            Please try another support option.
+          </p>
+
+          ${getBackButtonMarkup()}
+        </div>
+      `
+    });
+  };
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
 
 function openFAQ(faqKey) {
+  const faq = FAQ_CONTENT[faqKey];
 
-    const faq =
-        FAQ_CONTENT[faqKey];
+  if (!faq) {
+    console.warn("Unknown FAQ:", faqKey);
+    return;
+  }
 
-    if (!faq || !helpModuleContent) return;
+  showDynamicView({
+    title: faq.title,
+    eyebrow: faq.eyebrow,
 
-    const moduleSections =
-        document.querySelectorAll(
-            ".help-module-section"
-        );
+    content: `
+      <div class="help-detail faq-answer">
+        <div class="help-detail-icon" aria-hidden="true">?</div>
 
-    moduleSections.forEach(section => {
-        section.hidden = true;
-    });
+        <h3>${faq.title}</h3>
 
-    helpModuleHistory.push("home");
+        <div class="faq-answer-content">
+          ${faq.content}
+        </div>
 
-    setModuleTitle("FAQ");
-
-    if (helpModuleEyebrow) {
-        helpModuleEyebrow.textContent =
-            "VAULT FAQ";
-    }
-
-    helpModuleContent.innerHTML = `
-
-        <article class="help-detail faq-detail">
-
-            <h3>${faq.title}</h3>
-
-            <div class="faq-answer">
-                ${faq.content}
-            </div>
-
-            <button
-                type="button"
-                class="help-secondary-action"
-                id="faqBackBtn"
-            >
-                <span>←</span>
-                Back to FAQs
-            </button>
-
-        </article>
-
-    `;
-
-    const faqBackBtn =
-        document.getElementById("faqBackBtn");
-
-    if (faqBackBtn) {
-
-        faqBackBtn.addEventListener(
-            "click",
-            showHelpHome
-        );
-
-    }
-
+        ${getBackButtonMarkup()}
+      </div>
+    `
+  });
 }
 
 
-/* ==================================================
-   SET MODULE TITLE
-================================================== */
+/* =========================================================
+   MODULE TITLE / EYEBROW
+========================================================= */
 
 function setModuleTitle(title) {
-
-    if (!helpModuleTitle) return;
-
-    helpModuleTitle.textContent =
-        title;
-
+  if (helpModuleTitle) {
+    helpModuleTitle.textContent = title;
+  }
 }
 
 
-/* ==================================================
-   BACK TO HELP MENU
-================================================== */
-
-function goBackToHelp() {
-
-    if (helpModuleHistory.length === 0) {
-
-        showHelpHome();
-
-        return;
-    }
-
-    helpModuleHistory.pop();
-
-    showHelpHome();
-
+function setModuleEyebrow(text) {
+  if (helpModuleEyebrow) {
+    helpModuleEyebrow.textContent = text;
+  }
 }
 
 
-/* ==================================================
+/* =========================================================
    EVENT LISTENERS
-================================================== */
-
-
-/* GET HELP */
+========================================================= */
 
 if (getHelpBtn) {
-
-    getHelpBtn.addEventListener(
-        "click",
-        openHelpModule
-    );
-
+  getHelpBtn.addEventListener("click", openHelpModule);
 }
 
-
-/* CLOSE BUTTONS */
 
 helpModuleCloseButtons.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        closeHelpModule
-    );
-
+  button.addEventListener("click", closeHelpModule);
 });
 
 
-/* ASSISTANCE OPTIONS */
+helpOptions.forEach(option => {
+  option.addEventListener("click", () => {
+    const type = option.dataset.helpModule;
 
-helpOptions.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        () => {
-
-            const type =
-                button.dataset.helpModule;
-
-            openAssistance(type);
-
-        }
-    );
-
+    if (type) {
+      openAssistance(type);
+    }
+  });
 });
 
 
-/* FAQ BUTTONS */
+faqItems.forEach(item => {
+  item.addEventListener("click", () => {
+    const faqKey = item.dataset.faq;
 
-faqItems.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        () => {
-
-            const faq =
-                button.dataset.faq;
-
-            openFAQ(faq);
-
-        }
-    );
-
+    if (faqKey) {
+      openFAQ(faqKey);
+    }
+  });
 });
 
 
-/* ==================================================
-   BACKDROP
-================================================== */
-
-const helpBackdrop =
-    document.querySelector(
-        ".help-module-backdrop"
-    );
+/*
+ * Backdrop closes the Help module.
+ */
+const helpBackdrop = helpModule?.querySelector(
+  ".help-module-backdrop"
+);
 
 if (helpBackdrop) {
-
-    helpBackdrop.addEventListener(
-        "click",
-        closeHelpModule
-    );
-
+  helpBackdrop.addEventListener("click", closeHelpModule);
 }
 
 
-/* ==================================================
-   ESCAPE KEY
-================================================== */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key === "Escape" &&
-            helpModuleOpen
-        ) {
-
-            closeHelpModule();
-
-        }
-
-    }
-);
+/*
+ * Escape closes the Help module.
+ */
+document.addEventListener("keydown", event => {
+  if (
+    event.key === "Escape" &&
+    helpModuleOpen
+  ) {
+    closeHelpModule();
+  }
+});
 
 
-/* ==================================================
-   BODY SCROLL LOCK
-================================================== */
+/* =========================================================
+   INITIAL STATE
+========================================================= */
 
-const helpStyle =
-    document.createElement("style");
+if (helpModule) {
+  helpModule.setAttribute("aria-hidden", "true");
+}
 
-helpStyle.textContent = `
+document.body.classList.remove("help-module-open");
 
+
+/* =========================================================
+   SUPPORT STYLES
+========================================================= */
+
+if (!document.getElementById("vault-help-runtime-styles")) {
+  const style = document.createElement("style");
+
+  style.id = "vault-help-runtime-styles";
+
+  style.textContent = `
     body.help-module-open {
-        overflow: hidden;
+      overflow: hidden;
     }
 
     .help-detail {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      width: 100%;
     }
 
     .help-detail h3 {
-        margin: 0;
-
-        font-family: var(--font-display);
-        font-size: 2rem;
-        font-weight: 500;
-
-        color: var(--text);
+      margin: 0;
     }
 
     .help-detail p {
-        margin: 0;
-
-        font-family: var(--font-ui);
-        font-size: 0.9rem;
-        line-height: 1.7;
-
-        color: var(--text-soft);
+      margin: 0;
+      line-height: 1.7;
     }
 
     .help-detail-icon {
-        display: grid;
-        place-items: center;
-
-        width: 48px;
-        height: 48px;
-
-        border: 1px solid var(--gold-border);
-        border-radius: 50%;
-
-        background: var(--gold-soft);
-
-        color: var(--accent);
-
-        font-size: 1.25rem;
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      background: rgba(212, 175, 55, 0.08);
+      color: #d4af37;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
     }
 
     .help-primary-action,
     .help-secondary-action {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+      width: fit-content;
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      cursor: pointer;
+      font: inherit;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+    }
 
-        width: 100%;
-        min-height: 54px;
+    .help-primary-action {
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      background: linear-gradient(
+        135deg,
+        rgba(212, 175, 55, 0.22),
+        rgba(212, 175, 55, 0.08)
+      );
+      color: inherit;
+    }
 
-        margin-top: 8px;
-        padding: 0 18px;
-
-        border: 1px solid var(--gold-border);
-        border-radius: var(--radius-md);
-
-        background: var(--gold-soft);
-
-        color: var(--text);
-
-        font-family: var(--font-ui);
-        font-size: 0.76rem;
-        font-weight: 600;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-
-        text-decoration: none;
-
-        cursor: pointer;
-
-        transition:
-            background var(--transition-base),
-            border-color var(--transition-base),
-            transform var(--transition-base);
+    .help-secondary-action {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.04);
+      color: inherit;
     }
 
     .help-primary-action:hover,
     .help-secondary-action:hover {
-        background: rgba(201, 164, 92, 0.22);
-        border-color: rgba(201, 164, 92, 0.45);
+      transform: translateY(-2px);
     }
 
-    .help-primary-action span {
-        color: var(--accent);
+    .faq-answer-content {
+      display: grid;
+      gap: 14px;
     }
 
-    .help-secondary-action {
-        justify-content: flex-start;
-        gap: 10px;
-
-        background: transparent;
+    .faq-answer-content p {
+      margin: 0;
     }
 
-    .help-secondary-action span {
-        color: var(--accent);
+    .faq-answer-content strong {
+      color: inherit;
     }
+  `;
 
-    .help-unavailable {
-        padding: 14px;
-
-        border: 1px solid var(--border);
-        border-radius: var(--radius-md);
-
-        background: rgba(255, 255, 255, 0.025);
-
-        font-size: 0.8rem !important;
-    }
-
-    .faq-answer {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-
-        padding-bottom: 8px;
-    }
-
-    .faq-answer strong {
-        color: var(--text);
-        font-weight: 600;
-    }
-
-`;
-
-document.head.appendChild(helpStyle);
-
-
-/* ==================================================
-   INITIAL STATE
-================================================== */
-
-if (helpModule) {
-
-    helpModule.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
+  document.head.appendChild(style);
 }
 
 
-/* ==================================================
-   VAULT HELP READY
-================================================== */
+/* =========================================================
+   READY
+========================================================= */
 
-console.log(
-    "VAULT Help module ready."
-);
+console.log("[VAULT] Help module ready.");

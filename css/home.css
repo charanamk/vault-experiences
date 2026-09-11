@@ -158,8 +158,6 @@ img {
 .vault-glass {
     width: 100%;
 
-    margin: 0;
-
     display: flex;
     align-items: center;
 
@@ -223,13 +221,13 @@ img {
     color: var(--text-muted);
 
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(0.95rem, 1.8vw, 1.65rem);
+    font-size: clamp(1rem, 2.0vw, 2rem);
     font-weight: 500;
 
     font-style: italic;
 
     letter-spacing: 0.005em;
-    line-height: 1;
+    line-height: 1.2;
 
     white-space: nowrap;
 }
@@ -296,7 +294,7 @@ img {
 
 .experience-hint {
     width: 100%;
-    margin-top: 4px;
+
 }
 
 
@@ -315,7 +313,7 @@ img {
     margin: 0 auto;
 
     width: 98%;
-    min-height: 390px;
+    min-height: 160px;
 
     overflow: hidden;
 
