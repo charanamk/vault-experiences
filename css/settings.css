@@ -1,470 +1,497 @@
-.experience-card {
-    position: relative;
+/* ==================================================
+   VAULT — ACCOUNT SETTINGS
+
+   Reuses the same design tokens as the rest of the
+   site (help.css, vault.css, experiences.css):
+   --font-display, --font-ui, --text, --text-soft,
+   --text-muted, --border, --surface, --surface-2,
+   --gold-border, --gold-soft, --accent, --radius-md,
+   --radius-lg, --transition-base, --content-width,
+   --page-padding, --space-7/8.
+================================================== */
+
+.settings-section {
     width: 100%;
-    min-width: 0;
-    height: clamp(436px, 56vh, 600px);
-    overflow: hidden;
-    margin-left: 2%;
-    margin-bottom: 20px;
-    border-radius: 26px;
-    background: #000;
-    scroll-snap-align: start;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: var(--space-8) var(--page-padding);
 }
 
-.experience-poster {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: inherit;
-    background: #000;
+
+/* ==================================================
+   HEADING
+================================================== */
+
+.vault-subsection-heading {
+    margin: 0 0 28px;
 }
 
-.experience-poster > img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transform: scale(1.001);
-    transition:
-        transform var(--transition-slow),
-        filter 0.5s ease;
-}
 
-.experience-card:hover .experience-poster > img {
-    transform: scale(1.025);
-}
-
-.experience-poster::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.04) 0%,
-            rgba(0, 0, 0, 0.02) 30%,
-            rgba(0, 0, 0, 0.16) 50%,
-            rgba(0, 0, 0, 0.48) 68%,
-            rgba(0, 0, 0, 0.82) 84%,
-            rgba(0, 0, 0, 0.97) 100%
-        );
-}
-
-.poster-info {
-    position: absolute;
-    left: clamp(18px, 1vw, 28px);
-    right: clamp(18px, 1vw, 28px);
-    bottom: clamp(92px, 12vh, 130px);
-    z-index: 2;
-}
-
-.event-theme {
-    display: block;
-    margin-bottom: 9px;
-    color: var(--vault-title-gold-solid);
-    font-family: var(--font-ui);
-    font-size: 0.68rem;
-    font-weight: var(--weight-bold);
-    letter-spacing: var(--tracking-wider);
-    text-transform: uppercase;
-}
-
-.poster-info h3 {
+.vault-subsection-heading h2 {
     margin: 0;
-    max-width: 96%;
-    color: #fff;
+
     font-family: var(--font-display);
-    font-size: clamp(1.9rem, 4vw, 3.4rem);
-    font-weight: var(--weight-medium);
-    line-height: 0.98;
-    letter-spacing: var(--tracking-tight);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 500;
+    line-height: 1.05;
+
+    color: var(--text);
 }
 
-.event-description {
-    margin-top: 14px;
+
+/* ==================================================
+   GROUPS
+================================================== */
+
+.settings-group {
+    margin-bottom: 26px;
+}
+
+
+.settings-group:last-of-type {
     margin-bottom: 0;
-    max-width: min(620px, 92%);
-}
-
-.event-description p {
-    display: -webkit-box;
-    margin: 0;
-    overflow: hidden;
-    color: rgba(255, 255, 255, 0.72);
-    font-family: var(--font-ui);
-    font-size: clamp(0.72rem, 1vw, 0.86rem);
-    font-weight: var(--weight-regular);
-    line-height: 1.55;
-    letter-spacing: 0.01rem;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
-
-.experience-details {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 3;
-    min-height: 76px;
-    display: flex;
-    align-items: center;
-    gap: clamp(12px, 2vw, 24px);
-    padding:
-        14px
-        clamp(22px, 3vw, 38px);
-    background: rgba(0, 0, 0, 0.16);
-    border: 0;
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.detail-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    min-width: 0;
-    color: rgba(255, 255, 255, 0.84);
-    font-family: var(--font-ui);
-    font-size: clamp(0.68rem, 0.9vw, 0.78rem);
-    font-weight: var(--weight-regular);
-    white-space: nowrap;
-}
-
-.detail-item img {
-    width: 15px;
-    height: 15px;
-    flex-shrink: 0;
-    filter: brightness(0) invert(1);
-    opacity: 0.82;
-}
-
-.experience-details button {
-    margin-left: auto;
-    flex-shrink: 0;
 }
 
 
-/* =========================================
-   TWO COLUMN GRID
-========================================= */
+.settings-group-title {
+    position: relative;
 
-.experiences-track {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-    overflow: visible;
-}
-
-
-/* =========================================
-   DATE
-========================================= */
-
-.event-date {
-    position: absolute;
-    top: clamp(16px, 2.5vw, 28px);
-    left: clamp(16px, 2.5vw, 28px);
-    z-index: 4;
-    width: 62px;
-    height: 70px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgba(10, 10, 10, 0.64);
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.24);
-    border-radius: 16px;
-    box-shadow:
-        0 12px 32px rgba(0, 0, 0, 0.28),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-}
-
-.date-month {
-    color: var(--vault-title-gold-solid);
-    font-family: var(--font-ui);
-    font-size: 0.62rem;
-    font-weight: var(--weight-bold);
-    letter-spacing: var(--tracking-wider);
-    line-height: 1;
-    text-transform: uppercase;
-}
-
-.date-day {
-    margin-top: 6px;
-    color: #fff;
-    font-family: var(--font-ui);
-    font-size: 1.55rem;
-    font-weight: var(--weight-semibold);
-    line-height: 1;
-}
-
-
-/* =========================================
-   SAVE EVENT
-========================================= */
-
-.save-event {
-    position: absolute;
-    top: clamp(16px, 2.5vw, 28px);
-    right: clamp(16px, 2.5vw, 28px);
-    z-index: 4;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    background: rgba(10, 10, 10, 0.48);
-    cursor: pointer;
-    box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.22);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
-}
-
-.save-event:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color:
-        rgba(255, 255, 255, 0.4);
-    transform: translateY(-2px);
-}
-
-.save-event:focus-visible {
-    outline:
-        2px solid
-        var(--color-accent);
-    outline-offset: 3px;
-}
-
-.save-event .bookmark-outline,
-.save-event .bookmark-filled {
-    width: 20px;
-    height: 20px;
-    display: block;
-    transition:
-        opacity var(--transition-fast),
-        transform var(--transition-fast);
-}
-
-.save-event .bookmark-outline {
-    opacity: 1;
-}
-
-.save-event .bookmark-filled {
-    position: absolute;
-    opacity: 0;
-    transform: scale(0.82);
-}
-
-.save-event.is-saved .bookmark-outline {
-    opacity: 0;
-}
-
-.save-event.is-saved .bookmark-filled {
-    opacity: 1;
-    transform: scale(1);
-}
-
-
-/* =========================================
-   BOOK NOW
-========================================= */
-
-.experience-details button {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    min-width: 112px;
-    height: 44px;
-    padding: 0 20px;
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.72);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.94);
-    color: #111;
-    font-family: var(--font-ui);
-    font-size: 0.72rem;
-    font-weight: var(--weight-semibold);
-    letter-spacing: 0.02em;
+
+    gap: 8px;
+
+    margin: 0 0 12px 4px;
+
+    font-family: var(--font-brand, var(--font-ui));
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    color: var(--accent);
+}
+
+
+.settings-group-title::before {
+    content: "";
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow: 0 0 8px rgba(201, 165, 92, 0.6);
+}
+
+
+/* ==================================================
+   CARD
+================================================== */
+
+.settings-card {
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg, var(--radius-md));
+
+    background: var(--surface);
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   ROW
+================================================== */
+
+.settings-row {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    width: 100%;
+    min-height: 68px;
+
+    padding: 14px 20px;
+
+    border: none;
+    border-bottom: 1px solid var(--border);
+
+    background: transparent;
+
+    color: var(--text);
+
+    text-align: left;
+
     cursor: pointer;
-    box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.2);
+
     transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+        background var(--transition-base),
+        transform var(--transition-base);
 }
 
-.experience-details button:hover {
-    background: var(--vault-title-gold-solid);
-    color: #111;
-    transform: translateY(-2px);
-    box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.32);
+
+.settings-card > .settings-row:last-child,
+.settings-card > div.settings-row:last-child {
+    border-bottom: none;
 }
 
-.experience-details button:active {
+
+button.settings-row:hover {
+    background: var(--gold-soft);
+    transform: translateX(3px);
+}
+
+
+button.settings-row:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+}
+
+
+/* rows that aren't buttons (toggle rows) shouldn't
+   look clickable or shift on hover */
+
+div.settings-row {
+    cursor: default;
+}
+
+
+div.settings-row:hover {
+    background: transparent;
+    transform: none;
+}
+
+
+/* ==================================================
+   ROW ICON
+================================================== */
+
+.settings-row-icon {
+    flex: 0 0 auto;
+
+    display: grid;
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid var(--gold-border);
+    border-radius: 50%;
+
+    background: rgba(201, 165, 92, 0.08);
+
+    transition: background var(--transition-base);
+}
+
+
+.settings-row-icon img {
+    width: 16px;
+    height: 16px;
+
+    opacity: 0.85;
+
+    filter: brightness(0) invert(1);
+}
+
+
+button.settings-row:hover .settings-row-icon {
+    background: linear-gradient(135deg, #e2b957, #c88d13);
+}
+
+
+button.settings-row:hover .settings-row-icon img {
+    filter: brightness(0);
+    opacity: 0.85;
+}
+
+
+/* ==================================================
+   ROW CONTENT
+================================================== */
+
+.settings-row-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+
+.settings-row-content strong {
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    color: var(--text);
+}
+
+
+.settings-row-content span {
+    font-family: var(--font-ui);
+    font-size: 0.76rem;
+    line-height: 1.4;
+
+    color: var(--text-muted);
+}
+
+
+/* ==================================================
+   ROW ARROW
+================================================== */
+
+.settings-arrow {
+    flex: 0 0 auto;
+
+    width: 16px;
+    height: 16px;
+
+    opacity: 0.55;
+
+    filter: brightness(0) invert(1);
+
+    transition:
+        transform var(--transition-base),
+        opacity var(--transition-base);
+}
+
+
+button.settings-row:hover .settings-arrow {
+    opacity: 0.9;
+    transform: translateX(3px);
+}
+
+
+/* ==================================================
+   TOGGLE SWITCH
+================================================== */
+
+.settings-switch {
+    position: relative;
+
+    flex: 0 0 auto;
+
+    display: inline-block;
+
+    width: 44px;
+    height: 26px;
+}
+
+
+.settings-switch input {
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    opacity: 0;
+}
+
+
+.settings-switch span {
+    position: absolute;
+    inset: 0;
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    background: var(--surface-2, rgba(255, 255, 255, 0.06));
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition-base),
+        border-color var(--transition-base);
+}
+
+
+.settings-switch span::before {
+    content: "";
+
+    position: absolute;
+    top: 2px;
+    left: 3px;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    background: var(--text-soft);
+
+    transition:
+        transform var(--transition-base),
+        background var(--transition-base);
+}
+
+
+.settings-switch input:checked + span {
+    background: rgba(201, 165, 92, 0.22);
+    border-color: var(--gold-border);
+}
+
+
+.settings-switch input:checked + span::before {
+    background: linear-gradient(135deg, #e2b957, #c88d13);
+    transform: translateX(18px);
+}
+
+
+.settings-switch input:focus-visible + span {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+
+/* ==================================================
+   DANGER ZONE
+================================================== */
+
+.settings-danger {
+    margin-top: 34px;
+}
+
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+    min-height: 54px;
+
+    border: 1px solid rgba(224, 90, 90, 0.35);
+    border-radius: var(--radius-md);
+
+    background: rgba(224, 90, 90, 0.06);
+
+    color: #e07a7a;
+
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition-base),
+        border-color var(--transition-base),
+        transform var(--transition-base);
+}
+
+
+.logout-btn img {
+    width: 16px;
+    height: 16px;
+
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(66%)
+        sepia(28%)
+        saturate(1200%)
+        hue-rotate(315deg);
+
+    opacity: 0.9;
+}
+
+
+.logout-btn:hover {
+    background: rgba(224, 90, 90, 0.14);
+    border-color: rgba(224, 90, 90, 0.55);
+
+    transform: translateY(-1px);
+}
+
+
+.logout-btn:active {
     transform: translateY(0);
 }
 
 
-/* =========================================
+/* ==================================================
    MOBILE
-========================================= */
+================================================== */
 
 @media (max-width: 767px) {
-    .experience-card {
-        height: clamp(500px, 70vh, 650px);
-        border-radius: 22px;
-    }
 
-    .experiences-track {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
-    }
-
-    .poster-info {
-        left: 18px;
-        right: 18px;
-        bottom: 86px;
-    }
-
-    .event-theme {
-        margin-bottom: 7px;
-        font-size: 0.58rem;
-    }
-
-    .poster-info h3 {
-        max-width: 94%;
-        font-size: clamp(1.9rem, 8vw, 2.5rem);
-    }
-
-    .event-description {
-        margin-top: 12px;
-        max-width: 96%;
-    }
-
-    .event-description p {
-        font-size: 0.68rem;
-        line-height: 1.45;
-    }
-
-    .experience-details {
-        min-height: 68px;
-        gap: 10px;
+    .settings-section {
         padding:
-            10px
-            18px;
+            var(--space-7, 32px)
+            var(--page-padding);
     }
 
-    .detail-item {
-        gap: 6px;
-        font-size: 0.64rem;
+    .vault-subsection-heading {
+        margin-bottom: 22px;
     }
 
-    .detail-item img {
+    .vault-subsection-heading h2 {
+        font-size: 1.7rem;
+    }
+
+    .settings-group {
+        margin-bottom: 20px;
+    }
+
+    .settings-row {
+        min-height: 60px;
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .settings-row-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .settings-row-icon img {
         width: 14px;
         height: 14px;
     }
 
-    .experience-details button {
-        min-width: 96px;
-        height: 40px;
-        padding: 0 15px;
-        font-size: 0.66rem;
+    .settings-row-content strong {
+        font-size: 0.85rem;
     }
 
-    .event-date {
-        top: 14px;
-        left: 14px;
-        width: 52px;
-        height: 58px;
-        border-radius: 14px;
+    .settings-row-content span {
+        font-size: 0.72rem;
     }
 
-    .date-month {
-        font-size: 0.56rem;
+    .logout-btn {
+        min-height: 50px;
+        font-size: 0.72rem;
     }
 
-    .date-day {
-        margin-top: 5px;
-        font-size: 1.3rem;
-    }
-
-    .save-event {
-        top: 14px;
-        right: 14px;
-        width: 40px;
-        height: 40px;
-    }
-
-    .save-event .bookmark-outline,
-    .save-event .bookmark-filled {
-        width: 18px;
-        height: 18px;
-    }
 }
 
 
-/* =========================================
-   SHORT VIEWPORTS
-   Prevent the hero from consuming the
-   entire screen vertically.
-========================================= */
+/* ==================================================
+   REDUCED MOTION
+================================================== */
 
-@media (max-height: 700px) {
-    .experience-card {
-        height: 560px;
+@media (prefers-reduced-motion: reduce) {
+
+    .settings-row,
+    .settings-row-icon,
+    .settings-arrow,
+    .settings-switch span,
+    .settings-switch span::before,
+    .logout-btn {
+        transition: none;
     }
 
-    .poster-info {
-        bottom: 88px;
-    }
-}
-
-
-/* =========================================
-   TALL VIEWPORTS
-   Let Upcoming Experiences breathe.
-========================================= */
-
-@media (min-height: 850px) and (min-width: 768px) {
-    .experience-card {
-        height: 72vh;
-        max-height: 760px;
-    }
-}
-
-
-/* =========================================
-   VERY TALL DESKTOP
-========================================= */
-
-@media (min-height: 1000px) and (min-width: 1200px) {
-    .experience-card {
-        height: 74vh;
-        max-height: 820px;
-    }
 }
