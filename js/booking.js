@@ -1454,6 +1454,8 @@ async function saveReservation(payload) {
 
             {
                 method: "POST",
+                
+                credentials: "include",
 
                 headers: {
                     "Content-Type":
