@@ -324,7 +324,7 @@ async function createReservation(data) {
                     attendee_name,
                     attendee_email,
                     guests,
-                    ticket_id
+                    null
                 )
                 VALUES
                 (
