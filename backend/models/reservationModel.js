@@ -324,7 +324,7 @@ async function createReservation(data) {
                     attendee_name,
                     attendee_email,
                     guests,
-                    null
+                    ticket_id
                 )
                 VALUES
                 (
@@ -334,7 +334,7 @@ async function createReservation(data) {
                     $4,
                     $5,
                     $6,
-                    $7
+                    NULL
                 )
                 RETURNING
                     id,
@@ -353,7 +353,6 @@ async function createReservation(data) {
                     data.attendee_name,
                     data.attendee_email,
                     quantity,
-                    ticket.id
                 ]
             );
 
