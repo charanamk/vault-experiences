@@ -400,15 +400,12 @@
 
 .experiences-track {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
-
     overflow: visible;
-
     padding: 0;
+
+    min-height: clamp(416px, 46vh, 540px);
 }
 
 

@@ -4,20 +4,6 @@
    VAULT AI
    --------------------------------------------------
    A lightweight conversational assistant for VAULT.
-
-   It does not use an external AI model yet.
-   Instead, it combines:
-   - conversational intent detection
-   - event matching
-   - reservation lookup
-   - FAQ matching
-   - contextual responses
-   - VAULT personality
-
-   Dependencies:
-   - helpModuleContent
-   - setModuleTitle()
-   - FAQ_CONTENT
 ================================================== */
 
 
@@ -50,9 +36,11 @@ const vaultAiState = {
 
 function showVaultAI() {
 
+    helpModule?.classList.add("vault-ai-active");
+
     setModuleTitle("Vault AI");
 
-    helpModuleContent.innerHTML = `
+     helpModuleContent.innerHTML = `
 
         <div class="vault-ai-chat" id="vaultAiChat">
 
@@ -75,13 +63,24 @@ function showVaultAI() {
                     aria-label="Ask Vault AI"
                 />
 
-                <button
-                    type="submit"
-                    class="vault-ai-send"
-                    aria-label="Send"
-                >
-                    →
-                </button>
+<button
+    type="submit"
+    class="vault-ai-send"
+    aria-label="Send"
+>
+    <svg
+        viewBox="0 0 24 24"
+        width="26"
+        height="26"
+        fill="none"
+        aria-hidden="true"
+    >
+        <path
+            d="M3 20.5L21 12L3 3.5L3.8 10.5L15 12L3.8 13.5L3 20.5Z"
+            fill="currentColor"
+        />
+    </svg>
+</button>
 
             </form>
 

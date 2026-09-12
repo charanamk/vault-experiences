@@ -267,20 +267,11 @@ function closeHelpModule() {
 function showHelpHome() {
   if (!helpModuleContent) return;
 
+  helpModule?.classList.remove("vault-ai-active");
+  
   setModuleTitle("How Can We Help?");
   setModuleEyebrow("VAULT SUPPORT");
 
-  /*
-   * Remove any dynamic content such as:
-   * - WhatsApp screen
-   * - Phone screen
-   * - Instagram screen
-   * - Email screen
-   * - FAQ screen
-   * - Vault AI
-   *
-   * Then restore the original Help sections.
-   */
   helpModuleContent.innerHTML = "";
 
   helpHomeSections.forEach(section => {

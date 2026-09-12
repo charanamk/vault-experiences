@@ -467,11 +467,10 @@
 
         }
 
+wishlistList.innerHTML = "";
+wishlistList.classList.add("is-loading");
 
-        wishlistList.innerHTML =
-            "";
-
-
+  wishlistList.classList.remove("is-loading");
         if (!state.wishlistItems.length) {
 
             if (wishlistEmpty) {

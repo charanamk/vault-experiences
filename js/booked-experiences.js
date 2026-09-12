@@ -255,12 +255,13 @@ async function renderBookedExperiences() {
 
     }
 
+bookedList.innerHTML = "";
+bookedList.classList.add("is-loading");
 
-    bookedList.innerHTML = "";
+const bookings =
+    await getBookedExperiences();
 
-
-    const bookings =
-        await getBookedExperiences();
+bookedList.classList.remove("is-loading");
 
 
     if (!bookings.length) {

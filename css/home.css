@@ -294,26 +294,45 @@ img {
 
 .experience-hint {
     width: 100%;
-
 }
 
 
-/* ---------- SLIDER ---------- */
+/* =========================================
+   SLIDER
+========================================= */
 
 .hint-slider {
+    display: flex;
+
     width: 100%;
-    overflow: hidden;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+}
+
+.hint-slider::-webkit-scrollbar {
+    display: none;
 }
 
 
-/* ---------- SLIDE ---------- */
+/* =========================================
+   SLIDE
+========================================= */
 
 .hint-slide {
     position: relative;
-    margin: 0 auto;
 
+    flex: 0 0 98%;
     width: 98%;
+
     min-height: 160px;
+
+    margin-left: 1%;
+    margin-right: 1%;
 
     overflow: hidden;
 
@@ -322,8 +341,9 @@ img {
     background: var(--surface);
 }
 
-
-/* ---------- IMAGE ---------- */
+/* =========================================
+   IMAGE
+========================================= */
 
 .hint-slide img {
     position: absolute;
@@ -336,26 +356,31 @@ img {
     object-fit: cover;
 }
 
-
-/* ---------- DARK SHADING ---------- */
+/* =========================================
+   DARK OVERLAY
+========================================= */
 
 .hint-overlay {
     position: absolute;
 
     inset: 0;
 
+    pointer-events: none;
+
     background:
         linear-gradient(
             to top,
-            rgba(11, 11, 13, 0.95) 0%,
-            rgba(11, 11, 13, 0.68) 32%,
-            rgba(11, 11, 13, 0.18) 65%,
-            rgba(11, 11, 13, 0.02) 100%
+            rgba(11, 11, 13, 0.88) 0%,
+            rgba(11, 11, 13, 0.68) 28%,
+            rgba(11, 11, 13, 0.38) 38%,
+            rgba(11, 11, 13, 0.12) 58%,
+            rgba(11, 11, 13, 0) 72%
         );
 }
 
-
-/* ---------- CONTENT ---------- */
+/* =========================================
+   CONTENT
+========================================= */
 
 .hint-content {
     position: absolute;
@@ -412,7 +437,9 @@ img {
 }
 
 
-/* ---------- SLIDE INDICATORS ---------- */
+/* =========================================
+   SLIDE INDICATORS
+========================================= */
 
 .hint-dots {
     display: flex;

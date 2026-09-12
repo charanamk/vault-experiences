@@ -152,6 +152,9 @@ body:has(.ticket-module.is-open) {
 
 /* ==================================================
    EVENT IMAGE — BACKGROUND
+   Full-bleed dimmed photo behind the entire ticket
+   shell (header, QR, event info, details, attendee,
+   actions all render above it at z-index: 5).
 ================================================== */
 
 .vault-ticket-event-image {
@@ -567,16 +570,6 @@ body:has(.ticket-module.is-open) {
         rgba(255, 255, 255, .14);
 
     background: transparent;
-}
-
-
-/*
- * The event image is not used
- * inside the event information area.
- */
-
-.vault-ticket-event-image {
-    display: none;
 }
 
 
@@ -1021,12 +1014,31 @@ body:has(.ticket-module.is-open) {
     }
 
 
+    /*
+     * Attendee row: a fixed 3-column grid gets
+     * cramped on narrow phones (guest names get
+     * ellipsis-truncated into a shrinking column).
+     * Give the guest name its own full-width row,
+     * with guest count and ticket type sharing the
+     * row below.
+     */
+
     .vault-ticket-attendee {
+        grid-template-columns:
+            1fr
+            1fr;
+
         gap: .7rem;
 
         padding:
             .8rem
             0;
+    }
+
+
+    .vault-ticket-attendee > div:first-child {
+        grid-column:
+            1 / -1;
     }
 
 

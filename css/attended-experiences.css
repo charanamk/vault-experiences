@@ -24,6 +24,9 @@
     gap: var(--space-3);
 }
 
+.attended-list.is-loading {
+    min-height: 145px;
+}
 
 /*==================================================
   ATTENDED CARD

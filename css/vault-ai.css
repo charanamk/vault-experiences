@@ -1,32 +1,25 @@
 /* ==================================================
    VAULT AI — CHAT
-
-   Uses the same design tokens as the rest of the
-   help module: --border, --gold-border, --gold-soft,
-   --accent, --text, --text-soft, --text-muted,
-   --font-ui, --transition-base. Make sure those are
-   defined wherever this stylesheet is loaded.
 ================================================== */
 
 .vault-ai-chat {
     display: flex;
     flex-direction: column;
-
-    height: min(52vh, 480px);
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    box-sizing: border-box;
 }
-
 
 .vault-ai-messages {
     display: flex;
     flex-direction: column;
-
     gap: 12px;
-
     flex: 1 1 auto;
-
-    padding: 4px 4px 12px;
-
+    min-height: 0;
+    padding: 20px 4px 20px;
     overflow-y: auto;
+    overscroll-behavior: contain;
 }
 
 
@@ -147,16 +140,14 @@
 
 }
 
-
 .vault-ai-input-row {
     display: flex;
     align-items: center;
-
     gap: 10px;
 
     flex: 0 0 auto;
 
-    padding-top: 12px;
+    padding: 12px 0 max(12px, env(safe-area-inset-bottom));
 
     border-top: 1px solid var(--border);
 }
@@ -226,6 +217,10 @@
         box-shadow var(--transition-base);
 }
 
+.vault-ai-send svg {
+    display: block;
+    flex: 0 0 auto;
+}
 
 .vault-ai-send:hover {
     transform: translateY(-1px);
@@ -243,19 +238,6 @@
     cursor: default;
     transform: none;
     box-shadow: none;
-}
-
-
-/* ==================================================
-   MOBILE
-================================================== */
-
-@media (max-width: 767px) {
-
-    .vault-ai-chat {
-        height: min(60vh, 420px);
-    }
-
 }
 
 

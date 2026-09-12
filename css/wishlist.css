@@ -23,6 +23,18 @@
     gap: var(--space-4);
 }
 
+.wishlist-list.is-loading {
+    min-height: 210px;
+}
+
+@media (min-width: 600px) {
+
+    .wishlist-list.is-loading {
+        min-height: 210px;
+    }
+
+}
+
 
 /*==================================================
   WISHLIST CARD
@@ -34,7 +46,7 @@
 
     width: calc(100% - 2rem);
 
-    min-height: 190px;
+    min-height: 210px;
 
     margin: 0 auto;
 

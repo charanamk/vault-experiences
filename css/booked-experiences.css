@@ -90,15 +90,20 @@
 ==================================================*/
 
 .booked-list {
-
     display: flex;
-
     flex-direction: column;
-
-    gap:
-        var(--space-4);
+    gap: var(--space-4);
 }
 
+.booked-list.is-loading {
+    min-height: 300px;
+}
+
+@media (min-width: 600px) {
+    .booked-list.is-loading {
+        min-height: 340px;
+    }
+}
 
 /*==================================================
   BOOKED CARD

@@ -108,32 +108,34 @@ function renderAttended() {
     }
 
 
-    const attended =
-        getAttended();
+const attended =
+    getAttended();
 
+attendedList.innerHTML = "";
 
-    attendedList.innerHTML = "";
+attendedList.classList.add("is-loading");
 
+if (!attended.length) {
 
-    if (!attended.length) {
-
-        if (attendedEmpty) {
-
-            attendedEmpty.hidden = false;
-
-        }
-
-        return;
-
-    }
-
+    attendedList.classList.remove("is-loading");
 
     if (attendedEmpty) {
 
-        attendedEmpty.hidden = true;
+        attendedEmpty.hidden = false;
 
     }
 
+    return;
+
+}
+
+attendedList.classList.remove("is-loading");
+
+if (attendedEmpty) {
+
+    attendedEmpty.hidden = true;
+
+}
 
     attended.forEach(
         experience => {

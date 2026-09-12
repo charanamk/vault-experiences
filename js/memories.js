@@ -67,20 +67,24 @@ function renderMemories(){
 
 
     memoriesGrid.innerHTML = "";
+    memoriesGrid.classList.add("is-loading"); 
 
 
-    if(!memories.length){
+ if (!memories.length) {
 
-        if(memoriesEmpty){
+    memoriesGrid.classList.remove("is-loading");
 
-            memoriesEmpty.hidden = false;
+    if (memoriesEmpty) {
 
-        }
-
-        return;
+        memoriesEmpty.hidden = false;
 
     }
 
+    return;
+
+}
+
+memoriesGrid.classList.remove("is-loading");
 
     if(memoriesEmpty){
 

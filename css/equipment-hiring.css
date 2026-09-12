@@ -1,252 +1,133 @@
-/*==================================
+/*==================================================
   VAULT — EQUIPMENT HIRING
-  Curated Equipment Catalogue
-==================================*/
-
-
-/*==================================
-  SECTION
-==================================*/
-
-.equipment-section {
-
-    margin-top:
-        var(--space-10);
-
-}
-
-
-/*==================================
-  EQUIPMENT TRACK
-==================================*/
+==================================================*/
 
 .equipment-track {
 
     width: 100%;
 
-    display: flex;
-
-    gap:
-        var(--space-4);
-
-    overflow-x: auto;
-
-    padding-right:
-        18vw;
-
-    scroll-snap-type:
-        x mandatory;
-
-    scrollbar-width:
-        none;
-
-    -webkit-overflow-scrolling:
-        touch;
-
+    box-sizing: border-box;
 }
 
 
-.equipment-track::-webkit-scrollbar {
+/*==================================================
+  COMING SOON CARD
+==================================================*/
 
-    display: none;
+.equipment-coming-soon {
 
-}
+    position: relative;
 
+    width: 98%;
 
-/*==================================
-  EQUIPMENT CARD
-==================================*/
+    max-width: none;
 
-.equipment-card {
+    min-height: 300px;
 
-    flex:
-        0 0 82vw;
-
-    max-width:
-        390px;
+    margin: 0 auto;
 
     overflow: hidden;
 
-    scroll-snap-align:
-        start;
-
-    background:
-        var(--color-surface);
-
     border:
         1px solid
-        var(--color-border-soft);
+        rgba(250, 249, 246, .10);
 
     border-radius:
         var(--radius-xl);
 
+    background:
+        var(--vault-charcoal);
+
     box-shadow:
         var(--shadow-soft);
 
-    transition:
-        transform var(--transition-normal),
-        border-color var(--transition-normal);
-
+    isolation: isolate;
 }
 
 
-.equipment-card:hover {
+/*==================================================
+  BACKGROUND IMAGE
+==================================================*/
 
-    transform:
-        translateY(-3px);
-
-    border-color:
-        var(--color-accent-soft);
-
-}
-
-
-/*==================================
-  EQUIPMENT IMAGE
-==================================*/
-
-.equipment-image {
-
-    position: relative;
-
-    width: 100%;
-
-    height: 210px;
-
-    overflow: hidden;
-
-    background:
-        var(--color-background);
-
-}
-
-
-.equipment-image img {
-
-    width: 100%;
-
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    transition:
-        transform var(--transition-slow);
-
-}
-
-
-.equipment-card:hover
-.equipment-image img {
-
-    transform:
-        scale(1.04);
-
-}
-
-
-/*==================================
-  CATEGORY BADGE
-==================================*/
-
-.equipment-category {
+.equipment-coming-soon-image {
 
     position: absolute;
 
-    top:
-        15px;
+    inset: 0;
 
-    left:
-        15px;
+    z-index: -2;
 
-    padding:
-        7px 11px;
+    background-image:
+        url("../assets/images/equipment-hiring.jpg");
 
-    border:
-        1px solid
-        rgba(255, 255, 255, .14);
+    background-size: cover;
 
-    border-radius:
-        var(--radius-pill);
+    background-position: center;
+}
+
+
+/*==================================================
+  DARK OVERLAY
+==================================================*/
+
+.equipment-coming-soon-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -1;
 
     background:
-        rgba(13, 13, 13, .72);
-
-    color:
-        #F5F2EA;
-
-    font-family:
-        var(--font-ui);
-
-    font-size:
-        .62rem;
-
-    font-weight:
-        var(--weight-semibold);
-
-    letter-spacing:
-        var(--tracking-wide);
-
-    text-transform:
-        uppercase;
-
-    backdrop-filter:
-        blur(8px);
-
-    -webkit-backdrop-filter:
-        blur(8px);
-
+        linear-gradient(
+            135deg,
+            rgba(10, 10, 10, .76),
+            rgba(10, 10, 10, .58)
+        );
 }
 
 
-/*==================================
-  EQUIPMENT CONTENT
-==================================*/
+/*==================================================
+  CONTENT
+==================================================*/
 
-.equipment-content {
+.equipment-coming-soon-content {
 
-    min-height:
-        145px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        space-between;
+    min-height: 300px;
 
     padding:
-        18px;
+        var(--space-7)
+        var(--space-6);
 
-    box-sizing:
-        border-box;
+    box-sizing: border-box;
 
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    gap: .2rem;
 }
 
 
-/*==================================
-  LEVEL
-==================================*/
+/*==================================================
+  EYEBROW
+==================================================*/
 
-.equipment-level {
+.equipment-coming-soon-eyebrow {
 
-    display:
-        block;
-
-    margin-bottom:
-        5px;
+    margin-bottom: .3rem;
 
     color:
-        var(--color-accent);
+        var(--vault-champagne);
 
     font-family:
         var(--font-ui);
 
-    font-size:
-        .62rem;
+    font-size: .58rem;
 
     font-weight:
         var(--weight-semibold);
@@ -254,152 +135,131 @@
     letter-spacing:
         var(--tracking-wider);
 
+    text-transform: uppercase;
 }
 
 
-/*==================================
+/*==================================================
   TITLE
-==================================*/
+==================================================*/
 
-.equipment-content h3 {
+.equipment-coming-soon h3 {
 
-    margin:
-        0;
+    margin: 0;
 
     color:
-        var(--color-heading);
+        var(--vault-warm-white);
 
     font-family:
         var(--font-display);
 
-    font-size:
-        1.75rem;
+    font-size: 1.65rem;
 
     font-weight:
         var(--weight-medium);
 
-    line-height:
-        1;
+    line-height: 1.2;
 
     letter-spacing:
         var(--tracking-tight);
-
 }
 
 
-/*==================================
+/*==================================================
   DESCRIPTION
-==================================*/
+==================================================*/
 
-.equipment-content p {
+.equipment-coming-soon p {
+
+    width: 100%;
+
+    max-width: 420px;
 
     margin:
-        var(--space-2)
+        .85rem
         0
-        0;
-
-    max-width:
-        270px;
+        1.15rem;
 
     color:
-        var(--color-secondary-text);
+        var(--vault-stone);
 
     font-family:
         var(--font-ui);
 
-    font-size:
-        .76rem;
+    font-size: .72rem;
 
-    font-weight:
-        var(--weight-regular);
-
-    line-height:
-        1.5;
-
+    line-height: 1.65;
 }
 
 
-/*==================================
-  BUTTON
-==================================*/
+/*==================================================
+  STATUS
+==================================================*/
 
-.equipment-btn {
-
-    align-self:
-        flex-start;
-
-    margin-top:
-        var(--space-3);
+.equipment-coming-soon-status {
 
     padding:
-        10px 15px;
+        .4rem
+        .7rem;
 
     border:
         1px solid
-        color-mix(
-            in srgb,
-            var(--color-accent) 35%,
-            transparent
-        );
+        rgba(250, 249, 246, .10);
 
     border-radius:
-        var(--radius-md);
+        var(--radius-pill);
 
     background:
-        transparent;
+        rgba(250, 249, 246, .05);
 
     color:
-        var(--color-accent);
+        var(--vault-stone);
 
     font-family:
         var(--font-ui);
 
-    font-size:
-        .7rem;
+    font-size: .55rem;
 
     font-weight:
         var(--weight-semibold);
 
     letter-spacing:
-        .01em;
-
-    transition:
-        background var(--transition-normal),
-        border-color var(--transition-normal),
-        color var(--transition-normal),
-        transform var(--transition-fast);
-
+        var(--tracking-wide);
 }
 
 
-.equipment-btn:hover {
+/*==================================================
+  DESKTOP
+==================================================*/
 
-    background:
-        color-mix(
-            in srgb,
-            var(--color-accent) 8%,
-            transparent
-        );
+@media (min-width: 600px) {
 
-    border-color:
-        color-mix(
-            in srgb,
-            var(--color-accent) 65%,
-            transparent
-        );
+    .equipment-track {
 
-    color:
-        var(--color-heading);
-
-    transform:
-        translateY(-1px);
-
-}
+        padding:
+            0 var(--space-6);
+    }
 
 
-.equipment-btn:active {
+    .equipment-coming-soon {
 
-    transform:
-        translateY(0);
+        min-height: 340px;
+    }
+
+
+    .equipment-coming-soon-content {
+
+        min-height: 340px;
+
+        padding:
+            var(--space-8, var(--space-7))
+            var(--space-7);
+    }
+
+
+    .equipment-coming-soon h3 {
+
+        font-size: 1.9rem;
+    }
 
 }

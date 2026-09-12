@@ -37,6 +37,26 @@
     box-sizing: border-box;
 }
 
+.memories-grid.is-loading {
+    min-height: 220px;
+}
+
+@media (min-width: 600px) {
+
+    .memories-grid.is-loading {
+        min-height: 260px;
+    }
+
+}
+
+@media (min-width: 900px) {
+
+    .memories-grid.is-loading {
+        min-height: 280px;
+    }
+
+}
+
 
 /*==================================================
   MEMORY CARD
