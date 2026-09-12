@@ -330,38 +330,15 @@ API URL
 ==================================*/
 
 function getApiUrl(pathname) {
-
     const base =
         window.VAULT_API_BASE_URL ||
-        (
-            window.location.hostname ===
-                "localhost" ||
-            window.location.hostname ===
-                "127.0.0.1"
-
-                ? (
-                    window.location.port ===
-                    "3000"
-
-                        ? ""
-
-                        : "http://localhost:3000"
-                )
-
-                : ""
-        );
-
+        "https://vault-experiences.onrender.com";
 
     return `${base}${pathname}`;
 }
 
-
 /*==================================
 IMAGE URL
-Backend upload paths (e.g. "/uploads/xyz.png")
-are relative to the API origin, not the
-frontend origin they're rendered on. Absolute
-URLs and data URIs pass through untouched.
 ==================================*/
 
 function resolveImageUrl(rawUrl) {
