@@ -519,11 +519,7 @@ async function saveTicket() {
 
 
     try {
-
-        /*
-         * Hide Save Ticket / Done
-         * only while creating the image.
-         */
+        
         if (actions) {
 
             actions.style.display =

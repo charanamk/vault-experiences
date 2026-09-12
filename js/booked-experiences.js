@@ -65,6 +65,34 @@ async function getBookedExperiences() {
 
         }
 
+function resolveImageUrl(rawUrl) {
+    if (!rawUrl) {
+        return "";
+    }
+
+    const value = String(rawUrl).trim();
+
+    if (!value) {
+        return "";
+    }
+
+    if (
+        /^https?:\/\//i.test(value) ||
+        value.startsWith("data:") ||
+        value.startsWith("//")
+    ) {
+        return value;
+    }
+
+    const path =
+        value.startsWith("/") ? value : `/${value}`;
+
+    const base =
+        window.VAULT_API_BASE_URL ||
+        "https://vault-experiences.onrender.com";
+
+    return `${base}${path}`;
+}
 
         const data =
             await response.json();
@@ -125,7 +153,9 @@ const reservations =
                                 reservation.description,
 
                             image:
-                                reservation.image,
+                                resolveImageUrl(
+                                 reservation.image
+                                  ),
 
                             date:
                                 reservation.event_date,
