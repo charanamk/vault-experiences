@@ -326,6 +326,72 @@ function escapeHtml(value) {
 
 
 /*==================================
+API URL
+==================================*/
+
+function getApiUrl(pathname) {
+
+    const base =
+        window.VAULT_API_BASE_URL ||
+        (
+            window.location.hostname ===
+                "localhost" ||
+            window.location.hostname ===
+                "127.0.0.1"
+
+                ? (
+                    window.location.port ===
+                    "3000"
+
+                        ? ""
+
+                        : "http://localhost:3000"
+                )
+
+                : ""
+        );
+
+
+    return `${base}${pathname}`;
+}
+
+
+/*==================================
+IMAGE URL
+Backend upload paths (e.g. "/uploads/xyz.png")
+are relative to the API origin, not the
+frontend origin they're rendered on. Absolute
+URLs and data URIs pass through untouched.
+==================================*/
+
+function resolveImageUrl(rawUrl) {
+
+    if (!rawUrl) {
+        return "";
+    }
+
+    const value = String(rawUrl).trim();
+
+    if (!value) {
+        return "";
+    }
+
+    if (
+        /^https?:\/\//i.test(value) ||
+        value.startsWith("data:") ||
+        value.startsWith("//")
+    ) {
+        return value;
+    }
+
+    const path =
+        value.startsWith("/") ? value : `/${value}`;
+
+    return getApiUrl(path);
+}
+
+
+/*==================================
 GET TICKETS
 ==================================*/
 
@@ -363,10 +429,12 @@ function normalizeEvent(event) {
             null,
 
         image:
-            event.image ??
-            event.coverImage ??
-            event.cover_image ??
-            "",
+            resolveImageUrl(
+                event.image ??
+                event.coverImage ??
+                event.cover_image ??
+                ""
+            ),
 
         title:
             event.title ??
@@ -1408,37 +1476,6 @@ function isValid() {
 
 
 /*==================================
-API URL
-==================================*/
-
-function getApiUrl(pathname) {
-
-    const base =
-        window.VAULT_API_BASE_URL ||
-        (
-            window.location.hostname ===
-                "localhost" ||
-            window.location.hostname ===
-                "127.0.0.1"
-
-                ? (
-                    window.location.port ===
-                    "3000"
-
-                        ? ""
-
-                        : "http://localhost:3000"
-                )
-
-                : ""
-        );
-
-
-    return `${base}${pathname}`;
-}
-
-
-/*==================================
 RESERVATION REQUEST
 ==================================*/
 
@@ -1524,7 +1561,7 @@ function normalizeTicketPayloadFromReservation(reservation) {
         title: reservation.title || reservation.event?.title || "",
         theme: reservation.theme || reservation.event?.theme || "",
         description: reservation.description || reservation.event?.description || "",
-        image: reservation.image || reservation.event?.image || "",
+        image: resolveImageUrl(reservation.image || reservation.event?.image || ""),
         date: reservation.event_date || reservation.event?.date || reservation.date || "",
         time: reservation.event_time || reservation.event?.time || reservation.time || "",
         location: reservation.location || reservation.event?.location || reservation.venue || ""
@@ -1836,12 +1873,6 @@ async function reserve() {
             payload.ticketCategory = "Free Entry";
             payload.ticketId = null;
         }
-        
-console.log("VAULT PAYMENT DEBUG", {
-    selectedTicket,
-    ticketId: payload.ticketId,
-    ticketCategory: payload.ticketCategory
-});
 
         const reservation =
             await saveReservation(
@@ -2054,6 +2085,5 @@ window.VaultBooking = {
         closeBooking
 
 };
-
 
 })();
