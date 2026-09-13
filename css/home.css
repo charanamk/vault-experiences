@@ -870,7 +870,6 @@ html[data-theme="dark"] .bottom-nav-item.active .bottom-nav-label {
     color: #FFFFFF;
 }
 
-
 /* ==================================================
    VAULT — FOOTER
 ================================================== */
@@ -982,6 +981,58 @@ html[data-theme="dark"] .bottom-nav-item.active .bottom-nav-label {
 
 
 /* ==================================================
+   CREDIT SOCIAL LINKS
+   Icons keep their normal recognizable brand colors
+   (baked into the SVG itself) — this wrapper only
+   handles sizing, spacing, and hover feedback.
+================================================== */
+
+.vault-footer-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+
+.vault-footer-social-link {
+    display: inline-flex;
+
+    width: 26px;
+    height: 26px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    transition: transform var(--transition-base);
+}
+
+
+.vault-footer-social-link svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+.vault-footer-social-link:hover {
+    transform: translateY(-2px);
+}
+
+
+.vault-footer-social-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 50%;
+}
+
+
+/* ==================================================
    FOOTER LINKS
 ================================================== */
 
@@ -1038,7 +1089,9 @@ html[data-theme="dark"] .bottom-nav-item.active .bottom-nav-label {
 .vault-footer-bottom {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+
+    gap: 16px;
 
     width: 100%;
 
@@ -1113,6 +1166,10 @@ html[data-theme="dark"] .bottom-nav-item.active .bottom-nav-label {
 @media (prefers-reduced-motion: reduce) {
 
     .vault-footer-links a {
+        transition: none;
+    }
+
+    .vault-footer-social-link {
         transition: none;
     }
 

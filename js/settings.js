@@ -1149,3 +1149,67 @@ function init() {
    };
 })(window, document);
 
+
+"use strict";
+
+/* ==================================================
+   VAULT FOOTER
+   Routes the legal links to the existing settings
+   panels (window.VaultSettings, from settings.js)
+   instead of navigating anywhere.
+================================================== */
+
+(function () {
+
+    const footer =
+        document.getElementById("vaultFooter");
+
+    if (!footer) {
+        return;
+    }
+
+    // Refund Policy has no dedicated panel yet —
+    // falls back to Terms & Policies until one exists.
+    const PANEL_MAP = {
+        terms: "terms",
+        privacy: "privacy",
+        refunds: "terms"
+    };
+
+    footer.addEventListener("click", (event) => {
+
+        const link =
+            event.target.closest("[data-footer-link]");
+
+        if (!link) {
+            return;
+        }
+
+        const key =
+            link.dataset.footerLink;
+
+        // "help" is a real in-page anchor (#help) —
+        // let the browser handle it normally.
+        if (key === "help") {
+            return;
+        }
+
+        const panel =
+            PANEL_MAP[key];
+
+        if (!panel) {
+            return;
+        }
+
+        event.preventDefault();
+
+        if (
+            window.VaultSettings &&
+            typeof window.VaultSettings.open === "function"
+        ) {
+            window.VaultSettings.open(panel);
+        }
+
+    });
+
+})();
