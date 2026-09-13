@@ -1,5 +1,5 @@
 ﻿/*==================================
-  VAULT â€” CUSTOMER SESSION
+  VAULT CUSTOMER SESSION
   Frontend API for customer identity and backend-backed sessions.
 ==================================*/
 
