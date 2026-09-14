@@ -5,7 +5,6 @@
    Help Module + Assistance + FAQs
 ================================================== */
 
-
 /* ==================================================
    CONFIGURATION
 ================================================== */
@@ -13,7 +12,7 @@
 const HELP_CONFIG = {
 
     whatsapp: {
-        number: "254707562995", 
+        number: "254707562995",
         message: "Hi Vault, I need some assistance."
     },
 
@@ -33,7 +32,6 @@ const HELP_CONFIG = {
 
 };
 
-
 /* ==================================================
    VAULT AI — BACKEND
 ================================================== */
@@ -49,20 +47,25 @@ const vaultAiState = {
     reservationsAuthFailed: false
 };
 
+/* ==================================================
+   DOM REFERENCES
+================================================== */
+
 const getHelpBtn =
     document.getElementById("getHelpBtn");
 
 const helpModule =
     document.getElementById("helpModule");
 
-const helpModuleContent =
-    document.getElementById("helpModuleContent");
+let helpModuleContent = null;
 
 const helpModuleTitle =
     document.getElementById("helpModuleTitle");
 
 const helpModuleEyebrow =
-    document.getElementById("helpModuleEyebrow");
+    document.querySelector(
+        ".help-module-header .help-eyebrow"
+    );
 
 const helpModuleCloseButtons =
     document.querySelectorAll(
@@ -79,7 +82,6 @@ const faqItems =
         "[data-faq]"
     );
 
-
 /* ==================================================
    STATE
 ================================================== */
@@ -87,7 +89,6 @@ const faqItems =
 let helpModuleOpen = false;
 
 let helpModuleHistory = [];
-
 
 /* ==================================================
    FAQ CONTENT
@@ -115,7 +116,6 @@ const FAQ_CONTENT = {
         `
     },
 
-
     tickets: {
         title: "How do I receive my ticket?",
         content: `
@@ -135,7 +135,6 @@ const FAQ_CONTENT = {
             </p>
         `
     },
-
 
     payments: {
         title: "What happens after payment?",
@@ -157,7 +156,6 @@ const FAQ_CONTENT = {
         `
     },
 
-
     cancellation: {
         title: "Can I cancel my booking?",
         content: `
@@ -176,7 +174,6 @@ const FAQ_CONTENT = {
             </p>
         `
     },
-
 
     "my-vault": {
         title: "Where are my bookings?",
@@ -198,7 +195,6 @@ const FAQ_CONTENT = {
         `
     },
 
-
     account: {
         title: "How does my account work?",
         content: `
@@ -213,7 +209,6 @@ const FAQ_CONTENT = {
             </p>
         `
     },
-
 
     refunds: {
         title: "How do refunds work?",
@@ -235,7 +230,6 @@ const FAQ_CONTENT = {
         `
     },
 
-
     experience: {
         title: "What should I know before an experience?",
         content: `
@@ -256,6 +250,41 @@ const FAQ_CONTENT = {
 
 };
 
+/* ==================================================
+   HELP MODULE CONTENT
+   Creates the dynamic content container when needed.
+================================================== */
+
+function ensureHelpModuleContent() {
+
+    if (helpModuleContent) {
+        return helpModuleContent;
+    }
+
+    helpModuleContent =
+        document.createElement("div");
+
+    helpModuleContent.id =
+        "helpModuleContent";
+
+    helpModuleContent.className =
+        "help-module-dynamic-content";
+
+    const card =
+        helpModule?.querySelector(
+            ".help-module-card"
+        );
+
+    if (card) {
+
+        card.appendChild(
+            helpModuleContent
+        );
+
+    }
+
+    return helpModuleContent;
+}
 
 /* ==================================================
    OPEN HELP MODULE
@@ -282,7 +311,6 @@ function openHelpModule() {
 
 }
 
-
 /* ==================================================
    CLOSE HELP MODULE
 ================================================== */
@@ -306,7 +334,6 @@ function closeHelpModule() {
 
 }
 
-
 /* ==================================================
    SHOW HELP HOME
 ================================================== */
@@ -316,25 +343,26 @@ function showHelpHome() {
     helpModuleHistory = [];
 
     if (helpModuleTitle) {
+
         helpModuleTitle.textContent =
             "How Can We Help?";
+
     }
 
     if (helpModuleEyebrow) {
+
         helpModuleEyebrow.textContent =
             "VAULT SUPPORT";
+
     }
 
     if (helpModuleContent) {
+
         helpModuleContent.innerHTML = "";
+
+        helpModuleContent.hidden = true;
+
     }
-
-    /*
-        The main assistance options and FAQs already exist
-        inside the module HTML.
-
-        Nothing needs to be rendered here.
-    */
 
     const moduleSections =
         document.querySelectorAll(
@@ -342,11 +370,12 @@ function showHelpHome() {
         );
 
     moduleSections.forEach(section => {
+
         section.hidden = false;
+
     });
 
 }
-
 
 /* ==================================================
    SHOW ASSISTANCE MODULE
@@ -354,7 +383,10 @@ function showHelpHome() {
 
 function openAssistance(type) {
 
-    if (!helpModuleContent) return;
+    const content =
+        ensureHelpModuleContent();
+
+    if (!content) return;
 
     const moduleSections =
         document.querySelectorAll(
@@ -362,15 +394,21 @@ function openAssistance(type) {
         );
 
     moduleSections.forEach(section => {
+
         section.hidden = true;
+
     });
 
     helpModuleHistory.push("home");
 
     if (helpModuleEyebrow) {
+
         helpModuleEyebrow.textContent =
             "VAULT ASSISTANCE";
+
     }
+
+    content.hidden = false;
 
     switch (type) {
 
@@ -395,25 +433,37 @@ function openAssistance(type) {
             break;
 
         default:
+
+            showHelpHome();
+
             return;
+
     }
 
-}
+    content.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
 
+}
 
 /* ==================================================
    VAULT AI
    Opens a chat interface. No AI model — every answer
    is built by matching keywords in the question
-   against real Vault data (events, a user's own
-   reservations, and the existing FAQ content).
+   against real Vault data.
 ================================================== */
 
 function showVaultAI() {
 
+    const content =
+        ensureHelpModuleContent();
+
+    if (!content) return;
+
     setModuleTitle("Vault AI");
 
-    helpModuleContent.innerHTML = `
+    content.innerHTML = `
 
         <div class="vault-ai-chat" id="vaultAiChat">
 
@@ -428,6 +478,7 @@ function showVaultAI() {
                 class="vault-ai-input-row"
                 id="vaultAiForm"
             >
+
                 <input
                     type="text"
                     id="vaultAiInput"
@@ -442,11 +493,14 @@ function showVaultAI() {
                 >
                     →
                 </button>
+
             </form>
 
         </div>
 
     `;
+
+    createHelpBackButton();
 
     vaultAiPrefetch();
 
@@ -483,7 +537,7 @@ function showVaultAI() {
 
         vaultAiForm.addEventListener(
             "submit",
-            (event) => {
+            event => {
 
                 event.preventDefault();
 
@@ -493,12 +547,17 @@ function showVaultAI() {
                 if (!question) return;
 
                 if (vaultAiInput) {
+
                     vaultAiInput.value = "";
+
                     vaultAiInput.disabled = true;
+
                 }
 
                 if (vaultAiSendBtn) {
+
                     vaultAiSendBtn.disabled = true;
+
                 }
 
                 vaultAiAppendMessage(
@@ -506,20 +565,25 @@ function showVaultAI() {
                     question
                 );
 
-                vaultAiHandleQuestion(question).finally(
-                    () => {
+                vaultAiHandleQuestion(
+                    question
+                ).finally(() => {
 
-                        if (vaultAiInput) {
-                            vaultAiInput.disabled = false;
-                            vaultAiInput.focus();
-                        }
+                    if (vaultAiInput) {
 
-                        if (vaultAiSendBtn) {
-                            vaultAiSendBtn.disabled = false;
-                        }
+                        vaultAiInput.disabled = false;
+
+                        vaultAiInput.focus();
 
                     }
-                );
+
+                    if (vaultAiSendBtn) {
+
+                        vaultAiSendBtn.disabled = false;
+
+                    }
+
+                });
 
             }
         );
@@ -527,11 +591,58 @@ function showVaultAI() {
     }
 
     if (vaultAiInput) {
+
         vaultAiInput.focus();
+
     }
 
 }
 
+/* ==================================================
+   HELP BACK BUTTON
+================================================== */
+
+function createHelpBackButton() {
+
+    const content =
+        ensureHelpModuleContent();
+
+    if (!content) return;
+
+    const existingButton =
+        content.querySelector(
+            ".help-back-button"
+        );
+
+    if (existingButton) {
+
+        existingButton.remove();
+
+    }
+
+    const backButton =
+        document.createElement("button");
+
+    backButton.type = "button";
+
+    backButton.className =
+        "help-secondary-action help-back-button";
+
+    backButton.innerHTML = `
+        <span aria-hidden="true">←</span>
+        Back to Help
+    `;
+
+    backButton.addEventListener(
+        "click",
+        showHelpHome
+    );
+
+    content.appendChild(
+        backButton
+    );
+
+}
 
 /* ==================================================
    VAULT AI — MESSAGE RENDERING
@@ -540,7 +651,9 @@ function showVaultAI() {
 function vaultAiAppendMessage(role, html) {
 
     const messages =
-        document.getElementById("vaultAiMessages");
+        document.getElementById(
+            "vaultAiMessages"
+        );
 
     if (!messages) return;
 
@@ -554,7 +667,9 @@ function vaultAiAppendMessage(role, html) {
 
     bubble.innerHTML = html;
 
-    messages.appendChild(bubble);
+    messages.appendChild(
+        bubble
+    );
 
     messages.scrollTop =
         messages.scrollHeight;
@@ -566,7 +681,9 @@ function vaultAiAppendMessage(role, html) {
 function vaultAiAppendTyping() {
 
     const messages =
-        document.getElementById("vaultAiMessages");
+        document.getElementById(
+            "vaultAiMessages"
+        );
 
     if (!messages) return null;
 
@@ -579,7 +696,9 @@ function vaultAiAppendTyping() {
     bubble.innerHTML =
         `<span></span><span></span><span></span>`;
 
-    messages.appendChild(bubble);
+    messages.appendChild(
+        bubble
+    );
 
     messages.scrollTop =
         messages.scrollHeight;
@@ -588,24 +707,24 @@ function vaultAiAppendTyping() {
 
 }
 
-
 /* ==================================================
    VAULT AI — DATA FETCHING
-   Cached in memory for the life of the chat session
-   so repeated questions don't re-hit the API.
 ================================================== */
 
 async function vaultAiFetchEvents(force) {
 
     const cacheAgeMs =
-        Date.now() - vaultAiState.eventsLoadedAt;
+        Date.now() -
+        vaultAiState.eventsLoadedAt;
 
     if (
         !force &&
         vaultAiState.events &&
         cacheAgeMs < 2 * 60 * 1000
     ) {
+
         return vaultAiState.events;
+
     }
 
     const response =
@@ -614,16 +733,20 @@ async function vaultAiFetchEvents(force) {
         );
 
     if (!response.ok) {
+
         throw new Error(
             "Failed to load events"
         );
+
     }
 
     const events =
         await response.json();
 
     vaultAiState.events =
-        Array.isArray(events) ? events : [];
+        Array.isArray(events)
+            ? events
+            : [];
 
     vaultAiState.eventsLoadedAt =
         Date.now();
@@ -637,40 +760,55 @@ async function vaultAiFetchMyReservations(force) {
     if (
         !force &&
         vaultAiState.reservations &&
-        Date.now() - vaultAiState.reservationsLoadedAt < 60 * 1000
+        Date.now() -
+            vaultAiState.reservationsLoadedAt <
+            60 * 1000
     ) {
+
         return vaultAiState.reservations;
+
     }
 
     const response =
         await fetch(
             `${VAULT_API_BASE}/api/reservations/mine`,
-            { credentials: "include" }
+            {
+                credentials: "include"
+            }
         );
 
     if (response.status === 401) {
-        vaultAiState.reservationsAuthFailed = true;
+
+        vaultAiState.reservationsAuthFailed =
+            true;
+
         return null;
+
     }
 
     if (!response.ok) {
+
         throw new Error(
             "Failed to load reservations"
         );
+
     }
 
     const data =
         await response.json();
 
     vaultAiState.reservations =
-        Array.isArray(data?.reservations)
+        Array.isArray(
+            data?.reservations
+        )
             ? data.reservations
             : [];
 
     vaultAiState.reservationsLoadedAt =
         Date.now();
 
-    vaultAiState.reservationsAuthFailed = false;
+    vaultAiState.reservationsAuthFailed =
+        false;
 
     return vaultAiState.reservations;
 
@@ -678,10 +816,10 @@ async function vaultAiFetchMyReservations(force) {
 
 function vaultAiPrefetch() {
 
-    vaultAiFetchEvents().catch(() => {});
+    vaultAiFetchEvents()
+        .catch(() => {});
 
 }
-
 
 /* ==================================================
    VAULT AI — TEXT HELPERS
@@ -700,7 +838,7 @@ function vaultAiNormalize(text) {
 function vaultAiSleep(ms) {
 
     return new Promise(
-        (resolve) => setTimeout(resolve, ms)
+        resolve => setTimeout(resolve, ms)
     );
 
 }
@@ -712,21 +850,23 @@ function vaultAiTypingDelayFor(html) {
             .replace(/<[^>]+>/g, "")
             .length;
 
-    // Roughly simulates reading + composing time,
-    // clamped so short answers aren't instant and
-    // long ones don't drag.
-
     return Math.min(
         1900,
-        Math.max(550, 320 + plainLength * 6)
+        Math.max(
+            550,
+            320 + plainLength * 6
+        )
     );
 
 }
 
-function vaultAiContainsAny(text, keywords) {
+function vaultAiContainsAny(
+    text,
+    keywords
+) {
 
     return keywords.some(
-        (word) => text.includes(word)
+        word => text.includes(word)
     );
 
 }
@@ -739,7 +879,9 @@ function vaultAiFormatDate(dateValue) {
         new Date(dateValue);
 
     if (Number.isNaN(date.getTime())) {
+
         return String(dateValue);
+
     }
 
     return date.toLocaleDateString(
@@ -760,18 +902,25 @@ function vaultAiFormatMoney(amount) {
         Number(amount);
 
     if (!Number.isFinite(value)) {
+
         return "TBA";
+
     }
 
     if (value === 0) {
+
         return "Free";
+
     }
 
     return `KES ${value.toLocaleString("en-US")}`;
 
 }
 
-function vaultAiFindEvent(events, question) {
+function vaultAiFindEvent(
+    events,
+    question
+) {
 
     const normalizedQuestion =
         vaultAiNormalize(question);
@@ -779,25 +928,38 @@ function vaultAiFindEvent(events, question) {
     const questionWords =
         normalizedQuestion
             .split(" ")
-            .filter((word) => word.length > 2);
+            .filter(
+                word => word.length > 2
+            );
 
     let bestMatch = null;
+
     let bestScore = 0;
 
-    events.forEach((event) => {
+    events.forEach(event => {
 
         const title =
-            vaultAiNormalize(event.title);
+            vaultAiNormalize(
+                event.title
+            );
 
         if (!title) return;
 
-        if (normalizedQuestion.includes(title)) {
+        if (
+            normalizedQuestion.includes(
+                title
+            )
+        ) {
 
-            const score = title.length * 2;
+            const score =
+                title.length * 2;
 
             if (score > bestScore) {
+
                 bestScore = score;
+
                 bestMatch = event;
+
             }
 
             return;
@@ -809,25 +971,31 @@ function vaultAiFindEvent(events, question) {
 
         const overlap =
             titleWords.filter(
-                (word) =>
+                word =>
                     word.length > 2 &&
-                    questionWords.includes(word)
+                    questionWords.includes(
+                        word
+                    )
             ).length;
 
         if (
             overlap > 0 &&
             overlap > bestScore
         ) {
+
             bestScore = overlap;
+
             bestMatch = event;
+
         }
 
     });
 
-    return bestScore > 0 ? bestMatch : null;
+    return bestScore > 0
+        ? bestMatch
+        : null;
 
 }
-
 
 /* ==================================================
    VAULT AI — INTENT + ANSWERS
@@ -836,45 +1004,79 @@ function vaultAiFindEvent(events, question) {
 const VAULT_AI_KEYWORDS = {
 
     booking: [
-        "my booking", "my bookings", "my reservation",
-        "my reservations", "my ticket", "my tickets",
-        "did i book", "have i booked", "my order"
+        "my booking",
+        "my bookings",
+        "my reservation",
+        "my reservations",
+        "my ticket",
+        "my tickets",
+        "did i book",
+        "have i booked",
+        "my order"
     ],
 
     price: [
-        "price", "cost", "how much", "pricing", "fee"
+        "price",
+        "cost",
+        "how much",
+        "pricing",
+        "fee"
     ],
 
     date: [
-        "when", "date", "what day", "what time", "time is"
+        "when",
+        "date",
+        "what day",
+        "what time",
+        "time is"
     ],
 
     location: [
-        "where", "venue", "location", "address"
+        "where",
+        "venue",
+        "location",
+        "address"
     ],
 
     dressCode: [
-        "dress code", "what to wear", "attire", "outfit"
+        "dress code",
+        "what to wear",
+        "attire",
+        "outfit"
     ],
 
     age: [
-        "age", "18+", "21+", "age restriction", "how old"
+        "age",
+        "18+",
+        "21+",
+        "age restriction",
+        "how old"
     ],
 
     availability: [
-        "sold out", "available", "tickets left",
-        "any tickets", "spots left"
+        "sold out",
+        "available",
+        "tickets left",
+        "any tickets",
+        "spots left"
     ],
 
     listEvents: [
-        "upcoming events", "what events", "what's on",
-        "whats on", "show me events", "list events",
-        "any events", "what experiences"
+        "upcoming events",
+        "what events",
+        "what's on",
+        "whats on",
+        "show me events",
+        "list events",
+        "any events",
+        "what experiences"
     ]
 
 };
 
-async function vaultAiHandleQuestion(question) {
+async function vaultAiHandleQuestion(
+    question
+) {
 
     const typingBubble =
         vaultAiAppendTyping();
@@ -882,7 +1084,9 @@ async function vaultAiHandleQuestion(question) {
     try {
 
         const normalized =
-            vaultAiNormalize(question);
+            vaultAiNormalize(
+                question
+            );
 
         let reply;
 
@@ -914,18 +1118,27 @@ async function vaultAiHandleQuestion(question) {
                 );
 
             if (!reply) {
+
                 reply =
-                    vaultAiAnswerFromFaq(normalized);
+                    vaultAiAnswerFromFaq(
+                        normalized
+                    );
+
             }
 
         }
 
         if (!reply) {
-            reply = vaultAiFallbackReply();
+
+            reply =
+                vaultAiFallbackReply();
+
         }
 
         await vaultAiSleep(
-            vaultAiTypingDelayFor(reply)
+            vaultAiTypingDelayFor(
+                reply
+            )
         );
 
         typingBubble?.remove();
@@ -962,7 +1175,9 @@ async function vaultAiAnswerBooking() {
     const reservations =
         await vaultAiFetchMyReservations();
 
-    if (vaultAiState.reservationsAuthFailed) {
+    if (
+        vaultAiState.reservationsAuthFailed
+    ) {
 
         return (
             "I can't find your bookings because you're " +
@@ -972,7 +1187,10 @@ async function vaultAiAnswerBooking() {
 
     }
 
-    if (!reservations || reservations.length === 0) {
+    if (
+        !reservations ||
+        reservations.length === 0
+    ) {
 
         return (
             "You don't have any bookings yet. Head to " +
@@ -981,40 +1199,43 @@ async function vaultAiAnswerBooking() {
 
     }
 
-    const rows = reservations
-        .slice(0, 5)
-        .map((reservation) => {
+    const rows =
+        reservations
+            .slice(0, 5)
+            .map(reservation => {
 
-            const eventTitle =
-                reservation.title || "An experience";
+                const eventTitle =
+                    reservation.title ||
+                    "An experience";
 
-            const eventDate =
-                vaultAiFormatDate(
-                    reservation.event_date
+                const eventDate =
+                    vaultAiFormatDate(
+                        reservation.event_date
+                    );
+
+                const status =
+                    reservation.ticket_status ||
+                    reservation.payment_status ||
+                    "confirmed";
+
+                const reference =
+                    reservation.ticket_reference ||
+                    reservation.reference;
+
+                return (
+                    `<p><strong>${eventTitle}</strong> — ` +
+                    `${eventDate}, ${reservation.location || "TBA"}<br>` +
+                    `Guests: ${reservation.guests} · ` +
+                    `Status: ${status} · ` +
+                    `Ref: ${reference}</p>`
                 );
 
-            const status =
-                reservation.ticket_status ||
-                reservation.payment_status ||
-                "confirmed";
-
-            const reference =
-                reservation.ticket_reference ||
-                reservation.reference;
-
-            return (
-                `<p><strong>${eventTitle}</strong> — ` +
-                `${eventDate}, ${reservation.location || "TBA"}<br>` +
-                `Guests: ${reservation.guests} · ` +
-                `Status: ${status} · ` +
-                `Ref: ${reference}</p>`
-            );
-
-        })
-        .join("");
+            })
+            .join("");
 
     return (
-        `<p>Here's what I found on your account:</p>${rows}`
+        `<p>Here's what I found on your account:</p>` +
+        rows
     );
 
 }
@@ -1026,13 +1247,18 @@ async function vaultAiAnswerEventList() {
 
     const upcoming =
         events.filter(
-            (event) => event.status === "upcoming"
+            event =>
+                event.status === "upcoming"
         );
 
     const list =
-        (upcoming.length ? upcoming : events)
+        (
+            upcoming.length
+                ? upcoming
+                : events
+        )
             .slice(0, 6)
-            .map((event) => {
+            .map(event => {
 
                 return (
                     `<p><strong>${event.title}</strong> — ` +
@@ -1053,20 +1279,26 @@ async function vaultAiAnswerEventList() {
     }
 
     return (
-        `<p>Here's what's coming up:</p>${list}` +
+        `<p>Here's what's coming up:</p>` +
+        list +
         `<p>Ask me about any of these by name for more ` +
         `details.</p>`
     );
 
 }
 
-async function vaultAiAnswerEventQuestion(normalized) {
+async function vaultAiAnswerEventQuestion(
+    normalized
+) {
 
     const events =
         await vaultAiFetchEvents();
 
     const event =
-        vaultAiFindEvent(events, normalized);
+        vaultAiFindEvent(
+            events,
+            normalized
+        );
 
     if (!event) return null;
 
@@ -1077,24 +1309,30 @@ async function vaultAiAnswerEventQuestion(normalized) {
         )
     ) {
 
-        if (!Array.isArray(event.tickets) || !event.tickets.length) {
+        if (
+            !Array.isArray(event.tickets) ||
+            !event.tickets.length
+        ) {
+
             return (
                 `<p>Pricing for <strong>${event.title}</strong> ` +
                 `isn't listed yet.</p>`
             );
+
         }
 
-        const tickets = event.tickets
-            .map((ticket) => {
+        const tickets =
+            event.tickets
+                .map(ticket => {
 
-                return (
-                    `${ticket.name}: ` +
-                    `${vaultAiFormatMoney(ticket.price)}` +
-                    `${ticket.available ? "" : " (sold out)"}`
-                );
+                    return (
+                        `${ticket.name}: ` +
+                        `${vaultAiFormatMoney(ticket.price)}` +
+                        `${ticket.available ? "" : " (sold out)"}`
+                    );
 
-            })
-            .join("<br>");
+                })
+                .join("<br>");
 
         return (
             `<p><strong>${event.title}</strong> ticket ` +
@@ -1168,24 +1406,30 @@ async function vaultAiAnswerEventQuestion(normalized) {
         )
     ) {
 
-        if (!Array.isArray(event.tickets) || !event.tickets.length) {
+        if (
+            !Array.isArray(event.tickets) ||
+            !event.tickets.length
+        ) {
+
             return (
                 `<p>Ticket availability for ` +
                 `<strong>${event.title}</strong> isn't listed ` +
                 `yet.</p>`
             );
+
         }
 
-        const availability = event.tickets
-            .map((ticket) => {
+        const availability =
+            event.tickets
+                .map(ticket => {
 
-                return (
-                    `${ticket.name}: ` +
-                    `${ticket.available ? "Available" : "Sold out"}`
-                );
+                    return (
+                        `${ticket.name}: ` +
+                        `${ticket.available ? "Available" : "Sold out"}`
+                    );
 
-            })
-            .join("<br>");
+                })
+                .join("<br>");
 
         return (
             `<p><strong>${event.title}</strong> availability:` +
@@ -1193,8 +1437,6 @@ async function vaultAiAnswerEventQuestion(normalized) {
         );
 
     }
-
-    // No specific sub-intent matched — give a general summary.
 
     return (
         `<p><strong>${event.title}</strong><br>` +
@@ -1206,45 +1448,69 @@ async function vaultAiAnswerEventQuestion(normalized) {
 
 }
 
-function vaultAiAnswerFromFaq(normalized) {
+function vaultAiAnswerFromFaq(
+    normalized
+) {
 
     const questionWords =
         normalized
             .split(" ")
-            .filter((word) => word.length > 2);
+            .filter(
+                word => word.length > 2
+            );
 
     let bestKey = null;
+
     let bestScore = 0;
 
-    Object.keys(FAQ_CONTENT).forEach((key) => {
+    Object.keys(
+        FAQ_CONTENT
+    ).forEach(key => {
 
         const faq =
             FAQ_CONTENT[key];
 
         const titleWords =
-            vaultAiNormalize(faq.title).split(" ");
+            vaultAiNormalize(
+                faq.title
+            ).split(" ");
 
         const overlap =
             titleWords.filter(
-                (word) =>
+                word =>
                     word.length > 2 &&
-                    questionWords.includes(word)
+                    questionWords.includes(
+                        word
+                    )
             ).length;
 
-        if (overlap > bestScore) {
+        if (
+            overlap > bestScore
+        ) {
+
             bestScore = overlap;
+
             bestKey = key;
+
         }
 
     });
 
-    if (!bestKey || bestScore < 2) return null;
+    if (
+        !bestKey ||
+        bestScore < 2
+    ) {
+
+        return null;
+
+    }
 
     const faq =
         FAQ_CONTENT[bestKey];
 
     return (
-        `<p><strong>${faq.title}</strong></p>${faq.content}`
+        `<p><strong>${faq.title}</strong></p>` +
+        faq.content
     );
 
 }
@@ -1260,15 +1526,18 @@ function vaultAiFallbackReply() {
 
 }
 
-
 /* ==================================================
    WHATSAPP
 ================================================== */
 
 function showWhatsApp() {
 
-    setModuleTitle("WhatsApp");
+    const content =
+        ensureHelpModuleContent();
 
+    if (!content) return;
+
+    setModuleTitle("WhatsApp");
 
     const number =
         HELP_CONFIG.whatsapp.number;
@@ -1281,11 +1550,16 @@ function showWhatsApp() {
     const hasNumber =
         Boolean(number);
 
-    helpModuleContent.innerHTML = `
+    content.innerHTML = `
 
         <div class="help-detail">
 
-            <span class="help-detail-icon">◌</span>
+            <span
+                class="help-detail-icon"
+                aria-hidden="true"
+            >
+                ◌
+            </span>
 
             <h3>Chat With Vault</h3>
 
@@ -1319,14 +1593,20 @@ function showWhatsApp() {
 
     `;
 
-}
+    createHelpBackButton();
 
+}
 
 /* ==================================================
    PHONE
 ================================================== */
 
 function showPhone() {
+
+    const content =
+        ensureHelpModuleContent();
+
+    if (!content) return;
 
     setModuleTitle("Phone");
 
@@ -1336,11 +1616,16 @@ function showPhone() {
     const hasNumber =
         Boolean(number);
 
-    helpModuleContent.innerHTML = `
+    content.innerHTML = `
 
         <div class="help-detail">
 
-            <span class="help-detail-icon">⌕</span>
+            <span
+                class="help-detail-icon"
+                aria-hidden="true"
+            >
+                ⌕
+            </span>
 
             <h3>Speak With Vault</h3>
 
@@ -1372,14 +1657,20 @@ function showPhone() {
 
     `;
 
-}
+    createHelpBackButton();
 
+}
 
 /* ==================================================
    INSTAGRAM
 ================================================== */
 
 function showInstagram() {
+
+    const content =
+        ensureHelpModuleContent();
+
+    if (!content) return;
 
     setModuleTitle("Instagram");
 
@@ -1389,11 +1680,16 @@ function showInstagram() {
     const hasUrl =
         Boolean(url);
 
-    helpModuleContent.innerHTML = `
+    content.innerHTML = `
 
         <div class="help-detail">
 
-            <span class="help-detail-icon">◎</span>
+            <span
+                class="help-detail-icon"
+                aria-hidden="true"
+            >
+                ◎
+            </span>
 
             <h3>Follow Vault</h3>
 
@@ -1427,14 +1723,20 @@ function showInstagram() {
 
     `;
 
-}
+    createHelpBackButton();
 
+}
 
 /* ==================================================
    EMAIL
 ================================================== */
 
 function showEmail() {
+
+    const content =
+        ensureHelpModuleContent();
+
+    if (!content) return;
 
     setModuleTitle("Email");
 
@@ -1454,11 +1756,16 @@ function showEmail() {
     const hasAddress =
         Boolean(address);
 
-    helpModuleContent.innerHTML = `
+    content.innerHTML = `
 
         <div class="help-detail">
 
-            <span class="help-detail-icon">✉</span>
+            <span
+                class="help-detail-icon"
+                aria-hidden="true"
+            >
+                ✉
+            </span>
 
             <h3>Email Vault</h3>
 
@@ -1489,13 +1796,12 @@ function showEmail() {
 
     `;
 
-}
+    createHelpBackButton();
 
+}
 
 /* ==================================================
    FAQ ACCORDION
-   Answers expand directly beneath their own question
-   instead of replacing the whole panel.
 ================================================== */
 
 function toggleFaqAnswer(button) {
@@ -1512,42 +1818,71 @@ function toggleFaqAnswer(button) {
         button.closest(".faq-list");
 
     const isOpen =
-        button.getAttribute("aria-expanded") === "true";
+        button.getAttribute(
+            "aria-expanded"
+        ) === "true";
 
-    // Close any other open FAQ first (single-open accordion).
     if (list) {
 
         list.querySelectorAll(
             '.faq-item[aria-expanded="true"]'
-        ).forEach(otherButton => {
+        ).forEach(
+            otherButton => {
 
-            if (otherButton !== button) {
-                collapseFaqAnswer(otherButton);
+                if (
+                    otherButton !== button
+                ) {
+
+                    collapseFaqAnswer(
+                        otherButton
+                    );
+
+                }
+
             }
-
-        });
+        );
 
     }
 
     if (isOpen) {
-        collapseFaqAnswer(button);
+
+        collapseFaqAnswer(
+            button
+        );
+
     } else {
-        expandFaqAnswer(button, faq);
+
+        expandFaqAnswer(
+            button,
+            faq
+        );
+
     }
 
 }
 
-function expandFaqAnswer(button, faq) {
+function expandFaqAnswer(
+    button,
+    faq
+) {
 
     let panel =
         button.nextElementSibling;
 
-    if (!panel || !panel.classList.contains("faq-answer")) {
+    if (
+        !panel ||
+        !panel.classList.contains(
+            "faq-answer"
+        )
+    ) {
 
         panel =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        panel.className = "faq-answer";
+        panel.className =
+            "faq-answer";
 
         panel.innerHTML =
             `<div class="faq-answer-inner">${faq.content}</div>`;
@@ -1560,51 +1895,62 @@ function expandFaqAnswer(button, faq) {
     }
 
     const inner =
-        panel.querySelector(".faq-answer-inner");
+        panel.querySelector(
+            ".faq-answer-inner"
+        );
 
-    // Measure the real content height and animate to
-    // that exact pixel value — more reliable across
-    // browsers than animating an intrinsic-sized track.
     panel.style.maxHeight =
         `${inner.scrollHeight}px`;
 
-    panel.classList.add("is-open");
+    panel.classList.add(
+        "is-open"
+    );
 
-    button.setAttribute("aria-expanded", "true");
+    button.setAttribute(
+        "aria-expanded",
+        "true"
+    );
 
 }
 
-function collapseFaqAnswer(button) {
+function collapseFaqAnswer(
+    button
+) {
 
     const panel =
         button.nextElementSibling;
 
-    if (panel && panel.classList.contains("faq-answer")) {
+    if (
+        panel &&
+        panel.classList.contains(
+            "faq-answer"
+        )
+    ) {
 
-        // Lock in the current rendered height first (in
-        // case it was never explicitly set, or content
-        // changed), then transition down to 0 on the
-        // next frame so the animation actually plays.
         panel.style.maxHeight =
             `${panel.scrollHeight}px`;
 
-        // Force a reflow so the browser registers the
-        // height above before we change it again.
         void panel.offsetHeight;
 
         requestAnimationFrame(() => {
-            panel.style.maxHeight = "0px";
+
+            panel.style.maxHeight =
+                "0px";
+
         });
 
-        panel.classList.remove("is-open");
+        panel.classList.remove(
+            "is-open"
+        );
 
     }
 
-    button.setAttribute("aria-expanded", "false");
+    button.setAttribute(
+        "aria-expanded",
+        "false"
+    );
 
 }
-
-
 
 /* ==================================================
    SET MODULE TITLE
@@ -1619,18 +1965,20 @@ function setModuleTitle(title) {
 
 }
 
-
 /* ==================================================
    BACK TO HELP MENU
 ================================================== */
 
 function goBackToHelp() {
 
-    if (helpModuleHistory.length === 0) {
+    if (
+        helpModuleHistory.length === 0
+    ) {
 
         showHelpHome();
 
         return;
+
     }
 
     helpModuleHistory.pop();
@@ -1639,11 +1987,9 @@ function goBackToHelp() {
 
 }
 
-
 /* ==================================================
    EVENT LISTENERS
 ================================================== */
-
 
 /* GET HELP */
 
@@ -1656,53 +2002,59 @@ if (getHelpBtn) {
 
 }
 
-
 /* CLOSE BUTTONS */
 
-helpModuleCloseButtons.forEach(button => {
+helpModuleCloseButtons.forEach(
+    button => {
 
-    button.addEventListener(
-        "click",
-        closeHelpModule
-    );
+        button.addEventListener(
+            "click",
+            closeHelpModule
+        );
 
-});
-
+    }
+);
 
 /* ASSISTANCE OPTIONS */
 
-helpOptions.forEach(button => {
+helpOptions.forEach(
+    button => {
 
-    button.addEventListener(
-        "click",
-        () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-            const type =
-                button.dataset.helpModule;
+                const type =
+                    button.dataset.helpModule;
 
-            openAssistance(type);
+                openAssistance(
+                    type
+                );
 
-        }
-    );
+            }
+        );
 
-});
-
+    }
+);
 
 /* FAQ BUTTONS */
 
-faqItems.forEach(button => {
+faqItems.forEach(
+    button => {
 
-    button.addEventListener(
-        "click",
-        () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-            toggleFaqAnswer(button);
+                toggleFaqAnswer(
+                    button
+                );
 
-        }
-    );
+            }
+        );
 
-});
-
+    }
+);
 
 /* ==================================================
    BACKDROP
@@ -1721,7 +2073,6 @@ if (helpBackdrop) {
     );
 
 }
-
 
 /* ==================================================
    ESCAPE KEY
@@ -1742,7 +2093,6 @@ document.addEventListener(
 
     }
 );
-
 
 /* ==================================================
    BODY SCROLL LOCK
@@ -1867,10 +2217,18 @@ helpStyle.textContent = `
         font-size: 0.8rem !important;
     }
 
+    .help-module-dynamic-content {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        width: 100%;
+    }
+
 `;
 
-document.head.appendChild(helpStyle);
-
+document.head.appendChild(
+    helpStyle
+);
 
 /* ==================================================
    INITIAL STATE
@@ -1884,7 +2242,6 @@ if (helpModule) {
     );
 
 }
-
 
 /* ==================================================
    VAULT HELP READY
