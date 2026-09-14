@@ -8,7 +8,7 @@
 ================================================== */
 
 .help-section {
-    width: 100%;
+    width: 98%;
     max-width: var(--content-width);
     margin: 0 auto;
     padding: var(--space-8) var(--page-padding);
@@ -21,8 +21,9 @@
 
 .help-card {
     position: relative;
-    width: 100%;
-    padding: clamp(28px, 5vw, 48px);
+    width: 98%;
+    margin: 0 auto;
+
     border: 1px solid var(--border);
     border-radius: var(--radius-card);
     background:
