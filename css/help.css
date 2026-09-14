@@ -8,7 +8,7 @@
 ================================================== */
 
 .help-section {
-    width: 98%;
+    width: 100%;
     max-width: var(--content-width);
     margin: 0 auto;
     padding: var(--space-8) var(--page-padding);
@@ -21,9 +21,8 @@
 
 .help-card {
     position: relative;
-    width: 98%;
-    margin: 0 auto;
-
+    width: 100%;
+    padding: clamp(28px, 5vw, 48px);
     border: 1px solid var(--border);
     border-radius: var(--radius-card);
     background:
@@ -629,6 +628,38 @@
 }
 
 
+/* ==================================================
+   BRAND ICONS
+   WhatsApp / Instagram etc. carry their own real
+   brand colors baked into the SVG. This modifier
+   drops the gold badge treatment so the wrapper
+   doesn't fight the icon's own color — it only
+   handles sizing and a hover lift, same as the
+   footer's social links.
+================================================== */
+
+.help-option-icon.help-option-icon--brand {
+    background: transparent;
+    border: none;
+
+    overflow: hidden;
+}
+
+
+.help-option-icon.help-option-icon--brand svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+.help-option:hover .help-option-icon.help-option-icon--brand {
+    background: transparent;
+    color: inherit;
+
+    transform: scale(1.06);
+}
+
+
 .help-option-content {
     position: relative;
     z-index: 1;
@@ -708,6 +739,7 @@
     transition:
         background var(--transition-base),
         border-color var(--transition-base),
+        border-radius var(--transition-base),
         color var(--transition-base);
 }
 
@@ -717,12 +749,19 @@
 }
 
 
-.faq-item span:last-child {
+.faq-chevron {
+    display: inline-flex;
     flex: 0 0 auto;
 
     color: var(--accent);
 
     transition: transform var(--transition-base);
+}
+
+
+.faq-chevron svg {
+    width: 16px;
+    height: 16px;
 }
 
 
@@ -734,8 +773,86 @@
 }
 
 
-.faq-item:hover span:last-child {
-    transform: translateX(4px);
+.faq-item[aria-expanded="true"] {
+    border-radius:
+        var(--radius-md)
+        var(--radius-md)
+        0
+        0;
+
+    background: var(--gold-soft);
+    border-color: var(--gold-border);
+
+    color: var(--text);
+}
+
+
+.faq-item[aria-expanded="true"] .faq-chevron {
+    transform: rotate(180deg);
+}
+
+
+/* ==================================================
+   FAQ ANSWER
+   Expands directly beneath its own question — the
+   grid-rows trick animates from 0 to full height
+   without needing JS to measure content size.
+================================================== */
+
+.faq-answer {
+    max-height: 0;
+
+    overflow: hidden;
+
+    margin-top: -8px;
+
+    border: 1px solid transparent;
+    border-top: none;
+    border-radius:
+        0
+        0
+        var(--radius-md)
+        var(--radius-md);
+
+    transition:
+        max-height var(--transition-base),
+        border-color var(--transition-base);
+}
+
+
+.faq-answer.is-open {
+    border-color: var(--gold-border);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+
+.faq-answer-inner {
+    overflow: hidden;
+    min-height: 0;
+
+    padding: 2px 16px 16px;
+
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+    line-height: 1.7;
+
+    color: var(--text-soft);
+}
+
+
+.faq-answer-inner p {
+    margin: 0 0 10px;
+}
+
+
+.faq-answer-inner p:last-child {
+    margin-bottom: 0;
+}
+
+
+.faq-answer-inner strong {
+    color: var(--text);
+    font-weight: 600;
 }
 
 
@@ -853,7 +970,9 @@
     .help-option,
     .help-option::before,
     .help-option-icon,
-    .faq-item span:last-child {
+    .faq-chevron,
+    .faq-item,
+    .faq-answer {
         transition: none;
     }
 
